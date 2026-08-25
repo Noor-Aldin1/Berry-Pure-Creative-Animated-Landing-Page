@@ -1,0 +1,948 @@
+/* ================================================================
+   Elementor Lazy-Load Styles
+   ================================================================ */
+.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+	background-image: none !important;
+}
+@media screen and (max-height: 1024px) {
+	.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+	.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+		background-image: none !important;
+	}
+}
+@media screen and (max-height: 640px) {
+	.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+	.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+		background-image: none !important;
+	}
+}
+
+/* ================================================================
+   Freshify Smoothie Slider — CSS layout helpers & animation overrides
+   ================================================================ */
+
+.ffy-root.elementor-element {
+  --ffy-in: #8B0024;
+  --ffy-out: #C90035;
+
+  background: linear-gradient(
+    270deg,
+    var(--ffy-in) 0%,
+    var(--ffy-out) 100%
+  ) !important;
+
+  background-color: transparent !important;
+  position: relative !important;
+  width: 100% !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  overflow: hidden !important;
+}
+
+.ffy-frame {
+  container-type: inline-size;
+}
+
+.ffy-nav {
+  transform: translateX(-50%);
+}
+
+.ffy-word .elementor-heading-title {
+  white-space: nowrap;
+}
+
+.ffy-bowl img {
+  filter: drop-shadow(0 3.2cqw 3.6cqw rgba(0, 0, 0, 0.45));
+}
+
+.ffy-ing,
+.ffy-ing .elementor-widget-container,
+.ffy-title,
+.ffy-desc {
+  transition: none !important;
+  animation: none !important;
+}
+
+.ffy-ing img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: none !important;
+  animation: none !important;
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+.ffy-title .elementor-heading-title,
+.ffy-desc {
+  transform-origin: left bottom;
+  will-change: transform, opacity;
+}
+
+.ffy-arrow.is-disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.ffy-script,
+.ffy-script .elementor-widget-container {
+  position: absolute !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+}
+
+/* ================================================================
+   Berry Pure / Freshify — New Sections Styles
+   ================================================================ */
+
+/* ---------------------------------------------------------------
+   Global reset / flow fix for new sections
+   --------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  min-height: 100%;
+  height: auto;
+}
+
+.ffy-section {
+  scroll-margin-top: 24px;
+}
+
+#ffy-root {
+  scroll-margin-top: 0;
+}
+
+/* ---------------------------------------------------------------
+   Shared section layout
+   --------------------------------------------------------------- */
+.ffy-section {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 96px 5vw;
+}
+
+.ffy-section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ffy-section-label {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #C90035;
+  margin-bottom: 14px;
+}
+
+.ffy-section-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0 0 24px;
+  color: #1a1a1a;
+}
+
+.ffy-section-body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #4a4a4a;
+}
+
+/* ---------------------------------------------------------------
+   1. About / Our Story
+   --------------------------------------------------------------- */
+.ffy-about {
+  background: #fdf8f5;
+}
+
+.ffy-about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.ffy-about-img-wrap {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.12);
+}
+
+.ffy-about-img-wrap img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+  border-radius: 24px;
+}
+
+.ffy-about-badge {
+  position: absolute;
+  bottom: -24px;
+  right: -24px;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #C90035 0%, #8B0024 100%);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
+  box-shadow: 0 8px 24px rgba(201,0,53,0.4);
+}
+
+.ffy-about-badge-num {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.ffy-about-badge-txt {
+  font-size: 0.65rem;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.ffy-about-text {
+  padding-left: 16px;
+}
+
+.ffy-about-text .ffy-section-body {
+  margin-bottom: 20px;
+}
+
+.ffy-about-stat-row {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid #e8e0d8;
+}
+
+.ffy-about-stat {
+  text-align: center;
+}
+
+.ffy-about-stat-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #C90035;
+  line-height: 1;
+}
+
+.ffy-about-stat-lbl {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: #7a7a7a;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ---------------------------------------------------------------
+   2. Our Flavors / Menu
+   --------------------------------------------------------------- */
+.ffy-flavors {
+  background: #ffffff;
+}
+
+.ffy-flavors-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.ffy-flavors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.ffy-flavor-card {
+  background: #fdf8f5;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
+              box-shadow 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+
+.ffy-flavor-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.14);
+}
+
+.ffy-flavor-card-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.ffy-flavor-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.ffy-flavor-card:hover .ffy-flavor-card-img img {
+  transform: scale(1.06);
+}
+
+.ffy-flavor-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(6px);
+  border-radius: 50px;
+  padding: 4px 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+
+.ffy-flavor-card-body {
+  padding: 24px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.ffy-flavor-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+
+.ffy-flavor-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  color: #6a6a6a;
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.ffy-flavor-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ffy-flavor-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #C90035;
+}
+
+.ffy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.ffy-btn-primary {
+  background: linear-gradient(135deg, #C90035 0%, #8B0024 100%);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(201,0,53,0.35);
+}
+
+.ffy-btn-primary:hover {
+  background: linear-gradient(135deg, #e0003d 0%, #a80029 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201,0,53,0.45);
+}
+
+.ffy-btn-outline {
+  background: transparent;
+  color: #1a1a1a;
+  border: 2px solid #1a1a1a;
+}
+
+.ffy-btn-outline:hover {
+  background: #1a1a1a;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ---------------------------------------------------------------
+   3. Why Berry Pure / Features
+   --------------------------------------------------------------- */
+.ffy-features {
+  background: linear-gradient(160deg, #1a0008 0%, #3a0016 50%, #1a0008 100%);
+  color: #fff;
+}
+
+.ffy-features-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.ffy-features .ffy-section-heading {
+  color: #fff;
+}
+
+.ffy-features .ffy-section-label {
+  color: #ff6b8a;
+}
+
+.ffy-features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.ffy-feature-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 40px 28px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.ffy-feature-card:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-6px);
+}
+
+.ffy-feature-icon {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, #C90035 0%, #8B0024 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  box-shadow: 0 8px 24px rgba(201,0,53,0.4);
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.ffy-feature-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 12px;
+}
+
+.ffy-feature-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+}
+
+/* ---------------------------------------------------------------
+   4. Testimonials
+   --------------------------------------------------------------- */
+.ffy-testimonials {
+  background: #fdf8f5;
+}
+
+.ffy-testimonials-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.ffy-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.ffy-testimonial-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.ffy-testimonial-card:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+}
+
+.ffy-testimonial-stars {
+  display: flex;
+  gap: 4px;
+  color: #F0B800;
+  font-size: 1rem;
+}
+
+.ffy-testimonial-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.65;
+  color: #2a2a2a;
+  flex: 1;
+}
+
+.ffy-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid #f0e8e0;
+}
+
+.ffy-testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C90035 0%, #8B0024 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.ffy-testimonial-name {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #1a1a1a;
+}
+
+.ffy-testimonial-role {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: #9a9a9a;
+  margin-top: 2px;
+}
+
+/* ---------------------------------------------------------------
+   5. Newsletter / CTA
+   --------------------------------------------------------------- */
+.ffy-newsletter {
+  background: linear-gradient(135deg, #C90035 0%, #8B0024 60%, #600019 100%);
+  color: #fff;
+  text-align: center;
+  padding: 80px 5vw;
+}
+
+.ffy-newsletter .ffy-section-heading {
+  color: #fff;
+}
+
+.ffy-newsletter .ffy-section-body {
+  color: rgba(255,255,255,0.8);
+  max-width: 520px;
+  margin: 0 auto 40px;
+}
+
+.ffy-newsletter-form {
+  display: flex;
+  gap: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ffy-newsletter-input {
+  flex: 1;
+  min-width: 240px;
+  padding: 14px 22px;
+  border-radius: 50px;
+  border: 2px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.ffy-newsletter-input::placeholder {
+  color: rgba(255,255,255,0.55);
+}
+
+.ffy-newsletter-input:focus {
+  border-color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.18);
+}
+
+.ffy-newsletter .ffy-btn-white {
+  background: #fff;
+  color: #C90035;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+.ffy-newsletter .ffy-btn-white:hover {
+  background: #f5f5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+.ffy-newsletter-note {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 16px;
+}
+
+/* ---------------------------------------------------------------
+   6. Footer
+   --------------------------------------------------------------- */
+.ffy-footer {
+  background: #0f0005;
+  color: rgba(255,255,255,0.7);
+  padding: 64px 5vw 32px;
+}
+
+.ffy-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ffy-footer-top {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.ffy-footer-brand-logo {
+  width: 160px;
+  display: block;
+  margin-bottom: 20px;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.ffy-footer-brand-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 28px;
+}
+
+.ffy-footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+.ffy-footer-social-link {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.ffy-footer-social-link:hover {
+  background: #C90035;
+  border-color: #C90035;
+  color: #fff;
+}
+
+.ffy-footer-col-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 20px;
+  letter-spacing: 0.02em;
+}
+
+.ffy-footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ffy-footer-links a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.ffy-footer-links a:hover {
+  color: #ff6b8a;
+}
+
+.ffy-footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 12px;
+}
+
+.ffy-footer-contact-item i {
+  color: #C90035;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.ffy-footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 28px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ffy-footer-copy {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.3);
+}
+
+.ffy-footer-copy a {
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+}
+
+.ffy-footer-copy a:hover {
+  color: #ff6b8a;
+}
+
+.ffy-footer-bottom-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ffy-footer-bottom-links a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.3);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.ffy-footer-bottom-links a:hover {
+  color: #ff6b8a;
+}
+
+/* ---------------------------------------------------------------
+   Responsive — Tablet (max 1024px)
+   --------------------------------------------------------------- */
+@media screen and (max-width: 1024px) {
+  .ffy-section {
+    padding: 72px 5vw;
+  }
+
+  .ffy-about-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .ffy-about-text {
+    padding-left: 0;
+  }
+
+  .ffy-about-img-wrap img {
+    height: 360px;
+  }
+
+  .ffy-flavors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ffy-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ffy-testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ffy-footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Responsive — Mobile (max 767px)
+   --------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+  .ffy-section {
+    padding: 56px 6vw;
+  }
+
+  .ffy-about-badge {
+    width: 90px;
+    height: 90px;
+    bottom: -16px;
+    right: -16px;
+  }
+
+  .ffy-flavors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ffy-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ffy-testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ffy-footer-top {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .ffy-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .ffy-newsletter-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ffy-newsletter-input {
+    min-width: unset;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Scroll-reveal entrance animation helper
+   --------------------------------------------------------------- */
+.ffy-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.ffy-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================================================================
+   Berry Pure — Sections: supplementary overrides
+   ================================================================ */
+
+/* Ensure the elementor wrapper doesn't clip or collapse the new sections */
+.elementor.elementor-3089 {
+  overflow: visible !important;
+  height: auto !important;
+}
+
+/* Prevent Elementor's default margin-block-start from
+   stacking on top of the new sections */
+.ffy-page-spacer,
+.ffy-section,
+.ffy-newsletter,
+.ffy-footer {
+  margin-block-start: 0 !important;
+}
+
+/* ================================================================
+   Font Awesome & Icon Alignment Helpers
+   ================================================================ */
+.elementor-social-icon i.fas,
+.elementor-social-icon i.fab,
+.elementor-icon i.fas,
+.elementor-icon i.fab {
+  line-height: 1;
+}
+
+.ffy-footer-contact-item i.fas {
+  width: 18px;
+  text-align: center;
+  margin-top: 3px;
+  font-size: 0.9rem;
+}
+
+.ffy-testimonial-stars i.fas {
+  font-size: 0.9rem;
+}
+
+.ffy-feature-icon i.fas {
+  font-size: 1.8rem;
+  line-height: 1;
+}
