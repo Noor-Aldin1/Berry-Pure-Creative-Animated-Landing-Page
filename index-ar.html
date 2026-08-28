@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="ar" dir="rtl">
 
 <head>
   <meta charset="UTF-8" />
-  <title>Berry Pure - Freshify Smoothies &amp; Ice Cream</title>
-  <meta name="description" content="Indulge in Berry Pure: fresh strawberries, creamy scoops, and white chocolate pieces blended into a smooth, dreamy artisanal dessert." />
+  <title>بيري بيور - عصائر مثلجة وآيس كريم طبيعي من Freshify</title>
+  <meta name="description" content="استمتع بمذاق بيري بيور: فراولة طازجة، وكرات آيس كريم كريمية، وقطع شوكولاتة بيضاء ممتزجة في تحلية فاخرة تأسر الحواس." />
   <meta name="robots" content="max-image-preview:large" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-  <!-- Core Theme & Layout Stylesheets -->
+  <!-- Core Theme & Layout Stylesheets (shared with English page) -->
   <link rel="stylesheet" id="hello-elementor-reset-css" href="assets/css/reset.css" media="all" />
   <link rel="stylesheet" id="hello-elementor-theme-css" href="assets/css/theme.css" media="all" />
   <link rel="stylesheet" id="hello-elementor-header-footer-css" href="assets/css/header-footer.css" media="all" />
@@ -20,149 +20,157 @@
   <link rel="stylesheet" id="apple-webkit-css" href="assets/css/apple-webkit.css" media="all" />
   <link rel="stylesheet" id="widget-heading-css" href="assets/css/widget-heading.css" media="all" />
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts — Latin (DM Sans, Cormorant Garamond, shared with English) -->
   <link rel="stylesheet" id="elementor-gf-dmsans-css" href="https://fonts.googleapis.com/css?family=DM+Sans:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&amp;display=swap" media="all" />
   <link rel="stylesheet" id="elementor-gf-cormorantgaramond-css" href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&amp;display=swap" media="all" />
 
-  <!-- Font Awesome 6 Icons -->
+  <!-- Google Fonts — Arabic (Cairo + IBM Plex Sans Arabic) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" id="gf-cairo-css" href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" media="all" />
+
+  <!-- Font Awesome 6 Icons (shared) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-  <!-- Custom Site Stylesheet -->
+  <!-- Shared Site Stylesheet -->
   <link rel="stylesheet" href="assets/css/main.css" />
+
+  <!-- RTL-specific overrides (Arabic page only) -->
+  <link rel="stylesheet" href="assets/css/rtl.css" />
 </head>
 
-<body class="wp-singular page-template page-template-elementor_canvas page page-id-3089 wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-canvas elementor-kit-6 elementor-page elementor-page-3089">
+<body class="rtl wp-singular page-template page-template-elementor_canvas page page-id-3089 wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-canvas elementor-kit-6 elementor-page elementor-page-3089">
   <div data-elementor-type="wp-page" data-elementor-id="3089" class="elementor elementor-3089" data-elementor-post-type="page">
     
     <!-- ============================================================
-         PILL NAVBAR — Fixed Glassmorphism Floating Header (English / LTR)
+         PILL NAVBAR — Fixed Glassmorphism Floating Header (Arabic / RTL)
          ============================================================ -->
-    <nav class="ffy-navbar" id="ffy-navbar" aria-label="Main Navigation">
+    <nav class="ffy-navbar" id="ffy-navbar-ar" aria-label="التنقل الرئيسي">
 
-      <!-- Logo -->
+      <!-- Logo (first child in DOM — sits naturally on the right in RTL) -->
       <div class="ffy-nb-logo">
-        <a href="#ffy-root" aria-label="Berry Pure / Freshify — Home">
+        <a href="#ffy-root" aria-label="بيري بيور / Freshify — الرئيسية">
           <img fetchpriority="high" decoding="async"
                src="assets/images/logo.png"
-               alt="Berry Pure / Freshify Logo"
+               alt="شعار Berry Pure / Freshify"
                width="220" height="106" />
         </a>
       </div>
 
-      <!-- Desktop Navigation Links -->
+      <!-- Desktop Navigation Links (RTL order) -->
       <div class="ffy-nb-nav" role="list">
 
-        <!-- Home (active) -->
+        <!-- الرئيسية (active) -->
         <div class="ffy-nav-btn ffy-nav-active" role="listitem">
           <a class="elementor-button elementor-button-link elementor-size-sm" href="#ffy-root">
             <span class="elementor-button-content-wrapper">
-              <span class="elementor-button-text">Home</span>
+              <span class="elementor-button-text">الرئيسية</span>
             </span>
           </a>
         </div>
 
-        <!-- About -->
+        <!-- من نحن -->
         <div class="ffy-nav-btn" role="listitem">
           <a class="elementor-button elementor-button-link elementor-size-sm" href="#ffy-about">
             <span class="elementor-button-content-wrapper">
-              <span class="elementor-button-text">About</span>
+              <span class="elementor-button-text">من نحن</span>
             </span>
           </a>
         </div>
 
-        <!-- Shop -->
+        <!-- المتجر -->
         <div class="ffy-nav-btn" role="listitem">
           <a class="elementor-button elementor-button-link elementor-size-sm" href="#ffy-flavors">
             <span class="elementor-button-content-wrapper">
-              <span class="elementor-button-text">Shop</span>
+              <span class="elementor-button-text">المتجر</span>
             </span>
           </a>
         </div>
 
-        <!-- Contact -->
+        <!-- تواصل معنا -->
         <div class="ffy-nav-btn" role="listitem">
           <a class="elementor-button elementor-button-link elementor-size-sm" href="#ffy-newsletter">
             <span class="elementor-button-content-wrapper">
-              <span class="elementor-button-text">Contact</span>
+              <span class="elementor-button-text">تواصل معنا</span>
             </span>
           </a>
         </div>
 
-        <!-- Categories dropdown -->
-        <div class="ffy-nb-categories" id="ffy-categories-en" role="listitem">
+        <!-- الأقسام dropdown -->
+        <div class="ffy-nb-categories" id="ffy-categories-ar" role="listitem">
           <button class="ffy-nb-cat-btn"
                   aria-haspopup="true"
                   aria-expanded="false"
-                  aria-controls="ffy-cat-dropdown-en"
-                  id="ffy-cat-btn-en">
-            <span>Categories</span>
+                  aria-controls="ffy-cat-dropdown-ar"
+                  id="ffy-cat-btn-ar">
+            <span>الأقسام</span>
             <i class="ffy-nb-cat-chevron fas fa-chevron-down" aria-hidden="true"></i>
           </button>
-          <div class="ffy-nb-cat-dropdown" id="ffy-cat-dropdown-en" role="menu">
-            <a href="#ffy-flavors" role="menuitem">Smoothie Bowls</a>
-            <a href="#ffy-flavors" role="menuitem">Ice Cream</a>
-            <a href="#ffy-flavors" role="menuitem">Fresh Juices</a>
-            <a href="#ffy-flavors" role="menuitem">Seasonal Specials</a>
+          <div class="ffy-nb-cat-dropdown" id="ffy-cat-dropdown-ar" role="menu">
+            <a href="#ffy-flavors" role="menuitem">أطباق السموذي</a>
+            <a href="#ffy-flavors" role="menuitem">آيس كريم</a>
+            <a href="#ffy-flavors" role="menuitem">عصائر طازجة</a>
+            <a href="#ffy-flavors" role="menuitem">عروض موسمية</a>
           </div>
         </div>
 
       </div><!-- /.ffy-nb-nav -->
 
-      <!-- Desktop Action Icons (Search, Cart, Language) -->
+      <!-- Action Icons (Search, Cart, Language - sits on left in RTL) -->
       <div class="ffy-nb-actions">
 
         <!-- Search -->
         <a class="elementor-icon elementor-social-icon elementor-social-icon-ti-search"
            href="#ffy-flavors"
-           aria-label="Search"
-           id="ffy-nb-search-en">
-          <span class="elementor-screen-only">Search</span>
+           aria-label="البحث"
+           id="ffy-nb-search-ar">
+          <span class="elementor-screen-only">البحث</span>
           <i aria-hidden="true" class="fas fa-search"></i>
         </a>
 
         <!-- Cart -->
         <a class="elementor-icon elementor-social-icon elementor-social-icon-lnr-cart"
            href="#ffy-flavors"
-           aria-label="Shopping Cart"
-           id="ffy-nb-cart-en">
-          <span class="elementor-screen-only">Cart</span>
+           aria-label="عربة التسوق"
+           id="ffy-nb-cart-ar">
+          <span class="elementor-screen-only">عربة التسوق</span>
           <i aria-hidden="true" class="fas fa-shopping-cart"></i>
         </a>
 
-        <!-- Language Switcher (Switch to Arabic) -->
+        <!-- Language Switcher (Switch to English) -->
         <a class="ffy-lang-toggle"
-           href="index-ar.html"
-           id="ffy-lang-switch-en"
-           aria-label="التبديل إلى العربية">
-          <span class="ffy-lang-abbr">AR</span>
-          <span class="ffy-lang-flag">&#127462;&#127466;</span>
+           href="index.html"
+           id="ffy-lang-switch-ar"
+           aria-label="Switch to English">
+          <span class="ffy-lang-abbr">EN</span>
+          <span class="ffy-lang-flag">&#127468;&#127463;</span>
         </a>
 
       </div><!-- /.ffy-nb-actions -->
 
       <!-- Mobile hamburger -->
       <button class="ffy-nb-hamburger"
-              id="ffy-nb-hamburger-en"
-              aria-label="Toggle mobile menu"
+              id="ffy-nb-hamburger-ar"
+              aria-label="فتح القائمة"
               aria-expanded="false"
-              aria-controls="ffy-nb-mobile-en">
+              aria-controls="ffy-nb-mobile-ar">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <!-- Mobile menu panel -->
-      <div class="ffy-nb-mobile-menu" id="ffy-nb-mobile-en" role="menu">
-        <a href="#ffy-root"   class="is-active" role="menuitem">Home</a>
-        <a href="#ffy-about"  role="menuitem">About</a>
-        <a href="#ffy-flavors" role="menuitem">Shop</a>
-        <a href="#ffy-newsletter" role="menuitem">Contact</a>
+      <!-- Mobile menu panel (RTL) -->
+      <div class="ffy-nb-mobile-menu" id="ffy-nb-mobile-ar" role="menu">
+        <a href="#ffy-root"   class="is-active" role="menuitem">الرئيسية</a>
+        <a href="#ffy-about"  role="menuitem">من نحن</a>
+        <a href="#ffy-flavors" role="menuitem">المتجر</a>
+        <a href="#ffy-newsletter" role="menuitem">تواصل معنا</a>
         <div class="ffy-nb-mobile-divider" aria-hidden="true"></div>
-        <a href="#ffy-flavors" role="menuitem">&#128269; Smoothie Bowls</a>
-        <a href="#ffy-flavors" role="menuitem">&#127848; Ice Cream</a>
-        <a href="#ffy-flavors" role="menuitem">&#127821; Fresh Juices</a>
+        <a href="#ffy-flavors" role="menuitem">أطباق السموذي</a>
+        <a href="#ffy-flavors" role="menuitem">آيس كريم</a>
+        <a href="#ffy-flavors" role="menuitem">عصائر طازجة</a>
         <div class="ffy-nb-mobile-divider" aria-hidden="true"></div>
-        <a href="index-ar.html" id="ffy-lang-switch-en-mobile">&#127462;&#127466; العربية (AR)</a>
+        <a href="index.html" id="ffy-lang-switch-ar-mobile">&#127468;&#127463; English (EN)</a>
       </div>
 
     </nav><!-- /.ffy-navbar -->
@@ -177,152 +185,152 @@
         <div class="elementor-element elementor-element-f2dfeba e-con-full ffy-header e-flex e-con e-child" data-id="f2dfeba" data-element_type="container" data-e-type="container" data-settings="{&quot;position&quot;:&quot;absolute&quot;}" style="display:none!important">
           <div class="elementor-element elementor-element-8862447 elementor-widget__width-inherit elementor-widget elementor-widget-image" data-id="8862447" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
             <a href="#" data-elementor-open-lightbox="no">
-              <img fetchpriority="high" decoding="async" width="2560" height="1230" src="assets/images/logo.png" class="attachment-full size-full wp-image-2509" alt="Berry Pure / Freshify Logo" />
+              <img fetchpriority="high" decoding="async" width="2560" height="1230" src="assets/images/logo.png" class="attachment-full size-full wp-image-2509" alt="شعار Berry Pure / Freshify" />
             </a>
           </div>
           <div class="elementor-element elementor-element-fa28830 e-con-full ffy-nav e-flex e-con e-child" data-id="fa28830" data-element_type="container" data-e-type="container" data-settings="{&quot;position&quot;:&quot;absolute&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
-            <div class="elementor-element elementor-element-c651fba ffy-nav-btn ffy-nav-active elementor-widget__width-auto elementor-widget elementor-widget-button" data-id="c651fba" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><a class="elementor-button elementor-button-link elementor-size-sm" href="#ffy-root"><span class="elementor-button-content-wrapper"><span class="elementor-button-text">Home</span></span></a></div>
-            <div class="elementor-element elementor-element-208e714 ffy-nav-btn elementor-widget__width-auto elementor-widget elementor-widget-button" data-id="208e714" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><a class="elementor-button elementor-button-link elementor-size-sm" href="#ffy-about"><span class="elementor-button-content-wrapper"><span class="elementor-button-text">About</span></span></a></div>
-            <div class="elementor-element elementor-element-e993d96 ffy-nav-btn elementor-widget__width-auto elementor-widget elementor-widget-button" data-id="e993d96" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><a class="elementor-button elementor-button-link elementor-size-sm" href="#ffy-flavors"><span class="elementor-button-content-wrapper"><span class="elementor-button-text">Shop</span></span></a></div>
-            <div class="elementor-element elementor-element-dba25c1 ffy-nav-btn elementor-widget__width-auto elementor-widget elementor-widget-button" data-id="dba25c1" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><a class="elementor-button elementor-button-link elementor-size-sm" href="#ffy-newsletter"><span class="elementor-button-content-wrapper"><span class="elementor-button-text">Contact</span></span></a></div>
+            <div class="elementor-element elementor-element-c651fba ffy-nav-btn ffy-nav-active elementor-widget__width-auto elementor-widget elementor-widget-button" data-id="c651fba" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><a class="elementor-button elementor-button-link elementor-size-sm" href="#ffy-root"><span class="elementor-button-content-wrapper"><span class="elementor-button-text">الرئيسية</span></span></a></div>
+            <div class="elementor-element elementor-element-208e714 ffy-nav-btn elementor-widget__width-auto elementor-widget elementor-widget-button" data-id="208e714" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><a class="elementor-button elementor-button-link elementor-size-sm" href="#ffy-about"><span class="elementor-button-content-wrapper"><span class="elementor-button-text">من نحن</span></span></a></div>
+            <div class="elementor-element elementor-element-e993d96 ffy-nav-btn elementor-widget__width-auto elementor-widget elementor-widget-button" data-id="e993d96" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><a class="elementor-button elementor-button-link elementor-size-sm" href="#ffy-flavors"><span class="elementor-button-content-wrapper"><span class="elementor-button-text">المتجر</span></span></a></div>
+            <div class="elementor-element elementor-element-dba25c1 ffy-nav-btn elementor-widget__width-auto elementor-widget elementor-widget-button" data-id="dba25c1" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><a class="elementor-button elementor-button-link elementor-size-sm" href="#ffy-newsletter"><span class="elementor-button-content-wrapper"><span class="elementor-button-text">تواصل معنا</span></span></a></div>
           </div>
           <div class="elementor-element elementor-element-b8b87a1 elementor-shape-circle e-grid-align-right elementor-widget__width-inherit elementor-hidden-mobile elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="b8b87a1" data-element_type="widget" data-e-type="widget" data-widget_type="social-icons.default">
             <div class="elementor-social-icons-wrapper elementor-grid" role="list">
-              <span class="elementor-grid-item" role="listitem"><a class="elementor-icon elementor-social-icon elementor-social-icon-lnr-cart elementor-repeater-item-fdab7ba" href="#ffy-flavors" aria-label="Shopping Cart"><span class="elementor-screen-only">Cart</span><i aria-hidden="true" class="fas fa-shopping-cart"></i></a></span>
-              <span class="elementor-grid-item" role="listitem"><a class="elementor-icon elementor-social-icon elementor-social-icon-ti-search elementor-repeater-item-4911340" href="#ffy-flavors" aria-label="Search"><span class="elementor-screen-only">Search</span><i aria-hidden="true" class="fas fa-search"></i></a></span>
+              <span class="elementor-grid-item" role="listitem"><a class="elementor-icon elementor-social-icon elementor-social-icon-lnr-cart elementor-repeater-item-fdab7ba" href="#ffy-flavors" aria-label="عربة التسوق"><span class="elementor-screen-only">عربة التسوق</span><i aria-hidden="true" class="fas fa-shopping-cart"></i></a></span>
+              <span class="elementor-grid-item" role="listitem"><a class="elementor-icon elementor-social-icon elementor-social-icon-ti-search elementor-repeater-item-4911340" href="#ffy-flavors" aria-label="البحث"><span class="elementor-screen-only">البحث</span><i aria-hidden="true" class="fas fa-search"></i></a></span>
             </div>
           </div>
         </div><!-- /.ffy-header -->
 
 
-        <!-- Slide 0: Berry Pure -->
+        <!-- Slide 0: بيري بيور (توت نقي) -->
         <div class="elementor-element elementor-element-d5a2276 e-con-full ffy-slide ffy-slide-0 e-flex e-con e-child" data-id="d5a2276" data-element_type="container" data-e-type="container" data-settings="{&quot;position&quot;:&quot;absolute&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
           
           <div class="elementor-element elementor-element-11c36a7 ffy-word elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="11c36a7" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="heading.default">
-            <div class="elementor-heading-title elementor-size-default">STRAW</div>
+            <div class="elementor-heading-title elementor-size-default">فراولة</div>
           </div>
 
           <div class="elementor-element elementor-element-85fc4e9 ffy-bowl elementor-absolute elementor-widget__width-initial elementor-widget-mobile__width-initial elementor-widget-tablet__width-initial elementor-widget elementor-widget-image" data-id="85fc4e9" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
-            <img decoding="async" width="1350" height="1350" src="assets/images/strawberry-bowl.png" class="attachment-full size-full wp-image-2643" alt="Berry Pure Bowl" />
+            <img decoding="async" width="1350" height="1350" src="assets/images/strawberry-bowl.png" class="attachment-full size-full wp-image-2643" alt="طبق بيري بيور" />
           </div>
 
           <div class="elementor-element elementor-element-d25f809 ffy-ing elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="d25f809" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
-            <img decoding="async" width="310" height="338" src="assets/images/strawberry.png" class="attachment-full size-full wp-image-2964" alt="Fresh Strawberry" />
+            <img decoding="async" width="310" height="338" src="assets/images/strawberry.png" class="attachment-full size-full wp-image-2964" alt="فراولة طازجة" />
           </div>
 
           <div class="elementor-element elementor-element-120361a ffy-ing elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="120361a" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
-            <img loading="lazy" decoding="async" width="1485" height="1485" src="assets/images/strawberry-scoop.png" class="attachment-full size-full wp-image-2784" alt="Ice Cream Scoop" />
+            <img loading="lazy" decoding="async" width="1485" height="1485" src="assets/images/strawberry-scoop.png" class="attachment-full size-full wp-image-2784" alt="كرة آيس كريم" />
           </div>
 
           <div class="elementor-element elementor-element-d4ba694 ffy-ing elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="d4ba694" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
-            <img loading="lazy" decoding="async" width="304" height="345" src="assets/images/mint-leaf-1.png" class="attachment-full size-full wp-image-2965" alt="Mint Leaf" />
+            <img loading="lazy" decoding="async" width="304" height="345" src="assets/images/mint-leaf-1.png" class="attachment-full size-full wp-image-2965" alt="ورقة نعناع" />
           </div>
 
           <div class="elementor-element elementor-element-b5d8762 ffy-title elementor-absolute elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="b5d8762" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="heading.default">
-            <h2 class="elementor-heading-title elementor-size-default">Berry Pure</h2>
+            <h2 class="elementor-heading-title elementor-size-default">بيري بيور (توت نقي)</h2>
           </div>
 
           <div class="elementor-element elementor-element-7701f8b ffy-desc elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="7701f8b" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="text-editor.default">
-            <p>Fresh strawberries, creamy scoops, and white chocolate pieces in one smooth, dreamy dessert.</p>
+            <p>فراولة طازجة، وكرات آيس كريم كريمية، وقطع شوكولاتة بيضاء في تحلية ناعمة وساحرة.</p>
           </div>
 
         </div>
 
-        <!-- Slide 1: Blue Bliss -->
+        <!-- Slide 1: بلو بليس (بهجة التوت) -->
         <div class="elementor-element elementor-element-371bc4f e-con-full ffy-slide ffy-slide-1 e-flex e-con e-child" data-id="371bc4f" data-element_type="container" data-e-type="container" data-settings="{&quot;position&quot;:&quot;absolute&quot;}">
           
           <div class="elementor-element elementor-element-54eb8fb ffy-word elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="54eb8fb" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="heading.default">
-            <div class="elementor-heading-title elementor-size-default">BERRIES</div>
+            <div class="elementor-heading-title elementor-size-default">توت</div>
           </div>
 
           <div class="elementor-element elementor-element-26f9cbd ffy-bowl elementor-absolute elementor-widget__width-initial elementor-widget-mobile__width-initial elementor-widget elementor-widget-image" data-id="26f9cbd" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
-            <img loading="lazy" decoding="async" width="1350" height="1350" src="assets/images/blueberry-bowl.png" class="attachment-full size-full wp-image-2644" alt="Blue Bliss Bowl" />
+            <img loading="lazy" decoding="async" width="1350" height="1350" src="assets/images/blueberry-bowl.png" class="attachment-full size-full wp-image-2644" alt="طبق بلو بليس" />
           </div>
 
           <div class="elementor-element elementor-element-8bca7d6 ffy-ing elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="8bca7d6" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
-            <img loading="lazy" decoding="async" width="1485" height="1485" src="assets/images/blueberry-scoop-1.png" class="attachment-full size-full wp-image-2686" alt="Blueberry Scoop" />
+            <img loading="lazy" decoding="async" width="1485" height="1485" src="assets/images/blueberry-scoop-1.png" class="attachment-full size-full wp-image-2686" alt="كرة توت أزرق" />
           </div>
 
           <div class="elementor-element elementor-element-d52a2ce ffy-ing elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="d52a2ce" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
-            <img loading="lazy" decoding="async" width="1080" height="1080" src="assets/images/blueberry-scoop-2.png" class="attachment-full size-full wp-image-2697" alt="Fresh Berries" />
+            <img loading="lazy" decoding="async" width="1080" height="1080" src="assets/images/blueberry-scoop-2.png" class="attachment-full size-full wp-image-2697" alt="توت طازج" />
           </div>
 
           <div class="elementor-element elementor-element-36eaaf8 ffy-ing elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="36eaaf8" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
-            <img loading="lazy" decoding="async" width="1485" height="1485" src="assets/images/blueberry-scoop-3.png" class="attachment-full size-full wp-image-2721" alt="Ice Cream Garnish" />
+            <img loading="lazy" decoding="async" width="1485" height="1485" src="assets/images/blueberry-scoop-3.png" class="attachment-full size-full wp-image-2721" alt="زينة آيس كريم" />
           </div>
 
           <div class="elementor-element elementor-element-81e8e1b ffy-title elementor-absolute elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="81e8e1b" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="heading.default">
-            <h2 class="elementor-heading-title elementor-size-default">Blue Bliss</h2>
+            <h2 class="elementor-heading-title elementor-size-default">بلو بليس (بهجة التوت)</h2>
           </div>
 
           <div class="elementor-element elementor-element-c4938f0 ffy-desc elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="c4938f0" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="text-editor.default">
-            <p>A smooth and refreshing blueberry ice cream made with ripe berries. Perfectly refreshing for any time of day.</p>
+            <p>آيس كريم التوت الأزرق الناعم والمنعش المحضر من حبات التوت الناضجة. انتعاش مثالي في أي وقت من اليوم.</p>
           </div>
 
         </div>
 
-        <!-- Slide 2: Banana Crush -->
+        <!-- Slide 2: بانانا كراش (سحر الموز) -->
         <div class="elementor-element elementor-element-ffc6f17 e-con-full ffy-slide ffy-slide-2 e-flex e-con e-child" data-id="ffc6f17" data-element_type="container" data-e-type="container" data-settings="{&quot;position&quot;:&quot;absolute&quot;}">
           
           <div class="elementor-element elementor-element-8a92f16 ffy-word elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="8a92f16" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="heading.default">
-            <div class="elementor-heading-title elementor-size-default">BANANA</div>
+            <div class="elementor-heading-title elementor-size-default">موز</div>
           </div>
 
           <div class="elementor-element elementor-element-4b76848 ffy-bowl elementor-absolute elementor-widget__width-initial elementor-widget-mobile__width-initial elementor-widget elementor-widget-image" data-id="4b76848" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
-            <img loading="lazy" decoding="async" width="1485" height="1485" src="assets/images/banana-bowl.png" class="attachment-full size-full wp-image-2758" alt="Banana Crush Bowl" />
+            <img loading="lazy" decoding="async" width="1485" height="1485" src="assets/images/banana-bowl.png" class="attachment-full size-full wp-image-2758" alt="طبق بانانا كراش" />
           </div>
 
           <div class="elementor-element elementor-element-3a88f2e ffy-ing elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="3a88f2e" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
-            <img loading="lazy" decoding="async" width="1485" height="1485" src="assets/images/banana-scoop-1.png" class="attachment-full size-full wp-image-2755" alt="Banana Scoop" />
+            <img loading="lazy" decoding="async" width="1485" height="1485" src="assets/images/banana-scoop-1.png" class="attachment-full size-full wp-image-2755" alt="كرة موز" />
           </div>
 
           <div class="elementor-element elementor-element-09c561a ffy-ing elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="09c561a" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
-            <img loading="lazy" decoding="async" width="1485" height="1485" src="assets/images/banana-scoop-2.png" class="attachment-full size-full wp-image-2754" alt="Creamy Garnish" />
+            <img loading="lazy" decoding="async" width="1485" height="1485" src="assets/images/banana-scoop-2.png" class="attachment-full size-full wp-image-2754" alt="زينة كريمية" />
           </div>
 
           <div class="elementor-element elementor-element-e46f4f9 ffy-ing elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="e46f4f9" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
-            <img loading="lazy" decoding="async" width="306" height="331" src="assets/images/chocolate-piece.png" class="attachment-full size-full wp-image-2967" alt="Chocolate Piece" />
+            <img loading="lazy" decoding="async" width="306" height="331" src="assets/images/chocolate-piece.png" class="attachment-full size-full wp-image-2967" alt="قطعة شوكولاتة" />
           </div>
 
           <div class="elementor-element elementor-element-53ca2d0 ffy-title elementor-absolute elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="53ca2d0" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="heading.default">
-            <h2 class="elementor-heading-title elementor-size-default">Banana Crush</h2>
+            <h2 class="elementor-heading-title elementor-size-default">بانانا كراش (سحر الموز)</h2>
           </div>
 
           <div class="elementor-element elementor-element-e7536d1 ffy-desc elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="e7536d1" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="text-editor.default">
-            <p>A smooth and creamy banana ice cream made with white chocolate flavor. Perfectly satisfying for any time of day.</p>
+            <p>آيس كريم موز ناعم وكريمي غني بنكهة الشوكولاتة البيضاء. مذاق يرضي حواسك في كل لحظة.</p>
           </div>
 
         </div>
 
-        <!-- Slide 3: Kiwi Flavor -->
+        <!-- Slide 3: نكهة الكيوي -->
         <div class="elementor-element elementor-element-a4f6c19 e-con-full ffy-slide ffy-slide-3 e-flex e-con e-child" data-id="a4f6c19" data-element_type="container" data-e-type="container" data-settings="{&quot;position&quot;:&quot;absolute&quot;}">
           
           <div class="elementor-element elementor-element-9fda154 ffy-word elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="9fda154" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="heading.default">
-            <div class="elementor-heading-title elementor-size-default">KIWIES</div>
+            <div class="elementor-heading-title elementor-size-default">كيوي</div>
           </div>
 
           <div class="elementor-element elementor-element-54523ec ffy-bowl elementor-absolute elementor-widget__width-initial elementor-widget-mobile__width-initial elementor-widget elementor-widget-image" data-id="54523ec" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
-            <img loading="lazy" decoding="async" width="1350" height="1350" src="assets/images/kiwi-bowl.png" class="attachment-full size-full wp-image-2747" alt="Kiwi Flavor Bowl" />
+            <img loading="lazy" decoding="async" width="1350" height="1350" src="assets/images/kiwi-bowl.png" class="attachment-full size-full wp-image-2747" alt="طبق نكهة الكيوي" />
           </div>
 
           <div class="elementor-element elementor-element-da7bac5 ffy-ing elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="da7bac5" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
-            <img loading="lazy" decoding="async" width="1485" height="1485" src="assets/images/kiwi-scoop-1.png" class="attachment-full size-full wp-image-2780" alt="Kiwi Scoop" />
+            <img loading="lazy" decoding="async" width="1485" height="1485" src="assets/images/kiwi-scoop-1.png" class="attachment-full size-full wp-image-2780" alt="كرة كيوي" />
           </div>
 
           <div class="elementor-element elementor-element-78db8ea ffy-ing elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="78db8ea" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
-            <img loading="lazy" decoding="async" width="1485" height="1485" src="assets/images/kiwi-scoop-2.png" class="attachment-full size-full wp-image-2767" alt="Garnish" />
+            <img loading="lazy" decoding="async" width="1485" height="1485" src="assets/images/kiwi-scoop-2.png" class="attachment-full size-full wp-image-2767" alt="زينة" />
           </div>
 
           <div class="elementor-element elementor-element-feb1dd5 ffy-ing elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="feb1dd5" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
-            <img loading="lazy" decoding="async" width="304" height="345" src="assets/images/mint-leaf-2.png" class="attachment-full size-full wp-image-2973" alt="Mint Leaf" />
+            <img loading="lazy" decoding="async" width="304" height="345" src="assets/images/mint-leaf-2.png" class="attachment-full size-full wp-image-2973" alt="ورقة نعناع" />
           </div>
 
           <div class="elementor-element elementor-element-8a8d15f ffy-title elementor-absolute elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="8a8d15f" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="heading.default">
-            <h2 class="elementor-heading-title elementor-size-default">Kiwi Flavor</h2>
+            <h2 class="elementor-heading-title elementor-size-default">نكهة الكيوي</h2>
           </div>
 
           <div class="elementor-element elementor-element-d20d328 ffy-desc elementor-absolute elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="d20d328" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="text-editor.default">
-            <p>A smooth and refreshing kiwi ice cream. Rich and perfectly balanced for any time of day.</p>
+            <p>آيس كريم كيوي ناعم ومنعش. قوام غني وتوازن مثالي يناسب جميع الأوقات.</p>
           </div>
 
         </div>
@@ -330,25 +338,25 @@
         <!-- Navigation Arrows Container -->
         <div class="elementor-element elementor-element-347379d e-con-full ffy-arrows e-flex e-con e-child" data-id="347379d" data-element_type="container" data-e-type="container" data-settings="{&quot;position&quot;:&quot;absolute&quot;}">
           
-          <!-- Prev Arrow -->
+          <!-- Prev Arrow (visually chevron-right because RTL) -->
           <div class="elementor-element elementor-element-fd16ceb elementor-shape-circle e-grid-align-right ffy-arrow ffy-prev elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="fd16ceb" data-element_type="widget" data-e-type="widget" data-widget_type="social-icons.default">
             <div class="elementor-social-icons-wrapper elementor-grid">
               <span class="elementor-grid-item">
-                <a class="elementor-icon elementor-social-icon elementor-social-icon-lnr-chevron-left elementor-repeater-item-fdab7ba" href="#" aria-label="Previous Slide">
-                  <span class="elementor-screen-only">Previous Slide</span>
-                  <i aria-hidden="true" class="fas fa-chevron-left"></i>
+                <a class="elementor-icon elementor-social-icon elementor-social-icon-lnr-chevron-left elementor-repeater-item-fdab7ba" href="#" aria-label="الشريحة السابقة">
+                  <span class="elementor-screen-only">الشريحة السابقة</span>
+                  <i aria-hidden="true" class="fas fa-chevron-right"></i>
                 </a>
               </span>
             </div>
           </div>
 
-          <!-- Next Arrow -->
+          <!-- Next Arrow (visually chevron-left because RTL) -->
           <div class="elementor-element elementor-element-669e876 elementor-shape-circle e-grid-align-right ffy-arrow ffy-next elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="669e876" data-element_type="widget" data-e-type="widget" data-widget_type="social-icons.default">
             <div class="elementor-social-icons-wrapper elementor-grid">
               <span class="elementor-grid-item">
-                <a class="elementor-icon elementor-social-icon elementor-social-icon-lnr-chevron-right elementor-repeater-item-4911340" href="#" aria-label="Next Slide">
-                  <span class="elementor-screen-only">Next Slide</span>
-                  <i aria-hidden="true" class="fas fa-chevron-right"></i>
+                <a class="elementor-icon elementor-social-icon elementor-social-icon-lnr-chevron-right elementor-repeater-item-4911340" href="#" aria-label="الشريحة التالية">
+                  <span class="elementor-screen-only">الشريحة التالية</span>
+                  <i aria-hidden="true" class="fas fa-chevron-left"></i>
                 </a>
               </span>
             </div>
@@ -367,15 +375,13 @@
   </div>
 
   <!-- ================================================================
-       Berry Pure — Full Page Sections
-       Added below the absolutely-positioned hero slider.
-       All sections are normal-flow blocks.
+       Berry Pure — Full Page Sections (Arabic)
        ================================================================ -->
 
   <!-- ============================================================
-       SECTION 1: About / Our Story
+       SECTION 1: من نحن / قصتنا
        ============================================================ -->
-  <section id="ffy-about" class="ffy-section ffy-about" aria-label="About Berry Pure">
+  <section id="ffy-about" class="ffy-section ffy-about" aria-label="من نحن — بيري بيور">
     <div class="ffy-section-inner">
       <div class="ffy-about-grid">
 
@@ -383,45 +389,43 @@
         <div class="ffy-about-img-wrap ffy-reveal">
           <img
             src="assets/images/strawberry-scoop.png"
-            alt="Berry Pure artisan smoothie bowls crafted with care"
+            alt="أطباق بيري بيور الحرفية المصنوعة بعناية فائقة"
             loading="lazy"
             width="1485"
             height="1485"
           />
           <div class="ffy-about-badge">
-            <span class="ffy-about-badge-num">12</span>
-            <span class="ffy-about-badge-txt">Years of Craft</span>
+            <span class="ffy-about-badge-num">١٢</span>
+            <span class="ffy-about-badge-txt">عامًا من الإتقان</span>
           </div>
         </div>
 
         <!-- Text side -->
         <div class="ffy-about-text ffy-reveal">
-          <span class="ffy-section-label">Our Story</span>
-          <h2 class="ffy-section-heading">Born from a love of pure, honest ingredients</h2>
+          <span class="ffy-section-label">قصتنا</span>
+          <h2 class="ffy-section-heading">وُلدت من شغفنا بالمكونات النقية والطبيعية</h2>
           <p class="ffy-section-body">
-            Berry Pure began as a weekend market stall with one simple idea: take the freshest fruits
-            of the season and turn them into something extraordinary. No artificial shortcuts, no
-            compromise — just hand-picked strawberries, sun-ripened bananas, and luscious blueberries
-            blended into bowls and scoops that taste like summer in every bite.
+            بدأت بيري بيور ككشك صغير في سوق نهاية الأسبوع بفكرة بسيطة: اختيار أشهى فواكه الموسم وتحويلها
+            إلى تجربة استثنائية. بلا إضافات صناعية أو مساومات — فقط فراولة مقطوفة يدويًا، وموز ناضج تحت
+            أشعة الشمس، وتوت أزرق فاخر يمتزج في أطباق وآيس كريم يمنحك طعم الصيف في كل لقمة.
           </p>
           <p class="ffy-section-body">
-            Today, every Freshify creation is still made in small batches, handcrafted daily in our
-            kitchen, and served with the same passion that started it all. We believe the best
-            desserts are the ones you can feel good about eating.
+            اليوم، لا تزال جميع إبداعات Freshify تُحضر بدفعات صغيرة يوميًا في مطبخنا، وتُقدم بنفس الشغف
+            الذي بدأنا به. نؤمن بأن ألذ الحلويات هي تلك التي تستمتع بها باطمئنان وراحة بال.
           </p>
 
           <div class="ffy-about-stat-row">
             <div class="ffy-about-stat">
-              <div class="ffy-about-stat-val">4+</div>
-              <div class="ffy-about-stat-lbl">Signature Flavors</div>
+              <div class="ffy-about-stat-val">+٤</div>
+              <div class="ffy-about-stat-lbl">نكهات مميزة</div>
             </div>
             <div class="ffy-about-stat">
-              <div class="ffy-about-stat-val">100%</div>
-              <div class="ffy-about-stat-lbl">Natural Ingredients</div>
+              <div class="ffy-about-stat-val">١٠٠٪</div>
+              <div class="ffy-about-stat-lbl">مكونات طبيعية</div>
             </div>
             <div class="ffy-about-stat">
-              <div class="ffy-about-stat-val">12k+</div>
-              <div class="ffy-about-stat-lbl">Happy Customers</div>
+              <div class="ffy-about-stat-val">+١٢ألف</div>
+              <div class="ffy-about-stat-lbl">عميل سعيد</div>
             </div>
           </div>
         </div>
@@ -431,105 +435,105 @@
   </section>
 
   <!-- ============================================================
-       SECTION 2: Our Flavors / Menu
+       SECTION 2: نكهاتنا / القائمة
        ============================================================ -->
-  <section id="ffy-flavors" class="ffy-section ffy-flavors" aria-label="Our Flavors Menu">
+  <section id="ffy-flavors" class="ffy-section ffy-flavors" aria-label="قائمة نكهاتنا">
     <div class="ffy-section-inner">
 
       <div class="ffy-flavors-header ffy-reveal">
-        <span class="ffy-section-label">Our Menu</span>
-        <h2 class="ffy-section-heading">Four flavors, endless bliss</h2>
+        <span class="ffy-section-label">قائمتنا</span>
+        <h2 class="ffy-section-heading">أربع نكهات، وسعادة لا تنتهي</h2>
         <p class="ffy-section-body" style="max-width:560px; margin: 0 auto;">
-          Each creation is handcrafted with premium fruits and the finest ingredients. Pick your favourite — or try them all.
+          كل صنف مصنوع يدويًا من أجود أنواع الفواكه والمكونات الفاخرة. اختر نكهتك المفضلة — أو جربها جميعًا.
         </p>
       </div>
 
       <div class="ffy-flavors-grid">
 
-        <!-- Card 1: Berry Pure -->
+        <!-- بطاقة 1: بيري بيور -->
         <div class="ffy-flavor-card ffy-reveal">
           <div class="ffy-flavor-card-img">
             <img
               src="assets/images/strawberry-bowl.png"
-              alt="Berry Pure smoothie bowl with strawberries and white chocolate"
+              alt="طبق بيري بيور بالفراولة والشوكولاتة البيضاء"
               loading="lazy"
               width="1350"
               height="1350"
             />
-            <span class="ffy-flavor-tag">Bestseller</span>
+            <span class="ffy-flavor-tag">الأكثر مبيعًا</span>
           </div>
           <div class="ffy-flavor-card-body">
-            <h3 class="ffy-flavor-name">Berry Pure</h3>
-            <p class="ffy-flavor-desc">Fresh strawberries, creamy scoops, and white chocolate pieces blended into one smooth, dreamy dessert.</p>
+            <h3 class="ffy-flavor-name">بيري بيور (توت نقي)</h3>
+            <p class="ffy-flavor-desc">فراولة طازجة، وكرات آيس كريم كريمية، وقطع شوكولاتة بيضاء ممتزجة في تحلية ناعمة وساحرة.</p>
             <div class="ffy-flavor-footer">
-              <span class="ffy-flavor-price">$8.90</span>
-              <a href="#ffy-flavors" class="ffy-btn ffy-btn-primary" id="ffy-flavor-btn-1">View Product</a>
+              <span class="ffy-flavor-price">٨٫٩٠$</span>
+              <a href="#ffy-flavors" class="ffy-btn ffy-btn-primary" id="ffy-flavor-btn-1">عرض المنتج</a>
             </div>
           </div>
         </div>
 
-        <!-- Card 2: Blue Bliss -->
+        <!-- بطاقة 2: بلو بليس -->
         <div class="ffy-flavor-card ffy-reveal">
           <div class="ffy-flavor-card-img">
             <img
               src="assets/images/blueberry-bowl.png"
-              alt="Blue Bliss blueberry ice cream bowl"
+              alt="طبق بلو بليس بآيس كريم التوت الأزرق"
               loading="lazy"
               width="1350"
               height="1350"
             />
-            <span class="ffy-flavor-tag">Fan Favourite</span>
+            <span class="ffy-flavor-tag">مفضل لدى الجميع</span>
           </div>
           <div class="ffy-flavor-card-body">
-            <h3 class="ffy-flavor-name">Blue Bliss</h3>
-            <p class="ffy-flavor-desc">A smooth, refreshing blueberry ice cream made with ripe, sun-kissed berries. Perfectly balanced for any time of day.</p>
+            <h3 class="ffy-flavor-name">بلو بليس (بهجة التوت)</h3>
+            <p class="ffy-flavor-desc">آيس كريم توت أزرق ناعم ومنعش محضر من حبات التوت الناضجة الطازجة. توازن مثالي في أي وقت من اليوم.</p>
             <div class="ffy-flavor-footer">
-              <span class="ffy-flavor-price">$8.90</span>
-              <a href="#ffy-flavors" class="ffy-btn ffy-btn-primary" id="ffy-flavor-btn-2">View Product</a>
+              <span class="ffy-flavor-price">٨٫٩٠$</span>
+              <a href="#ffy-flavors" class="ffy-btn ffy-btn-primary" id="ffy-flavor-btn-2">عرض المنتج</a>
             </div>
           </div>
         </div>
 
-        <!-- Card 3: Banana Crush -->
+        <!-- بطاقة 3: بانانا كراش -->
         <div class="ffy-flavor-card ffy-reveal">
           <div class="ffy-flavor-card-img">
             <img
               src="assets/images/banana-bowl.png"
-              alt="Banana Crush creamy banana ice cream bowl"
+              alt="طبق بانانا كراش بآيس كريم الموز الكريمي"
               loading="lazy"
               width="1485"
               height="1485"
             />
-            <span class="ffy-flavor-tag">New</span>
+            <span class="ffy-flavor-tag">جديد</span>
           </div>
           <div class="ffy-flavor-card-body">
-            <h3 class="ffy-flavor-name">Banana Crush</h3>
-            <p class="ffy-flavor-desc">A smooth and creamy banana ice cream with a hint of vanilla. Perfectly satisfying for any time of day.</p>
+            <h3 class="ffy-flavor-name">بانانا كراش (سحر الموز)</h3>
+            <p class="ffy-flavor-desc">آيس كريم موز ناعم وكريمي بلمسة فانيليا خفيفة. مذاق يرضي حواسك في أي وقت من اليوم.</p>
             <div class="ffy-flavor-footer">
-              <span class="ffy-flavor-price">$8.90</span>
-              <a href="#ffy-flavors" class="ffy-btn ffy-btn-primary" id="ffy-flavor-btn-3">View Product</a>
+              <span class="ffy-flavor-price">٨٫٩٠$</span>
+              <a href="#ffy-flavors" class="ffy-btn ffy-btn-primary" id="ffy-flavor-btn-3">عرض المنتج</a>
             </div>
           </div>
         </div>
 
-        <!-- Card 4: Kiwi Flavor -->
+        <!-- بطاقة 4: نكهة الكيوي -->
         <div class="ffy-flavor-card ffy-reveal">
           <div class="ffy-flavor-card-img">
             <img
               src="assets/images/kiwi-bowl.png"
-              alt="Kiwi Flavor refreshing kiwi ice cream bowl"
+              alt="طبق نكهة الكيوي المنعش"
               loading="lazy"
               width="1350"
               height="1350"
             />
-            <span class="ffy-flavor-tag">Seasonal</span>
+            <span class="ffy-flavor-tag">موسمي</span>
           </div>
           <div class="ffy-flavor-card-body">
-            <h3 class="ffy-flavor-name">Kiwi Flavor</h3>
-            <p class="ffy-flavor-desc">A smooth and refreshing kiwi ice cream. Rich, vibrant, and perfectly balanced for any occasion.</p>
+            <h3 class="ffy-flavor-name">نكهة الكيوي</h3>
+            <p class="ffy-flavor-desc">آيس كريم كيوي ناعم ومنعش. قوام غني ونكهة زاهية وتوازن مثالي لكل المناسبات.</p>
             <div class="ffy-flavor-footer">
-              <span class="ffy-flavor-price">$8.90</span>
-              <a href="#ffy-flavors" class="ffy-btn ffy-btn-primary" id="ffy-flavor-btn-4">View Product</a>
+              <span class="ffy-flavor-price">٨٫٩٠$</span>
+              <a href="#ffy-flavors" class="ffy-btn ffy-btn-primary" id="ffy-flavor-btn-4">عرض المنتج</a>
             </div>
           </div>
         </div>
@@ -539,52 +543,52 @@
   </section>
 
   <!-- ============================================================
-       SECTION 3: Why Berry Pure / Features
+       SECTION 3: لماذا بيري بيور / المميزات
        ============================================================ -->
-  <section id="ffy-features" class="ffy-section ffy-features" aria-label="Why Choose Berry Pure">
+  <section id="ffy-features" class="ffy-section ffy-features" aria-label="لماذا تختار بيري بيور">
     <div class="ffy-section-inner">
 
       <div class="ffy-features-header ffy-reveal">
-        <span class="ffy-section-label">Why Berry Pure</span>
-        <h2 class="ffy-section-heading">Crafted with purpose, served with love</h2>
+        <span class="ffy-section-label">لماذا بيري بيور</span>
+        <h2 class="ffy-section-heading">صُنعت بعناية، وقُدمت بحب</h2>
       </div>
 
       <div class="ffy-features-grid">
 
-        <!-- Feature 1 -->
+        <!-- ميزة 1 -->
         <div class="ffy-feature-card ffy-reveal">
           <div class="ffy-feature-icon">
             <i class="fas fa-leaf" aria-hidden="true"></i>
           </div>
-          <h3 class="ffy-feature-title">Fresh Ingredients</h3>
-          <p class="ffy-feature-desc">We source only the finest seasonal fruits from local farms, ensuring every scoop bursts with authentic, natural flavour.</p>
+          <h3 class="ffy-feature-title">مكونات طازجة</h3>
+          <p class="ffy-feature-desc">ننتقي أجود الفواكه الموسمية من المزارع المحلية لضمان نكهة طبيعية وأصيلة في كل مغرفة آيس كريم.</p>
         </div>
 
-        <!-- Feature 2 -->
+        <!-- ميزة 2 -->
         <div class="ffy-feature-card ffy-reveal">
           <div class="ffy-feature-icon">
             <i class="fas fa-heart" aria-hidden="true"></i>
           </div>
-          <h3 class="ffy-feature-title">Handcrafted Daily</h3>
-          <p class="ffy-feature-desc">Every bowl and scoop is made fresh in small batches each morning. No freezer shortcuts — just pure, daily craftsmanship.</p>
+          <h3 class="ffy-feature-title">تحضير يدوي يومي</h3>
+          <p class="ffy-feature-desc">يتم تحضير كل طبق وآيس كريم طازجًا كل صباح بدفعات صغيرة. لا اختصارات، بل حرفية نقية ويومية.</p>
         </div>
 
-        <!-- Feature 3 -->
+        <!-- ميزة 3 -->
         <div class="ffy-feature-card ffy-reveal">
           <div class="ffy-feature-icon">
             <i class="fas fa-check-circle" aria-hidden="true"></i>
           </div>
-          <h3 class="ffy-feature-title">No Artificial Flavors</h3>
-          <p class="ffy-feature-desc">We never use artificial additives, colours, or preservatives. What you taste is exactly what nature intended.</p>
+          <h3 class="ffy-feature-title">خالٍ من النكهات الصناعية</h3>
+          <p class="ffy-feature-desc">لا نستخدم أية ملونات أو مواد حافظة صناعية أبدًا. ما تتذوقه هو نقاء الطبيعة كما يجب أن يكون.</p>
         </div>
 
-        <!-- Feature 4 -->
+        <!-- ميزة 4 -->
         <div class="ffy-feature-card ffy-reveal">
           <div class="ffy-feature-icon">
             <i class="fas fa-star" aria-hidden="true"></i>
           </div>
-          <h3 class="ffy-feature-title">Made With Love</h3>
-          <p class="ffy-feature-desc">Our recipes have been perfected over 12 years of passion-driven kitchen experiments. Every detail, every flavour, crafted for you.</p>
+          <h3 class="ffy-feature-title">صُنعت بحب</h3>
+          <p class="ffy-feature-desc">تم تطوير وصفاتنا وإتقانها عبر ١٢ عامًا من الشغف والتجارب المطبخية لنقدم لك أعلى درجات الجودة.</p>
         </div>
 
       </div>
@@ -592,21 +596,21 @@
   </section>
 
   <!-- ============================================================
-       SECTION 4: Testimonials
+       SECTION 4: آراء العملاء
        ============================================================ -->
-  <section id="ffy-testimonials" class="ffy-section ffy-testimonials" aria-label="Customer Testimonials">
+  <section id="ffy-testimonials" class="ffy-section ffy-testimonials" aria-label="آراء العملاء">
     <div class="ffy-section-inner">
 
       <div class="ffy-testimonials-header ffy-reveal">
-        <span class="ffy-section-label">What Customers Say</span>
-        <h2 class="ffy-section-heading">Loved by thousands, savoured by all</h2>
+        <span class="ffy-section-label">آراء عملائنا</span>
+        <h2 class="ffy-section-heading">نال إعجاب الآلاف، ويعشقه الجميع</h2>
       </div>
 
       <div class="ffy-testimonials-grid">
 
-        <!-- Review 1 -->
+        <!-- رأي 1 -->
         <div class="ffy-testimonial-card ffy-reveal">
-          <div class="ffy-testimonial-stars" aria-label="5 out of 5 stars">
+          <div class="ffy-testimonial-stars" aria-label="٥ نجوم من ٥">
             <i class="fas fa-star" aria-hidden="true"></i>
             <i class="fas fa-star" aria-hidden="true"></i>
             <i class="fas fa-star" aria-hidden="true"></i>
@@ -614,20 +618,20 @@
             <i class="fas fa-star" aria-hidden="true"></i>
           </div>
           <blockquote class="ffy-testimonial-quote">
-            &ldquo;The Berry Pure bowl is absolutely divine. Fresh strawberries, perfect creaminess — I come back every single week without fail. Nothing else compares!&rdquo;
+            «طبق بيري بيور خيالي بكل معنى الكلمة! فراولة طازجة وقوام كريمي مثالي.. أزوره أسبوعيًا دون تردد. لا شيء يضاهيه!»
           </blockquote>
           <div class="ffy-testimonial-author">
-            <div class="ffy-testimonial-avatar" aria-hidden="true">S</div>
+            <div class="ffy-testimonial-avatar" aria-hidden="true">ص</div>
             <div>
-              <div class="ffy-testimonial-name">Sofia Andersen</div>
-              <div class="ffy-testimonial-role">Regular Customer &mdash; Copenhagen</div>
+              <div class="ffy-testimonial-name">صوفيا أندرسن</div>
+              <div class="ffy-testimonial-role">عميلة دائمة &mdash; كوبنهاغن</div>
             </div>
           </div>
         </div>
 
-        <!-- Review 2 -->
+        <!-- رأي 2 -->
         <div class="ffy-testimonial-card ffy-reveal">
-          <div class="ffy-testimonial-stars" aria-label="5 out of 5 stars">
+          <div class="ffy-testimonial-stars" aria-label="٥ نجوم من ٥">
             <i class="fas fa-star" aria-hidden="true"></i>
             <i class="fas fa-star" aria-hidden="true"></i>
             <i class="fas fa-star" aria-hidden="true"></i>
@@ -635,20 +639,20 @@
             <i class="fas fa-star" aria-hidden="true"></i>
           </div>
           <blockquote class="ffy-testimonial-quote">
-            &ldquo;Blue Bliss is hands down the most refreshing thing I&rsquo;ve ever tasted. You can genuinely feel the quality and care that goes into every bowl. Incredible!&rdquo;
+            «بلو بليس هو ألذ وأنعش مذاق تذوقته على الإطلاق. تشعر حقًا بمدى العناية والجودة في كل تفصيلة. رائع جدًا!»
           </blockquote>
           <div class="ffy-testimonial-author">
-            <div class="ffy-testimonial-avatar" aria-hidden="true">M</div>
+            <div class="ffy-testimonial-avatar" aria-hidden="true">م</div>
             <div>
-              <div class="ffy-testimonial-name">Marcus Jensen</div>
-              <div class="ffy-testimonial-role">Food Blogger &mdash; Aarhus</div>
+              <div class="ffy-testimonial-name">ماركوس جنسن</div>
+              <div class="ffy-testimonial-role">مدون طعام &mdash; آرهوس</div>
             </div>
           </div>
         </div>
 
-        <!-- Review 3 -->
+        <!-- رأي 3 -->
         <div class="ffy-testimonial-card ffy-reveal">
-          <div class="ffy-testimonial-stars" aria-label="5 out of 5 stars">
+          <div class="ffy-testimonial-stars" aria-label="٥ نجوم من ٥">
             <i class="fas fa-star" aria-hidden="true"></i>
             <i class="fas fa-star" aria-hidden="true"></i>
             <i class="fas fa-star" aria-hidden="true"></i>
@@ -656,13 +660,13 @@
             <i class="fas fa-star" aria-hidden="true"></i>
           </div>
           <blockquote class="ffy-testimonial-quote">
-            &ldquo;Banana Crush is the ultimate comfort treat. It&rsquo;s creamy, naturally sweet, and made with such obvious love and dedication. My whole family is obsessed.&rdquo;
+            «بانانا كراش هو الاختيار الأمثل للحظات الاسترخاء. قوام كريمي وحلاوة طبيعية مصنوعة بإخلاص وحب كبيرين. عائلتي بأكملها تعشقه!»
           </blockquote>
           <div class="ffy-testimonial-author">
-            <div class="ffy-testimonial-avatar" aria-hidden="true">L</div>
+            <div class="ffy-testimonial-avatar" aria-hidden="true">ل</div>
             <div>
-              <div class="ffy-testimonial-name">Laura Mikkelsen</div>
-              <div class="ffy-testimonial-role">Loyal Customer &mdash; Odense</div>
+              <div class="ffy-testimonial-name">لورا ميكلسن</div>
+              <div class="ffy-testimonial-role">عميلة وفية &mdash; أودنسه</div>
             </div>
           </div>
         </div>
@@ -672,47 +676,55 @@
   </section>
 
   <!-- ============================================================
-       SECTION 5: Newsletter / CTA
+       SECTION 5: النشرة البريدية / CTA
        ============================================================ -->
-  <section id="ffy-newsletter" class="ffy-newsletter" aria-label="Newsletter Sign Up">
+  <section id="ffy-newsletter" class="ffy-newsletter" aria-label="الاشتراك في النشرة البريدية">
     <div class="ffy-section-inner">
       <div class="ffy-reveal">
-        <span class="ffy-section-label" style="color: rgba(255,255,255,0.6);">Stay in the Loop</span>
-        <h2 class="ffy-section-heading">Get fresh drops &amp; exclusive deals</h2>
+        <span class="ffy-section-label" style="color: rgba(255,255,255,0.6);">ابقَ على اطلاع</span>
+        <h2 class="ffy-section-heading">احصل على أحدث الإصدارات والعروض الحصرية</h2>
         <p class="ffy-section-body">
-          Be the first to know about new flavours, seasonal specials, and members-only discounts.
-          Join 12,000+ smoothie lovers today.
+          كن أول من يعلم بالنكهات الجديدة والعروض الموسمية والخصومات الحصرية.
+          انضم إلى أكثر من ١٢٬٠٠٠ من محبي العصائر والآيس كريم اليوم.
         </p>
       </div>
-      <form class="ffy-newsletter-form ffy-reveal" id="ffy-newsletter-form" onsubmit="return ffyNewsletterSubmit(event);" novalidate>
+      <form
+        class="ffy-newsletter-form ffy-reveal"
+        id="ffy-newsletter-form"
+        onsubmit="return ffyNewsletterSubmit(event);"
+        novalidate
+        data-loading-text="جاري الاشتراك&#x2026;"
+        data-success-html="&lt;p style=&quot;font-family:{font};font-size:1.25rem;color:#fff;margin:0;direction:rtl;&quot;&gt;&#x2665; تم اشتراكك بنجاح! أهلاً بك في عائلة بيري بيور، &lt;strong&gt;{name}&lt;/strong&gt;.&lt;/p&gt;"
+      >
         <input
           id="ffy-newsletter-email"
           class="ffy-newsletter-input"
           type="email"
-          placeholder="Enter your email address"
-          aria-label="Email address for newsletter"
+          placeholder="أدخل بريدك الإلكتروني"
+          aria-label="البريد الإلكتروني للنشرة البريدية"
           required
+          dir="rtl"
         />
-        <button type="submit" class="ffy-btn-white" id="ffy-newsletter-submit">Subscribe Free</button>
+        <button type="submit" class="ffy-btn-white" id="ffy-newsletter-submit">اشترك مجانًا</button>
       </form>
-      <p class="ffy-newsletter-note ffy-reveal">No spam, ever. Unsubscribe anytime. &hearts; Berry Pure</p>
+      <p class="ffy-newsletter-note ffy-reveal">بدون رسائل مزعجة أبدًا. يمكنك إلغاء الاشتراك في أي وقت. &#x2665; بيري بيور</p>
     </div>
   </section>
 
   <!-- ============================================================
-       SECTION 6: Footer
+       SECTION 6: الفوتر
        ============================================================ -->
   <footer id="ffy-footer" class="ffy-footer" role="contentinfo">
     <div class="ffy-footer-inner">
 
       <div class="ffy-footer-top">
 
-        <!-- Brand Column -->
+        <!-- عمود العلامة التجارية -->
         <div class="ffy-footer-brand">
-          <a href="#ffy-root" aria-label="Berry Pure — Home">
+          <a href="#ffy-root" aria-label="بيري بيور — الرئيسية">
             <img
               src="assets/images/logo.png"
-              alt="Berry Pure / Freshify Smoothies &amp; Ice Cream logo"
+              alt="شعار Berry Pure / Freshify للعصائر والآيس كريم الطبيعي"
               class="ffy-footer-brand-logo"
               loading="lazy"
               width="2560"
@@ -720,71 +732,71 @@
             />
           </a>
           <p class="ffy-footer-brand-desc">
-            Handcrafted smoothies and ice cream made with the finest natural ingredients.
-            Pure passion, pure flavour — since 2012.
+            عصائر مثلجة وآيس كريم مصنوعة يدويًا من أجود المكونات الطبيعية.
+            شغف نقي ونكهة لا تُنسى — منذ عام ٢٠١٢.
           </p>
           <div class="ffy-footer-social" role="list">
-            <a class="ffy-footer-social-link" href="#" aria-label="Follow us on Instagram" role="listitem" id="ffy-social-instagram">
-              <span class="elementor-screen-only">Instagram</span>
+            <a class="ffy-footer-social-link" href="#" aria-label="تابعنا على انستغرام" role="listitem" id="ffy-social-instagram">
+              <span class="elementor-screen-only">انستغرام</span>
               <i class="fab fa-instagram" aria-hidden="true"></i>
             </a>
-            <a class="ffy-footer-social-link" href="#" aria-label="Follow us on Facebook" role="listitem" id="ffy-social-facebook">
-              <span class="elementor-screen-only">Facebook</span>
+            <a class="ffy-footer-social-link" href="#" aria-label="تابعنا على فيسبوك" role="listitem" id="ffy-social-facebook">
+              <span class="elementor-screen-only">فيسبوك</span>
               <i class="fab fa-facebook-f" aria-hidden="true"></i>
             </a>
-            <a class="ffy-footer-social-link" href="#" aria-label="Follow us on Pinterest" role="listitem" id="ffy-social-pinterest">
-              <span class="elementor-screen-only">Pinterest</span>
+            <a class="ffy-footer-social-link" href="#" aria-label="تابعنا على بينتريست" role="listitem" id="ffy-social-pinterest">
+              <span class="elementor-screen-only">بينتريست</span>
               <i class="fab fa-pinterest-p" aria-hidden="true"></i>
             </a>
-            <a class="ffy-footer-social-link" href="#" aria-label="Follow us on Twitter / X" role="listitem" id="ffy-social-twitter">
-              <span class="elementor-screen-only">Twitter</span>
+            <a class="ffy-footer-social-link" href="#" aria-label="تابعنا على تويتر / إكس" role="listitem" id="ffy-social-twitter">
+              <span class="elementor-screen-only">تويتر</span>
               <i class="fab fa-x-twitter" aria-hidden="true"></i>
             </a>
           </div>
         </div>
 
-        <!-- Navigation Column -->
+        <!-- عمود التنقل -->
         <div class="ffy-footer-col">
-          <h3 class="ffy-footer-col-title">Navigate</h3>
+          <h3 class="ffy-footer-col-title">التنقل</h3>
           <ul class="ffy-footer-links">
-            <li><a href="#ffy-root">Home</a></li>
-            <li><a href="#ffy-about">About</a></li>
-            <li><a href="#ffy-flavors">Our Flavors</a></li>
-            <li><a href="#ffy-flavors">Shop</a></li>
-            <li><a href="#ffy-testimonials">Reviews</a></li>
-            <li><a href="#ffy-newsletter">Newsletter</a></li>
+            <li><a href="#ffy-root">الرئيسية</a></li>
+            <li><a href="#ffy-about">من نحن</a></li>
+            <li><a href="#ffy-flavors">نكهاتنا</a></li>
+            <li><a href="#ffy-flavors">المتجر</a></li>
+            <li><a href="#ffy-testimonials">الآراء</a></li>
+            <li><a href="#ffy-newsletter">النشرة البريدية</a></li>
           </ul>
         </div>
 
-        <!-- Flavors Column -->
+        <!-- عمود النكهات -->
         <div class="ffy-footer-col">
-          <h3 class="ffy-footer-col-title">Our Flavors</h3>
+          <h3 class="ffy-footer-col-title">نكهاتنا</h3>
           <ul class="ffy-footer-links">
-            <li><a href="#ffy-flavors">Berry Pure</a></li>
-            <li><a href="#ffy-flavors">Blue Bliss</a></li>
-            <li><a href="#ffy-flavors">Banana Crush</a></li>
-            <li><a href="#ffy-flavors">Kiwi Flavor</a></li>
+            <li><a href="#ffy-flavors">بيري بيور</a></li>
+            <li><a href="#ffy-flavors">بلو بليس</a></li>
+            <li><a href="#ffy-flavors">بانانا كراش</a></li>
+            <li><a href="#ffy-flavors">نكهة الكيوي</a></li>
           </ul>
         </div>
 
-        <!-- Contact Column -->
+        <!-- عمود التواصل -->
         <div class="ffy-footer-col">
-          <h3 class="ffy-footer-col-title">Get In Touch</h3>
+          <h3 class="ffy-footer-col-title">تواصل معنا</h3>
           <div class="ffy-footer-contact-item">
             <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-            <span>14 Strawberry Lane, Copenhagen, Denmark</span>
+            <span>١٤ شارع ستروبري، كوبنهاغن، الدنمارك</span>
           </div>
           <div class="ffy-footer-contact-item">
             <i class="fas fa-phone" aria-hidden="true"></i>
-            <span>+45 12 34 56 78</span>
+            <span dir="ltr">+45 12 34 56 78</span>
           </div>
           <div class="ffy-footer-contact-item">
             <i class="fas fa-envelope" aria-hidden="true"></i>
-            <span>hello@berrypure.com</span>
+            <span dir="ltr">hello@berrypure.com</span>
           </div>
           <div class="ffy-footer-contact-item">
             <i class="fas fa-clock" aria-hidden="true"></i>
-            <span>Mon &ndash; Sat: 8am &ndash; 8pm</span>
+            <span>الإثنين &ndash; السبت: ٨ص &ndash; ٨م</span>
           </div>
         </div>
 
@@ -793,29 +805,29 @@
       <!-- Footer Bottom -->
       <div class="ffy-footer-bottom">
         <p class="ffy-footer-copy">
-          &copy; <span id="ffy-year">2026</span> <a href="#ffy-root">Berry Pure / Freshify</a>. All rights reserved.
+          &copy; <span id="ffy-year">2026</span> <a href="#ffy-root">Berry Pure / Freshify</a>. جميع الحقوق محفوظة.
         </p>
         <ul class="ffy-footer-bottom-links">
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">سياسة الخصوصية</a></li>
+          <li><a href="#">شروط الخدمة</a></li>
+          <li><a href="#">سياسة ملفات تعريف الارتباط</a></li>
         </ul>
       </div>
 
     </div>
   </footer>
 
-  <!-- Custom Site JavaScript -->
+  <!-- Custom Site JavaScript (shared) -->
   <script src="assets/js/main.js"></script>
 
   <!-- Language Switcher: anchor-preservation script -->
   <script>
   (function () {
     'use strict';
-    var switcher = document.getElementById('ffy-lang-switch-en');
+    var switcher = document.getElementById('ffy-lang-switch-ar');
     if (!switcher) { return; }
     function updateHref() {
-      switcher.href = 'index-ar.html' + (window.location.hash || '');
+      switcher.href = 'index.html' + (window.location.hash || '');
     }
     updateHref();
     window.addEventListener('hashchange', updateHref);

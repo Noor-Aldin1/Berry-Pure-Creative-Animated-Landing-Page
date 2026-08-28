@@ -1,0 +1,314 @@
+/* ================================================================
+   Berry Pure — RTL Stylesheet (Arabic)
+   ================================================================
+   Loaded exclusively by index-ar.html.
+   All rules are scoped to [dir="rtl"] or html[lang="ar"] to avoid
+   any risk of bleeding into the English page (index.html).
+   ================================================================ */
+
+/* ---------------------------------------------------------------
+   Arabic Google Fonts
+   (Cairo for display/headings, IBM Plex Sans Arabic for body/UI)
+   --------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
+
+/* ---------------------------------------------------------------
+   Root Typography Override — Arabic Fonts
+   --------------------------------------------------------------- */
+[dir="rtl"] body {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif;
+  text-align: right;
+}
+
+/* Display, headings, badges, prices — Cairo (mirrors Cormorant Garamond's weight) */
+[dir="rtl"] .ffy-section-heading,
+[dir="rtl"] .ffy-flavor-name,
+[dir="rtl"] .ffy-feature-title,
+[dir="rtl"] .ffy-about-badge-num,
+[dir="rtl"] .ffy-about-stat-val,
+[dir="rtl"] .ffy-flavor-price,
+[dir="rtl"] .ffy-testimonial-quote,
+[dir="rtl"] .ffy-footer-col-title,
+[dir="rtl"] .ffy-title .elementor-heading-title,
+[dir="rtl"] .ffy-word .elementor-heading-title,
+[dir="rtl"] .ffy-footer-copy,
+[dir="rtl"] .ffy-about-badge-txt {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important; /* Arabic doesn't use letter-spacing */
+}
+
+/* Body, UI, labels, descriptions, form elements — IBM Plex Sans Arabic */
+[dir="rtl"] .ffy-section-body,
+[dir="rtl"] .ffy-section-label,
+[dir="rtl"] .ffy-flavor-desc,
+[dir="rtl"] .ffy-feature-desc,
+[dir="rtl"] .ffy-btn,
+[dir="rtl"] .ffy-nav .elementor-button-text,
+[dir="rtl"] .elementor-button-text,
+[dir="rtl"] .ffy-newsletter-input,
+[dir="rtl"] .ffy-newsletter .ffy-btn-white,
+[dir="rtl"] .ffy-newsletter-note,
+[dir="rtl"] .ffy-footer-brand-desc,
+[dir="rtl"] .ffy-footer-links a,
+[dir="rtl"] .ffy-footer-contact-item,
+[dir="rtl"] .ffy-testimonial-name,
+[dir="rtl"] .ffy-testimonial-role,
+[dir="rtl"] .ffy-desc p,
+[dir="rtl"] .ffy-desc,
+[dir="rtl"] .ffy-flavor-tag,
+[dir="rtl"] .ffy-about-stat-lbl,
+[dir="rtl"] .ffy-footer-copy a,
+[dir="rtl"] .ffy-footer-bottom-links a,
+[dir="rtl"] .ffy-lang-toggle {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* Section labels: remove letter-spacing (Arabic readability) */
+[dir="rtl"] .ffy-section-label {
+  letter-spacing: 0 !important;
+}
+
+
+/* ---------------------------------------------------------------
+   Language Switcher — Arabic font override only
+   (base styles for .ffy-lang-toggle are in main.css)
+   --------------------------------------------------------------- */
+/* The toggle text on the Arabic page ("English") uses Latin script,
+   so no font override is needed — it inherits from main.css fine. */
+
+
+/* ---------------------------------------------------------------
+   About Section — Badge & Text RTL Fixes
+   --------------------------------------------------------------- */
+
+/* The "About" text box has padding-left in LTR; flip to padding-right in RTL */
+[dir="rtl"] .ffy-about-text {
+  padding-left: 0;
+  padding-right: 16px;
+}
+
+/* Badge anchors to bottom-left in RTL (was bottom-right in LTR) */
+[dir="rtl"] .ffy-about-badge {
+  right: auto;
+  left: -24px;
+  bottom: -24px;
+}
+
+@media screen and (max-width: 767px) {
+  [dir="rtl"] .ffy-about-badge {
+    right: auto;
+    left: -16px;
+    bottom: -16px;
+  }
+}
+
+/* Stat row: numbers align naturally with RTL text direction */
+[dir="rtl"] .ffy-about-stat {
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------------
+   Hero Slider — Transform-origin & Desc RTL Fix
+   --------------------------------------------------------------- */
+
+/* In LTR, transform-origin is left bottom for text pop-in.
+   In RTL it should be right bottom. */
+[dir="rtl"] .ffy-title .elementor-heading-title,
+[dir="rtl"] .ffy-desc {
+  transform-origin: right bottom;
+}
+
+
+/* ---------------------------------------------------------------
+   Flavor Cards — Tag Badge RTL Fix
+   --------------------------------------------------------------- */
+
+/* Tag badge was top:14px left:14px in LTR; flip to right in RTL */
+[dir="rtl"] .ffy-flavor-tag {
+  left: auto;
+  right: 14px;
+}
+
+
+/* ---------------------------------------------------------------
+   Footer Contact Items — Icon Spacing RTL Fix
+   --------------------------------------------------------------- */
+
+/* Icons sit before text in LTR. In RTL, gap remains but flex-direction
+   is inherited from dir="rtl" so the icon naturally appears on the right. */
+[dir="rtl"] .ffy-footer-contact-item {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+/* Footer social icons row should still flow left-to-right (visual icons) */
+[dir="rtl"] .ffy-footer-social {
+  justify-content: flex-start;
+}
+
+/* Footer brand column — text aligns right */
+[dir="rtl"] .ffy-footer-brand-desc {
+  text-align: right;
+}
+
+/* Footer bottom bar: in mobile, align start = right side */
+[dir="rtl"] .ffy-footer-bottom {
+  flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 767px) {
+  [dir="rtl"] .ffy-footer-bottom {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+
+/* ---------------------------------------------------------------
+   Testimonials — Star rating & Author Row RTL
+   --------------------------------------------------------------- */
+
+[dir="rtl"] .ffy-testimonial-author {
+  flex-direction: row;
+}
+
+[dir="rtl"] .ffy-testimonial-name,
+[dir="rtl"] .ffy-testimonial-role {
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-testimonial-quote {
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-testimonial-stars {
+  justify-content: flex-start;
+}
+
+
+/* ---------------------------------------------------------------
+   Newsletter Form — RTL Input & Button Direction
+   --------------------------------------------------------------- */
+
+[dir="rtl"] .ffy-newsletter-input {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .ffy-newsletter-input::placeholder {
+  text-align: right;
+}
+
+
+/* ---------------------------------------------------------------
+   Feature Cards — Center text is direction-neutral (no change)
+   --------------------------------------------------------------- */
+
+/* Feature cards use text-align: center which works fine in RTL.
+   Feature icon (circle) is margin: 0 auto — direction-neutral. */
+
+
+/* ---------------------------------------------------------------
+   Flavors Section — Center header is direction-neutral
+   --------------------------------------------------------------- */
+
+/* .ffy-flavors-header uses text-align: center — direction-neutral. */
+[dir="rtl"] .ffy-flavors-header p {
+  direction: rtl;
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------------
+   Elementor Hero Slider — RTL Nav positioning helpers
+   --------------------------------------------------------------- */
+
+/* When dir="rtl" is set on <html>, the body gains .rtl via JS.
+   elementor-page.css already has body.rtl rules that flip left/right
+   for the hero positioned elements. No additional overrides needed
+   for those elements since elementor-page.css handles them. */
+
+/* Arrow container positioned bottom-right in LTR via elementor-page.css.
+   In RTL (body.rtl), elementor-page.css already flips it:
+   body.rtl .elementor-element-347379d { left: 3.4cqw; right: auto; }
+   So no additional override is needed here. */
+
+
+/* ---------------------------------------------------------------
+   Footer Bottom Links — RTL list direction
+   --------------------------------------------------------------- */
+
+[dir="rtl"] .ffy-footer-bottom-links {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .ffy-footer-copy {
+  text-align: right;
+}
+
+
+/* ---------------------------------------------------------------
+   About Grid — RTL column visual order
+   --------------------------------------------------------------- */
+
+/* In LTR: image left, text right.
+   In RTL: image right, text left. CSS grid direction flips automatically
+   with dir="rtl" on the container, so no explicit column-reverse needed. */
+
+
+/* ---------------------------------------------------------------
+   Smooth scroll RTL — no changes needed for scrolling behavior
+   --------------------------------------------------------------- */
+
+
+/* ---------------------------------------------------------------
+   Pill Navbar — RTL-specific overrides
+   --------------------------------------------------------------- */
+
+/* Arabic fonts for navbar text */
+[dir="rtl"] .ffy-navbar,
+[dir="rtl"] .ffy-navbar .ffy-nb-nav .elementor-button,
+[dir="rtl"] .ffy-navbar .ffy-nb-nav .ffy-nb-cat-btn,
+[dir="rtl"] .ffy-nb-cat-dropdown a,
+[dir="rtl"] .ffy-nb-mobile-menu a,
+[dir="rtl"] .ffy-navbar .ffy-lang-toggle {
+  font-family: 'IBM Plex Sans Arabic', 'Cairo', 'DM Sans', sans-serif !important;
+}
+
+/* Ensure dropdown menu aligns to right edge of button in RTL */
+[dir="rtl"] .ffy-nb-cat-dropdown {
+  inset-inline-start: 0;
+  inset-inline-end: auto;
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-nb-cat-dropdown a {
+  text-align: right;
+}
+
+/* Mobile menu items align right in RTL */
+[dir="rtl"] .ffy-nb-mobile-menu a {
+  text-align: right;
+}
+
+/* Active navigation item pill */
+[dir="rtl"] .ffy-navbar .ffy-nb-nav .ffy-nav-active .elementor-button {
+  font-weight: 600 !important;
+}
+
+/* ---------------------------------------------------------------
+   Hide Giant Decorative Background Word (Arabic version ONLY)
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-word,
+[dir="rtl"] .ffy-word .elementor-heading-title {
+  display: none !important;
+}
+
+/* ================================================================
+   END RTL Stylesheet
+   ================================================================ */
+
+

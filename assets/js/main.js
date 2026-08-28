@@ -120,6 +120,14 @@
       return;
     }
 
+    /* --------------------------------------------------------
+       RTL detection
+       When the HTML element has dir="rtl" (Arabic page), all
+       horizontal slide animations must be inverted so the
+       carousel moves in the correct reading direction.
+    -------------------------------------------------------- */
+    var IS_RTL = document.documentElement.getAttribute('dir') === 'rtl';
+
     /* Wait for GSAP to load */
     if (typeof gsap === 'undefined') {
       if (tries++ < 50) {
@@ -286,16 +294,21 @@
 
     applyBg();
 
+    /* In RTL mode, offscreen slides live on the LEFT side (negative xPercent),
+       so they slide in from the left. We achieve this by negating the offset. */
+    var WORD_OFF = IS_RTL ? -120 : 120;
+    var BOWL_OFF = IS_RTL ? -160 : 160;
+
     words.forEach(function (element, index) {
       gsap.set(element, {
-        xPercent: index === current ? 0 : 120,
+        xPercent: index === current ? 0 : WORD_OFF,
         opacity: index === current ? 1 : 0
       });
     });
 
     bowls.forEach(function (element, index) {
       gsap.set(element, {
-        xPercent: index === current ? 0 : 160,
+        xPercent: index === current ? 0 : BOWL_OFF,
         rotation: index === current ? 0 : 120
       });
     });
@@ -352,6 +365,10 @@
         return false;
       }
 
+      /* In RTL mode, invert horizontal motion so slides travel in the
+         culturally-correct direction (right-to-left advance). */
+      var motionDir = IS_RTL ? -dir : dir;
+
       animating = true;
 
       killIdle();
@@ -376,7 +393,7 @@
       gsap.set(inImgs, {
         opacity: 0,
         scale: 0.3,
-        x: 60 * dir,
+        x: 60 * motionDir,
         rotation: 0,
         y: 0
       });
@@ -398,8 +415,8 @@
           });
 
           gsap.set(bowls[prev], {
-            xPercent: 160 * dir,
-            rotation: 120 * dir
+            xPercent: 160 * motionDir,
+            rotation: 120 * motionDir
           });
 
           resetIng(outImgs, false);
@@ -440,7 +457,7 @@
           opacity: 1
         },
         {
-          xPercent: -120 * dir,
+          xPercent: -120 * motionDir,
           opacity: 1,
           duration: DUR,
           ease: SLIDE
@@ -451,7 +468,7 @@
       tl.fromTo(
         words[next],
         {
-          xPercent: 120 * dir,
+          xPercent: 120 * motionDir,
           opacity: 1
         },
         {
@@ -471,8 +488,8 @@
           rotation: 0
         },
         {
-          xPercent: -160 * dir,
-          rotation: -120 * dir,
+          xPercent: -160 * motionDir,
+          rotation: -120 * motionDir,
           duration: DUR,
           ease: SLIDE
         },
@@ -482,8 +499,8 @@
       tl.fromTo(
         bowls[next],
         {
-          xPercent: 160 * dir,
-          rotation: 120 * dir
+          xPercent: 160 * motionDir,
+          rotation: 120 * motionDir
         },
         {
           xPercent: 0,
@@ -673,17 +690,21 @@
           return;
         }
 
+        /* In RTL mode, ArrowLeft advances (culturally: moving forward in
+           reading direction), ArrowRight goes back. ArrowDown/Up unchanged. */
         if (event.key === 'ArrowRight') {
-          if (current < SLIDES - 1) {
-            event.preventDefault();
-            nextS();
+          if (IS_RTL) {
+            if (current > 0) { event.preventDefault(); prevS(); }
+          } else {
+            if (current < SLIDES - 1) { event.preventDefault(); nextS(); }
           }
         }
 
         if (event.key === 'ArrowLeft') {
-          if (current > 0) {
-            event.preventDefault();
-            prevS();
+          if (IS_RTL) {
+            if (current < SLIDES - 1) { event.preventDefault(); nextS(); }
+          } else {
+            if (current > 0) { event.preventDefault(); prevS(); }
           }
         }
 
@@ -846,10 +867,12 @@
           Math.abs(dx) > Math.abs(dy) &&
           Math.abs(dx) > 50
         ) {
-          if (dx < 0) {
-            nextS();
+          /* In RTL mode, swipe RIGHT advances (reading-direction forward),
+             swipe LEFT goes back — the inverse of LTR behaviour. */
+          if (IS_RTL) {
+            if (dx > 0) { nextS(); } else { prevS(); }
           } else {
-            prevS();
+            if (dx < 0) { nextS(); } else { prevS(); }
           }
         } else if (
           Math.abs(dy) > 50
@@ -988,19 +1011,34 @@
     // Reset error state
     input.style.borderColor = '';
 
+    // Read localised strings from data attributes on the form element.
+    // The Arabic page sets these; the English page leaves them unset so
+    // the fallback English strings are used.
+    var loadingText = form.getAttribute('data-loading-text') || 'Subscribing\u2026';
+    var successFont = IS_RTL
+      ? '\'IBM Plex Sans Arabic\',\'DM Sans\',sans-serif'
+      : '\'Cormorant Garamond\',serif';
+    var successHtml = form.getAttribute('data-success-html');
+    if (!successHtml) {
+      successHtml =
+        '<p style="font-family:' + successFont + ';font-size:1.25rem;color:#fff;margin:0;">' +
+        '\u2665 You\'re in! Welcome to the Berry Pure family, ' +
+        '<strong>' + email.split('@')[0] + '</strong>.' +
+        '</p>';
+    } else {
+      // Replace the {name} placeholder with the username part of the email
+      successHtml = successHtml
+        .replace('{name}', email.split('@')[0])
+        .replace('{font}', successFont);
+    }
+
     // Show loading state
-    var origText = btn.textContent;
-    btn.textContent = 'Subscribing\u2026';
+    btn.textContent = loadingText;
     btn.disabled = true;
 
     // Simulate async submission (replace with real API call as needed)
     setTimeout(function () {
-      // Success state
-      form.innerHTML =
-        '<p style="font-family:\'Cormorant Garamond\',serif;font-size:1.4rem;color:#fff;margin:0;">' +
-        '\u2665 You\'re in! Welcome to the Berry Pure family, ' +
-        '<strong>' + email.split('@')[0] + '</strong>.' +
-        '</p>';
+      form.innerHTML = successHtml;
     }, 900);
 
     return false;
@@ -1162,4 +1200,110 @@
 	} );
 } )();
 
+/* ================================================================
+   Pill Navbar — Categories Dropdown & Mobile Menu Interactions
+   ================================================================ */
+(function () {
+  'use strict';
+
+  function closeAllDropdowns() {
+    document.querySelectorAll('.ffy-nb-categories.is-open').forEach(function (wrap) {
+      wrap.classList.remove('is-open');
+      var btn = wrap.querySelector('.ffy-nb-cat-btn');
+      if (btn) { btn.setAttribute('aria-expanded', 'false'); }
+    });
+  }
+
+  function closeAllMobileMenus() {
+    document.querySelectorAll('.ffy-nb-mobile-menu.is-open').forEach(function (panel) {
+      panel.classList.remove('is-open');
+    });
+    document.querySelectorAll('.ffy-nb-hamburger.is-open').forEach(function (btn) {
+      btn.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+    document.body.style.overflow = '';
+  }
+
+  /* Categories Dropdown */
+  document.querySelectorAll('.ffy-nb-categories').forEach(function (wrap) {
+    var btn = wrap.querySelector('.ffy-nb-cat-btn');
+    if (!btn) { return; }
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = wrap.classList.contains('is-open');
+      closeAllDropdowns();
+      if (!isOpen) {
+        wrap.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  document.addEventListener('click', function () { closeAllDropdowns(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { closeAllDropdowns(); closeAllMobileMenus(); }
+  });
+
+  /* Mobile Hamburger */
+  document.querySelectorAll('.ffy-nb-hamburger').forEach(function (hamburger) {
+    var controlsId = hamburger.getAttribute('aria-controls');
+    var panel = controlsId ? document.getElementById(controlsId) : null;
+    if (!panel) { return; }
+
+    hamburger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = panel.classList.contains('is-open');
+      closeAllDropdowns(); closeAllMobileMenus();
+      if (!isOpen) {
+        panel.classList.add('is-open');
+        hamburger.classList.add('is-open');
+        hamburger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+
+    panel.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () { closeAllMobileMenus(); });
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.ffy-navbar')) { closeAllMobileMenus(); }
+  });
+
+  /* Language link anchor sync */
+  function syncLangLinks() {
+    var hash = window.location.hash || '';
+    var isArabic = document.documentElement.getAttribute('lang') === 'ar';
+    var base = isArabic ? 'index.html' : 'index-ar.html';
+    ['ffy-lang-switch-en','ffy-lang-switch-ar','ffy-lang-switch-en-mobile','ffy-lang-switch-ar-mobile'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) { el.href = base + hash; }
+    });
+  }
+  syncLangLinks();
+  window.addEventListener('hashchange', syncLangLinks);
+  window.addEventListener('popstate', syncLangLinks);
+
+  /* Sticky navbar scroll state */
+  function initNavbarScroll() {
+    var navbars = document.querySelectorAll('.ffy-navbar');
+    if (!navbars.length) { return; }
+    var onScroll = function () {
+      var isScrolled = (window.pageYOffset || document.documentElement.scrollTop) > 20;
+      navbars.forEach(function (nav) {
+        if (isScrolled) {
+          nav.classList.add('is-scrolled');
+        } else {
+          nav.classList.remove('is-scrolled');
+        }
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+  initNavbarScroll();
+
+}());
 
