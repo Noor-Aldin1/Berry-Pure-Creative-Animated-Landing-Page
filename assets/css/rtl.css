@@ -312,3 +312,220 @@
    ================================================================ */
 
 
+/* ================================================================
+   About Us & FAQ Pages — RTL Overrides
+   ================================================================ */
+
+/* ---------------------------------------------------------------
+   Page Hero — Typography & Text Alignment
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-page-hero {
+  text-align: center;
+}
+
+[dir="rtl"] .ffy-page-hero-heading {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-page-hero-desc {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+  direction: rtl;
+}
+
+/* Breadcrumb — RTL Direction */
+[dir="rtl"] .ffy-breadcrumb {
+  direction: rtl;
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .ffy-page-hero .ffy-section-label {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------------------------------------------------------------
+   About Story Section — RTL Fixes
+   --------------------------------------------------------------- */
+
+/* Story text box: padding flipped in RTL */
+[dir="rtl"] .ffy-story-text {
+  padding-left: 0;
+  padding-right: 16px;
+}
+
+/* Story badge: anchor to bottom-left in RTL (mirrors LTR bottom-right) */
+[dir="rtl"] .ffy-story-badge {
+  right: auto;
+  left: -28px;
+  bottom: -28px;
+}
+
+@media screen and (max-width: 767px) {
+  [dir="rtl"] .ffy-story-badge {
+    right: auto;
+    left: -16px;
+    bottom: -20px;
+  }
+}
+
+/* Story section: Text alignment right */
+[dir="rtl"] .ffy-story-text .ffy-section-body {
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-story-text .ffy-section-label {
+  letter-spacing: 0 !important;
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+}
+
+[dir="rtl"] .ffy-story-text .ffy-section-heading {
+  text-align: right;
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* Story stats: center alignment is direction-neutral */
+[dir="rtl"] .ffy-story-stat {
+  text-align: center;
+}
+
+[dir="rtl"] .ffy-story-stat-val {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-story-stat-lbl {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-story-badge-txt {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-story-badge-num {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+}
+
+/* ---------------------------------------------------------------
+   Values Section — RTL (centered text is direction-neutral)
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-value-title {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-value-desc {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------------------------------------------------------------
+   Milestones — RTL Font Overrides (center-aligned, dir-neutral)
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-milestone-title {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-milestone-desc {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-milestone-year {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------------------------------------------------------------
+   Team Cards — RTL
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-team-name {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-team-role {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-team-bio {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+  text-align: right;
+}
+
+/* ---------------------------------------------------------------
+   FAQ Category Tabs — RTL
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-faq-tab {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------------------------------------------------------------
+   FAQ Accordion — RTL
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-accordion-header {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .ffy-accordion-title {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-accordion-body-inner {
+  text-align: right;
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+  direction: rtl;
+}
+
+[dir="rtl"] .ffy-accordion-body-inner ul {
+  margin-right: 20px;
+  margin-left: 0;
+  padding-right: 0;
+  text-align: right;
+}
+
+/* Accordion icon: mirror rotation direction in RTL */
+[dir="rtl"] .ffy-accordion-item.is-open .ffy-accordion-icon {
+  transform: rotate(180deg);
+}
+
+/* ---------------------------------------------------------------
+   FAQ Support Card — RTL
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-faq-support h3 {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-faq-support p {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+  direction: rtl;
+}
+
+[dir="rtl"] .ffy-btn-white-outline {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-page-hero-cta {
+  flex-direction: row-reverse;
+}
+
+/* ================================================================
+   END RTL Additions for About & FAQ Pages
+   ================================================================ */
+
+
+

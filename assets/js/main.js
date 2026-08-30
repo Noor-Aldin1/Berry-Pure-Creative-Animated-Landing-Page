@@ -1158,12 +1158,89 @@
     initCopyrightYear();
     initSmoothScroll();
     initScrollSpy();
+    initAccordion();
+    initFaqFilters();
   }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', boot);
   } else {
     boot();
+  }
+
+
+  /* ----------------------------------------------------------------
+     6. FAQ Accordion — keyboard-accessible expand/collapse
+     ---------------------------------------------------------------- */
+  function initAccordion() {
+    var items = [].slice.call(document.querySelectorAll('.ffy-accordion-item'));
+    if (!items.length) { return; }
+
+    items.forEach(function (item) {
+      var header = item.querySelector('.ffy-accordion-header');
+      if (!header) { return; }
+
+      /* Click handler */
+      header.addEventListener('click', function () {
+        var isOpen = item.classList.contains('is-open');
+
+        /* Optionally close all others (accordion behavior) */
+        /* items.forEach(function(i){ i.classList.remove('is-open'); }); */
+
+        if (isOpen) {
+          item.classList.remove('is-open');
+          header.setAttribute('aria-expanded', 'false');
+        } else {
+          item.classList.add('is-open');
+          header.setAttribute('aria-expanded', 'true');
+        }
+      });
+
+      /* Keyboard: Space / Enter open/close */
+      header.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          header.click();
+        }
+      });
+
+      /* ARIA attributes */
+      header.setAttribute('role', 'button');
+      header.setAttribute('tabindex', '0');
+      header.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+
+  /* ----------------------------------------------------------------
+     7. FAQ Category Filters
+     ---------------------------------------------------------------- */
+  function initFaqFilters() {
+    var tabs = [].slice.call(document.querySelectorAll('.ffy-faq-tab'));
+    if (!tabs.length) { return; }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        /* Update active tab */
+        tabs.forEach(function (t) { t.classList.remove('is-active'); });
+        tab.classList.add('is-active');
+
+        var filter = tab.getAttribute('data-filter');
+        var items = [].slice.call(document.querySelectorAll('.ffy-accordion-item[data-category]'));
+
+        items.forEach(function (item) {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.classList.remove('is-hidden');
+          } else {
+            item.classList.add('is-hidden');
+            /* Close hidden items */
+            item.classList.remove('is-open');
+            var h = item.querySelector('.ffy-accordion-header');
+            if (h) { h.setAttribute('aria-expanded', 'false'); }
+          }
+        });
+      });
+    });
   }
 
 })();
@@ -1272,14 +1349,36 @@
     if (!e.target.closest('.ffy-navbar')) { closeAllMobileMenus(); }
   });
 
-  /* Language link anchor sync */
+  /* Language link anchor sync — supports multi-page routing */
   function syncLangLinks() {
     var hash = window.location.hash || '';
     var isArabic = document.documentElement.getAttribute('lang') === 'ar';
-    var base = isArabic ? 'index.html' : 'index-ar.html';
-    ['ffy-lang-switch-en','ffy-lang-switch-ar','ffy-lang-switch-en-mobile','ffy-lang-switch-ar-mobile'].forEach(function (id) {
+
+    /* Detect current page filename */
+    var path = window.location.pathname || '';
+    var filename = path.split('/').pop() || 'index.html';
+
+    /* Determine counterpart page:
+       about.html    <-> about-ar.html
+       faq.html      <-> faq-ar.html
+       index.html    <-> index-ar.html
+       (any -ar page) -> strip '-ar' to get EN counterpart */
+    var counterpart;
+    if (isArabic) {
+      /* Arabic -> English: remove '-ar' suffix before .html */
+      counterpart = filename.replace('-ar.html', '.html');
+    } else {
+      /* English -> Arabic: insert '-ar' before .html */
+      counterpart = filename.replace('.html', '-ar.html');
+    }
+
+    var target = counterpart + hash;
+
+    var ids = ['ffy-lang-switch-en', 'ffy-lang-switch-ar',
+               'ffy-lang-switch-en-mobile', 'ffy-lang-switch-ar-mobile'];
+    ids.forEach(function (id) {
       var el = document.getElementById(id);
-      if (el) { el.href = base + hash; }
+      if (el) { el.href = target; }
     });
   }
   syncLangLinks();

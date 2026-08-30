@@ -1559,3 +1559,876 @@ body {
 .ffy-header > .elementor-element-b8b87a1 {
   display: none !important;
 }
+
+
+/* ================================================================
+   Inner Page Hero Banner — shared by About Us & FAQ
+   ================================================================ */
+.ffy-page-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 160px 5vw 100px;
+  background: linear-gradient(160deg, #1a0008 0%, #3a0016 50%, #220010 100%);
+  text-align: center;
+}
+
+.ffy-page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 60%, rgba(201,0,53,0.22) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 85% 30%, rgba(139,0,36,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ffy-page-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* Floating decorative fruit blobs */
+.ffy-page-hero-deco {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  animation: ffy-hero-float 0.8s ease forwards;
+}
+.ffy-page-hero-deco:nth-child(1) { top: 12%; left: 4%; width: 90px; animation-delay: 0.2s; }
+.ffy-page-hero-deco:nth-child(2) { top: 18%; right: 5%; width: 80px; animation-delay: 0.4s; }
+.ffy-page-hero-deco:nth-child(3) { bottom: 8%; left: 8%; width: 70px; animation-delay: 0.6s; }
+.ffy-page-hero-deco:nth-child(4) { bottom: 14%; right: 7%; width: 60px; animation-delay: 0.5s; }
+
+.ffy-page-hero-deco img {
+  width: 100%;
+  height: auto;
+  animation: ffy-hero-idle 5s ease-in-out infinite alternate;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.5));
+}
+
+@keyframes ffy-hero-float {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ffy-hero-idle {
+  from { transform: translateY(0) rotate(-3deg); }
+  to   { transform: translateY(-12px) rotate(3deg); }
+}
+
+/* Breadcrumb */
+.ffy-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ffy-breadcrumb a {
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.ffy-breadcrumb a:hover {
+  color: #ff8aaa;
+}
+
+.ffy-breadcrumb-sep {
+  font-size: 11px;
+  opacity: 0.4;
+}
+
+.ffy-breadcrumb-current {
+  color: rgba(255,255,255,0.85);
+}
+
+/* Hero label pill */
+.ffy-page-hero .ffy-section-label {
+  color: #ff8aaa;
+  display: block;
+  margin-bottom: 18px;
+}
+
+/* Hero heading */
+.ffy-page-hero-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: #fff;
+  margin: 0 0 24px;
+  letter-spacing: -0.01em;
+}
+
+/* Hero sub-text */
+.ffy-page-hero-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto 36px;
+}
+
+/* Hero CTA row */
+.ffy-page-hero-cta {
+  display: inline-flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Wave divider at bottom of hero */
+.ffy-page-hero-wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  z-index: 2;
+}
+
+.ffy-page-hero-wave svg {
+  display: block;
+  width: 100%;
+}
+
+/* ================================================================
+   About Page — Sections
+   ================================================================ */
+
+/* ---------------------------------------------------------------
+   Origin Story Section
+   --------------------------------------------------------------- */
+.ffy-story {
+  background: #fdf8f5;
+}
+
+.ffy-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.ffy-story-img-wrap {
+  position: relative;
+  border-radius: 28px;
+  overflow: visible;
+}
+
+.ffy-story-img-wrap img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 28px;
+  display: block;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.14);
+}
+
+.ffy-story-badge {
+  position: absolute;
+  bottom: -28px;
+  right: -28px;
+  width: 130px;
+  height: 130px;
+  background: linear-gradient(135deg, #C90035 0%, #8B0024 100%);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
+  box-shadow: 0 12px 32px rgba(201,0,53,0.45);
+  border: 4px solid #fdf8f5;
+  z-index: 2;
+}
+
+.ffy-story-badge-num {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.ffy-story-badge-txt {
+  font-size: 0.6rem;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.3;
+  padding: 0 8px;
+}
+
+.ffy-story-text {
+  padding-left: 16px;
+}
+
+.ffy-story-text .ffy-section-body {
+  margin-bottom: 20px;
+}
+
+.ffy-story-stat-row {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid #e8e0d8;
+  flex-wrap: wrap;
+}
+
+.ffy-story-stat {
+  text-align: center;
+  min-width: 80px;
+}
+
+.ffy-story-stat-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #C90035;
+  line-height: 1;
+}
+
+.ffy-story-stat-lbl {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  color: #7a7a7a;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ---------------------------------------------------------------
+   Values / Craftsmanship Section
+   --------------------------------------------------------------- */
+.ffy-values {
+  background: linear-gradient(160deg, #1a0008 0%, #3a0016 50%, #1a0008 100%);
+  color: #fff;
+}
+
+.ffy-values-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.ffy-values .ffy-section-heading {
+  color: #fff;
+}
+
+.ffy-values .ffy-section-label {
+  color: #ff8aaa;
+}
+
+.ffy-values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.ffy-value-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 24px;
+  padding: 44px 32px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ffy-value-card:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.3);
+}
+
+.ffy-value-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #C90035 0%, #8B0024 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 28px;
+  box-shadow: 0 8px 28px rgba(201,0,53,0.45);
+  font-size: 2rem;
+  color: #fff;
+}
+
+.ffy-value-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 14px;
+}
+
+.ffy-value-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.75;
+}
+
+/* ---------------------------------------------------------------
+   Milestones / Timeline
+   --------------------------------------------------------------- */
+.ffy-milestones {
+  background: #fff;
+}
+
+.ffy-milestones-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.ffy-milestone-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  position: relative;
+}
+
+/* Connecting line between milestones */
+.ffy-milestone-grid::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: calc(12.5% + 14px);
+  right: calc(12.5% + 14px);
+  height: 2px;
+  background: linear-gradient(90deg, #C90035 0%, #8B0024 100%);
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.ffy-milestone-card {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.ffy-milestone-dot {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #C90035 0%, #8B0024 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  box-shadow: 0 8px 24px rgba(201,0,53,0.35);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  border: 3px solid #fff;
+  outline: 2px solid rgba(201,0,53,0.25);
+}
+
+.ffy-milestone-year {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #C90035;
+  margin-bottom: 8px;
+}
+
+.ffy-milestone-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+
+.ffy-milestone-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #6a6a6a;
+  line-height: 1.65;
+}
+
+/* ---------------------------------------------------------------
+   Team Cards
+   --------------------------------------------------------------- */
+.ffy-team {
+  background: #fdf8f5;
+}
+
+.ffy-team-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.ffy-team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.ffy-team-card {
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  text-align: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.ffy-team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.13);
+}
+
+.ffy-team-img-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+}
+
+.ffy-team-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(139,0,36,0.6) 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.ffy-team-card:hover .ffy-team-img-wrap::after {
+  opacity: 1;
+}
+
+.ffy-team-avatar {
+  width: 100%;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #C90035 0%, #8B0024 100%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.ffy-team-info {
+  padding: 24px 20px 28px;
+}
+
+.ffy-team-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 6px;
+}
+
+.ffy-team-role {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #C90035;
+  margin-bottom: 12px;
+}
+
+.ffy-team-bio {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #6a6a6a;
+  line-height: 1.65;
+}
+
+/* ================================================================
+   FAQ Page — Components
+   ================================================================ */
+
+/* ---------------------------------------------------------------
+   FAQ Category Tabs
+   --------------------------------------------------------------- */
+.ffy-faq {
+  background: #fdf8f5;
+}
+
+.ffy-faq-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.ffy-faq-tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.ffy-faq-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.825rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 9px 22px;
+  border-radius: 50px;
+  border: 2px solid #e0d0cc;
+  background: transparent;
+  color: #5a4a4a;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.ffy-faq-tab:hover {
+  border-color: #C90035;
+  color: #C90035;
+}
+
+.ffy-faq-tab.is-active {
+  background: linear-gradient(135deg, #C90035 0%, #8B0024 100%);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(201,0,53,0.35);
+}
+
+/* ---------------------------------------------------------------
+   FAQ Accordion
+   --------------------------------------------------------------- */
+.ffy-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ffy-accordion-item {
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid rgba(200,180,175,0.35);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.ffy-accordion-item.is-open {
+  box-shadow: 0 8px 32px rgba(201,0,53,0.12);
+  border-color: rgba(201,0,53,0.2);
+}
+
+.ffy-accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 28px;
+  cursor: pointer;
+  user-select: none;
+  gap: 16px;
+  transition: background 0.2s ease;
+}
+
+.ffy-accordion-header:hover {
+  background: rgba(201,0,53,0.03);
+}
+
+.ffy-accordion-item.is-open .ffy-accordion-header {
+  background: rgba(201,0,53,0.04);
+}
+
+.ffy-accordion-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.35;
+  flex: 1;
+}
+
+.ffy-accordion-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #fdf8f5 0%, #f5ebe5 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #C90035;
+  font-size: 13px;
+  flex-shrink: 0;
+  transition: background 0.3s ease, transform 0.35s cubic-bezier(0.4,0,0.2,1), color 0.3s ease;
+  border: 1px solid rgba(201,0,53,0.15);
+}
+
+.ffy-accordion-item.is-open .ffy-accordion-icon {
+  background: linear-gradient(135deg, #C90035 0%, #8B0024 100%);
+  color: #fff;
+  transform: rotate(180deg);
+  border-color: transparent;
+}
+
+.ffy-accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.3s ease;
+}
+
+.ffy-accordion-item.is-open .ffy-accordion-body {
+  max-height: 600px;
+}
+
+.ffy-accordion-body-inner {
+  padding: 4px 28px 28px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #4a4a4a;
+  line-height: 1.8;
+}
+
+.ffy-accordion-body-inner p {
+  margin: 0 0 14px;
+}
+
+.ffy-accordion-body-inner p:last-child {
+  margin-bottom: 0;
+}
+
+.ffy-accordion-body-inner ul {
+  margin: 0 0 14px 20px;
+  padding: 0;
+}
+
+.ffy-accordion-body-inner ul li {
+  margin-bottom: 6px;
+}
+
+/* FAQ category grouping — hidden when filtered */
+.ffy-faq-group {
+  display: contents;
+}
+
+.ffy-accordion-item[data-category] {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.ffy-accordion-item.is-hidden {
+  display: none;
+}
+
+/* ---------------------------------------------------------------
+   FAQ Support Card
+   --------------------------------------------------------------- */
+.ffy-faq-support {
+  background: linear-gradient(135deg, #C90035 0%, #8B0024 60%, #600019 100%);
+  border-radius: 28px;
+  padding: 56px 48px;
+  text-align: center;
+  margin-top: 64px;
+  box-shadow: 0 16px 48px rgba(201,0,53,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.ffy-faq-support::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(255,255,255,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ffy-faq-support-icon {
+  width: 72px;
+  height: 72px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-size: 1.8rem;
+  color: #fff;
+  position: relative;
+}
+
+.ffy-faq-support h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 14px;
+  position: relative;
+}
+
+.ffy-faq-support p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+  margin: 0 auto 36px;
+  max-width: 500px;
+  line-height: 1.7;
+  position: relative;
+}
+
+.ffy-faq-support-btns {
+  display: inline-flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
+
+.ffy-btn-white-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.6);
+}
+
+.ffy-btn-white-outline:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* ================================================================
+   About + FAQ Responsive Styles
+   ================================================================ */
+@media screen and (max-width: 1024px) {
+  /* Story */
+  .ffy-story-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  .ffy-story-text {
+    padding-left: 0;
+  }
+  .ffy-story-img-wrap img {
+    height: 380px;
+  }
+
+  /* Values */
+  .ffy-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Milestones */
+  .ffy-milestone-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ffy-milestone-grid::before {
+    display: none;
+  }
+
+  /* Team */
+  .ffy-team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* Page Hero */
+  .ffy-page-hero {
+    padding: 140px 6vw 80px;
+  }
+  .ffy-page-hero-deco:nth-child(1),
+  .ffy-page-hero-deco:nth-child(3) {
+    display: none;
+  }
+  .ffy-page-hero-deco:nth-child(2) { width: 60px; }
+  .ffy-page-hero-deco:nth-child(4) { width: 50px; }
+
+  /* Story badge */
+  .ffy-story-badge {
+    width: 100px;
+    height: 100px;
+    bottom: -20px;
+    right: -16px;
+  }
+
+  /* Values */
+  .ffy-values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Milestones */
+  .ffy-milestone-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Team */
+  .ffy-team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* FAQ Tabs */
+  .ffy-faq-tabs {
+    gap: 8px;
+  }
+  .ffy-faq-tab {
+    font-size: 0.78rem;
+    padding: 8px 16px;
+  }
+
+  /* FAQ Accordion */
+  .ffy-accordion-header {
+    padding: 18px 20px;
+  }
+  .ffy-accordion-body-inner {
+    padding: 4px 20px 22px;
+  }
+  .ffy-accordion-title {
+    font-size: 1.05rem;
+  }
+
+  /* FAQ Support */
+  .ffy-faq-support {
+    padding: 40px 24px;
+  }
+  .ffy-faq-support h3 {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Team: single column on small screens */
+  .ffy-team-grid {
+    grid-template-columns: 1fr;
+  }
+  .ffy-milestone-grid {
+    grid-template-columns: 1fr;
+  }
+  .ffy-faq-support-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+}
