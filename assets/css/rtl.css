@@ -528,4 +528,301 @@
    ================================================================ */
 
 
+/* ================================================================
+   Products / Menu Catalog & Product Detail — RTL Overrides
+   ================================================================ */
 
+/* ---------------------------------------------------------------
+   Catalog Search — flip icon to right in RTL
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-catalog-search {
+  padding-left: 22px;
+  padding-right: 52px;
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-catalog-search-icon {
+  left: auto;
+  right: 20px;
+}
+
+[dir="rtl"] .ffy-catalog-search::placeholder {
+  text-align: right;
+}
+
+/* ---------------------------------------------------------------
+   Catalog Filter Tabs — direction-neutral (flex-wrap handles RTL)
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-catalog-tab {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------------------------------------------------------------
+   Sort Dropdown — flip chevron to left in RTL
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-catalog-sort {
+  padding-left: 36px;
+  padding-right: 16px;
+  background-position: left 14px center;
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-catalog-sort-label {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------------------------------------------------------------
+   Product Card — flip badge to top-right in RTL (mirrors LTR top-left)
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-product-badge {
+  left: auto;
+  right: 14px;
+}
+
+[dir="rtl"] .ffy-product-name {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-product-category-pill {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-product-desc {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-product-price {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+}
+
+[dir="rtl"] .ffy-catalog-count {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+  direction: rtl;
+}
+
+/* ---------------------------------------------------------------
+   Product Detail Layout — flip columns (image right, info left)
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-pd-layout {
+  direction: rtl;
+}
+
+/* Gallery: sticky anchors to right (inline-start in RTL) */
+[dir="rtl"] .ffy-pd-gallery {
+  direction: rtl;
+}
+
+[dir="rtl"] .ffy-pd-thumb-strip {
+  direction: rtl;
+}
+
+/* ---------------------------------------------------------------
+   Product Detail Info Panel — RTL fonts & alignment
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-pd-badge {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-pd-category {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-pd-name {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-pd-tagline {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+  text-align: right;
+  font-style: normal;
+}
+
+[dir="rtl"] .ffy-pd-price-row {
+  direction: rtl;
+}
+
+[dir="rtl"] .ffy-pd-price-from {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-pd-price {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+}
+
+[dir="rtl"] .ffy-pd-description {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+  text-align: right;
+  direction: rtl;
+}
+
+/* ---------------------------------------------------------------
+   Quantity Stepper — RTL swap + / -
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-pd-qty {
+  direction: rtl;
+}
+
+[dir="rtl"] .ffy-pd-qty-label {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------------------------------------------------------------
+   CTA Buttons — RTL font overrides
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-pd-add-btn,
+[dir="rtl"] .ffy-pd-save-btn,
+[dir="rtl"] .ffy-pd-sticky-btn {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------------------------------------------------------------
+   Detail Sections — RTL text alignment
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-pd-section-title {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .ffy-pd-ing-pill {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .ffy-pd-allergen-tag {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------------------------------------------------------------
+   Nutrition Table — RTL font
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-pd-nutrition-val {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+}
+
+[dir="rtl"] .ffy-pd-nutrition-lbl {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------------------------------------------------------------
+   Related Products Section — RTL header alignment
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-pd-related .ffy-section-heading,
+[dir="rtl"] .ffy-pd-related .ffy-section-label {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------------------------------------------------------------
+   Sticky CTA Bar — RTL
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-pd-sticky-cta {
+  direction: rtl;
+}
+
+[dir="rtl"] .ffy-pd-sticky-price {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+}
+
+
+/* ================================================================
+   Contact Us & 404 Pages — RTL Overrides
+   ================================================================ */
+
+/* Contact Form RTL Typography & Alignment */
+[dir="rtl"] .ffy-contact-form-title {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-contact-form-desc,
+[dir="rtl"] .ffy-form-label,
+[dir="rtl"] .ffy-form-input,
+[dir="rtl"] .ffy-form-textarea,
+[dir="rtl"] .ffy-form-select,
+[dir="rtl"] .ffy-contact-submit,
+[dir="rtl"] .ffy-form-error,
+[dir="rtl"] .ffy-contact-card-title,
+[dir="rtl"] .ffy-contact-card-text,
+[dir="rtl"] .ffy-toast {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-form-label .required {
+  margin-right: 2px;
+  margin-left: 0;
+}
+
+[dir="rtl"] .ffy-form-select {
+  background-position: left 20px center;
+  padding-left: 44px;
+  padding-right: 22px;
+}
+
+[dir="rtl"] .ffy-form-error {
+  padding-right: 6px;
+  padding-left: 0;
+}
+
+[dir="rtl"] .ffy-contact-card-title {
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-toast {
+  left: 30px;
+  right: auto;
+}
+
+@media screen and (max-width: 767px) {
+  [dir="rtl"] .ffy-toast {
+    left: 20px;
+    right: 20px;
+  }
+}
+
+/* 404 Page RTL */
+[dir="rtl"] .ffy-404-title {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-404-desc {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+}
+
+[dir="rtl"] .ffy-404-search .ffy-catalog-search {
+  padding: 14px 52px 14px 22px;
+}
+
+[dir="rtl"] .ffy-404-search .ffy-catalog-search-icon {
+  right: 20px;
+  left: auto;
+}
+
+/* ================================================================
+   END RTL Stylesheet
+   ================================================================ */

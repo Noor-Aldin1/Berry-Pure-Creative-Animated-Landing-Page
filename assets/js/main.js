@@ -1094,59 +1094,219 @@
 
 
   /* ----------------------------------------------------------------
-     5. Scroll Spy for navigation active state
+     5. Header Navigation Active State & Scroll Tracking
      ---------------------------------------------------------------- */
   function initScrollSpy() {
+    var rawPath = (window.location.pathname || '').toLowerCase();
+    var pageName = rawPath.split('/').pop() || 'index.html';
+    if (!pageName || pageName === '/') { pageName = 'index.html'; }
+
+    // Normalize page identity
+    var pageKey = 'home';
+    if (pageName.indexOf('faq') !== -1) {
+      pageKey = 'faq';
+    } else if (pageName.indexOf('about') !== -1) {
+      pageKey = 'about';
+    } else if (pageName.indexOf('product') !== -1) {
+      pageKey = 'products';
+    } else if (pageName.indexOf('contact') !== -1) {
+      pageKey = 'contact';
+    } else {
+      pageKey = 'home';
+    }
+
     var navBtns = [].slice.call(document.querySelectorAll('.ffy-nav-btn'));
-    if (!navBtns.length) { return; }
+    var mobileLinks = [].slice.call(document.querySelectorAll('.ffy-nb-mobile-menu a'));
 
-    var sections = [
-      { id: 'ffy-root', btnIndex: 0 },
-      { id: 'ffy-about', btnIndex: 1 },
-      { id: 'ffy-flavors', btnIndex: 2 },
-      { id: 'ffy-features', btnIndex: 2 },
-      { id: 'ffy-testimonials', btnIndex: 2 },
-      { id: 'ffy-newsletter', btnIndex: 3 },
-      { id: 'ffy-footer', btnIndex: 3 }
-    ];
+    function applyActiveState(activeKey) {
+      navBtns.forEach(function (btn) {
+        var link = btn.querySelector('a');
+        if (!link) { return; }
+        var href = (link.getAttribute('href') || '').toLowerCase();
+        var isMatch = false;
 
-    function updateActiveNav() {
-      var scrollPos = window.scrollY || window.pageYOffset || 0;
-      var activeIndex = 0;
-
-      for (var i = 0; i < sections.length; i++) {
-        var el = document.getElementById(sections[i].id);
-        if (el) {
-          var rect = el.getBoundingClientRect();
-          var sectionTop = rect.top + scrollPos;
-          if (scrollPos >= sectionTop - 160) {
-            activeIndex = sections[i].btnIndex;
-          }
+        if (activeKey === 'faq' && href.indexOf('faq') !== -1) {
+          isMatch = true;
+        } else if (activeKey === 'about' && href.indexOf('about') !== -1) {
+          isMatch = true;
+        } else if (activeKey === 'products' && href.indexOf('product') !== -1) {
+          isMatch = true;
+        } else if (activeKey === 'contact' && (href.indexOf('contact') !== -1 || href.indexOf('newsletter') !== -1)) {
+          isMatch = true;
+        } else if (activeKey === 'home' && (href === 'index.html' || href === 'index-ar.html' || href === '#ffy-root' || href === './' || href === '/')) {
+          isMatch = true;
         }
-      }
 
-      // If scrolled near page bottom, activate Contact
-      if ((window.innerHeight + scrollPos) >= (document.documentElement.scrollHeight - 60)) {
-        activeIndex = 3;
-      }
+        btn.classList.toggle('ffy-nav-active', isMatch);
+      });
 
-      navBtns.forEach(function (btn, idx) {
-        btn.classList.toggle('ffy-nav-active', idx === activeIndex);
+      mobileLinks.forEach(function (link) {
+        if (link.classList.contains('ffy-lang-toggle') || (link.id && link.id.indexOf('lang') !== -1)) {
+          return;
+        }
+        var href = (link.getAttribute('href') || '').toLowerCase();
+        var isMatch = false;
+
+        if (activeKey === 'faq' && href.indexOf('faq') !== -1) {
+          isMatch = true;
+        } else if (activeKey === 'about' && href.indexOf('about') !== -1) {
+          isMatch = true;
+        } else if (activeKey === 'products' && href.indexOf('product') !== -1) {
+          isMatch = true;
+        } else if (activeKey === 'contact' && (href.indexOf('contact') !== -1 || href.indexOf('newsletter') !== -1)) {
+          isMatch = true;
+        } else if (activeKey === 'home' && (href === 'index.html' || href === 'index-ar.html' || href === '#ffy-root' || href === './' || href === '/')) {
+          isMatch = true;
+        }
+
+        link.classList.toggle('is-active', isMatch);
       });
     }
 
-    var ticking = false;
-    window.addEventListener('scroll', function () {
-      if (!ticking) {
-        window.requestAnimationFrame(function () {
-          updateActiveNav();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }, { passive: true });
+    // Set initial active state based on current page URL
+    applyActiveState(pageKey);
 
-    updateActiveNav();
+    // On homepage ONLY, dynamically update active link when scrolling to Contact/Newsletter
+    if (pageKey === 'home') {
+      var ticking = false;
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(function () {
+            var scrollPos = window.scrollY || window.pageYOffset || 0;
+            var newsletter = document.getElementById('ffy-newsletter');
+            var isContact = false;
+
+            if (newsletter) {
+              var rect = newsletter.getBoundingClientRect();
+              var sectionTop = rect.top + scrollPos;
+              if (scrollPos >= sectionTop - 250) {
+                isContact = true;
+              }
+            }
+
+            if ((window.innerHeight + scrollPos) >= (document.documentElement.scrollHeight - 80)) {
+              isContact = true;
+            }
+
+            applyActiveState(isContact ? 'contact' : 'home');
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    }
+  }
+
+
+  /* ----------------------------------------------------------------
+     5b. Contact Form Validation & Toast Notification
+     ---------------------------------------------------------------- */
+  function initContactForm() {
+    var form = document.getElementById('ffy-contact-form');
+    var toast = document.getElementById('ffy-toast');
+    if (!form) { return; }
+
+    var nameInput = document.getElementById('ffy-contact-name');
+    var emailInput = document.getElementById('ffy-contact-email');
+    var msgInput = document.getElementById('ffy-contact-message');
+    var submitBtn = form.querySelector('.ffy-contact-submit');
+
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function setFieldError(input, errorId, show) {
+      var errEl = document.getElementById(errorId);
+      if (!input) { return; }
+      if (show) {
+        input.classList.add('is-invalid');
+        if (errEl) { errEl.classList.add('is-visible'); }
+      } else {
+        input.classList.remove('is-invalid');
+        if (errEl) { errEl.classList.remove('is-visible'); }
+      }
+    }
+
+    // Live validation on blur & input
+    if (nameInput) {
+      nameInput.addEventListener('input', function () {
+        if (nameInput.value.trim().length >= 2) {
+          setFieldError(nameInput, 'ffy-name-error', false);
+        }
+      });
+    }
+
+    if (emailInput) {
+      emailInput.addEventListener('input', function () {
+        if (emailRegex.test(emailInput.value.trim())) {
+          setFieldError(emailInput, 'ffy-email-error', false);
+        }
+      });
+    }
+
+    if (msgInput) {
+      msgInput.addEventListener('input', function () {
+        if (msgInput.value.trim().length >= 10) {
+          setFieldError(msgInput, 'ffy-msg-error', false);
+        }
+      });
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var hasError = false;
+
+      // Name validation
+      if (!nameInput || nameInput.value.trim().length < 2) {
+        setFieldError(nameInput, 'ffy-name-error', true);
+        hasError = true;
+      } else {
+        setFieldError(nameInput, 'ffy-name-error', false);
+      }
+
+      // Email validation
+      if (!emailInput || !emailRegex.test(emailInput.value.trim())) {
+        setFieldError(emailInput, 'ffy-email-error', true);
+        hasError = true;
+      } else {
+        setFieldError(emailInput, 'ffy-email-error', false);
+      }
+
+      // Message validation
+      if (!msgInput || msgInput.value.trim().length < 10) {
+        setFieldError(msgInput, 'ffy-msg-error', true);
+        hasError = true;
+      } else {
+        setFieldError(msgInput, 'ffy-msg-error', false);
+      }
+
+      if (hasError) {
+        return;
+      }
+
+      // Submission state
+      var originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> &nbsp; Sending...';
+      }
+
+      setTimeout(function () {
+        // Reset form
+        form.reset();
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
+
+        // Show Toast
+        if (toast) {
+          toast.classList.add('is-visible');
+          setTimeout(function () {
+            toast.classList.remove('is-visible');
+          }, 4500);
+        }
+      }, 600);
+    });
   }
 
 
@@ -1158,8 +1318,14 @@
     initCopyrightYear();
     initSmoothScroll();
     initScrollSpy();
+    initContactForm();
     initAccordion();
     initFaqFilters();
+    initCatalogSearch();
+    initCatalogTabs();
+    initCatalogSort();
+    initProductGallery();
+    initQtyStepper();
   }
 
   if (document.readyState === 'loading') {
@@ -1241,6 +1407,222 @@
         });
       });
     });
+  }
+
+
+  /* ----------------------------------------------------------------
+     8. Catalog Search — live filter product cards
+     ---------------------------------------------------------------- */
+  function initCatalogSearch() {
+    var input = document.getElementById('ffy-catalog-search');
+    if (!input) { return; }
+
+    var empty = document.getElementById('ffy-catalog-empty');
+
+    function runFilter() {
+      var query = input.value.trim().toLowerCase();
+      var cards = [].slice.call(document.querySelectorAll('.ffy-product-card[data-name]'));
+      var visible = 0;
+
+      cards.forEach(function (card) {
+        var name = (card.getAttribute('data-name') || '').toLowerCase();
+        var cat  = (card.getAttribute('data-category') || '').toLowerCase();
+        var matches = !query || name.indexOf(query) !== -1 || cat.indexOf(query) !== -1;
+        if (matches) {
+          card.classList.remove('is-hidden');
+          visible++;
+        } else {
+          card.classList.add('is-hidden');
+        }
+      });
+
+      /* Update results count */
+      var countEl = document.getElementById('ffy-catalog-count');
+      if (countEl) {
+        countEl.innerHTML = '<strong>' + visible + '</strong> of <strong>' + cards.length + '</strong> products';
+      }
+
+      /* Show/hide empty state */
+      if (empty) {
+        if (visible === 0) {
+          empty.classList.add('is-visible');
+        } else {
+          empty.classList.remove('is-visible');
+        }
+      }
+    }
+
+    input.addEventListener('input', runFilter);
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        input.value = '';
+        runFilter();
+      }
+    });
+  }
+
+
+  /* ----------------------------------------------------------------
+     9. Catalog Category Tabs — filter by data-category
+     ---------------------------------------------------------------- */
+  function initCatalogTabs() {
+    var tabs = [].slice.call(document.querySelectorAll('.ffy-catalog-tab'));
+    if (!tabs.length) { return; }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        tabs.forEach(function (t) { t.classList.remove('is-active'); });
+        tab.classList.add('is-active');
+
+        /* Also clear search if active */
+        var searchInput = document.getElementById('ffy-catalog-search');
+        if (searchInput) { searchInput.value = ''; }
+
+        var filter = tab.getAttribute('data-filter');
+        var cards  = [].slice.call(document.querySelectorAll('.ffy-product-card[data-category]'));
+        var visible = 0;
+
+        cards.forEach(function (card) {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.classList.remove('is-hidden');
+            visible++;
+          } else {
+            card.classList.add('is-hidden');
+          }
+        });
+
+        /* Update count */
+        var countEl = document.getElementById('ffy-catalog-count');
+        if (countEl) {
+          countEl.innerHTML = '<strong>' + visible + '</strong> of <strong>' + cards.length + '</strong> products';
+        }
+
+        /* Empty state */
+        var empty = document.getElementById('ffy-catalog-empty');
+        if (empty) {
+          if (visible === 0) { empty.classList.add('is-visible'); }
+          else { empty.classList.remove('is-visible'); }
+        }
+      });
+    });
+  }
+
+
+  /* ----------------------------------------------------------------
+     10. Catalog Sort — re-order cards by price or featured
+     ---------------------------------------------------------------- */
+  function initCatalogSort() {
+    var sel = document.getElementById('ffy-catalog-sort');
+    if (!sel) { return; }
+
+    sel.addEventListener('change', function () {
+      var grid = document.querySelector('.ffy-catalog-grid');
+      if (!grid) { return; }
+
+      var cards = [].slice.call(grid.querySelectorAll('.ffy-product-card'));
+      var val = sel.value;
+
+      cards.sort(function (a, b) {
+        if (val === 'price-asc') {
+          return parseFloat(a.getAttribute('data-price') || 0) - parseFloat(b.getAttribute('data-price') || 0);
+        } else if (val === 'price-desc') {
+          return parseFloat(b.getAttribute('data-price') || 0) - parseFloat(a.getAttribute('data-price') || 0);
+        } else if (val === 'featured') {
+          var fa = a.getAttribute('data-featured') === 'true' ? 0 : 1;
+          var fb = b.getAttribute('data-featured') === 'true' ? 0 : 1;
+          return fa - fb;
+        }
+        return 0;
+      });
+
+      cards.forEach(function (card) {
+        grid.appendChild(card);
+      });
+    });
+  }
+
+
+  /* ----------------------------------------------------------------
+     11. Product Gallery — thumbnail click & image zoom
+     ---------------------------------------------------------------- */
+  function initProductGallery() {
+    var mainWrap = document.querySelector('.ffy-pd-main-img-wrap');
+    if (!mainWrap) { return; }
+
+    var mainImg    = mainWrap.querySelector('img');
+    var thumbs     = [].slice.call(document.querySelectorAll('.ffy-pd-thumb'));
+    var zoomOverlay = document.getElementById('ffy-pd-zoom');
+
+    /* Thumbnail click — swap main image */
+    thumbs.forEach(function (thumb) {
+      thumb.addEventListener('click', function () {
+        var src = thumb.getAttribute('data-src');
+        var alt = thumb.getAttribute('data-alt') || '';
+        if (!src || !mainImg) { return; }
+
+        /* Animate out */
+        mainImg.classList.add('is-changing');
+
+        setTimeout(function () {
+          mainImg.src = src;
+          mainImg.alt = alt;
+          mainImg.classList.remove('is-changing');
+        }, 180);
+
+        thumbs.forEach(function (t) { t.classList.remove('is-active'); });
+        thumb.classList.add('is-active');
+      });
+    });
+
+    /* Click main image to zoom */
+    if (zoomOverlay) {
+      var zoomImg = zoomOverlay.querySelector('img');
+
+      mainWrap.addEventListener('click', function () {
+        if (zoomImg && mainImg) { zoomImg.src = mainImg.src; }
+        zoomOverlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      });
+
+      zoomOverlay.addEventListener('click', function () {
+        zoomOverlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          zoomOverlay.classList.remove('is-open');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+  }
+
+
+  /* ----------------------------------------------------------------
+     12. Quantity Stepper
+     ---------------------------------------------------------------- */
+  function initQtyStepper() {
+    var dec = document.getElementById('ffy-qty-dec');
+    var inc = document.getElementById('ffy-qty-inc');
+    var val = document.getElementById('ffy-qty-val');
+    if (!dec || !inc || !val) { return; }
+
+    var min = 1;
+    var max = 10;
+    var current = parseInt(val.textContent, 10) || 1;
+
+    function update(n) {
+      current = Math.min(max, Math.max(min, n));
+      val.textContent = current;
+      dec.disabled = current <= min;
+      inc.disabled = current >= max;
+    }
+
+    update(current);
+
+    dec.addEventListener('click', function () { update(current - 1); });
+    inc.addEventListener('click', function () { update(current + 1); });
   }
 
 })();
