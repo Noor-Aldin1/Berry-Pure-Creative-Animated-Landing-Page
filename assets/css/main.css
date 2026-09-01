@@ -1583,6 +1583,7 @@ body {
 }
 
 .ffy-page-hero-inner {
+  color:#ffffff;
   position: relative;
   z-index: 2;
   max-width: 780px;
