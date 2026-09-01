@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Tasting Checklist — Berry Pure | Track Your Flavour Journey</title>
+  <meta name="description" content="Track every Berry Pure flavour you've tried. Check off smoothie bowls, ice cream scoops, fresh juices, and seasonal specials on your personal tasting journey." />
+  <meta name="robots" content="max-image-preview:large" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Core Theme & Layout Stylesheets -->
+  <link rel="stylesheet" href="assets/css/reset.css" media="all" />
+  <link rel="stylesheet" href="assets/css/theme.css" media="all" />
+  <link rel="stylesheet" href="assets/css/header-footer.css" media="all" />
+  <link rel="stylesheet" href="assets/css/elementor-frontend.css" media="all" />
+  <link rel="stylesheet" href="assets/css/elementor-global.css" media="all" />
+  <link rel="stylesheet" href="assets/css/elementor-page.css" media="all" />
+  <link rel="stylesheet" href="assets/css/widget-image.css" media="all" />
+  <link rel="stylesheet" href="assets/css/widget-social-icons.css" media="all" />
+  <link rel="stylesheet" href="assets/css/apple-webkit.css" media="all" />
+  <link rel="stylesheet" href="assets/css/widget-heading.css" media="all" />
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&amp;display=swap" media="all" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&amp;display=swap" media="all" />
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Custom Site Stylesheet -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body class="wp-singular page-template page-template-elementor_canvas page page-id-checklist wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-canvas elementor-kit-6 elementor-page">
+  <div class="elementor elementor-3089">
+
+    <!-- ============================================================
+         PILL NAVBAR — Fixed Glassmorphism Floating Header (English / LTR)
+         ============================================================ -->
+    <nav class="ffy-navbar" id="ffy-navbar" aria-label="Main Navigation">
+
+      <!-- Logo -->
+      <div class="ffy-nb-logo">
+        <a href="index.html" aria-label="Berry Pure / Freshify — Home">
+          <img fetchpriority="high" decoding="async"
+               src="assets/images/logo.png"
+               alt="Berry Pure / Freshify Logo"
+               width="220" height="106" />
+        </a>
+      </div>
+
+      <!-- Desktop Navigation Links -->
+      <div class="ffy-nb-nav" role="list">
+
+        <!-- Home -->
+        <div class="ffy-nav-btn" role="listitem">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="index.html">
+            <span class="elementor-button-content-wrapper">
+              <span class="elementor-button-text">Home</span>
+            </span>
+          </a>
+        </div>
+
+        <!-- About -->
+        <div class="ffy-nav-btn" role="listitem">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="about.html">
+            <span class="elementor-button-content-wrapper">
+              <span class="elementor-button-text">About</span>
+            </span>
+          </a>
+        </div>
+
+        <!-- Shop -->
+        <div class="ffy-nav-btn" role="listitem">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="products.html">
+            <span class="elementor-button-content-wrapper">
+              <span class="elementor-button-text">Shop</span>
+            </span>
+          </a>
+        </div>
+
+        <!-- FAQ -->
+        <div class="ffy-nav-btn" role="listitem">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="faq.html">
+            <span class="elementor-button-content-wrapper">
+              <span class="elementor-button-text">FAQ</span>
+            </span>
+          </a>
+        </div>
+
+        <!-- Checklist (active) -->
+        <div class="ffy-nav-btn ffy-nav-active" role="listitem">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="checklist.html">
+            <span class="elementor-button-content-wrapper">
+              <span class="elementor-button-text">Checklist</span>
+            </span>
+          </a>
+        </div>
+
+        <!-- Contact -->
+        <div class="ffy-nav-btn" role="listitem">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="contact.html">
+            <span class="elementor-button-content-wrapper">
+              <span class="elementor-button-text">Contact</span>
+            </span>
+          </a>
+        </div>
+
+        <!-- Categories dropdown -->
+        <div class="ffy-nb-categories" id="ffy-categories-en" role="listitem">
+          <button class="ffy-nb-cat-btn"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  aria-controls="ffy-cat-dropdown-en"
+                  id="ffy-cat-btn-en">
+            <span>Categories</span>
+            <i class="ffy-nb-cat-chevron fas fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="ffy-nb-cat-dropdown" id="ffy-cat-dropdown-en" role="menu">
+            <a href="products.html" role="menuitem">Smoothie Bowls</a>
+            <a href="products.html" role="menuitem">Ice Cream</a>
+            <a href="products.html" role="menuitem">Fresh Juices</a>
+            <a href="products.html" role="menuitem">Seasonal Specials</a>
+          </div>
+        </div>
+
+      </div><!-- /.ffy-nb-nav -->
+
+      <!-- Desktop Action Icons (Search, Cart, Language) -->
+      <div class="ffy-nb-actions">
+
+        <a class="elementor-icon elementor-social-icon elementor-social-icon-ti-search"
+           href="products.html" aria-label="Search" id="ffy-nb-search-en">
+          <span class="elementor-screen-only">Search</span>
+          <i aria-hidden="true" class="fas fa-search"></i>
+        </a>
+
+        <a class="elementor-icon elementor-social-icon elementor-social-icon-lnr-cart"
+           href="products.html" aria-label="Shopping Cart" id="ffy-nb-cart-en">
+          <span class="elementor-screen-only">Cart</span>
+          <i aria-hidden="true" class="fas fa-shopping-cart"></i>
+        </a>
+
+        <!-- Language Switcher (Switch to Arabic) -->
+        <a class="ffy-lang-toggle"
+           href="checklist-ar.html"
+           id="ffy-lang-switch-en"
+           aria-label="التبديل إلى العربية">
+          <span class="ffy-lang-abbr">AR</span>
+          <span class="ffy-lang-flag">&#127462;&#127466;</span>
+        </a>
+
+      </div><!-- /.ffy-nb-actions -->
+
+      <!-- Mobile hamburger -->
+      <button class="ffy-nb-hamburger"
+              id="ffy-nb-hamburger-en"
+              aria-label="Toggle mobile menu"
+              aria-expanded="false"
+              aria-controls="ffy-nb-mobile-en">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Mobile menu panel -->
+      <div class="ffy-nb-mobile-menu" id="ffy-nb-mobile-en" role="menu">
+        <a href="index.html" role="menuitem">Home</a>
+        <a href="about.html" role="menuitem">About</a>
+        <a href="products.html" role="menuitem">Shop</a>
+        <a href="faq.html" role="menuitem">FAQ</a>
+        <a href="checklist.html" class="is-active" role="menuitem">Checklist</a>
+        <a href="contact.html" role="menuitem">Contact</a>
+        <div class="ffy-nb-mobile-divider" aria-hidden="true"></div>
+        <a href="products.html" role="menuitem">🔍 Smoothie Bowls</a>
+        <a href="products.html" role="menuitem">🍦 Ice Cream</a>
+        <a href="products.html" role="menuitem">🍓 Fresh Juices</a>
+        <div class="ffy-nb-mobile-divider" aria-hidden="true"></div>
+        <a href="checklist-ar.html" id="ffy-lang-switch-en-mobile">&#127462;&#127466; العربية (AR)</a>
+      </div>
+
+    </nav><!-- /.ffy-navbar -->
+
+
+    <!-- ============================================================
+         PAGE HERO — Berry Gradient Header
+         ============================================================ -->
+    <section class="ffy-page-hero" id="ffy-checklist-hero" aria-label="Tasting Checklist Hero">
+      <!-- Decorative floating fruits -->
+      <div class="ffy-page-hero-deco" aria-hidden="true">
+        <img src="assets/images/blueberry-scoop-1.png" alt="" width="90" height="90" />
+      </div>
+      <div class="ffy-page-hero-deco" aria-hidden="true">
+        <img src="assets/images/strawberry.png" alt="" width="80" height="88" />
+      </div>
+      <div class="ffy-page-hero-deco" aria-hidden="true">
+        <img src="assets/images/mint-leaf-2.png" alt="" width="70" height="70" />
+      </div>
+      <div class="ffy-page-hero-deco" aria-hidden="true">
+        <img src="assets/images/kiwi-scoop-1.png" alt="" width="60" height="60" />
+      </div>
+
+      <div class="ffy-page-hero-inner">
+        <!-- Breadcrumb -->
+        <nav class="ffy-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="ffy-breadcrumb-sep" aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+          <span class="ffy-breadcrumb-current" aria-current="page">Checklist</span>
+        </nav>
+
+        <span class="ffy-section-label">Your Tasting Journey</span>
+        <h1 class="ffy-page-hero-heading">Berry Pure<br/>Tasting Checklist</h1>
+        <p class="ffy-page-hero-desc">
+          Track every flavour you've tried. Check off your favourites, discover new ones, and complete your Berry Pure journey!
+        </p>
+      </div>
+
+      <!-- Wave SVG -->
+      <div class="ffy-page-hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 72" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0 72V36C240 0 480 0 720 18C960 36 1200 36 1440 18V72H0Z" fill="#fdf8f5"/>
+        </svg>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 1: Interactive Checklist
+         ============================================================ -->
+    <section class="ffy-section ffy-checklist" id="ffy-checklist" aria-label="Tasting Checklist">
+      <div class="ffy-checklist-inner">
+
+        <!-- Progress Bar -->
+        <div class="ffy-cl-progress-wrap ffy-reveal">
+          <div class="ffy-cl-stats">
+            <span class="ffy-cl-stats-count">0 of 16 completed</span>
+            <span class="ffy-cl-stats-pct">0%</span>
+          </div>
+          <div class="ffy-cl-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            <div class="ffy-cl-progress-fill"></div>
+          </div>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="ffy-cl-tabs ffy-reveal" role="tablist" aria-label="Filter by category">
+          <button class="ffy-cl-tab is-active" data-filter="all" role="tab" aria-selected="true" id="ffy-cl-tab-all">
+            <i class="fas fa-list" aria-hidden="true"></i> All Items
+          </button>
+          <button class="ffy-cl-tab" data-filter="smoothie" role="tab" aria-selected="false" id="ffy-cl-tab-smoothie">
+            <i class="fas fa-bowl-food" aria-hidden="true"></i> Smoothie Bowls
+          </button>
+          <button class="ffy-cl-tab" data-filter="icecream" role="tab" aria-selected="false" id="ffy-cl-tab-icecream">
+            <i class="fas fa-ice-cream" aria-hidden="true"></i> Ice Cream
+          </button>
+          <button class="ffy-cl-tab" data-filter="juices" role="tab" aria-selected="false" id="ffy-cl-tab-juices">
+            <i class="fas fa-glass-water" aria-hidden="true"></i> Fresh Juices
+          </button>
+          <button class="ffy-cl-tab" data-filter="seasonal" role="tab" aria-selected="false" id="ffy-cl-tab-seasonal">
+            <i class="fas fa-snowflake" aria-hidden="true"></i> Seasonal Specials
+          </button>
+        </div>
+
+
+        <!-- ==================== SMOOTHIE BOWLS ==================== -->
+        <div class="ffy-cl-card ffy-reveal" data-category="smoothie">
+          <div class="ffy-cl-category-header">
+            <div class="ffy-cl-category-icon"><i class="fas fa-bowl-food" aria-hidden="true"></i></div>
+            <h2 class="ffy-cl-category-title">Smoothie Bowls</h2>
+            <span class="ffy-cl-category-count">0 / 4</span>
+            <i class="fas fa-chevron-down ffy-cl-category-chevron" aria-hidden="true"></i>
+          </div>
+          <div class="ffy-cl-items">
+
+            <div class="ffy-cl-item" data-id="smoothie-berry-pure">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-smoothie-1" aria-label="Berry Pure Classic" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">Berry Pure Classic</div>
+                <div class="ffy-cl-item-desc">Our signature mixed berry bowl</div>
+              </div>
+              <span class="ffy-cl-item-badge">Tried!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="smoothie-blue-bliss">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-smoothie-2" aria-label="Blue Bliss" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">Blue Bliss</div>
+                <div class="ffy-cl-item-desc">Blueberry &amp; açaí power bowl</div>
+              </div>
+              <span class="ffy-cl-item-badge">Tried!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="smoothie-banana-crush">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-smoothie-3" aria-label="Banana Crush" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">Banana Crush</div>
+                <div class="ffy-cl-item-desc">Banana &amp; peanut butter bowl</div>
+              </div>
+              <span class="ffy-cl-item-badge">Tried!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="smoothie-kiwi-flavor">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-smoothie-4" aria-label="Kiwi Flavor" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">Kiwi Flavor</div>
+                <div class="ffy-cl-item-desc">Kiwi &amp; spinach green bowl</div>
+              </div>
+              <span class="ffy-cl-item-badge">Tried!</span>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ==================== ICE CREAM ==================== -->
+        <div class="ffy-cl-card ffy-reveal" data-category="icecream">
+          <div class="ffy-cl-category-header">
+            <div class="ffy-cl-category-icon"><i class="fas fa-ice-cream" aria-hidden="true"></i></div>
+            <h2 class="ffy-cl-category-title">Ice Cream</h2>
+            <span class="ffy-cl-category-count">0 / 4</span>
+            <i class="fas fa-chevron-down ffy-cl-category-chevron" aria-hidden="true"></i>
+          </div>
+          <div class="ffy-cl-items">
+
+            <div class="ffy-cl-item" data-id="icecream-strawberry-swirl">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-ice-1" aria-label="Strawberry Swirl" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">Strawberry Swirl</div>
+                <div class="ffy-cl-item-desc">Hand-churned strawberry cream</div>
+              </div>
+              <span class="ffy-cl-item-badge">Tried!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="icecream-vanilla-bean">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-ice-2" aria-label="Vanilla Bean Dream" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">Vanilla Bean Dream</div>
+                <div class="ffy-cl-item-desc">Madagascar vanilla bean scoop</div>
+              </div>
+              <span class="ffy-cl-item-badge">Tried!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="icecream-choco-berry">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-ice-3" aria-label="Chocolate Berry Fusion" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">Chocolate Berry Fusion</div>
+                <div class="ffy-cl-item-desc">Dark chocolate &amp; mixed berries</div>
+              </div>
+              <span class="ffy-cl-item-badge">Tried!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="icecream-mango-sorbet">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-ice-4" aria-label="Mango Sorbet" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">Mango Sorbet</div>
+                <div class="ffy-cl-item-desc">Dairy-free tropical mango</div>
+              </div>
+              <span class="ffy-cl-item-badge">Tried!</span>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ==================== FRESH JUICES ==================== -->
+        <div class="ffy-cl-card ffy-reveal" data-category="juices">
+          <div class="ffy-cl-category-header">
+            <div class="ffy-cl-category-icon"><i class="fas fa-glass-water" aria-hidden="true"></i></div>
+            <h2 class="ffy-cl-category-title">Fresh Juices</h2>
+            <span class="ffy-cl-category-count">0 / 4</span>
+            <i class="fas fa-chevron-down ffy-cl-category-chevron" aria-hidden="true"></i>
+          </div>
+          <div class="ffy-cl-items">
+
+            <div class="ffy-cl-item" data-id="juice-sunrise-citrus">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-juice-1" aria-label="Sunrise Citrus" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">Sunrise Citrus</div>
+                <div class="ffy-cl-item-desc">Orange, grapefruit &amp; lemon</div>
+              </div>
+              <span class="ffy-cl-item-badge">Tried!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="juice-green-detox">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-juice-2" aria-label="Green Detox" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">Green Detox</div>
+                <div class="ffy-cl-item-desc">Kale, apple, ginger &amp; lime</div>
+              </div>
+              <span class="ffy-cl-item-badge">Tried!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="juice-tropical-punch">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-juice-3" aria-label="Tropical Punch" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">Tropical Punch</div>
+                <div class="ffy-cl-item-desc">Pineapple, passion fruit &amp; coconut</div>
+              </div>
+              <span class="ffy-cl-item-badge">Tried!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="juice-berry-blast">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-juice-4" aria-label="Berry Blast" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">Berry Blast</div>
+                <div class="ffy-cl-item-desc">Strawberry, raspberry &amp; cranberry</div>
+              </div>
+              <span class="ffy-cl-item-badge">Tried!</span>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ==================== SEASONAL SPECIALS ==================== -->
+        <div class="ffy-cl-card ffy-reveal" data-category="seasonal">
+          <div class="ffy-cl-category-header">
+            <div class="ffy-cl-category-icon"><i class="fas fa-snowflake" aria-hidden="true"></i></div>
+            <h2 class="ffy-cl-category-title">Seasonal Specials</h2>
+            <span class="ffy-cl-category-count">0 / 4</span>
+            <i class="fas fa-chevron-down ffy-cl-category-chevron" aria-hidden="true"></i>
+          </div>
+          <div class="ffy-cl-items">
+
+            <div class="ffy-cl-item" data-id="seasonal-winter-spice">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-season-1" aria-label="Winter Spice Bowl" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">Winter Spice Bowl</div>
+                <div class="ffy-cl-item-desc">Cinnamon, nutmeg &amp; warm berries</div>
+              </div>
+              <span class="ffy-cl-item-badge">Tried!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="seasonal-summer-acai">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-season-2" aria-label="Summer Açaí" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">Summer Açaí</div>
+                <div class="ffy-cl-item-desc">Limited edition açaí supreme</div>
+              </div>
+              <span class="ffy-cl-item-badge">Tried!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="seasonal-autumn-harvest">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-season-3" aria-label="Autumn Harvest" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">Autumn Harvest</div>
+                <div class="ffy-cl-item-desc">Pumpkin spice &amp; apple crumble</div>
+              </div>
+              <span class="ffy-cl-item-badge">Tried!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="seasonal-spring-blossom">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-season-4" aria-label="Spring Blossom" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">Spring Blossom</div>
+                <div class="ffy-cl-item-desc">Rose, lavender &amp; mixed berries</div>
+              </div>
+              <span class="ffy-cl-item-badge">Tried!</span>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- Reset Actions -->
+        <div class="ffy-cl-actions ffy-reveal">
+          <button class="ffy-cl-reset-btn" id="ffy-cl-reset" aria-label="Reset progress">
+            <i class="fas fa-rotate-left" aria-hidden="true"></i> Reset Progress
+          </button>
+        </div>
+
+        <!-- Confetti Celebration Overlay -->
+        <div class="ffy-cl-celebration" aria-hidden="true">
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div class="ffy-toast" id="ffy-toast" role="alert" aria-live="polite">
+      <i class="fas fa-check-circle" aria-hidden="true"></i>
+      <span>🎉 Congratulations! You've tried every Berry Pure flavour!</span>
+    </div>
+
+
+    <!-- ============================================================
+         SECTION 2: Newsletter CTA
+         ============================================================ -->
+    <section id="ffy-newsletter" class="ffy-newsletter" aria-label="Newsletter Sign Up">
+      <div class="ffy-newsletter-inner">
+        <div class="ffy-newsletter-text ffy-reveal">
+          <span class="ffy-section-label">Stay Fresh</span>
+          <h2 class="ffy-section-heading">Never Miss a Scoop</h2>
+          <p class="ffy-section-body">
+            Get exclusive offers, seasonal flavour alerts, and smoothie recipes straight to your inbox.<br/>
+            Join 12,000+ smoothie lovers today.
+          </p>
+        </div>
+        <form class="ffy-newsletter-form ffy-reveal" id="ffy-newsletter-form" novalidate>
+          <input
+            id="ffy-newsletter-email"
+            class="ffy-newsletter-input"
+            type="email"
+            placeholder="Enter your email address"
+            aria-label="Email address for newsletter"
+            required
+          />
+          <button type="submit" class="ffy-btn-white" id="ffy-newsletter-submit">Subscribe Free</button>
+        </form>
+        <p class="ffy-newsletter-note ffy-reveal">No spam, ever. Unsubscribe anytime. &hearts; Berry Pure</p>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 3: Footer
+         ============================================================ -->
+    <footer id="ffy-footer" class="ffy-footer" role="contentinfo">
+      <div class="ffy-footer-inner">
+
+        <div class="ffy-footer-top">
+
+          <!-- Brand Column -->
+          <div class="ffy-footer-brand">
+            <a href="index.html" aria-label="Berry Pure — Home">
+              <img src="assets/images/logo.png" alt="Berry Pure / Freshify logo" class="ffy-footer-brand-logo" loading="lazy" width="2560" height="1230" />
+            </a>
+            <p class="ffy-footer-brand-desc">
+              Handcrafted smoothies and ice cream made with the finest natural ingredients.
+              Pure passion, pure flavour — since 2012.
+            </p>
+            <div class="ffy-footer-social" role="list">
+              <a class="ffy-footer-social-link" href="#" aria-label="Instagram" role="listitem" id="ffy-social-instagram"><span class="elementor-screen-only">Instagram</span><i class="fab fa-instagram" aria-hidden="true"></i></a>
+              <a class="ffy-footer-social-link" href="#" aria-label="Facebook" role="listitem" id="ffy-social-facebook"><span class="elementor-screen-only">Facebook</span><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+              <a class="ffy-footer-social-link" href="#" aria-label="Pinterest" role="listitem" id="ffy-social-pinterest"><span class="elementor-screen-only">Pinterest</span><i class="fab fa-pinterest-p" aria-hidden="true"></i></a>
+              <a class="ffy-footer-social-link" href="#" aria-label="Twitter / X" role="listitem" id="ffy-social-twitter"><span class="elementor-screen-only">Twitter</span><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
+          <!-- Navigation Column -->
+          <div class="ffy-footer-col">
+            <h3 class="ffy-footer-col-title">Navigate</h3>
+            <ul class="ffy-footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="products.html">Our Products</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="checklist.html">Checklist</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <!-- Flavors Column -->
+          <div class="ffy-footer-col">
+            <h3 class="ffy-footer-col-title">Our Products</h3>
+            <ul class="ffy-footer-links">
+              <li><a href="product-berry-pure.html">Berry Pure</a></li>
+              <li><a href="product-blue-bliss.html">Blue Bliss</a></li>
+              <li><a href="product-banana-crush.html">Banana Crush</a></li>
+              <li><a href="product-kiwi-flavor.html">Kiwi Flavor</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Column -->
+          <div class="ffy-footer-col">
+            <h3 class="ffy-footer-col-title">Get In Touch</h3>
+            <div class="ffy-footer-contact-item"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>14 Strawberry Lane, Copenhagen, Denmark</span></div>
+            <div class="ffy-footer-contact-item"><i class="fas fa-phone" aria-hidden="true"></i><span>+45 12 34 56 78</span></div>
+            <div class="ffy-footer-contact-item"><i class="fas fa-envelope" aria-hidden="true"></i><span>hello@berrypure.com</span></div>
+            <div class="ffy-footer-contact-item"><i class="fas fa-clock" aria-hidden="true"></i><span>Mon &ndash; Sat: 8am &ndash; 8pm</span></div>
+          </div>
+
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="ffy-footer-bottom">
+          <p class="ffy-footer-copy">
+            &copy; <span id="ffy-year">2026</span> <a href="index.html">Berry Pure / Freshify</a>. All rights reserved.
+          </p>
+          <ul class="ffy-footer-bottom-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </footer>
+
+  </div><!-- /.elementor -->
+
+  <!-- GSAP -->
+  <script src="assets/js/vendor/gsap.min.js"></script>
+  <!-- Custom Site JavaScript -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

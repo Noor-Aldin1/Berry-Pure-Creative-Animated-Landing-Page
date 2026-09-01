@@ -824,5 +824,57 @@
 }
 
 /* ================================================================
+   Checklist Page — RTL Overrides
+   ================================================================ */
+
+/* Typography — Headings use Cairo, body uses IBM Plex Sans Arabic */
+[dir="rtl"] .ffy-cl-category-title {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-cl-item-title,
+[dir="rtl"] .ffy-cl-item-desc,
+[dir="rtl"] .ffy-cl-stats,
+[dir="rtl"] .ffy-cl-stats-count,
+[dir="rtl"] .ffy-cl-stats-pct,
+[dir="rtl"] .ffy-cl-tab,
+[dir="rtl"] .ffy-cl-category-count,
+[dir="rtl"] .ffy-cl-item-badge,
+[dir="rtl"] .ffy-cl-reset-btn {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* Progress bar gradient direction for RTL */
+[dir="rtl"] .ffy-cl-progress-fill {
+  background: linear-gradient(270deg, #C90035 0%, #8B0024 100%);
+}
+
+/* Shimmer animation direction for RTL */
+[dir="rtl"] .ffy-cl-progress-fill::after {
+  animation-direction: reverse;
+}
+
+/* Checkbox margin swap — checkbox on the right in RTL */
+[dir="rtl"] .ffy-cl-item {
+  flex-direction: row;
+}
+
+[dir="rtl"] .ffy-cl-checkbox-wrap {
+  order: 0;
+}
+
+/* Category header — chevron and icon alignment */
+[dir="rtl"] .ffy-cl-category-header {
+  flex-direction: row;
+}
+
+/* Strikethrough text-decoration alignment */
+[dir="rtl"] .ffy-cl-item.is-checked .ffy-cl-item-title {
+  text-decoration-color: rgba(201, 0, 53, 0.4);
+}
+
+/* ================================================================
    END RTL Stylesheet
    ================================================================ */

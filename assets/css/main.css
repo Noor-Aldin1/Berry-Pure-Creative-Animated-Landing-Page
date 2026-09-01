@@ -3838,3 +3838,529 @@ body {
 }
 
 
+/* ================================================================
+   Checklist Page — Tasting Journey Tracker
+   ================================================================ */
+
+.ffy-checklist {
+  background: #fdf8f5;
+  padding: 80px 0 100px;
+}
+
+.ffy-checklist-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------------------------------------------------------------
+   Progress Bar
+   --------------------------------------------------------------- */
+.ffy-cl-progress-wrap {
+  margin-bottom: 48px;
+}
+
+.ffy-cl-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #6a6a6a;
+}
+
+.ffy-cl-stats-count {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.ffy-cl-stats-pct {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #C90035;
+}
+
+.ffy-cl-progress-bar {
+  width: 100%;
+  height: 14px;
+  background: rgba(201, 0, 53, 0.1);
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ffy-cl-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #C90035 0%, #8B0024 100%);
+  border-radius: 100px;
+  transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.ffy-cl-progress-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%);
+  animation: ffy-cl-shimmer 2s ease-in-out infinite;
+}
+
+@keyframes ffy-cl-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ---------------------------------------------------------------
+   Category Filter Tabs (mirrors FAQ tabs pattern)
+   --------------------------------------------------------------- */
+.ffy-cl-tabs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  padding-bottom: 4px;
+}
+
+.ffy-cl-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 22px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6a6a6a;
+  background: #fff;
+  border: 1.5px solid #e8e0db;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.ffy-cl-tab i {
+  font-size: 0.8rem;
+  transition: color 0.3s ease;
+}
+
+.ffy-cl-tab:hover {
+  color: #C90035;
+  border-color: rgba(201, 0, 53, 0.35);
+  background: rgba(201, 0, 53, 0.04);
+}
+
+.ffy-cl-tab.is-active {
+  color: #fff;
+  background: linear-gradient(135deg, #C90035, #8B0024);
+  border-color: transparent;
+  box-shadow: 0 4px 16px rgba(201, 0, 53, 0.3);
+}
+
+.ffy-cl-tab.is-active i {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------------
+   Checklist Card — Glassmorphism Category Container
+   --------------------------------------------------------------- */
+.ffy-cl-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(232, 224, 219, 0.7);
+  border-radius: 28px;
+  padding: 36px 32px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.ffy-cl-card.is-hidden {
+  display: none;
+}
+
+.ffy-cl-category-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.ffy-cl-category-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #fff;
+  background: linear-gradient(135deg, #C90035, #8B0024);
+  flex-shrink: 0;
+}
+
+.ffy-cl-category-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  flex: 1;
+  line-height: 1.2;
+}
+
+.ffy-cl-category-count {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(201, 0, 53, 0.15);
+  color: #C90035;
+  padding: 4px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.ffy-cl-category-chevron {
+  font-size: 0.75rem;
+  color: #999;
+  transition: transform 0.3s ease;
+}
+
+.ffy-cl-card.is-collapsed .ffy-cl-category-chevron {
+  transform: rotate(-90deg);
+}
+
+[dir="rtl"] .ffy-cl-card.is-collapsed .ffy-cl-category-chevron {
+  transform: rotate(90deg);
+}
+
+.ffy-cl-card.is-collapsed .ffy-cl-items {
+  display: none;
+}
+
+/* ---------------------------------------------------------------
+   Checklist Item Row
+   --------------------------------------------------------------- */
+.ffy-cl-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ffy-cl-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.ffy-cl-item:hover {
+  background: rgba(201, 0, 53, 0.03);
+  transform: translateY(-1px);
+}
+
+.ffy-cl-item:active {
+  transform: translateY(0);
+}
+
+/* ---------------------------------------------------------------
+   Custom Checkbox
+   --------------------------------------------------------------- */
+.ffy-cl-checkbox-wrap {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.ffy-cl-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 2;
+  margin: 0;
+}
+
+.ffy-cl-checkmark {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2.5px solid #d4ccc7;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.ffy-cl-checkmark::after {
+  content: '\f00c';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 0.7rem;
+  color: #fff;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Checked state */
+.ffy-cl-item.is-checked .ffy-cl-checkmark {
+  background: linear-gradient(135deg, #C90035, #8B0024);
+  border-color: transparent;
+  box-shadow: 0 3px 12px rgba(201, 0, 53, 0.35);
+  transform: scale(1.05);
+}
+
+.ffy-cl-item.is-checked .ffy-cl-checkmark::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---------------------------------------------------------------
+   Item Text Content
+   --------------------------------------------------------------- */
+.ffy-cl-item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.ffy-cl-item-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.3;
+  transition: all 0.3s ease;
+}
+
+.ffy-cl-item-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  color: #8a8a8a;
+  line-height: 1.4;
+  margin-top: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Checked state text */
+.ffy-cl-item.is-checked .ffy-cl-item-title {
+  text-decoration: line-through;
+  text-decoration-color: rgba(201, 0, 53, 0.4);
+  color: #aaa;
+}
+
+.ffy-cl-item.is-checked .ffy-cl-item-desc {
+  opacity: 0.5;
+}
+
+/* Item completion badge */
+.ffy-cl-item-badge {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 100px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+  color: #2e7d32;
+  background: rgba(46, 125, 50, 0.1);
+}
+
+.ffy-cl-item.is-checked .ffy-cl-item-badge {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---------------------------------------------------------------
+   Reset Button
+   --------------------------------------------------------------- */
+.ffy-cl-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 48px;
+  padding-top: 36px;
+  border-top: 1.5px solid #e8e0db;
+}
+
+.ffy-cl-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #C90035;
+  background: transparent;
+  border: 2px solid #C90035;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ffy-cl-reset-btn:hover {
+  background: #C90035;
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(201, 0, 53, 0.3);
+  transform: translateY(-2px);
+}
+
+.ffy-cl-reset-btn:active {
+  transform: translateY(0);
+}
+
+.ffy-cl-reset-btn i {
+  font-size: 0.85rem;
+}
+
+/* ---------------------------------------------------------------
+   Confetti Celebration (CSS-only particles)
+   --------------------------------------------------------------- */
+.ffy-cl-celebration {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ffy-cl-celebration.is-active {
+  opacity: 1;
+}
+
+.ffy-cl-confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  top: -20px;
+  animation: ffy-cl-fall 3s ease-in forwards;
+}
+
+@keyframes ffy-cl-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.ffy-cl-confetti:nth-child(1) { left: 10%; background: #C90035; animation-delay: 0s; animation-duration: 2.5s; }
+.ffy-cl-confetti:nth-child(2) { left: 20%; background: #FFD700; animation-delay: 0.15s; animation-duration: 2.8s; width: 8px; height: 14px; }
+.ffy-cl-confetti:nth-child(3) { left: 30%; background: #8B0024; animation-delay: 0.3s; animation-duration: 3s; }
+.ffy-cl-confetti:nth-child(4) { left: 40%; background: #FF6B9D; animation-delay: 0.1s; animation-duration: 2.6s; width: 12px; height: 8px; }
+.ffy-cl-confetti:nth-child(5) { left: 50%; background: #2E7D32; animation-delay: 0.25s; animation-duration: 3.2s; }
+.ffy-cl-confetti:nth-child(6) { left: 60%; background: #C90035; animation-delay: 0.4s; animation-duration: 2.7s; width: 8px; height: 12px; }
+.ffy-cl-confetti:nth-child(7) { left: 70%; background: #FFD700; animation-delay: 0.05s; animation-duration: 2.9s; }
+.ffy-cl-confetti:nth-child(8) { left: 80%; background: #8B0024; animation-delay: 0.35s; animation-duration: 3.1s; width: 14px; height: 8px; }
+.ffy-cl-confetti:nth-child(9) { left: 90%; background: #FF6B9D; animation-delay: 0.2s; animation-duration: 2.4s; }
+.ffy-cl-confetti:nth-child(10) { left: 15%; background: #2E7D32; animation-delay: 0.45s; animation-duration: 3.3s; width: 10px; height: 6px; }
+.ffy-cl-confetti:nth-child(11) { left: 35%; background: #C90035; animation-delay: 0.12s; animation-duration: 2.5s; }
+.ffy-cl-confetti:nth-child(12) { left: 55%; background: #FFD700; animation-delay: 0.38s; animation-duration: 2.8s; width: 6px; height: 12px; }
+.ffy-cl-confetti:nth-child(13) { left: 75%; background: #FF6B9D; animation-delay: 0.22s; animation-duration: 3s; }
+.ffy-cl-confetti:nth-child(14) { left: 85%; background: #8B0024; animation-delay: 0.08s; animation-duration: 2.6s; width: 12px; height: 10px; }
+.ffy-cl-confetti:nth-child(15) { left: 45%; background: #2E7D32; animation-delay: 0.32s; animation-duration: 3.4s; }
+.ffy-cl-confetti:nth-child(16) { left: 25%; background: #FFD700; animation-delay: 0.18s; animation-duration: 2.3s; width: 8px; height: 8px; border-radius: 50%; }
+.ffy-cl-confetti:nth-child(17) { left: 65%; background: #C90035; animation-delay: 0.28s; animation-duration: 2.9s; border-radius: 50%; }
+.ffy-cl-confetti:nth-child(18) { left: 5%; background: #FF6B9D; animation-delay: 0.42s; animation-duration: 3.1s; }
+.ffy-cl-confetti:nth-child(19) { left: 95%; background: #8B0024; animation-delay: 0.15s; animation-duration: 2.7s; border-radius: 50%; width: 8px; height: 8px; }
+.ffy-cl-confetti:nth-child(20) { left: 48%; background: #2E7D32; animation-delay: 0.5s; animation-duration: 3.5s; width: 6px; height: 10px; }
+
+
+/* ---------------------------------------------------------------
+   Checklist Responsive Breakpoints
+   --------------------------------------------------------------- */
+@media screen and (max-width: 1024px) {
+  .ffy-cl-card {
+    padding: 30px 26px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .ffy-checklist {
+    padding: 60px 0 80px;
+  }
+
+  .ffy-cl-tabs {
+    gap: 8px;
+  }
+
+  .ffy-cl-tab {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  .ffy-cl-card {
+    padding: 24px 18px;
+    border-radius: 22px;
+    margin-bottom: 20px;
+  }
+
+  .ffy-cl-category-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    font-size: 1rem;
+  }
+
+  .ffy-cl-category-title {
+    font-size: 1.2rem;
+  }
+
+  .ffy-cl-item {
+    gap: 12px;
+    padding: 12px 14px;
+  }
+
+  .ffy-cl-checkmark {
+    width: 24px;
+    height: 24px;
+  }
+
+  .ffy-cl-checkmark::after {
+    font-size: 0.6rem;
+  }
+
+  .ffy-cl-item-title {
+    font-size: 0.9rem;
+  }
+
+  .ffy-cl-item-desc {
+    font-size: 0.78rem;
+  }
+
+  .ffy-cl-item-badge {
+    display: none;
+  }
+
+  .ffy-cl-actions {
+    margin-top: 36px;
+    padding-top: 28px;
+  }
+}
+
+

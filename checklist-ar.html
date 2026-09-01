@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>قائمة التذوق — بيري بيور | تتبع رحلة النكهات</title>
+  <meta name="description" content="تتبع كل نكهة جربتها من بيري بيور. حدد أطباق السموذي وسكوبات الآيس كريم والعصائر الطازجة والعروض الموسمية في رحلة التذوق الخاصة بك." />
+  <meta name="robots" content="max-image-preview:large" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Core Theme & Layout Stylesheets -->
+  <link rel="stylesheet" href="assets/css/reset.css" media="all" />
+  <link rel="stylesheet" href="assets/css/theme.css" media="all" />
+  <link rel="stylesheet" href="assets/css/header-footer.css" media="all" />
+  <link rel="stylesheet" href="assets/css/elementor-frontend.css" media="all" />
+  <link rel="stylesheet" href="assets/css/elementor-global.css" media="all" />
+  <link rel="stylesheet" href="assets/css/elementor-page.css" media="all" />
+  <link rel="stylesheet" href="assets/css/widget-image.css" media="all" />
+  <link rel="stylesheet" href="assets/css/widget-social-icons.css" media="all" />
+  <link rel="stylesheet" href="assets/css/apple-webkit.css" media="all" />
+  <link rel="stylesheet" href="assets/css/widget-heading.css" media="all" />
+
+  <!-- Google Fonts: Arabic (Cairo & IBM Plex Sans Arabic) + Latin -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" media="all" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,400,500,600,700&amp;display=swap" media="all" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:600,700&amp;display=swap" media="all" />
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Custom Site Stylesheet -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <!-- RTL Stylesheet (Arabic Overrides) -->
+  <link rel="stylesheet" href="assets/css/rtl.css" />
+</head>
+
+<body class="wp-singular page-template page-template-elementor_canvas page page-id-checklist-ar rtl wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-canvas elementor-kit-6 elementor-page">
+  <div class="elementor elementor-3089">
+
+    <!-- ============================================================
+         PILL NAVBAR — Fixed Glassmorphism Floating Header (Arabic / RTL)
+         ============================================================ -->
+    <nav class="ffy-navbar" id="ffy-navbar" aria-label="شريط التنقل الرئيسي">
+
+      <!-- Logo -->
+      <div class="ffy-nb-logo">
+        <a href="index-ar.html" aria-label="بيري بيور / Freshify — الرئيسية">
+          <img fetchpriority="high" decoding="async"
+               src="assets/images/logo.png"
+               alt="شعار Berry Pure / Freshify"
+               width="220" height="106" />
+        </a>
+      </div>
+
+      <!-- Desktop Navigation Links -->
+      <div class="ffy-nb-nav" role="list">
+
+        <!-- الرئيسية -->
+        <div class="ffy-nav-btn" role="listitem">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="index-ar.html">
+            <span class="elementor-button-content-wrapper">
+              <span class="elementor-button-text">الرئيسية</span>
+            </span>
+          </a>
+        </div>
+
+        <!-- من نحن -->
+        <div class="ffy-nav-btn" role="listitem">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="about-ar.html">
+            <span class="elementor-button-content-wrapper">
+              <span class="elementor-button-text">من نحن</span>
+            </span>
+          </a>
+        </div>
+
+        <!-- المتجر -->
+        <div class="ffy-nav-btn" role="listitem">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="products-ar.html">
+            <span class="elementor-button-content-wrapper">
+              <span class="elementor-button-text">المتجر</span>
+            </span>
+          </a>
+        </div>
+
+        <!-- الأسئلة الشائعة -->
+        <div class="ffy-nav-btn" role="listitem">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="faq-ar.html">
+            <span class="elementor-button-content-wrapper">
+              <span class="elementor-button-text">الأسئلة الشائعة</span>
+            </span>
+          </a>
+        </div>
+
+        <!-- قائمة التذوق (active) -->
+        <div class="ffy-nav-btn ffy-nav-active" role="listitem">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="checklist-ar.html">
+            <span class="elementor-button-content-wrapper">
+              <span class="elementor-button-text">قائمة التذوق</span>
+            </span>
+          </a>
+        </div>
+
+        <!-- تواصل معنا -->
+        <div class="ffy-nav-btn" role="listitem">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="contact-ar.html">
+            <span class="elementor-button-content-wrapper">
+              <span class="elementor-button-text">تواصل معنا</span>
+            </span>
+          </a>
+        </div>
+
+        <!-- الأقسام dropdown -->
+        <div class="ffy-nb-categories" id="ffy-categories-ar" role="listitem">
+          <button class="ffy-nb-cat-btn"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  aria-controls="ffy-cat-dropdown-ar"
+                  id="ffy-cat-btn-ar">
+            <span>الأقسام</span>
+            <i class="ffy-nb-cat-chevron fas fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="ffy-nb-cat-dropdown" id="ffy-cat-dropdown-ar" role="menu">
+            <a href="products-ar.html" role="menuitem">أطباق السموذي</a>
+            <a href="products-ar.html" role="menuitem">آيس كريم</a>
+            <a href="products-ar.html" role="menuitem">عصائر طازجة</a>
+            <a href="products-ar.html" role="menuitem">عروض موسمية</a>
+          </div>
+        </div>
+
+      </div><!-- /.ffy-nb-nav -->
+
+      <!-- Action Icons -->
+      <div class="ffy-nb-actions">
+
+        <a class="elementor-icon elementor-social-icon elementor-social-icon-ti-search"
+           href="products-ar.html" aria-label="البحث" id="ffy-nb-search-ar">
+          <span class="elementor-screen-only">البحث</span>
+          <i aria-hidden="true" class="fas fa-search"></i>
+        </a>
+
+        <a class="elementor-icon elementor-social-icon elementor-social-icon-lnr-cart"
+           href="products-ar.html" aria-label="عربة التسوق" id="ffy-nb-cart-ar">
+          <span class="elementor-screen-only">عربة التسوق</span>
+          <i aria-hidden="true" class="fas fa-shopping-cart"></i>
+        </a>
+
+        <!-- Language Switcher (Switch to English) -->
+        <a class="ffy-lang-toggle"
+           href="checklist.html"
+           id="ffy-lang-switch-ar"
+           aria-label="Switch to English">
+          <span class="ffy-lang-abbr">EN</span>
+          <span class="ffy-lang-flag">&#127468;&#127463;</span>
+        </a>
+
+      </div><!-- /.ffy-nb-actions -->
+
+      <!-- Mobile hamburger -->
+      <button class="ffy-nb-hamburger"
+              id="ffy-nb-hamburger-ar"
+              aria-label="تبديل القائمة المتنقلة"
+              aria-expanded="false"
+              aria-controls="ffy-nb-mobile-ar">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Mobile menu panel (RTL) -->
+      <div class="ffy-nb-mobile-menu" id="ffy-nb-mobile-ar" role="menu">
+        <a href="index-ar.html" role="menuitem">الرئيسية</a>
+        <a href="about-ar.html" role="menuitem">من نحن</a>
+        <a href="products-ar.html" role="menuitem">المتجر</a>
+        <a href="faq-ar.html" role="menuitem">الأسئلة الشائعة</a>
+        <a href="checklist-ar.html" class="is-active" role="menuitem">قائمة التذوق</a>
+        <a href="contact-ar.html" role="menuitem">تواصل معنا</a>
+        <div class="ffy-nb-mobile-divider" aria-hidden="true"></div>
+        <a href="products-ar.html" role="menuitem">🔍 أطباق السموذي</a>
+        <a href="products-ar.html" role="menuitem">🍦 آيس كريم</a>
+        <a href="products-ar.html" role="menuitem">🍓 عصائر طازجة</a>
+        <div class="ffy-nb-mobile-divider" aria-hidden="true"></div>
+        <a href="checklist.html" id="ffy-lang-switch-ar-mobile">&#127468;&#127463; English (EN)</a>
+      </div>
+
+    </nav><!-- /.ffy-navbar -->
+
+
+    <!-- ============================================================
+         PAGE HERO — Berry Gradient Header (Arabic)
+         ============================================================ -->
+    <section class="ffy-page-hero" id="ffy-checklist-hero" aria-label="بطل قائمة التذوق">
+      <!-- Decorative floating fruits -->
+      <div class="ffy-page-hero-deco" aria-hidden="true">
+        <img src="assets/images/blueberry-scoop-1.png" alt="" width="90" height="90" />
+      </div>
+      <div class="ffy-page-hero-deco" aria-hidden="true">
+        <img src="assets/images/strawberry.png" alt="" width="80" height="88" />
+      </div>
+      <div class="ffy-page-hero-deco" aria-hidden="true">
+        <img src="assets/images/mint-leaf-2.png" alt="" width="70" height="70" />
+      </div>
+      <div class="ffy-page-hero-deco" aria-hidden="true">
+        <img src="assets/images/kiwi-scoop-1.png" alt="" width="60" height="60" />
+      </div>
+
+      <div class="ffy-page-hero-inner">
+        <!-- Breadcrumb -->
+        <nav class="ffy-breadcrumb" aria-label="مسار التنقل">
+          <a href="index-ar.html">الرئيسية</a>
+          <span class="ffy-breadcrumb-sep" aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
+          <span class="ffy-breadcrumb-current" aria-current="page">قائمة التذوق</span>
+        </nav>
+
+        <span class="ffy-section-label">رحلة التذوق</span>
+        <h1 class="ffy-page-hero-heading">قائمة تذوق<br/>بيري بيور</h1>
+        <p class="ffy-page-hero-desc">
+          تتبع كل نكهة جربتها. حدد المفضلة لديك واكتشف نكهات جديدة وأكمل رحلتك مع بيري بيور!
+        </p>
+      </div>
+
+      <!-- Wave SVG -->
+      <div class="ffy-page-hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 72" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0 72V36C240 0 480 0 720 18C960 36 1200 36 1440 18V72H0Z" fill="#fdf8f5"/>
+        </svg>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 1: Interactive Checklist (Arabic)
+         ============================================================ -->
+    <section class="ffy-section ffy-checklist" id="ffy-checklist" aria-label="قائمة التذوق">
+      <div class="ffy-checklist-inner">
+
+        <!-- Progress Bar -->
+        <div class="ffy-cl-progress-wrap ffy-reveal">
+          <div class="ffy-cl-stats">
+            <span class="ffy-cl-stats-count">٠ من ١٦ مكتمل</span>
+            <span class="ffy-cl-stats-pct">٠٪</span>
+          </div>
+          <div class="ffy-cl-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            <div class="ffy-cl-progress-fill"></div>
+          </div>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="ffy-cl-tabs ffy-reveal" role="tablist" aria-label="تصفية حسب الفئة">
+          <button class="ffy-cl-tab is-active" data-filter="all" role="tab" aria-selected="true" id="ffy-cl-tab-all-ar">
+            <i class="fas fa-list" aria-hidden="true"></i> جميع العناصر
+          </button>
+          <button class="ffy-cl-tab" data-filter="smoothie" role="tab" aria-selected="false" id="ffy-cl-tab-smoothie-ar">
+            <i class="fas fa-bowl-food" aria-hidden="true"></i> أطباق السموذي
+          </button>
+          <button class="ffy-cl-tab" data-filter="icecream" role="tab" aria-selected="false" id="ffy-cl-tab-icecream-ar">
+            <i class="fas fa-ice-cream" aria-hidden="true"></i> آيس كريم
+          </button>
+          <button class="ffy-cl-tab" data-filter="juices" role="tab" aria-selected="false" id="ffy-cl-tab-juices-ar">
+            <i class="fas fa-glass-water" aria-hidden="true"></i> عصائر طازجة
+          </button>
+          <button class="ffy-cl-tab" data-filter="seasonal" role="tab" aria-selected="false" id="ffy-cl-tab-seasonal-ar">
+            <i class="fas fa-snowflake" aria-hidden="true"></i> عروض موسمية
+          </button>
+        </div>
+
+
+        <!-- ==================== أطباق السموذي ==================== -->
+        <div class="ffy-cl-card ffy-reveal" data-category="smoothie">
+          <div class="ffy-cl-category-header">
+            <div class="ffy-cl-category-icon"><i class="fas fa-bowl-food" aria-hidden="true"></i></div>
+            <h2 class="ffy-cl-category-title">أطباق السموذي</h2>
+            <span class="ffy-cl-category-count">٠ / ٤</span>
+            <i class="fas fa-chevron-down ffy-cl-category-chevron" aria-hidden="true"></i>
+          </div>
+          <div class="ffy-cl-items">
+
+            <div class="ffy-cl-item" data-id="smoothie-berry-pure">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-smoothie-1-ar" aria-label="بيري بيور كلاسيك" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">بيري بيور كلاسيك</div>
+                <div class="ffy-cl-item-desc">طبق التوت المشكل المميز</div>
+              </div>
+              <span class="ffy-cl-item-badge">تمت التجربة!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="smoothie-blue-bliss">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-smoothie-2-ar" aria-label="بلو بليس" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">بلو بليس</div>
+                <div class="ffy-cl-item-desc">طبق التوت الأزرق والأساي</div>
+              </div>
+              <span class="ffy-cl-item-badge">تمت التجربة!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="smoothie-banana-crush">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-smoothie-3-ar" aria-label="بانانا كراش" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">بانانا كراش</div>
+                <div class="ffy-cl-item-desc">طبق الموز وزبدة الفول السوداني</div>
+              </div>
+              <span class="ffy-cl-item-badge">تمت التجربة!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="smoothie-kiwi-flavor">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-smoothie-4-ar" aria-label="نكهة الكيوي" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">نكهة الكيوي</div>
+                <div class="ffy-cl-item-desc">طبق الكيوي والسبانخ الأخضر</div>
+              </div>
+              <span class="ffy-cl-item-badge">تمت التجربة!</span>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ==================== آيس كريم ==================== -->
+        <div class="ffy-cl-card ffy-reveal" data-category="icecream">
+          <div class="ffy-cl-category-header">
+            <div class="ffy-cl-category-icon"><i class="fas fa-ice-cream" aria-hidden="true"></i></div>
+            <h2 class="ffy-cl-category-title">آيس كريم</h2>
+            <span class="ffy-cl-category-count">٠ / ٤</span>
+            <i class="fas fa-chevron-down ffy-cl-category-chevron" aria-hidden="true"></i>
+          </div>
+          <div class="ffy-cl-items">
+
+            <div class="ffy-cl-item" data-id="icecream-strawberry-swirl">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-ice-1-ar" aria-label="دوامة الفراولة" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">دوامة الفراولة</div>
+                <div class="ffy-cl-item-desc">كريمة الفراولة المحضرة يدويًا</div>
+              </div>
+              <span class="ffy-cl-item-badge">تمت التجربة!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="icecream-vanilla-bean">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-ice-2-ar" aria-label="حلم الفانيليا" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">حلم الفانيليا</div>
+                <div class="ffy-cl-item-desc">سكوب فانيليا مدغشقر</div>
+              </div>
+              <span class="ffy-cl-item-badge">تمت التجربة!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="icecream-choco-berry">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-ice-3-ar" aria-label="فيوجن شوكولاتة التوت" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">فيوجن شوكولاتة التوت</div>
+                <div class="ffy-cl-item-desc">شوكولاتة داكنة وتوت مشكل</div>
+              </div>
+              <span class="ffy-cl-item-badge">تمت التجربة!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="icecream-mango-sorbet">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-ice-4-ar" aria-label="سوربيه المانجو" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">سوربيه المانجو</div>
+                <div class="ffy-cl-item-desc">سوربيه المانجو الاستوائي</div>
+              </div>
+              <span class="ffy-cl-item-badge">تمت التجربة!</span>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ==================== عصائر طازجة ==================== -->
+        <div class="ffy-cl-card ffy-reveal" data-category="juices">
+          <div class="ffy-cl-category-header">
+            <div class="ffy-cl-category-icon"><i class="fas fa-glass-water" aria-hidden="true"></i></div>
+            <h2 class="ffy-cl-category-title">عصائر طازجة</h2>
+            <span class="ffy-cl-category-count">٠ / ٤</span>
+            <i class="fas fa-chevron-down ffy-cl-category-chevron" aria-hidden="true"></i>
+          </div>
+          <div class="ffy-cl-items">
+
+            <div class="ffy-cl-item" data-id="juice-sunrise-citrus">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-juice-1-ar" aria-label="عصير الحمضيات" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">عصير الحمضيات</div>
+                <div class="ffy-cl-item-desc">برتقال وجريب فروت وليمون</div>
+              </div>
+              <span class="ffy-cl-item-badge">تمت التجربة!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="juice-green-detox">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-juice-2-ar" aria-label="ديتوكس أخضر" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">ديتوكس أخضر</div>
+                <div class="ffy-cl-item-desc">كيل وتفاح وزنجبيل وليمون</div>
+              </div>
+              <span class="ffy-cl-item-badge">تمت التجربة!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="juice-tropical-punch">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-juice-3-ar" aria-label="الكوكتيل الاستوائي" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">الكوكتيل الاستوائي</div>
+                <div class="ffy-cl-item-desc">أناناس وباشن فروت وجوز الهند</div>
+              </div>
+              <span class="ffy-cl-item-badge">تمت التجربة!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="juice-berry-blast">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-juice-4-ar" aria-label="انفجار التوت" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">انفجار التوت</div>
+                <div class="ffy-cl-item-desc">فراولة وتوت وتوت بري</div>
+              </div>
+              <span class="ffy-cl-item-badge">تمت التجربة!</span>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ==================== عروض موسمية ==================== -->
+        <div class="ffy-cl-card ffy-reveal" data-category="seasonal">
+          <div class="ffy-cl-category-header">
+            <div class="ffy-cl-category-icon"><i class="fas fa-snowflake" aria-hidden="true"></i></div>
+            <h2 class="ffy-cl-category-title">عروض موسمية</h2>
+            <span class="ffy-cl-category-count">٠ / ٤</span>
+            <i class="fas fa-chevron-down ffy-cl-category-chevron" aria-hidden="true"></i>
+          </div>
+          <div class="ffy-cl-items">
+
+            <div class="ffy-cl-item" data-id="seasonal-winter-spice">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-season-1-ar" aria-label="طبق توابل الشتاء" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">طبق توابل الشتاء</div>
+                <div class="ffy-cl-item-desc">قرفة وجوزة الطيب وتوت دافئ</div>
+              </div>
+              <span class="ffy-cl-item-badge">تمت التجربة!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="seasonal-summer-acai">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-season-2-ar" aria-label="أساي الصيف" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">أساي الصيف</div>
+                <div class="ffy-cl-item-desc">إصدار محدود أساي سوبريم</div>
+              </div>
+              <span class="ffy-cl-item-badge">تمت التجربة!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="seasonal-autumn-harvest">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-season-3-ar" aria-label="حصاد الخريف" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">حصاد الخريف</div>
+                <div class="ffy-cl-item-desc">توابل اليقطين وفتات التفاح</div>
+              </div>
+              <span class="ffy-cl-item-badge">تمت التجربة!</span>
+            </div>
+
+            <div class="ffy-cl-item" data-id="seasonal-spring-blossom">
+              <div class="ffy-cl-checkbox-wrap">
+                <input type="checkbox" class="ffy-cl-checkbox" id="cl-season-4-ar" aria-label="زهور الربيع" />
+                <div class="ffy-cl-checkmark"></div>
+              </div>
+              <div class="ffy-cl-item-content">
+                <div class="ffy-cl-item-title">زهور الربيع</div>
+                <div class="ffy-cl-item-desc">ورد ولافندر وتوت مشكل</div>
+              </div>
+              <span class="ffy-cl-item-badge">تمت التجربة!</span>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- Reset Actions -->
+        <div class="ffy-cl-actions ffy-reveal">
+          <button class="ffy-cl-reset-btn" id="ffy-cl-reset-ar" aria-label="إعادة تعيين التقدم">
+            <i class="fas fa-rotate-left" aria-hidden="true"></i> إعادة تعيين التقدم
+          </button>
+        </div>
+
+        <!-- Confetti Celebration Overlay -->
+        <div class="ffy-cl-celebration" aria-hidden="true">
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+          <div class="ffy-cl-confetti"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div class="ffy-toast" id="ffy-toast" role="alert" aria-live="polite">
+      <i class="fas fa-check-circle" aria-hidden="true"></i>
+      <span>🎉 تهانينا! لقد جربت جميع نكهات بيري بيور!</span>
+    </div>
+
+
+    <!-- ============================================================
+         SECTION 2: Newsletter CTA (Arabic)
+         ============================================================ -->
+    <section id="ffy-newsletter" class="ffy-newsletter" aria-label="الاشتراك في النشرة البريدية">
+      <div class="ffy-newsletter-inner">
+        <div class="ffy-newsletter-text ffy-reveal">
+          <span class="ffy-section-label">ابقَ على اطلاع</span>
+          <h2 class="ffy-section-heading">لا يفوتك أي جديد</h2>
+          <p class="ffy-section-body">
+            احصل على عروض حصرية وتنبيهات للنكهات الموسمية ووصفات السموذي مباشرة في بريدك الإلكتروني.<br/>
+            انضم إلى أكثر من ١٢,٠٠٠ عاشق للسموذي اليوم.
+          </p>
+        </div>
+        <form class="ffy-newsletter-form ffy-reveal" id="ffy-newsletter-form" novalidate>
+          <input
+            id="ffy-newsletter-email"
+            class="ffy-newsletter-input"
+            type="email"
+            placeholder="أدخل بريدك الإلكتروني"
+            aria-label="البريد الإلكتروني للنشرة البريدية"
+            required
+            dir="rtl"
+          />
+          <button type="submit" class="ffy-btn-white" id="ffy-newsletter-submit">اشترك مجانًا</button>
+        </form>
+        <p class="ffy-newsletter-note ffy-reveal">بدون رسائل مزعجة أبدًا. يمكنك إلغاء الاشتراك في أي وقت. &#x2665; بيري بيور</p>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SECTION 3: Footer (Arabic)
+         ============================================================ -->
+    <footer id="ffy-footer" class="ffy-footer" role="contentinfo" aria-label="تذييل الموقع">
+      <div class="ffy-footer-inner">
+
+        <div class="ffy-footer-top">
+
+          <!-- عمود العلامة التجارية -->
+          <div class="ffy-footer-brand">
+            <a href="index-ar.html" class="ffy-footer-brand-logo-link" aria-label="بيري بيور الرئيسية">
+              <img src="assets/images/logo.png" alt="شعار بيري بيور / Freshify" class="ffy-footer-brand-logo" loading="lazy" width="2560" height="1230" />
+            </a>
+            <p class="ffy-footer-brand-desc">
+              عصائر مثلجة وآيس كريم مصنوعة يدويًا من أجود المكونات الطبيعية.
+              شغف نقي ونكهة لا تُنسى — منذ عام ٢٠١٢.
+            </p>
+            <div class="ffy-footer-social" role="list">
+              <a class="ffy-footer-social-link" href="#" aria-label="تابعنا على انستغرام" role="listitem"><span class="elementor-screen-only">انستغرام</span><i class="fab fa-instagram" aria-hidden="true"></i></a>
+              <a class="ffy-footer-social-link" href="#" aria-label="تابعنا على فيسبوك" role="listitem"><span class="elementor-screen-only">فيسبوك</span><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+              <a class="ffy-footer-social-link" href="#" aria-label="تابعنا على بينتريست" role="listitem"><span class="elementor-screen-only">بينتريست</span><i class="fab fa-pinterest-p" aria-hidden="true"></i></a>
+              <a class="ffy-footer-social-link" href="#" aria-label="تابعنا على تويتر / إكس" role="listitem"><span class="elementor-screen-only">تويتر</span><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
+          <!-- عمود التنقل -->
+          <div class="ffy-footer-col">
+            <h3 class="ffy-footer-col-title">التنقل</h3>
+            <ul class="ffy-footer-links">
+              <li><a href="index-ar.html">الرئيسية</a></li>
+              <li><a href="about-ar.html">من نحن</a></li>
+              <li><a href="products-ar.html">منتجاتنا</a></li>
+              <li><a href="faq-ar.html">الأسئلة الشائعة</a></li>
+              <li><a href="checklist-ar.html">قائمة التذوق</a></li>
+              <li><a href="contact-ar.html">تواصل معنا</a></li>
+            </ul>
+          </div>
+
+          <!-- عمود النكهات -->
+          <div class="ffy-footer-col">
+            <h3 class="ffy-footer-col-title">منتجاتنا</h3>
+            <ul class="ffy-footer-links">
+              <li><a href="product-berry-pure-ar.html">بيري بيور</a></li>
+              <li><a href="product-blue-bliss-ar.html">بلو بليس</a></li>
+              <li><a href="product-banana-crush-ar.html">بانانا كراش</a></li>
+              <li><a href="product-kiwi-flavor-ar.html">نكهة الكيوي</a></li>
+            </ul>
+          </div>
+
+          <!-- عمود التواصل -->
+          <div class="ffy-footer-col">
+            <h3 class="ffy-footer-col-title">تواصل معنا</h3>
+            <div class="ffy-footer-contact-item"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>١٤ شارع ستروبري، كوبنهاغن، الدنمارك</span></div>
+            <div class="ffy-footer-contact-item"><i class="fas fa-phone" aria-hidden="true"></i><span dir="ltr">+45 12 34 56 78</span></div>
+            <div class="ffy-footer-contact-item"><i class="fas fa-envelope" aria-hidden="true"></i><span dir="ltr">hello@berrypure.com</span></div>
+            <div class="ffy-footer-contact-item"><i class="fas fa-clock" aria-hidden="true"></i><span>الإثنين &ndash; السبت: ٨ص &ndash; ٨م</span></div>
+          </div>
+
+        </div>
+
+        <!-- أسفل التذييل -->
+        <div class="ffy-footer-bottom">
+          <p class="ffy-footer-copy">
+            &copy; <span id="ffy-year">2026</span> <a href="index-ar.html">Berry Pure / Freshify</a>. جميع الحقوق محفوظة.
+          </p>
+          <ul class="ffy-footer-bottom-links">
+            <li><a href="#">سياسة الخصوصية</a></li>
+            <li><a href="#">شروط الخدمة</a></li>
+            <li><a href="#">إعدادات ملفات تعريف الارتباط</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </footer>
+
+  </div><!-- /.elementor -->
+
+  <!-- GSAP -->
+  <script src="assets/js/vendor/gsap.min.js"></script>
+  <!-- Custom Site JavaScript -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

@@ -1103,7 +1103,9 @@
 
     // Normalize page identity
     var pageKey = 'home';
-    if (pageName.indexOf('faq') !== -1) {
+    if (pageName.indexOf('checklist') !== -1) {
+      pageKey = 'checklist';
+    } else if (pageName.indexOf('faq') !== -1) {
       pageKey = 'faq';
     } else if (pageName.indexOf('about') !== -1) {
       pageKey = 'about';
@@ -1125,7 +1127,9 @@
         var href = (link.getAttribute('href') || '').toLowerCase();
         var isMatch = false;
 
-        if (activeKey === 'faq' && href.indexOf('faq') !== -1) {
+        if (activeKey === 'checklist' && href.indexOf('checklist') !== -1) {
+          isMatch = true;
+        } else if (activeKey === 'faq' && href.indexOf('faq') !== -1) {
           isMatch = true;
         } else if (activeKey === 'about' && href.indexOf('about') !== -1) {
           isMatch = true;
@@ -1147,7 +1151,9 @@
         var href = (link.getAttribute('href') || '').toLowerCase();
         var isMatch = false;
 
-        if (activeKey === 'faq' && href.indexOf('faq') !== -1) {
+        if (activeKey === 'checklist' && href.indexOf('checklist') !== -1) {
+          isMatch = true;
+        } else if (activeKey === 'faq' && href.indexOf('faq') !== -1) {
           isMatch = true;
         } else if (activeKey === 'about' && href.indexOf('about') !== -1) {
           isMatch = true;
@@ -1311,6 +1317,201 @@
 
 
   /* ----------------------------------------------------------------
+     5c. Checklist — Tasting Journey Tracker
+     ---------------------------------------------------------------- */
+  function initChecklist() {
+    var section = document.querySelector('.ffy-checklist');
+    if (!section) { return; }
+
+    var STORAGE_KEY = 'berrypure_checklist';
+    var items = [].slice.call(section.querySelectorAll('.ffy-cl-item'));
+    var progressFill = section.querySelector('.ffy-cl-progress-fill');
+    var statsCount = section.querySelector('.ffy-cl-stats-count');
+    var statsPct = section.querySelector('.ffy-cl-stats-pct');
+    var tabs = [].slice.call(section.querySelectorAll('.ffy-cl-tab'));
+    var cards = [].slice.call(section.querySelectorAll('.ffy-cl-card'));
+    var resetBtn = section.querySelector('.ffy-cl-reset-btn');
+    var toast = document.getElementById('ffy-toast');
+    var celebration = section.querySelector('.ffy-cl-celebration');
+    var total = items.length;
+    var isArabic = document.documentElement.getAttribute('lang') === 'ar';
+
+    /* --- Load saved state from localStorage --- */
+    function loadState() {
+      try {
+        var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+        return saved;
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveState(state) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (e) { /* quota exceeded — silently fail */ }
+    }
+
+    /* --- Update progress bar and stats --- */
+    function updateProgress() {
+      var checked = section.querySelectorAll('.ffy-cl-item.is-checked').length;
+      var pct = total > 0 ? Math.round((checked / total) * 100) : 0;
+
+      if (progressFill) {
+        progressFill.style.width = pct + '%';
+      }
+      if (statsCount) {
+        statsCount.textContent = isArabic
+          ? checked + ' من ' + total + ' مكتمل'
+          : checked + ' of ' + total + ' completed';
+      }
+      if (statsPct) {
+        statsPct.textContent = pct + '%';
+      }
+
+      /* Update per-category counts */
+      cards.forEach(function (card) {
+        var catItems = [].slice.call(card.querySelectorAll('.ffy-cl-item'));
+        var catChecked = card.querySelectorAll('.ffy-cl-item.is-checked').length;
+        var countEl = card.querySelector('.ffy-cl-category-count');
+        if (countEl) {
+          countEl.textContent = catChecked + ' / ' + catItems.length;
+        }
+      });
+
+      /* 100% celebration */
+      if (pct === 100 && checked > 0) {
+        triggerCelebration();
+      }
+    }
+
+    /* --- Celebration: confetti + toast --- */
+    function triggerCelebration() {
+      if (celebration) {
+        celebration.classList.add('is-active');
+        setTimeout(function () {
+          celebration.classList.remove('is-active');
+        }, 4000);
+      }
+      if (toast) {
+        toast.classList.add('is-visible');
+        setTimeout(function () {
+          toast.classList.remove('is-visible');
+        }, 5000);
+      }
+    }
+
+    /* --- Toggle item checked state --- */
+    function toggleItem(item) {
+      var isChecked = item.classList.contains('is-checked');
+      var checkbox = item.querySelector('.ffy-cl-checkbox');
+      var itemId = item.getAttribute('data-id');
+
+      if (isChecked) {
+        item.classList.remove('is-checked');
+        if (checkbox) { checkbox.checked = false; }
+      } else {
+        item.classList.add('is-checked');
+        if (checkbox) { checkbox.checked = true; }
+      }
+
+      /* Save to localStorage */
+      var state = loadState();
+      state[itemId] = !isChecked;
+      saveState(state);
+
+      updateProgress();
+    }
+
+    /* --- Restore saved state --- */
+    var savedState = loadState();
+    items.forEach(function (item) {
+      var itemId = item.getAttribute('data-id');
+      if (savedState[itemId]) {
+        item.classList.add('is-checked');
+        var checkbox = item.querySelector('.ffy-cl-checkbox');
+        if (checkbox) { checkbox.checked = true; }
+      }
+    });
+
+    /* --- Attach click handlers to items --- */
+    items.forEach(function (item) {
+      item.addEventListener('click', function (e) {
+        /* Don't toggle if user clicked a link inside the item */
+        if (e.target.tagName === 'A') { return; }
+        toggleItem(item);
+      });
+
+      /* Keyboard: Space / Enter */
+      item.setAttribute('role', 'checkbox');
+      item.setAttribute('tabindex', '0');
+      item.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleItem(item);
+        }
+      });
+    });
+
+    /* --- Category filter tabs --- */
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        tabs.forEach(function (t) { t.classList.remove('is-active'); });
+        tab.classList.add('is-active');
+
+        var filter = tab.getAttribute('data-filter');
+        cards.forEach(function (card) {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.classList.remove('is-hidden');
+          } else {
+            card.classList.add('is-hidden');
+          }
+        });
+      });
+    });
+
+    /* --- Collapsible category headers --- */
+    cards.forEach(function (card) {
+      var header = card.querySelector('.ffy-cl-category-header');
+      if (!header) { return; }
+      header.addEventListener('click', function () {
+        card.classList.toggle('is-collapsed');
+      });
+      header.setAttribute('role', 'button');
+      header.setAttribute('tabindex', '0');
+      header.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.classList.toggle('is-collapsed');
+        }
+      });
+    });
+
+    /* --- Reset button --- */
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function () {
+        var confirmMsg = isArabic
+          ? 'هل أنت متأكد من إعادة تعيين تقدمك؟'
+          : 'Are you sure you want to reset your progress?';
+        if (!confirm(confirmMsg)) { return; }
+
+        items.forEach(function (item) {
+          item.classList.remove('is-checked');
+          var checkbox = item.querySelector('.ffy-cl-checkbox');
+          if (checkbox) { checkbox.checked = false; }
+        });
+
+        try { localStorage.removeItem(STORAGE_KEY); } catch (e) { }
+        updateProgress();
+      });
+    }
+
+    /* --- Initial progress calculation --- */
+    updateProgress();
+  }
+
+
+  /* ----------------------------------------------------------------
      Boot — run after DOM is ready
      ---------------------------------------------------------------- */
   function boot() {
@@ -1319,6 +1520,7 @@
     initSmoothScroll();
     initScrollSpy();
     initContactForm();
+    initChecklist();
     initAccordion();
     initFaqFilters();
     initCatalogSearch();
