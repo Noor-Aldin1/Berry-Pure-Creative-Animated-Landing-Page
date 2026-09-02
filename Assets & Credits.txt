@@ -1,0 +1,149 @@
+================================================================================
+BERRY PURE — ASSETS & CREDITS
+================================================================================
+
+This document lists all third-party libraries, fonts, and media assets
+utilized within the Berry Pure HTML5 template.
+
+--------------------------------------------------------------------------------
+1. THIRD-PARTY LIBRARIES & FRAMEWORKS
+--------------------------------------------------------------------------------
+
+* GSAP (GreenSock Animation Platform) v3.12.5
+  - Source: https://greensock.com / https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js
+  - License: GreenSock Standard "No Charge" License
+  - Terms: https://greensock.com/standard-license / https://greensock.com/licensing
+
+* Font Awesome 6 Free
+  - Source: https://fontawesome.com / https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css
+  - License:
+    - Icons: CC BY 4.0 License (https://creativecommons.org/licenses/by/4.0/)
+    - Fonts: SIL OFL 1.1 (http://scripts.sil.org/OFL)
+    - Code: MIT License (https://opensource.org/licenses/MIT)
+
+--------------------------------------------------------------------------------
+2. TYPOGRAPHY (GOOGLE FONTS)
+--------------------------------------------------------------------------------
+
+* DM Sans
+  - Designed by Colophon Foundry, Jonny Pinhorn
+  - License: SIL Open Font License, 1.1 (https://openfontlicense.org)
+  - URL: https://fonts.google.com/specimen/DM+Sans
+
+* Cormorant Garamond
+  - Designed by Christian Thalmann
+  - License: SIL Open Font License, 1.1 (https://openfontlicense.org)
+  - URL: https://fonts.google.com/specimen/Cormorant+Garamond
+
+* Cairo (Arabic Typography)
+  - Designed by Mohamed Gaber, Accademia di Belle Arti di Urbino
+  - License: SIL Open Font License, 1.1 (https://openfontlicense.org)
+  - URL: https://fonts.google.com/specimen/Cairo
+
+* IBM Plex Sans Arabic (Arabic Typography)
+  - Designed by Mike Abbink, Bold Monday
+  - License: SIL Open Font License, 1.1 (https://openfontlicense.org)
+  - URL: https://fonts.google.com/specimen/IBM+Plex+Sans+Arabic
+
+--------------------------------------------------------------------------------
+3. IMAGE & GRAPHIC ASSETS (assets/images/)
+--------------------------------------------------------------------------------
+
+All image assets located in `assets/images/` are transparent PNGs prepared
+specifically for the animated interactive smoothie bowl showcase and brand identity.
+
+  1. assets/images/banana-bowl.png
+     - Description: Banana smoothie bowl with banana slices and granola
+     - Source: AI-generated (Google Gemini / ChatGPT DALL-E)
+     - License: Commercial use permitted per platform terms of service
+
+  2. assets/images/banana-scoop-1.png
+     - Description: Artisanal banana ice cream scoop 1
+     - Source: AI-generated (Google Gemini / ChatGPT DALL-E)
+     - License: Commercial use permitted per platform terms of service
+
+  3. assets/images/banana-scoop-2.png
+     - Description: Artisanal banana ice cream scoop 2
+     - Source: AI-generated (Google Gemini / ChatGPT DALL-E)
+     - License: Commercial use permitted per platform terms of service
+
+  4. assets/images/blueberry-bowl.png
+     - Description: Blueberry smoothie bowl with fresh berries
+     - Source: AI-generated (Google Gemini / ChatGPT DALL-E)
+     - License: Commercial use permitted per platform terms of service
+
+  5. assets/images/blueberry-scoop-1.png
+     - Description: Artisanal blueberry ice cream scoop 1
+     - Source: AI-generated (Google Gemini / ChatGPT DALL-E)
+     - License: Commercial use permitted per platform terms of service
+
+  6. assets/images/blueberry-scoop-2.png
+     - Description: Artisanal blueberry ice cream scoop 2
+     - Source: AI-generated (Google Gemini / ChatGPT DALL-E)
+     - License: Commercial use permitted per platform terms of service
+
+  7. assets/images/blueberry-scoop-3.png
+     - Description: Artisanal blueberry ice cream scoop 3
+     - Source: AI-generated (Google Gemini / ChatGPT DALL-E)
+     - License: Commercial use permitted per platform terms of service
+
+  8. assets/images/chocolate-piece.png
+     - Description: Floating artisan white chocolate confection piece
+     - Source: AI-generated (Google Gemini / ChatGPT DALL-E)
+     - License: Commercial use permitted per platform terms of service
+
+  9. assets/images/kiwi-bowl.png
+     - Description: Kiwi & lime smoothie bowl with kiwi slices
+     - Source: AI-generated (Google Gemini / ChatGPT DALL-E)
+     - License: Commercial use permitted per platform terms of service
+
+ 10. assets/images/kiwi-scoop-1.png
+     - Description: Artisanal kiwi sorbet scoop 1
+     - Source: AI-generated (Google Gemini / ChatGPT DALL-E)
+     - License: Commercial use permitted per platform terms of service
+
+ 11. assets/images/kiwi-scoop-2.png
+     - Description: Artisanal kiwi sorbet scoop 2
+     - Source: AI-generated (Google Gemini / ChatGPT DALL-E)
+     - License: Commercial use permitted per platform terms of service
+
+ 12. assets/images/logo.png
+     - Description: Berry Pure brand identity logo
+     - Source: AI-generated (Google Gemini / ChatGPT DALL-E)
+     - License: Commercial use permitted per platform terms of service
+
+ 13. assets/images/mint-leaf-1.png
+     - Description: Fresh green mint leaf botanical garnish 1
+     - Source: AI-generated (Google Gemini / ChatGPT DALL-E)
+     - License: Commercial use permitted per platform terms of service
+
+ 14. assets/images/mint-leaf-2.png
+     - Description: Fresh green mint leaf botanical garnish 2
+     - Source: AI-generated (Google Gemini / ChatGPT DALL-E)
+     - License: Commercial use permitted per platform terms of service
+
+ 15. assets/images/strawberry-bowl.png
+     - Description: Signature strawberry smoothie bowl with strawberries
+     - Source: AI-generated (Google Gemini / ChatGPT DALL-E)
+     - License: Commercial use permitted per platform terms of service
+
+ 16. assets/images/strawberry-scoop.png
+     - Description: Artisanal strawberry ice cream scoop
+     - Source: AI-generated (Google Gemini / ChatGPT DALL-E)
+     - License: Commercial use permitted per platform terms of service
+
+ 17. assets/images/strawberry.png
+     - Description: Fresh whole floating strawberry garnish
+     - Source: AI-generated (Google Gemini / ChatGPT DALL-E)
+     - License: Commercial use permitted per platform terms of service
+
+================================================================================
+NOTE ON AI-GENERATED IMAGES
+================================================================================
+All images in this template were generated using Google Gemini and/or 
+OpenAI ChatGPT (DALL-E). Both platforms' terms of service, as verified 
+at the time of this product's release, permit commercial use of 
+generated images. These images do not carry exclusive copyright 
+ownership under current copyright law, as they are fully AI-generated 
+with no additional human editing.
+================================================================================

@@ -1,5 +1,5 @@
 /* ================================================================
-   Freshify Smoothie Slider
+   Berry Pure Smoothie Slider
    ================================================================
    A 4-slide GSAP-powered carousel built inside Elementor.
 
@@ -1317,197 +1317,434 @@
 
 
   /* ----------------------------------------------------------------
-     5c. Checklist — Tasting Journey Tracker
+     5c. Product Checklist — Product-Specific Setup Tracker
+     ----------------------------------------------------------------
+     Reads ?product=<id> from the URL query string.
+     Looks up the product in window.FFY_PRODUCTS and the checklist
+     items in window.FFY_CHECKLIST_DATA.
+     Renders the checklist dynamically into #ffy-pcl-root.
+     Persists checked state per product in localStorage:
+       Key: berrypure_checklist_<productId>
+       Value: { '<sectionId>__<itemId>': true }
      ---------------------------------------------------------------- */
   function initChecklist() {
-    var section = document.querySelector('.ffy-checklist');
-    if (!section) { return; }
+    var root = document.getElementById('ffy-pcl-root');
+    if (!root) { return; }
 
-    var STORAGE_KEY = 'berrypure_checklist';
-    var items = [].slice.call(section.querySelectorAll('.ffy-cl-item'));
-    var progressFill = section.querySelector('.ffy-cl-progress-fill');
-    var statsCount = section.querySelector('.ffy-cl-stats-count');
-    var statsPct = section.querySelector('.ffy-cl-stats-pct');
-    var tabs = [].slice.call(section.querySelectorAll('.ffy-cl-tab'));
-    var cards = [].slice.call(section.querySelectorAll('.ffy-cl-card'));
-    var resetBtn = section.querySelector('.ffy-cl-reset-btn');
-    var toast = document.getElementById('ffy-toast');
-    var celebration = section.querySelector('.ffy-cl-celebration');
-    var total = items.length;
     var isArabic = document.documentElement.getAttribute('lang') === 'ar';
 
-    /* --- Load saved state from localStorage --- */
-    function loadState() {
-      try {
-        var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-        return saved;
-      } catch (e) {
-        return {};
-      }
-    }
-
-    function saveState(state) {
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-      } catch (e) { /* quota exceeded — silently fail */ }
-    }
-
-    /* --- Update progress bar and stats --- */
-    function updateProgress() {
-      var checked = section.querySelectorAll('.ffy-cl-item.is-checked').length;
-      var pct = total > 0 ? Math.round((checked / total) * 100) : 0;
-
-      if (progressFill) {
-        progressFill.style.width = pct + '%';
-      }
-      if (statsCount) {
-        statsCount.textContent = isArabic
-          ? checked + ' من ' + total + ' مكتمل'
-          : checked + ' of ' + total + ' completed';
-      }
-      if (statsPct) {
-        statsPct.textContent = pct + '%';
-      }
-
-      /* Update per-category counts */
-      cards.forEach(function (card) {
-        var catItems = [].slice.call(card.querySelectorAll('.ffy-cl-item'));
-        var catChecked = card.querySelectorAll('.ffy-cl-item.is-checked').length;
-        var countEl = card.querySelector('.ffy-cl-category-count');
-        if (countEl) {
-          countEl.textContent = catChecked + ' / ' + catItems.length;
+    /* ---- 1. Read ?product= from URL ---- */
+    var params = {};
+    try {
+      var search = window.location.search.slice(1);
+      search.split('&').forEach(function (pair) {
+        var parts = pair.split('=');
+        if (parts.length === 2) {
+          params[decodeURIComponent(parts[0])] = decodeURIComponent(parts[1]);
         }
       });
+    } catch (e) { /* ignore malformed URL */ }
 
-      /* 100% celebration */
-      if (pct === 100 && checked > 0) {
-        triggerCelebration();
-      }
+    var productId = params['product'] || '';
+
+    /* ---- Preserve ?product= in language switcher links ---- */
+    if (productId) {
+      var langIds = [
+        'ffy-lang-switch-en', 'ffy-lang-switch-ar',
+        'ffy-lang-switch-en-mobile', 'ffy-lang-switch-ar-mobile'
+      ];
+      langIds.forEach(function (id) {
+        var el = document.getElementById(id);
+        if (!el) { return; }
+        var href = el.getAttribute('href') || '';
+        if (href.indexOf('?') === -1) {
+          el.setAttribute('href', href + '?product=' + encodeURIComponent(productId));
+        }
+      });
     }
 
-    /* --- Celebration: confetti + toast --- */
-    function triggerCelebration() {
-      if (celebration) {
-        celebration.classList.add('is-active');
-        setTimeout(function () {
-          celebration.classList.remove('is-active');
-        }, 4000);
-      }
-      if (toast) {
-        toast.classList.add('is-visible');
-        setTimeout(function () {
-          toast.classList.remove('is-visible');
-        }, 5000);
-      }
+    /* ---- 2. Look up product in FFY_PRODUCTS ---- */
+    var products = (window.FFY_PRODUCTS || []);
+    var product = null;
+    for (var pi = 0; pi < products.length; pi++) {
+      if (products[pi].id === productId) { product = products[pi]; break; }
     }
 
-    /* --- Toggle item checked state --- */
-    function toggleItem(item) {
-      var isChecked = item.classList.contains('is-checked');
-      var checkbox = item.querySelector('.ffy-cl-checkbox');
-      var itemId = item.getAttribute('data-id');
+    /* ---- 3. Look up checklist data ---- */
+    var clData = (window.FFY_CHECKLIST_DATA && window.FFY_CHECKLIST_DATA[productId]) || null;
 
-      if (isChecked) {
-        item.classList.remove('is-checked');
-        if (checkbox) { checkbox.checked = false; }
-      } else {
-        item.classList.add('is-checked');
-        if (checkbox) { checkbox.checked = true; }
-      }
-
-      /* Save to localStorage */
-      var state = loadState();
-      state[itemId] = !isChecked;
-      saveState(state);
-
-      updateProgress();
+    /* ---- 4. Render error/empty state if needed ---- */
+    if (!productId) {
+      renderNoProduct();
+      return;
+    }
+    if (!product) {
+      renderNotFound(productId);
+      return;
+    }
+    if (!clData || !clData.sections || !clData.sections.length) {
+      renderNoChecklist(product);
+      return;
     }
 
-    /* --- Restore saved state --- */
-    var savedState = loadState();
-    items.forEach(function (item) {
-      var itemId = item.getAttribute('data-id');
-      if (savedState[itemId]) {
-        item.classList.add('is-checked');
-        var checkbox = item.querySelector('.ffy-cl-checkbox');
-        if (checkbox) { checkbox.checked = true; }
-      }
-    });
+    /* ---- 5. Update hero heading / breadcrumb with product name ---- */
+    var heroTitle = document.getElementById('ffy-pcl-hero-title');
+    var heroDesc  = document.getElementById('ffy-pcl-hero-desc');
+    var breadcrumb = document.getElementById('ffy-pcl-breadcrumb-product');
+    var productName = isArabic ? product.name_ar : product.name_en;
+    var productTagline = isArabic ? product.tagline_ar : product.tagline_en;
 
-    /* --- Attach click handlers to items --- */
-    items.forEach(function (item) {
-      item.addEventListener('click', function (e) {
-        /* Don't toggle if user clicked a link inside the item */
-        if (e.target.tagName === 'A') { return; }
-        toggleItem(item);
+    if (heroTitle) {
+      heroTitle.innerHTML = (isArabic ? 'قائمة<br/>' : 'Checklist<br/>') + productName;
+    }
+    if (heroDesc) {
+      heroDesc.textContent = productTagline;
+    }
+    if (breadcrumb) {
+      breadcrumb.textContent = isArabic
+        ? 'قائمة ' + productName
+        : productName + ' Checklist';
+    }
+
+    /* ---- 6. State helpers ---- */
+    var STORAGE_KEY = 'berrypure_checklist_' + productId;
+
+    function loadState() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+      catch (e) { return {}; }
+    }
+    function saveState(state) {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+      catch (e) { /* quota exceeded */ }
+    }
+
+    /* ---- 7. Build item list (flat, for progress counting) ---- */
+    var allItems = [];   /* { el, stateKey } */
+
+    /* ---- 8. Render the full checklist HTML ---- */
+    var html = '';
+
+    /* Back nav */
+    var backHref = isArabic ? 'products-ar.html' : 'products.html';
+    var backIcon = isArabic ? 'fa-arrow-right' : 'fa-arrow-left';
+    var backLabel = isArabic ? 'العودة إلى المنتجات' : 'Back to Products';
+
+    html += '<div class="ffy-pcl-back-nav ffy-reveal">';
+    html += '<a href="' + backHref + '" class="ffy-pcl-back-link" id="ffy-pcl-back-btn">';
+    html += '<i class="fas ' + backIcon + '" aria-hidden="true"></i> ' + escHtml(backLabel);
+    html += '</a></div>';
+
+    /* Product header */
+    var badgeText = isArabic ? (product.badge_ar || '') : (product.badge_en || '');
+    var badgeColor = product.badgeColor || '#C90035';
+    var catText = isArabic ? (product.category_ar || '') : (product.category_en || '');
+    var imgSrc = product.image_main || '';
+    var imgAlt = isArabic ? (product.image_alt_ar || productName) : (product.image_alt_en || productName);
+    var descText = isArabic ? (product.description_ar || '') : (product.description_en || '');
+
+    /* Trim description to ~160 chars */
+    var descShort = descText.length > 180
+      ? descText.slice(0, 175).replace(/\s+\S*$/, '') + '\u2026'
+      : descText;
+
+    html += '<div class="ffy-pcl-product-header ffy-reveal">';
+    if (imgSrc) {
+      html += '<img class="ffy-pcl-product-img" src="' + escAttr(imgSrc) + '" alt="' + escAttr(imgAlt) + '" width="110" height="110" loading="eager" />';
+    }
+    html += '<div class="ffy-pcl-product-meta">';
+    if (badgeText) {
+      html += '<span class="ffy-pcl-product-badge" style="background:' + escAttr(badgeColor) + ';">' + escHtml(badgeText) + '</span>';
+    }
+    html += '<h2 class="ffy-pcl-product-name">' + escHtml(productName) + '</h2>';
+    if (catText) {
+      html += '<span class="ffy-pcl-product-category">' + escHtml(catText) + '</span>';
+    }
+    html += '<p class="ffy-pcl-product-tagline">' + escHtml(descShort) + '</p>';
+    html += '</div></div>';
+
+    /* Progress section */
+    var progressLabel = isArabic ? 'تقدم القائمة' : 'Checklist Progress';
+    var completedLabel = isArabic ? 'اكتملت جميع المهام! 🎉' : 'All tasks complete! 🎉';
+
+    html += '<div class="ffy-pcl-progress-section ffy-reveal" id="ffy-pcl-progress-section">';
+    html += '<div class="ffy-pcl-progress-label"><i class="fas fa-tasks" aria-hidden="true"></i> ' + escHtml(progressLabel) + '</div>';
+    html += '<div class="ffy-pcl-progress-stats-row">';
+    html += '<span class="ffy-pcl-progress-count" id="ffy-pcl-count">0 / 0</span>';
+    html += '<span class="ffy-pcl-progress-pct" id="ffy-pcl-pct">0%</span>';
+    html += '</div>';
+    html += '<div class="ffy-pcl-bar-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="ffy-pcl-bar-track">';
+    html += '<div class="ffy-pcl-bar-fill" id="ffy-pcl-bar-fill"></div>';
+    html += '</div>';
+    html += '<div class="ffy-pcl-complete-badge" id="ffy-pcl-complete-badge">';
+    html += '<i class="fas fa-check-circle" aria-hidden="true"></i> ' + escHtml(completedLabel);
+    html += '</div>';
+    html += '</div>';
+
+    /* Sections */
+    clData.sections.forEach(function (section, si) {
+      var secTitle = isArabic ? section.title_ar : section.title_en;
+      var secId = section.id;
+      var secIcon = section.icon || 'fa-list-check';
+      var secItems = section.items || [];
+
+      html += '<div class="ffy-pcl-section ffy-reveal" id="ffy-pcl-sec-' + escAttr(secId) + '">';
+
+      /* Section header */
+      html += '<div class="ffy-pcl-section-header" role="button" tabindex="0" ';
+      html += 'aria-expanded="true" aria-controls="ffy-pcl-sec-body-' + escAttr(secId) + '">';
+      html += '<div class="ffy-pcl-section-icon"><i class="fas ' + escAttr(secIcon) + '" aria-hidden="true"></i></div>';
+      html += '<div class="ffy-pcl-section-title-wrap">';
+      html += '<div class="ffy-pcl-section-title">' + escHtml(secTitle) + '</div>';
+      html += '<div class="ffy-pcl-section-count" id="ffy-pcl-sec-count-' + escAttr(secId) + '">0 / ' + secItems.length + '</div>';
+      html += '</div>';
+      html += '<i class="fas fa-chevron-down ffy-pcl-section-chevron" aria-hidden="true"></i>';
+      html += '</div>';
+
+      /* Section body */
+      html += '<div class="ffy-pcl-section-body" id="ffy-pcl-sec-body-' + escAttr(secId) + '">';
+
+      secItems.forEach(function (item) {
+        var itemTitle = isArabic ? item.title_ar : item.title_en;
+        var itemDesc  = isArabic ? (item.desc_ar || '') : (item.desc_en || '');
+        var stateKey  = secId + '__' + item.id;
+        var cbId      = 'ffy-pcl-cb-' + escAttr(secId) + '-' + escAttr(item.id);
+        var doneLabel = isArabic ? 'مكتمل' : 'Done';
+
+        html += '<div class="ffy-pcl-item" data-key="' + escAttr(stateKey) + '" ';
+        html += 'role="checkbox" aria-checked="false" tabindex="0" id="ffy-pcl-item-' + escAttr(stateKey) + '">';
+        html += '<div class="ffy-pcl-check-wrap">';
+        html += '<input type="checkbox" class="ffy-pcl-checkbox" id="' + cbId + '" tabindex="-1" aria-hidden="true" />';
+        html += '<div class="ffy-pcl-checkmark"></div>';
+        html += '</div>';
+        html += '<div class="ffy-pcl-item-content">';
+        html += '<div class="ffy-pcl-item-title">' + escHtml(itemTitle) + '</div>';
+        if (itemDesc) {
+          html += '<div class="ffy-pcl-item-desc">' + escHtml(itemDesc) + '</div>';
+        }
+        html += '</div>';
+        html += '<span class="ffy-pcl-item-done-badge">' + escHtml(doneLabel) + '</span>';
+        html += '</div>';
       });
 
-      /* Keyboard: Space / Enter */
-      item.setAttribute('role', 'checkbox');
-      item.setAttribute('tabindex', '0');
-      item.addEventListener('keydown', function (e) {
+      html += '</div></div>'; /* /.section-body /.section */
+    });
+
+    /* Actions */
+    var resetLabel  = isArabic ? 'إعادة تعيين القائمة' : 'Reset Checklist';
+    var shopLabel   = isArabic ? 'العودة إلى المنتجات' : 'Back to Products';
+
+    html += '<div class="ffy-pcl-actions ffy-reveal">';
+    html += '<button class="ffy-pcl-reset-btn" id="ffy-pcl-reset-btn" aria-label="' + escAttr(resetLabel) + '">';
+    html += '<i class="fas fa-rotate-left" aria-hidden="true"></i> ' + escHtml(resetLabel);
+    html += '</button>';
+    html += '<a href="' + backHref + '" class="ffy-pcl-shop-btn" id="ffy-pcl-shop-btn">';
+    html += '<i class="fas ' + backIcon + '" aria-hidden="true"></i> ' + escHtml(shopLabel);
+    html += '</a>';
+    html += '</div>';
+
+    /* Inject */
+    root.innerHTML = html;
+
+    /* ---- 9. Wire up interactivity ---- */
+    var savedState = loadState();
+    var itemEls = [].slice.call(root.querySelectorAll('.ffy-pcl-item'));
+
+    itemEls.forEach(function (itemEl) {
+      var key = itemEl.getAttribute('data-key');
+
+      /* Restore state */
+      if (savedState[key]) {
+        markChecked(itemEl, true);
+      }
+
+      /* Click */
+      itemEl.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') { return; }
+        togglePclItem(itemEl, key);
+      });
+
+      /* Keyboard */
+      itemEl.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          toggleItem(item);
+          togglePclItem(itemEl, key);
         }
       });
     });
 
-    /* --- Category filter tabs --- */
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        tabs.forEach(function (t) { t.classList.remove('is-active'); });
-        tab.classList.add('is-active');
-
-        var filter = tab.getAttribute('data-filter');
-        cards.forEach(function (card) {
-          if (filter === 'all' || card.getAttribute('data-category') === filter) {
-            card.classList.remove('is-hidden');
-          } else {
-            card.classList.add('is-hidden');
-          }
-        });
-      });
-    });
-
-    /* --- Collapsible category headers --- */
-    cards.forEach(function (card) {
-      var header = card.querySelector('.ffy-cl-category-header');
+    /* Collapsible section headers */
+    var secEls = [].slice.call(root.querySelectorAll('.ffy-pcl-section'));
+    secEls.forEach(function (secEl) {
+      var header = secEl.querySelector('.ffy-pcl-section-header');
       if (!header) { return; }
       header.addEventListener('click', function () {
-        card.classList.toggle('is-collapsed');
+        secEl.classList.toggle('is-collapsed');
+        var expanded = !secEl.classList.contains('is-collapsed');
+        header.setAttribute('aria-expanded', expanded ? 'true' : 'false');
       });
-      header.setAttribute('role', 'button');
-      header.setAttribute('tabindex', '0');
       header.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          card.classList.toggle('is-collapsed');
+          header.click();
         }
       });
     });
 
-    /* --- Reset button --- */
+    /* Reset button */
+    var resetBtn = document.getElementById('ffy-pcl-reset-btn');
     if (resetBtn) {
       resetBtn.addEventListener('click', function () {
         var confirmMsg = isArabic
-          ? 'هل أنت متأكد من إعادة تعيين تقدمك؟'
-          : 'Are you sure you want to reset your progress?';
-        if (!confirm(confirmMsg)) { return; }
-
-        items.forEach(function (item) {
-          item.classList.remove('is-checked');
-          var checkbox = item.querySelector('.ffy-cl-checkbox');
-          if (checkbox) { checkbox.checked = false; }
-        });
-
-        try { localStorage.removeItem(STORAGE_KEY); } catch (e) { }
-        updateProgress();
+          ? 'هل أنت متأكد من إعادة تعيين قائمة ' + productName + '؟'
+          : 'Reset the checklist for ' + productName + '? This cannot be undone.';
+        if (!window.confirm(confirmMsg)) { return; }
+        itemEls.forEach(function (el) { markChecked(el, false); });
+        try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* ignore */ }
+        updatePclProgress();
       });
     }
 
-    /* --- Initial progress calculation --- */
-    updateProgress();
+    /* ---- 10. Progress update ---- */
+    updatePclProgress();
+
+    /* ---- Helper functions ---- */
+    function togglePclItem(itemEl, key) {
+      var wasChecked = itemEl.classList.contains('is-checked');
+      markChecked(itemEl, !wasChecked);
+      var state = loadState();
+      if (!wasChecked) { state[key] = true; } else { delete state[key]; }
+      saveState(state);
+      updatePclProgress();
+    }
+
+    function markChecked(itemEl, checked) {
+      var cb = itemEl.querySelector('.ffy-pcl-checkbox');
+      if (checked) {
+        itemEl.classList.add('is-checked');
+        itemEl.setAttribute('aria-checked', 'true');
+        if (cb) { cb.checked = true; }
+      } else {
+        itemEl.classList.remove('is-checked');
+        itemEl.setAttribute('aria-checked', 'false');
+        if (cb) { cb.checked = false; }
+      }
+    }
+
+    function updatePclProgress() {
+      var total   = itemEls.length;
+      var checked = root.querySelectorAll('.ffy-pcl-item.is-checked').length;
+      var pct     = total > 0 ? Math.round((checked / total) * 100) : 0;
+
+      /* Global progress */
+      var countEl    = document.getElementById('ffy-pcl-count');
+      var pctEl      = document.getElementById('ffy-pcl-pct');
+      var fillEl     = document.getElementById('ffy-pcl-bar-fill');
+      var trackEl    = document.getElementById('ffy-pcl-bar-track');
+      var completeBadge = document.getElementById('ffy-pcl-complete-badge');
+
+      if (countEl) {
+        countEl.textContent = isArabic
+          ? checked + ' من ' + total + ' مكتمل'
+          : checked + ' of ' + total + ' completed';
+      }
+      if (pctEl) { pctEl.textContent = pct + '%'; }
+      if (fillEl) { fillEl.style.width = pct + '%'; }
+      if (trackEl) { trackEl.setAttribute('aria-valuenow', pct); }
+      if (completeBadge) {
+        if (pct === 100 && checked > 0) {
+          completeBadge.classList.add('is-visible');
+          triggerPclToast();
+        } else {
+          completeBadge.classList.remove('is-visible');
+        }
+      }
+
+      /* Per-section progress */
+      clData.sections.forEach(function (sec) {
+        var countEls = document.getElementById('ffy-pcl-sec-count-' + sec.id);
+        if (!countEls) { return; }
+        var secItems  = [].slice.call(root.querySelectorAll('.ffy-pcl-item[data-key^="' + sec.id + '__"]'));
+        var secDone   = secItems.filter(function (el) { return el.classList.contains('is-checked'); }).length;
+        countEls.textContent = secDone + ' / ' + secItems.length;
+      });
+    }
+
+    var toastFired = false;
+    function triggerPclToast() {
+      if (toastFired) { return; }
+      toastFired = true;
+      var toast = document.getElementById('ffy-toast');
+      if (toast) {
+        toast.classList.add('is-visible');
+        setTimeout(function () { toast.classList.remove('is-visible'); }, 5000);
+      }
+    }
+  }
+
+  /* ---- Shared HTML-escape helpers (used by initChecklist) ---- */
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+  function escAttr(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  /* ---- renderNoProduct / renderNotFound / renderNoChecklist ---- */
+  function renderNoProduct() {
+    var root = document.getElementById('ffy-pcl-root');
+    if (!root) { return; }
+    var isArabic = document.documentElement.getAttribute('lang') === 'ar';
+    var shopHref  = isArabic ? 'products-ar.html' : 'products.html';
+    var title = isArabic ? 'لم يتم تحديد منتج' : 'No Product Selected';
+    var desc  = isArabic
+      ? 'الوصول إلى هذه الصفحة يتطلب اختيار منتج من صفحة التفاصيل أو سلة التسوق.'
+      : 'Access this page by clicking "View Checklist" from a product detail page or your cart.';
+    var btnLabel = isArabic ? 'تصفح المنتجات' : 'Browse Products';
+    root.innerHTML = buildErrorState('fa-clipboard-list', title, desc, shopHref, btnLabel);
+  }
+
+  function renderNotFound(pid) {
+    var root = document.getElementById('ffy-pcl-root');
+    if (!root) { return; }
+    var isArabic = document.documentElement.getAttribute('lang') === 'ar';
+    var shopHref  = isArabic ? 'products-ar.html' : 'products.html';
+    var title = isArabic ? 'المنتج غير موجود' : 'Product Not Found';
+    var desc  = isArabic
+      ? 'لم نتمكن من العثور على منتج بالمعرف "' + escHtml(pid) + '". يرجى الانطلاق من صفحة تفاصيل المنتج.'
+      : 'We couldn\'t find a product with the ID "' + escHtml(pid) + '". Please start from a product detail page.';
+    var btnLabel = isArabic ? 'تصفح المنتجات' : 'Browse Products';
+    root.innerHTML = buildErrorState('fa-magnifying-glass', title, desc, shopHref, btnLabel);
+  }
+
+  function renderNoChecklist(product) {
+    var root = document.getElementById('ffy-pcl-root');
+    if (!root) { return; }
+    var isArabic = document.documentElement.getAttribute('lang') === 'ar';
+    var shopHref  = isArabic ? 'products-ar.html' : 'products.html';
+    var name = isArabic ? product.name_ar : product.name_en;
+    var title = isArabic ? 'لا توجد قائمة لهذا المنتج' : 'No Checklist Available';
+    var desc  = isArabic
+      ? 'لم يتم إعداد قائمة مهام بعد لمنتج ' + escHtml(name) + '.'
+      : 'A checklist has not been set up yet for ' + escHtml(name) + '.';
+    var btnLabel = isArabic ? 'تصفح المنتجات' : 'Browse Products';
+    root.innerHTML = buildErrorState('fa-list-check', title, desc, shopHref, btnLabel);
+  }
+
+  function buildErrorState(icon, title, desc, href, btnLabel) {
+    return '<div class="ffy-pcl-error-state">'
+      + '<div class="ffy-pcl-error-icon"><i class="fas ' + escAttr(icon) + '" aria-hidden="true"></i></div>'
+      + '<div class="ffy-pcl-error-title">' + escHtml(title) + '</div>'
+      + '<p class="ffy-pcl-error-desc">' + escHtml(desc) + '</p>'
+      + '<a href="' + escAttr(href) + '" class="ffy-pcl-shop-btn">'
+      + '<i class="fas fa-store" aria-hidden="true"></i> ' + escHtml(btnLabel)
+      + '</a></div>';
   }
 
 

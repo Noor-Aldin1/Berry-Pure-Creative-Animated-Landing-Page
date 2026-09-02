@@ -1,24 +1,24 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
   <meta charset="UTF-8" />
-  <title>قائمة التذوق — بيري بيور | تتبع رحلة النكهات</title>
-  <meta name="description" content="تتبع كل نكهة جربتها من بيري بيور. حدد أطباق السموذي وسكوبات الآيس كريم والعصائر الطازجة والعروض الموسمية في رحلة التذوق الخاصة بك." />
+  <title>قائمة المنتج — بيري بيور | رحلة المنتج الخاصة بك</title>
+  <meta name="description" content="اعرض وتتبع قائمة منتج بيري بيور الخاصة بك. ضع علامة على كل خطوة من رحلتك وحفظ تقدمك تلقائيًا." />
   <meta name="robots" content="max-image-preview:large" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
   <!-- Core Theme & Layout Stylesheets -->
-  <link rel="stylesheet" href="assets/css/reset.css" media="all" />
-  <link rel="stylesheet" href="assets/css/theme.css" media="all" />
-  <link rel="stylesheet" href="assets/css/header-footer.css" media="all" />
-  <link rel="stylesheet" href="assets/css/elementor-frontend.css" media="all" />
-  <link rel="stylesheet" href="assets/css/elementor-global.css" media="all" />
-  <link rel="stylesheet" href="assets/css/elementor-page.css" media="all" />
-  <link rel="stylesheet" href="assets/css/widget-image.css" media="all" />
-  <link rel="stylesheet" href="assets/css/widget-social-icons.css" media="all" />
-  <link rel="stylesheet" href="assets/css/apple-webkit.css" media="all" />
-  <link rel="stylesheet" href="assets/css/widget-heading.css" media="all" />
+  <link rel="stylesheet" href="../assets/css/reset.css" media="all" />
+  <link rel="stylesheet" href="../assets/css/theme.css" media="all" />
+  <link rel="stylesheet" href="../assets/css/header-footer.css" media="all" />
+  <link rel="stylesheet" href="../assets/css/elementor-frontend.css" media="all" />
+  <link rel="stylesheet" href="../assets/css/elementor-global.css" media="all" />
+  <link rel="stylesheet" href="../assets/css/elementor-page.css" media="all" />
+  <link rel="stylesheet" href="../assets/css/widget-image.css" media="all" />
+  <link rel="stylesheet" href="../assets/css/widget-social-icons.css" media="all" />
+  <link rel="stylesheet" href="../assets/css/apple-webkit.css" media="all" />
+  <link rel="stylesheet" href="../assets/css/widget-heading.css" media="all" />
 
   <!-- Google Fonts: Arabic (Cairo & IBM Plex Sans Arabic) + Latin -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,9 +31,419 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <!-- Custom Site Stylesheet -->
-  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
   <!-- RTL Stylesheet (Arabic Overrides) -->
-  <link rel="stylesheet" href="assets/css/rtl.css" />
+  <link rel="stylesheet" href="../assets/css/rtl.css" />
+
+  <style>
+    /* =========================================================
+       Product Checklist — Inline Page Styles (shared EN/AR)
+       RTL adjustments handled by dir="rtl" on <html>
+       ========================================================= */
+
+    /* Product Header Card */
+    .ffy-pcl-product-header {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      background: #fff;
+      border-radius: 20px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 24px rgba(201,0,53,0.07), 0 1px 4px rgba(0,0,0,0.05);
+      border: 1px solid rgba(201,0,53,0.08);
+    }
+    .ffy-pcl-product-img {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+      border-radius: 16px;
+      background: #fdf8f5;
+      flex-shrink: 0;
+      padding: 8px;
+    }
+    .ffy-pcl-product-meta {
+      flex: 1;
+      min-width: 0;
+    }
+    .ffy-pcl-product-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 0.5rem;
+    }
+    .ffy-pcl-product-name {
+      font-family: 'Cairo', 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: #1a0a0a;
+      line-height: 1.15;
+      margin: 0 0 0.35rem;
+    }
+    .ffy-pcl-product-category {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #C90035;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .ffy-pcl-product-tagline {
+      font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      color: #6b5c5c;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Back navigation */
+    .ffy-pcl-back-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .ffy-pcl-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #C90035;
+      text-decoration: none;
+      padding: 0.45rem 1rem;
+      border-radius: 30px;
+      background: rgba(201,0,53,0.06);
+      border: 1px solid rgba(201,0,53,0.12);
+      transition: background 0.22s, color 0.22s;
+    }
+    .ffy-pcl-back-link:hover {
+      background: rgba(201,0,53,0.13);
+      color: #a00028;
+    }
+    .ffy-pcl-back-link i { font-size: 0.8rem; }
+
+    /* Progress Section */
+    .ffy-pcl-progress-section {
+      background: #fff;
+      border-radius: 20px;
+      padding: 1.75rem 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 24px rgba(201,0,53,0.07);
+      border: 1px solid rgba(201,0,53,0.08);
+    }
+    .ffy-pcl-progress-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #C90035;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .ffy-pcl-progress-stats-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .ffy-pcl-progress-count {
+      font-family: 'Cairo', serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #1a0a0a;
+    }
+    .ffy-pcl-progress-pct {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #C90035;
+    }
+    .ffy-pcl-bar-track {
+      width: 100%;
+      height: 10px;
+      background: rgba(201,0,53,0.1);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    /* RTL: progress fills from right to left */
+    .ffy-pcl-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(270deg, #C90035 0%, #ff5580 100%);
+      border-radius: 100px;
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-right: auto;
+      margin-left: 0;
+    }
+    .ffy-pcl-complete-badge {
+      display: none;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 1rem;
+      padding: 0.7rem 1.2rem;
+      background: linear-gradient(135deg, #C90035, #ff5580);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+    .ffy-pcl-complete-badge.is-visible { display: flex; }
+
+    /* Checklist Sections */
+    .ffy-pcl-section {
+      background: #fff;
+      border-radius: 20px;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 4px 24px rgba(201,0,53,0.06);
+      border: 1px solid rgba(201,0,53,0.08);
+      overflow: hidden;
+    }
+    .ffy-pcl-section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 2rem;
+      background: linear-gradient(135deg, rgba(201,0,53,0.04) 0%, rgba(255,85,128,0.03) 100%);
+      border-bottom: 1px solid rgba(201,0,53,0.07);
+      cursor: pointer;
+      user-select: none;
+    }
+    .ffy-pcl-section-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #C90035 0%, #ff5580 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .ffy-pcl-section-title-wrap { flex: 1; }
+    .ffy-pcl-section-title {
+      font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a0a0a;
+      margin: 0 0 0.1rem;
+    }
+    .ffy-pcl-section-count { font-size: 0.75rem; color: #9a7070; }
+    .ffy-pcl-section-chevron {
+      color: #C90035;
+      font-size: 0.85rem;
+      transition: transform 0.28s;
+    }
+    .ffy-pcl-section.is-collapsed .ffy-pcl-section-chevron {
+      transform: rotate(90deg);
+    }
+    .ffy-pcl-section-body { padding: 0.5rem 0; }
+    .ffy-pcl-section.is-collapsed .ffy-pcl-section-body { display: none; }
+
+    /* Checklist Items */
+    .ffy-pcl-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      transition: background 0.18s;
+      border-bottom: 1px solid rgba(201,0,53,0.045);
+      position: relative;
+    }
+    .ffy-pcl-item:last-child { border-bottom: none; }
+    .ffy-pcl-item:hover { background: rgba(201,0,53,0.025); }
+    .ffy-pcl-item:focus { outline: 2px solid #C90035; outline-offset: -2px; }
+
+    /* Custom checkbox */
+    .ffy-pcl-check-wrap {
+      position: relative;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .ffy-pcl-checkbox {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .ffy-pcl-checkmark {
+      width: 22px;
+      height: 22px;
+      border-radius: 7px;
+      border: 2px solid rgba(201,0,53,0.3);
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .ffy-pcl-checkmark::after {
+      content: '';
+      width: 6px;
+      height: 10px;
+      border-right: 2.5px solid #fff;
+      border-bottom: 2.5px solid #fff;
+      transform: rotate(45deg) scale(0) translateY(-1px);
+      transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .ffy-pcl-item.is-checked .ffy-pcl-checkmark {
+      background: linear-gradient(135deg, #C90035 0%, #ff5580 100%);
+      border-color: #C90035;
+      box-shadow: 0 2px 8px rgba(201,0,53,0.35);
+    }
+    .ffy-pcl-item.is-checked .ffy-pcl-checkmark::after {
+      transform: rotate(45deg) scale(1) translateY(-1px);
+    }
+
+    /* Item Content */
+    .ffy-pcl-item-content { flex: 1; min-width: 0; }
+    .ffy-pcl-item-title {
+      font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif;
+      font-size: 0.93rem;
+      font-weight: 600;
+      color: #1a0a0a;
+      margin-bottom: 0.2rem;
+      line-height: 1.55;
+      transition: color 0.2s;
+    }
+    .ffy-pcl-item.is-checked .ffy-pcl-item-title {
+      color: #9a7070;
+      text-decoration: line-through;
+      text-decoration-color: rgba(201,0,53,0.4);
+    }
+    .ffy-pcl-item-desc {
+      font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      color: #9a7070;
+      line-height: 1.7;
+    }
+    .ffy-pcl-item-done-badge {
+      display: none;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #C90035;
+      background: rgba(201,0,53,0.08);
+      border: 1px solid rgba(201,0,53,0.15);
+      border-radius: 20px;
+      padding: 2px 9px;
+      flex-shrink: 0;
+      align-self: center;
+      white-space: nowrap;
+    }
+    .ffy-pcl-item.is-checked .ffy-pcl-item-done-badge { display: block; }
+
+    /* Actions Row */
+    .ffy-pcl-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .ffy-pcl-reset-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #9a7070;
+      background: transparent;
+      border: 1px solid rgba(201,0,53,0.18);
+      border-radius: 30px;
+      padding: 0.6rem 1.3rem;
+      cursor: pointer;
+      transition: background 0.22s, color 0.22s, border-color 0.22s;
+    }
+    .ffy-pcl-reset-btn:hover {
+      background: rgba(201,0,53,0.06);
+      color: #C90035;
+      border-color: rgba(201,0,53,0.3);
+    }
+    .ffy-pcl-shop-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, #C90035 0%, #e0003a 100%);
+      border: none;
+      border-radius: 30px;
+      padding: 0.6rem 1.3rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.22s, transform 0.18s;
+    }
+    .ffy-pcl-shop-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* Error / Empty State */
+    .ffy-pcl-error-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 24px rgba(201,0,53,0.07);
+    }
+    .ffy-pcl-error-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(201,0,53,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      font-size: 1.5rem;
+      color: #C90035;
+    }
+    .ffy-pcl-error-title {
+      font-family: 'Cairo', serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #1a0a0a;
+      margin-bottom: 0.5rem;
+    }
+    .ffy-pcl-error-desc {
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+      font-size: 0.92rem;
+      color: #6b5c5c;
+      margin-bottom: 1.75rem;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .ffy-pcl-product-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem;
+        gap: 1rem;
+      }
+      .ffy-pcl-progress-section,
+      .ffy-pcl-section-header { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .ffy-pcl-item { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .ffy-pcl-product-name { font-size: 1.6rem; }
+      .ffy-pcl-actions { flex-direction: column; align-items: stretch; }
+      .ffy-pcl-actions a,
+      .ffy-pcl-actions button { justify-content: center; text-align: center; }
+    }
+  </style>
 </head>
 
 <body class="wp-singular page-template page-template-elementor_canvas page page-id-checklist-ar rtl wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-canvas elementor-kit-6 elementor-page">
@@ -46,10 +456,10 @@
 
       <!-- Logo -->
       <div class="ffy-nb-logo">
-        <a href="index-ar.html" aria-label="بيري بيور / Freshify — الرئيسية">
+        <a href="../index-ar.html" aria-label="بيري بيور — الرئيسية">
           <img fetchpriority="high" decoding="async"
-               src="assets/images/logo.png"
-               alt="شعار Berry Pure / Freshify"
+               src="../assets/images/logo.png"
+               alt="شعار بيري بيور"
                width="220" height="106" />
         </a>
       </div>
@@ -59,7 +469,7 @@
 
         <!-- الرئيسية -->
         <div class="ffy-nav-btn" role="listitem">
-          <a class="elementor-button elementor-button-link elementor-size-sm" href="index-ar.html">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="../index-ar.html">
             <span class="elementor-button-content-wrapper">
               <span class="elementor-button-text">الرئيسية</span>
             </span>
@@ -68,7 +478,7 @@
 
         <!-- من نحن -->
         <div class="ffy-nav-btn" role="listitem">
-          <a class="elementor-button elementor-button-link elementor-size-sm" href="about-ar.html">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="../about-ar.html">
             <span class="elementor-button-content-wrapper">
               <span class="elementor-button-text">من نحن</span>
             </span>
@@ -77,7 +487,7 @@
 
         <!-- المتجر -->
         <div class="ffy-nav-btn" role="listitem">
-          <a class="elementor-button elementor-button-link elementor-size-sm" href="products-ar.html">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="../products-ar.html">
             <span class="elementor-button-content-wrapper">
               <span class="elementor-button-text">المتجر</span>
             </span>
@@ -86,25 +496,16 @@
 
         <!-- الأسئلة الشائعة -->
         <div class="ffy-nav-btn" role="listitem">
-          <a class="elementor-button elementor-button-link elementor-size-sm" href="faq-ar.html">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="../faq-ar.html">
             <span class="elementor-button-content-wrapper">
               <span class="elementor-button-text">الأسئلة الشائعة</span>
             </span>
           </a>
         </div>
 
-        <!-- قائمة التذوق (active) -->
-        <div class="ffy-nav-btn ffy-nav-active" role="listitem">
-          <a class="elementor-button elementor-button-link elementor-size-sm" href="checklist-ar.html">
-            <span class="elementor-button-content-wrapper">
-              <span class="elementor-button-text">قائمة التذوق</span>
-            </span>
-          </a>
-        </div>
-
         <!-- تواصل معنا -->
         <div class="ffy-nav-btn" role="listitem">
-          <a class="elementor-button elementor-button-link elementor-size-sm" href="contact-ar.html">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="../contact-ar.html">
             <span class="elementor-button-content-wrapper">
               <span class="elementor-button-text">تواصل معنا</span>
             </span>
@@ -122,10 +523,10 @@
             <i class="ffy-nb-cat-chevron fas fa-chevron-down" aria-hidden="true"></i>
           </button>
           <div class="ffy-nb-cat-dropdown" id="ffy-cat-dropdown-ar" role="menu">
-            <a href="products-ar.html" role="menuitem">أطباق السموذي</a>
-            <a href="products-ar.html" role="menuitem">آيس كريم</a>
-            <a href="products-ar.html" role="menuitem">عصائر طازجة</a>
-            <a href="products-ar.html" role="menuitem">عروض موسمية</a>
+            <a href="../products-ar.html" role="menuitem">أطباق السموذي</a>
+            <a href="../products-ar.html" role="menuitem">آيس كريم</a>
+            <a href="../products-ar.html" role="menuitem">عصائر طازجة</a>
+            <a href="../products-ar.html" role="menuitem">عروض موسمية</a>
           </div>
         </div>
 
@@ -135,13 +536,13 @@
       <div class="ffy-nb-actions">
 
         <a class="elementor-icon elementor-social-icon elementor-social-icon-ti-search"
-           href="products-ar.html" aria-label="البحث" id="ffy-nb-search-ar">
+           href="../products-ar.html" aria-label="البحث" id="ffy-nb-search-ar">
           <span class="elementor-screen-only">البحث</span>
           <i aria-hidden="true" class="fas fa-search"></i>
         </a>
 
         <a class="elementor-icon elementor-social-icon elementor-social-icon-lnr-cart"
-           href="products-ar.html" aria-label="عربة التسوق" id="ffy-nb-cart-ar">
+           href="../products-ar.html" aria-label="عربة التسوق" id="ffy-nb-cart-ar">
           <span class="elementor-screen-only">عربة التسوق</span>
           <i aria-hidden="true" class="fas fa-shopping-cart"></i>
         </a>
@@ -170,16 +571,15 @@
 
       <!-- Mobile menu panel (RTL) -->
       <div class="ffy-nb-mobile-menu" id="ffy-nb-mobile-ar" role="menu">
-        <a href="index-ar.html" role="menuitem">الرئيسية</a>
-        <a href="about-ar.html" role="menuitem">من نحن</a>
-        <a href="products-ar.html" role="menuitem">المتجر</a>
-        <a href="faq-ar.html" role="menuitem">الأسئلة الشائعة</a>
-        <a href="checklist-ar.html" class="is-active" role="menuitem">قائمة التذوق</a>
-        <a href="contact-ar.html" role="menuitem">تواصل معنا</a>
+        <a href="../index-ar.html" role="menuitem">الرئيسية</a>
+        <a href="../about-ar.html" role="menuitem">من نحن</a>
+        <a href="../products-ar.html" role="menuitem">المتجر</a>
+        <a href="../faq-ar.html" role="menuitem">الأسئلة الشائعة</a>
+        <a href="../contact-ar.html" role="menuitem">تواصل معنا</a>
         <div class="ffy-nb-mobile-divider" aria-hidden="true"></div>
-        <a href="products-ar.html" role="menuitem">🔍 أطباق السموذي</a>
-        <a href="products-ar.html" role="menuitem">🍦 آيس كريم</a>
-        <a href="products-ar.html" role="menuitem">🍓 عصائر طازجة</a>
+        <a href="../products-ar.html" role="menuitem">🔍 أطباق السموذي</a>
+        <a href="../products-ar.html" role="menuitem">🍦 آيس كريم</a>
+        <a href="../products-ar.html" role="menuitem">🍓 عصائر طازجة</a>
         <div class="ffy-nb-mobile-divider" aria-hidden="true"></div>
         <a href="checklist.html" id="ffy-lang-switch-ar-mobile">&#127468;&#127463; English (EN)</a>
       </div>
@@ -190,33 +590,35 @@
     <!-- ============================================================
          PAGE HERO — Berry Gradient Header (Arabic)
          ============================================================ -->
-    <section class="ffy-page-hero" id="ffy-checklist-hero" aria-label="بطل قائمة التذوق">
+    <section class="ffy-page-hero" id="ffy-checklist-hero" aria-label="بطل قائمة المنتج">
       <!-- Decorative floating fruits -->
       <div class="ffy-page-hero-deco" aria-hidden="true">
-        <img src="assets/images/blueberry-scoop-1.png" alt="" width="90" height="90" />
+        <img src="../assets/images/blueberry-scoop-1.png" alt="" width="90" height="90" />
       </div>
       <div class="ffy-page-hero-deco" aria-hidden="true">
-        <img src="assets/images/strawberry.png" alt="" width="80" height="88" />
+        <img src="../assets/images/strawberry.png" alt="" width="80" height="88" />
       </div>
       <div class="ffy-page-hero-deco" aria-hidden="true">
-        <img src="assets/images/mint-leaf-2.png" alt="" width="70" height="70" />
+        <img src="../assets/images/mint-leaf-2.png" alt="" width="70" height="70" />
       </div>
       <div class="ffy-page-hero-deco" aria-hidden="true">
-        <img src="assets/images/kiwi-scoop-1.png" alt="" width="60" height="60" />
+        <img src="../assets/images/kiwi-scoop-1.png" alt="" width="60" height="60" />
       </div>
 
       <div class="ffy-page-hero-inner">
         <!-- Breadcrumb -->
         <nav class="ffy-breadcrumb" aria-label="مسار التنقل">
-          <a href="index-ar.html">الرئيسية</a>
+          <a href="../index-ar.html">الرئيسية</a>
           <span class="ffy-breadcrumb-sep" aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
-          <span class="ffy-breadcrumb-current" aria-current="page">قائمة التذوق</span>
+          <a href="../products-ar.html">المنتجات</a>
+          <span class="ffy-breadcrumb-sep" aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
+          <span class="ffy-breadcrumb-current" aria-current="page" id="ffy-pcl-breadcrumb-product">قائمة المهام</span>
         </nav>
 
-        <span class="ffy-section-label">رحلة التذوق</span>
-        <h1 class="ffy-page-hero-heading">قائمة تذوق<br/>بيري بيور</h1>
-        <p class="ffy-page-hero-desc">
-          تتبع كل نكهة جربتها. حدد المفضلة لديك واكتشف نكهات جديدة وأكمل رحلتك مع بيري بيور!
+        <span class="ffy-section-label">إعداد المنتج</span>
+        <h1 class="ffy-page-hero-heading" id="ffy-pcl-hero-title">قائمة<br/>المنتج</h1>
+        <p class="ffy-page-hero-desc" id="ffy-pcl-hero-desc">
+          تتبع كل خطوة من تجربة بيري بيور. ضع علامة على المهام عند إكمالها وحفظ تقدمك تلقائيًا.
         </p>
       </div>
 
@@ -230,328 +632,22 @@
 
 
     <!-- ============================================================
-         SECTION 1: Interactive Checklist (Arabic)
+         SECTION 1: Product Checklist — dynamically populated
          ============================================================ -->
-    <section class="ffy-section ffy-checklist" id="ffy-checklist" aria-label="قائمة التذوق">
-      <div class="ffy-checklist-inner">
-
-        <!-- Progress Bar -->
-        <div class="ffy-cl-progress-wrap ffy-reveal">
-          <div class="ffy-cl-stats">
-            <span class="ffy-cl-stats-count">٠ من ١٦ مكتمل</span>
-            <span class="ffy-cl-stats-pct">٠٪</span>
-          </div>
-          <div class="ffy-cl-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-            <div class="ffy-cl-progress-fill"></div>
-          </div>
+    <section class="ffy-section ffy-checklist" id="ffy-checklist" aria-label="قائمة المنتج">
+      <div class="ffy-checklist-inner" id="ffy-pcl-root">
+        <!-- Content injected by initChecklist() in main.js -->
+        <div style="text-align:center;padding:3rem 1rem;color:#9a7070;">
+          <i class="fas fa-spinner fa-spin" style="font-size:2rem;color:#C90035;"></i>
+          <p style="margin-top:1rem;font-size:0.9rem;font-family:'IBM Plex Sans Arabic',sans-serif;">جارٍ تحميل القائمة…</p>
         </div>
-
-        <!-- Category Filter Tabs -->
-        <div class="ffy-cl-tabs ffy-reveal" role="tablist" aria-label="تصفية حسب الفئة">
-          <button class="ffy-cl-tab is-active" data-filter="all" role="tab" aria-selected="true" id="ffy-cl-tab-all-ar">
-            <i class="fas fa-list" aria-hidden="true"></i> جميع العناصر
-          </button>
-          <button class="ffy-cl-tab" data-filter="smoothie" role="tab" aria-selected="false" id="ffy-cl-tab-smoothie-ar">
-            <i class="fas fa-bowl-food" aria-hidden="true"></i> أطباق السموذي
-          </button>
-          <button class="ffy-cl-tab" data-filter="icecream" role="tab" aria-selected="false" id="ffy-cl-tab-icecream-ar">
-            <i class="fas fa-ice-cream" aria-hidden="true"></i> آيس كريم
-          </button>
-          <button class="ffy-cl-tab" data-filter="juices" role="tab" aria-selected="false" id="ffy-cl-tab-juices-ar">
-            <i class="fas fa-glass-water" aria-hidden="true"></i> عصائر طازجة
-          </button>
-          <button class="ffy-cl-tab" data-filter="seasonal" role="tab" aria-selected="false" id="ffy-cl-tab-seasonal-ar">
-            <i class="fas fa-snowflake" aria-hidden="true"></i> عروض موسمية
-          </button>
-        </div>
-
-
-        <!-- ==================== أطباق السموذي ==================== -->
-        <div class="ffy-cl-card ffy-reveal" data-category="smoothie">
-          <div class="ffy-cl-category-header">
-            <div class="ffy-cl-category-icon"><i class="fas fa-bowl-food" aria-hidden="true"></i></div>
-            <h2 class="ffy-cl-category-title">أطباق السموذي</h2>
-            <span class="ffy-cl-category-count">٠ / ٤</span>
-            <i class="fas fa-chevron-down ffy-cl-category-chevron" aria-hidden="true"></i>
-          </div>
-          <div class="ffy-cl-items">
-
-            <div class="ffy-cl-item" data-id="smoothie-berry-pure">
-              <div class="ffy-cl-checkbox-wrap">
-                <input type="checkbox" class="ffy-cl-checkbox" id="cl-smoothie-1-ar" aria-label="بيري بيور كلاسيك" />
-                <div class="ffy-cl-checkmark"></div>
-              </div>
-              <div class="ffy-cl-item-content">
-                <div class="ffy-cl-item-title">بيري بيور كلاسيك</div>
-                <div class="ffy-cl-item-desc">طبق التوت المشكل المميز</div>
-              </div>
-              <span class="ffy-cl-item-badge">تمت التجربة!</span>
-            </div>
-
-            <div class="ffy-cl-item" data-id="smoothie-blue-bliss">
-              <div class="ffy-cl-checkbox-wrap">
-                <input type="checkbox" class="ffy-cl-checkbox" id="cl-smoothie-2-ar" aria-label="بلو بليس" />
-                <div class="ffy-cl-checkmark"></div>
-              </div>
-              <div class="ffy-cl-item-content">
-                <div class="ffy-cl-item-title">بلو بليس</div>
-                <div class="ffy-cl-item-desc">طبق التوت الأزرق والأساي</div>
-              </div>
-              <span class="ffy-cl-item-badge">تمت التجربة!</span>
-            </div>
-
-            <div class="ffy-cl-item" data-id="smoothie-banana-crush">
-              <div class="ffy-cl-checkbox-wrap">
-                <input type="checkbox" class="ffy-cl-checkbox" id="cl-smoothie-3-ar" aria-label="بانانا كراش" />
-                <div class="ffy-cl-checkmark"></div>
-              </div>
-              <div class="ffy-cl-item-content">
-                <div class="ffy-cl-item-title">بانانا كراش</div>
-                <div class="ffy-cl-item-desc">طبق الموز وزبدة الفول السوداني</div>
-              </div>
-              <span class="ffy-cl-item-badge">تمت التجربة!</span>
-            </div>
-
-            <div class="ffy-cl-item" data-id="smoothie-kiwi-flavor">
-              <div class="ffy-cl-checkbox-wrap">
-                <input type="checkbox" class="ffy-cl-checkbox" id="cl-smoothie-4-ar" aria-label="نكهة الكيوي" />
-                <div class="ffy-cl-checkmark"></div>
-              </div>
-              <div class="ffy-cl-item-content">
-                <div class="ffy-cl-item-title">نكهة الكيوي</div>
-                <div class="ffy-cl-item-desc">طبق الكيوي والسبانخ الأخضر</div>
-              </div>
-              <span class="ffy-cl-item-badge">تمت التجربة!</span>
-            </div>
-
-          </div>
-        </div>
-
-
-        <!-- ==================== آيس كريم ==================== -->
-        <div class="ffy-cl-card ffy-reveal" data-category="icecream">
-          <div class="ffy-cl-category-header">
-            <div class="ffy-cl-category-icon"><i class="fas fa-ice-cream" aria-hidden="true"></i></div>
-            <h2 class="ffy-cl-category-title">آيس كريم</h2>
-            <span class="ffy-cl-category-count">٠ / ٤</span>
-            <i class="fas fa-chevron-down ffy-cl-category-chevron" aria-hidden="true"></i>
-          </div>
-          <div class="ffy-cl-items">
-
-            <div class="ffy-cl-item" data-id="icecream-strawberry-swirl">
-              <div class="ffy-cl-checkbox-wrap">
-                <input type="checkbox" class="ffy-cl-checkbox" id="cl-ice-1-ar" aria-label="دوامة الفراولة" />
-                <div class="ffy-cl-checkmark"></div>
-              </div>
-              <div class="ffy-cl-item-content">
-                <div class="ffy-cl-item-title">دوامة الفراولة</div>
-                <div class="ffy-cl-item-desc">كريمة الفراولة المحضرة يدويًا</div>
-              </div>
-              <span class="ffy-cl-item-badge">تمت التجربة!</span>
-            </div>
-
-            <div class="ffy-cl-item" data-id="icecream-vanilla-bean">
-              <div class="ffy-cl-checkbox-wrap">
-                <input type="checkbox" class="ffy-cl-checkbox" id="cl-ice-2-ar" aria-label="حلم الفانيليا" />
-                <div class="ffy-cl-checkmark"></div>
-              </div>
-              <div class="ffy-cl-item-content">
-                <div class="ffy-cl-item-title">حلم الفانيليا</div>
-                <div class="ffy-cl-item-desc">سكوب فانيليا مدغشقر</div>
-              </div>
-              <span class="ffy-cl-item-badge">تمت التجربة!</span>
-            </div>
-
-            <div class="ffy-cl-item" data-id="icecream-choco-berry">
-              <div class="ffy-cl-checkbox-wrap">
-                <input type="checkbox" class="ffy-cl-checkbox" id="cl-ice-3-ar" aria-label="فيوجن شوكولاتة التوت" />
-                <div class="ffy-cl-checkmark"></div>
-              </div>
-              <div class="ffy-cl-item-content">
-                <div class="ffy-cl-item-title">فيوجن شوكولاتة التوت</div>
-                <div class="ffy-cl-item-desc">شوكولاتة داكنة وتوت مشكل</div>
-              </div>
-              <span class="ffy-cl-item-badge">تمت التجربة!</span>
-            </div>
-
-            <div class="ffy-cl-item" data-id="icecream-mango-sorbet">
-              <div class="ffy-cl-checkbox-wrap">
-                <input type="checkbox" class="ffy-cl-checkbox" id="cl-ice-4-ar" aria-label="سوربيه المانجو" />
-                <div class="ffy-cl-checkmark"></div>
-              </div>
-              <div class="ffy-cl-item-content">
-                <div class="ffy-cl-item-title">سوربيه المانجو</div>
-                <div class="ffy-cl-item-desc">سوربيه المانجو الاستوائي</div>
-              </div>
-              <span class="ffy-cl-item-badge">تمت التجربة!</span>
-            </div>
-
-          </div>
-        </div>
-
-
-        <!-- ==================== عصائر طازجة ==================== -->
-        <div class="ffy-cl-card ffy-reveal" data-category="juices">
-          <div class="ffy-cl-category-header">
-            <div class="ffy-cl-category-icon"><i class="fas fa-glass-water" aria-hidden="true"></i></div>
-            <h2 class="ffy-cl-category-title">عصائر طازجة</h2>
-            <span class="ffy-cl-category-count">٠ / ٤</span>
-            <i class="fas fa-chevron-down ffy-cl-category-chevron" aria-hidden="true"></i>
-          </div>
-          <div class="ffy-cl-items">
-
-            <div class="ffy-cl-item" data-id="juice-sunrise-citrus">
-              <div class="ffy-cl-checkbox-wrap">
-                <input type="checkbox" class="ffy-cl-checkbox" id="cl-juice-1-ar" aria-label="عصير الحمضيات" />
-                <div class="ffy-cl-checkmark"></div>
-              </div>
-              <div class="ffy-cl-item-content">
-                <div class="ffy-cl-item-title">عصير الحمضيات</div>
-                <div class="ffy-cl-item-desc">برتقال وجريب فروت وليمون</div>
-              </div>
-              <span class="ffy-cl-item-badge">تمت التجربة!</span>
-            </div>
-
-            <div class="ffy-cl-item" data-id="juice-green-detox">
-              <div class="ffy-cl-checkbox-wrap">
-                <input type="checkbox" class="ffy-cl-checkbox" id="cl-juice-2-ar" aria-label="ديتوكس أخضر" />
-                <div class="ffy-cl-checkmark"></div>
-              </div>
-              <div class="ffy-cl-item-content">
-                <div class="ffy-cl-item-title">ديتوكس أخضر</div>
-                <div class="ffy-cl-item-desc">كيل وتفاح وزنجبيل وليمون</div>
-              </div>
-              <span class="ffy-cl-item-badge">تمت التجربة!</span>
-            </div>
-
-            <div class="ffy-cl-item" data-id="juice-tropical-punch">
-              <div class="ffy-cl-checkbox-wrap">
-                <input type="checkbox" class="ffy-cl-checkbox" id="cl-juice-3-ar" aria-label="الكوكتيل الاستوائي" />
-                <div class="ffy-cl-checkmark"></div>
-              </div>
-              <div class="ffy-cl-item-content">
-                <div class="ffy-cl-item-title">الكوكتيل الاستوائي</div>
-                <div class="ffy-cl-item-desc">أناناس وباشن فروت وجوز الهند</div>
-              </div>
-              <span class="ffy-cl-item-badge">تمت التجربة!</span>
-            </div>
-
-            <div class="ffy-cl-item" data-id="juice-berry-blast">
-              <div class="ffy-cl-checkbox-wrap">
-                <input type="checkbox" class="ffy-cl-checkbox" id="cl-juice-4-ar" aria-label="انفجار التوت" />
-                <div class="ffy-cl-checkmark"></div>
-              </div>
-              <div class="ffy-cl-item-content">
-                <div class="ffy-cl-item-title">انفجار التوت</div>
-                <div class="ffy-cl-item-desc">فراولة وتوت وتوت بري</div>
-              </div>
-              <span class="ffy-cl-item-badge">تمت التجربة!</span>
-            </div>
-
-          </div>
-        </div>
-
-
-        <!-- ==================== عروض موسمية ==================== -->
-        <div class="ffy-cl-card ffy-reveal" data-category="seasonal">
-          <div class="ffy-cl-category-header">
-            <div class="ffy-cl-category-icon"><i class="fas fa-snowflake" aria-hidden="true"></i></div>
-            <h2 class="ffy-cl-category-title">عروض موسمية</h2>
-            <span class="ffy-cl-category-count">٠ / ٤</span>
-            <i class="fas fa-chevron-down ffy-cl-category-chevron" aria-hidden="true"></i>
-          </div>
-          <div class="ffy-cl-items">
-
-            <div class="ffy-cl-item" data-id="seasonal-winter-spice">
-              <div class="ffy-cl-checkbox-wrap">
-                <input type="checkbox" class="ffy-cl-checkbox" id="cl-season-1-ar" aria-label="طبق توابل الشتاء" />
-                <div class="ffy-cl-checkmark"></div>
-              </div>
-              <div class="ffy-cl-item-content">
-                <div class="ffy-cl-item-title">طبق توابل الشتاء</div>
-                <div class="ffy-cl-item-desc">قرفة وجوزة الطيب وتوت دافئ</div>
-              </div>
-              <span class="ffy-cl-item-badge">تمت التجربة!</span>
-            </div>
-
-            <div class="ffy-cl-item" data-id="seasonal-summer-acai">
-              <div class="ffy-cl-checkbox-wrap">
-                <input type="checkbox" class="ffy-cl-checkbox" id="cl-season-2-ar" aria-label="أساي الصيف" />
-                <div class="ffy-cl-checkmark"></div>
-              </div>
-              <div class="ffy-cl-item-content">
-                <div class="ffy-cl-item-title">أساي الصيف</div>
-                <div class="ffy-cl-item-desc">إصدار محدود أساي سوبريم</div>
-              </div>
-              <span class="ffy-cl-item-badge">تمت التجربة!</span>
-            </div>
-
-            <div class="ffy-cl-item" data-id="seasonal-autumn-harvest">
-              <div class="ffy-cl-checkbox-wrap">
-                <input type="checkbox" class="ffy-cl-checkbox" id="cl-season-3-ar" aria-label="حصاد الخريف" />
-                <div class="ffy-cl-checkmark"></div>
-              </div>
-              <div class="ffy-cl-item-content">
-                <div class="ffy-cl-item-title">حصاد الخريف</div>
-                <div class="ffy-cl-item-desc">توابل اليقطين وفتات التفاح</div>
-              </div>
-              <span class="ffy-cl-item-badge">تمت التجربة!</span>
-            </div>
-
-            <div class="ffy-cl-item" data-id="seasonal-spring-blossom">
-              <div class="ffy-cl-checkbox-wrap">
-                <input type="checkbox" class="ffy-cl-checkbox" id="cl-season-4-ar" aria-label="زهور الربيع" />
-                <div class="ffy-cl-checkmark"></div>
-              </div>
-              <div class="ffy-cl-item-content">
-                <div class="ffy-cl-item-title">زهور الربيع</div>
-                <div class="ffy-cl-item-desc">ورد ولافندر وتوت مشكل</div>
-              </div>
-              <span class="ffy-cl-item-badge">تمت التجربة!</span>
-            </div>
-
-          </div>
-        </div>
-
-
-        <!-- Reset Actions -->
-        <div class="ffy-cl-actions ffy-reveal">
-          <button class="ffy-cl-reset-btn" id="ffy-cl-reset-ar" aria-label="إعادة تعيين التقدم">
-            <i class="fas fa-rotate-left" aria-hidden="true"></i> إعادة تعيين التقدم
-          </button>
-        </div>
-
-        <!-- Confetti Celebration Overlay -->
-        <div class="ffy-cl-celebration" aria-hidden="true">
-          <div class="ffy-cl-confetti"></div>
-          <div class="ffy-cl-confetti"></div>
-          <div class="ffy-cl-confetti"></div>
-          <div class="ffy-cl-confetti"></div>
-          <div class="ffy-cl-confetti"></div>
-          <div class="ffy-cl-confetti"></div>
-          <div class="ffy-cl-confetti"></div>
-          <div class="ffy-cl-confetti"></div>
-          <div class="ffy-cl-confetti"></div>
-          <div class="ffy-cl-confetti"></div>
-          <div class="ffy-cl-confetti"></div>
-          <div class="ffy-cl-confetti"></div>
-          <div class="ffy-cl-confetti"></div>
-          <div class="ffy-cl-confetti"></div>
-          <div class="ffy-cl-confetti"></div>
-          <div class="ffy-cl-confetti"></div>
-          <div class="ffy-cl-confetti"></div>
-          <div class="ffy-cl-confetti"></div>
-          <div class="ffy-cl-confetti"></div>
-          <div class="ffy-cl-confetti"></div>
-        </div>
-
       </div>
     </section>
 
     <!-- Toast Notification -->
     <div class="ffy-toast" id="ffy-toast" role="alert" aria-live="polite">
       <i class="fas fa-check-circle" aria-hidden="true"></i>
-      <span>🎉 تهانينا! لقد جربت جميع نكهات بيري بيور!</span>
+      <span id="ffy-toast-msg">🎉 اكتملت القائمة! لقد أنهيت جميع المهام.</span>
     </div>
 
 
@@ -595,8 +691,8 @@
 
           <!-- عمود العلامة التجارية -->
           <div class="ffy-footer-brand">
-            <a href="index-ar.html" class="ffy-footer-brand-logo-link" aria-label="بيري بيور الرئيسية">
-              <img src="assets/images/logo.png" alt="شعار بيري بيور / Freshify" class="ffy-footer-brand-logo" loading="lazy" width="2560" height="1230" />
+            <a href="../index-ar.html" class="ffy-footer-brand-logo-link" aria-label="بيري بيور الرئيسية">
+              <img src="../assets/images/logo.png" alt="شعار بيري بيور" class="ffy-footer-brand-logo" loading="lazy" width="2560" height="1230" />
             </a>
             <p class="ffy-footer-brand-desc">
               عصائر مثلجة وآيس كريم مصنوعة يدويًا من أجود المكونات الطبيعية.
@@ -614,12 +710,11 @@
           <div class="ffy-footer-col">
             <h3 class="ffy-footer-col-title">التنقل</h3>
             <ul class="ffy-footer-links">
-              <li><a href="index-ar.html">الرئيسية</a></li>
-              <li><a href="about-ar.html">من نحن</a></li>
-              <li><a href="products-ar.html">منتجاتنا</a></li>
-              <li><a href="faq-ar.html">الأسئلة الشائعة</a></li>
-              <li><a href="checklist-ar.html">قائمة التذوق</a></li>
-              <li><a href="contact-ar.html">تواصل معنا</a></li>
+              <li><a href="../index-ar.html">الرئيسية</a></li>
+              <li><a href="../about-ar.html">من نحن</a></li>
+              <li><a href="../products-ar.html">منتجاتنا</a></li>
+              <li><a href="../faq-ar.html">الأسئلة الشائعة</a></li>
+              <li><a href="../contact-ar.html">تواصل معنا</a></li>
             </ul>
           </div>
 
@@ -627,10 +722,10 @@
           <div class="ffy-footer-col">
             <h3 class="ffy-footer-col-title">منتجاتنا</h3>
             <ul class="ffy-footer-links">
-              <li><a href="product-berry-pure-ar.html">بيري بيور</a></li>
-              <li><a href="product-blue-bliss-ar.html">بلو بليس</a></li>
-              <li><a href="product-banana-crush-ar.html">بانانا كراش</a></li>
-              <li><a href="product-kiwi-flavor-ar.html">نكهة الكيوي</a></li>
+              <li><a href="../product-berry-pure-ar.html">بيري بيور</a></li>
+              <li><a href="../product-blue-bliss-ar.html">بلو بليس</a></li>
+              <li><a href="../product-banana-crush-ar.html">بانانا كراش</a></li>
+              <li><a href="../product-kiwi-flavor-ar.html">نكهة الكيوي</a></li>
             </ul>
           </div>
 
@@ -648,7 +743,7 @@
         <!-- أسفل التذييل -->
         <div class="ffy-footer-bottom">
           <p class="ffy-footer-copy">
-            &copy; <span id="ffy-year">2026</span> <a href="index-ar.html">Berry Pure / Freshify</a>. جميع الحقوق محفوظة.
+            &copy; <span id="ffy-year">2026</span> <a href="../index-ar.html">بيري بيور</a>. جميع الحقوق محفوظة.
           </p>
           <ul class="ffy-footer-bottom-links">
             <li><a href="#">سياسة الخصوصية</a></li>
@@ -663,9 +758,13 @@
   </div><!-- /.elementor -->
 
   <!-- GSAP -->
-  <script src="assets/js/vendor/gsap.min.js"></script>
+  <script src="../assets/js/vendor/gsap.min.js"></script>
+  <!-- Product Data -->
+  <script src="../assets/js/products-data.js"></script>
+  <!-- Checklist Data -->
+  <script src="checklist-data.js"></script>
   <!-- Custom Site JavaScript -->
-  <script src="assets/js/main.js"></script>
+  <script src="../assets/js/main.js"></script>
 
 </body>
 </html>

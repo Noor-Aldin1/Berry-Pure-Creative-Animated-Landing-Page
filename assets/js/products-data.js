@@ -1,5 +1,5 @@
 /* ================================================================
-   Berry Pure / Freshify — Product Data Store
+   Berry Pure — Product Data Store
    ================================================================
    Single source of truth for all product content.
    Consumed by: products.html, products-ar.html, and every

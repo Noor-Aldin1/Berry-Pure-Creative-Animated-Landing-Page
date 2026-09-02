@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berry Pure — Template Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --doc-primary: #C90035;
+      --doc-primary-hover: #A0002A;
+      --doc-primary-light: #FFF0F3;
+      --doc-dark: #121217;
+      --doc-text: #2D3139;
+      --doc-text-muted: #6B7280;
+      --doc-bg: #F8F9FB;
+      --doc-card-bg: #FFFFFF;
+      --doc-border: #E5E7EB;
+      --doc-sidebar-w: 270px;
+      --doc-code-bg: #1A1D24;
+      --doc-code-color: #E2E8F0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--doc-bg);
+      color: var(--doc-text);
+      line-height: 1.65;
+      font-size: 15px;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar Navigation */
+    .doc-sidebar {
+      width: var(--doc-sidebar-w);
+      background: var(--doc-dark);
+      color: #FFF;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      padding: 32px 20px;
+      overflow-y: auto;
+      z-index: 100;
+    }
+
+    .doc-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .doc-brand-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #FFF;
+      letter-spacing: -0.02em;
+    }
+
+    .doc-brand-badge {
+      background: var(--doc-primary);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      color: #FFF;
+    }
+
+    .doc-nav-group-title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9CA3AF;
+      font-weight: 700;
+      margin: 20px 0 8px 8px;
+    }
+
+    .doc-nav-list {
+      list-style: none;
+    }
+
+    .doc-nav-link {
+      display: block;
+      color: #D1D5DB;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      transition: all 0.2s ease;
+    }
+
+    .doc-nav-link:hover {
+      background: rgba(255,255,255,0.08);
+      color: #FFF;
+      transform: translateX(3px);
+    }
+
+    /* Main Content */
+    .doc-main {
+      margin-left: var(--doc-sidebar-w);
+      flex: 1;
+      padding: 48px 56px 96px;
+      max-width: 1000px;
+    }
+
+    .doc-header {
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--doc-border);
+      padding-bottom: 28px;
+    }
+
+    .doc-header h1 {
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: var(--doc-dark);
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .doc-meta {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      color: var(--doc-text-muted);
+      font-size: 0.9rem;
+    }
+
+    .doc-section {
+      background: var(--doc-card-bg);
+      border: 1px solid var(--doc-border);
+      border-radius: 12px;
+      padding: 36px 40px;
+      margin-bottom: 36px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .doc-section-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--doc-dark);
+      margin-bottom: 18px;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .doc-section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 22px;
+      background: var(--doc-primary);
+      border-radius: 2px;
+    }
+
+    .doc-section h3 {
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--doc-dark);
+      margin: 24px 0 10px;
+    }
+
+    p {
+      margin-bottom: 14px;
+      color: var(--doc-text);
+    }
+
+    ul, ol {
+      margin: 0 0 16px 22px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* Callout Alert */
+    .doc-callout {
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 18px 0;
+      border-left: 4px solid;
+      font-size: 0.92rem;
+    }
+
+    .doc-callout-info {
+      background: #EFF6FF;
+      border-color: #3B82F6;
+      color: #1E40AF;
+    }
+
+    .doc-callout-tip {
+      background: #F0FDF4;
+      border-color: #22C55E;
+      color: #15803D;
+    }
+
+    .doc-callout-warning {
+      background: var(--doc-primary-light);
+      border-color: var(--doc-primary);
+      color: #9F1239;
+    }
+
+    /* Code Blocks */
+    pre {
+      background: var(--doc-code-bg);
+      color: var(--doc-code-color);
+      padding: 16px 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin: 14px 0 20px;
+    }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88em;
+      background: #EDE8E8;
+      color: #A0002A;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+    }
+
+    /* Tables */
+    .doc-table-wrap {
+      overflow-x: auto;
+      margin: 16px 0 24px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--doc-border);
+    }
+
+    th {
+      background: #F3F4F6;
+      font-weight: 600;
+      color: var(--doc-dark);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      body {
+        flex-direction: column;
+      }
+      .doc-sidebar {
+        position: static;
+        width: 100%;
+        padding: 20px;
+      }
+      .doc-main {
+        margin-left: 0;
+        padding: 24px 20px;
+      }
+      .doc-section {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="doc-sidebar">
+    <div class="doc-brand">
+      <div class="doc-brand-title">Berry Pure</div>
+      <span class="doc-brand-badge">Docs</span>
+    </div>
+
+    <nav>
+      <div class="doc-nav-group-title">Getting Started</div>
+      <ul class="doc-nav-list">
+        <li><a href="#overview" class="doc-nav-link">1. Overview &amp; Tech Stack</a></li>
+        <li><a href="#preview" class="doc-nav-link">2. How to Preview Locally</a></li>
+        <li><a href="#structure" class="doc-nav-link">3. File &amp; Folder Structure</a></li>
+      </ul>
+
+      <div class="doc-nav-group-title">Customization</div>
+      <ul class="doc-nav-list">
+        <li><a href="#custom-colors" class="doc-nav-link">4. Customizing Colors</a></li>
+        <li><a href="#custom-images" class="doc-nav-link">5. Replacing Images</a></li>
+        <li><a href="#custom-content" class="doc-nav-link">6. Editing Text &amp; Pages</a></li>
+        <li><a href="#products-data" class="doc-nav-link">7. Product Data Store</a></li>
+      </ul>
+
+      <div class="doc-nav-group-title">Architecture</div>
+      <ul class="doc-nav-list">
+        <li><a href="#animations" class="doc-nav-link">8. GSAP &amp; Interactions</a></li>
+        <li><a href="#responsive" class="doc-nav-link">9. Responsive Breakpoints</a></li>
+        <li><a href="#i18n-rtl" class="doc-nav-link">10. Language Switch &amp; RTL</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="doc-main">
+
+    <header class="doc-header">
+      <h1>Berry Pure Template Documentation</h1>
+      <div class="doc-meta">
+        <span>Version 1.0.0</span>
+        <span>•</span>
+        <span>Pure HTML5 / CSS3 / JavaScript</span>
+        <span>•</span>
+        <span>English (LTR) + Arabic (RTL)</span>
+      </div>
+    </header>
+
+    <!-- 1. Overview & Tech Stack -->
+    <section id="overview" class="doc-section">
+      <h2 class="doc-section-title">1. Overview &amp; Tech Stack</h2>
+      <p>
+        <strong>Berry Pure</strong> is a premium, high-impact creative website template designed specifically for smoothie shops, juice bars, artisanal ice cream parlors, and modern dessert brands.
+      </p>
+      <p>
+        Built with zero required build tools or Node dependencies, the template runs directly in any modern browser while delivering smooth GSAP-driven micro-interactions, full bilingual support (English LTR and Arabic RTL), and a unified product catalog.
+      </p>
+
+      <h3>Technologies Used</h3>
+      <ul>
+        <li><strong>Semantic HTML5</strong> — Accessible, SEO-optimized markup with structured schema and meta descriptions.</li>
+        <li><strong>Vanilla CSS3</strong> — Clean custom properties (CSS variables), CSS Grid, and Flexbox for rapid color and style customization without Tailwind or preprocessors.</li>
+        <li><strong>Vanilla JavaScript (ES6+)</strong> — Modular, lightweight scripts for sliders, filtering, searching, mobile drawer navigation, and language switching.</li>
+        <li><strong>GSAP 3.12.5 (GreenSock)</strong> — Industry standard animation engine powering the 3D bowl transitions, kinetic floating fruit elements, and smooth entrance reveals.</li>
+        <li><strong>Font Awesome 6 Free</strong> — Scalable SVG web icons for clean visual cues.</li>
+        <li><strong>Google Fonts</strong> — Curated typography pairing:
+          <ul>
+            <li><strong>English:</strong> <code>DM Sans</code> (body, UI, badges) &amp; <code>Cormorant Garamond</code> (elegant display headers).</li>
+            <li><strong>Arabic:</strong> <code>Cairo</code> (modern display titles) &amp; <code>IBM Plex Sans Arabic</code> (crisp, readable body copy).</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 2. How to Preview Locally -->
+    <section id="preview" class="doc-section">
+      <h2 class="doc-section-title">2. How to Preview Locally</h2>
+      <p>
+        Because Berry Pure is a static HTML5 template, you do not need to run complex installation scripts or build commands. You can preview it immediately using any of the following methods:
+      </p>
+
+      <h3>Method A: VS Code Live Server (Recommended)</h3>
+      <ol>
+        <li>Open the <code>Berry Pure</code> project folder in <strong>Visual Studio Code</strong>.</li>
+        <li>Install the popular <strong>Live Server</strong> extension (by Ritwick Dey).</li>
+        <li>Right-click on <code>index.html</code> (or <code>index-ar.html</code>) and select <strong>"Open with Live Server"</strong>.</li>
+        <li>Your default browser will launch at <code>http://127.0.0.1:5500/index.html</code> with automatic reload on changes.</li>
+      </ol>
+
+      <h3>Method B: Python Built-in Server</h3>
+      <p>Open terminal or PowerShell inside the project directory and run:</p>
+      <pre><code># Python 3
+python -m http.server 8000
+
+# Open in your browser:
+http://localhost:8000/index.html</code></pre>
+
+      <h3>Method C: Node.js (npx serve)</h3>
+      <pre><code>npx serve .</code></pre>
+
+      <div class="doc-callout doc-callout-info">
+        <strong>Tip:</strong> You can also double-click <code>index.html</code> directly to preview in your web browser. Running via a local HTTP server is recommended to ensure all image assets and scripts load without CORS restrictions.
+      </div>
+    </section>
+
+    <!-- 3. File & Folder Structure -->
+    <section id="structure" class="doc-section">
+      <h2 class="doc-section-title">3. File &amp; Folder Structure</h2>
+      <p>The codebase is organized cleanly for easy navigation and maintenance:</p>
+
+      <pre><code>Berry Pure/
+├── index.html                   # English Homepage (Hero GSAP Slider + Showcase)
+├── index-ar.html                # Arabic Homepage (RTL)
+├── about.html                   # English About Us page
+├── about-ar.html                # Arabic About Us page (RTL)
+├── products.html                # English Products / Menu with live search &amp; filter
+├── products-ar.html             # Arabic Products / Menu (RTL)
+├── product-berry-pure.html      # Product Detail: Berry Pure (EN)
+├── product-berry-pure-ar.html   # Product Detail: Berry Pure (AR)
+├── product-blue-bliss.html      # Product Detail: Blue Bliss (EN)
+├── product-blue-bliss-ar.html   # Product Detail: Blue Bliss (AR)
+├── product-banana-crush.html    # Product Detail: Banana Crush (EN)
+├── product-banana-crush-ar.html # Product Detail: Banana Crush (AR)
+├── product-kiwi-flavor.html     # Product Detail: Kiwi Flavor (EN)
+├── product-kiwi-flavor-ar.html  # Product Detail: Kiwi Flavor (AR)
+├── contact.html                 # English Contact page with validated form &amp; toast
+├── contact-ar.html              # Arabic Contact page (RTL)
+├── faq.html                     # English FAQ with interactive accordions
+├── faq-ar.html                  # Arabic FAQ (RTL)
+├── 404.html                     # English 404 Error page
+├── 404-ar.html                  # Arabic 404 Error page (RTL)
+│
+├── assets/
+│   ├── css/
+│   │   └── main.css             # Unified stylesheet (theme tokens, layouts, RTL overrides)
+│   ├── js/
+│   │   ├── main.js              # Core logic (GSAP slider, nav drawers, FAQ accordion, i18n)
+│   │   ├── products-data.js     # Master product catalog data store (JSON array)
+│   │   └── vendor/
+│   │       └── gsap.min.js      # GreenSock Animation Platform library
+│   └── images/                  # 17 transparent PNG assets (bowls, scoops, fruit floaters)
+│
+├── Documentation/
+│   └── README.html              # This comprehensive documentation file
+└── Assets &amp; Credits.txt         # Licensing, typography, and asset source registry</code></pre>
+    </section>
+
+    <!-- 4. Customizing Colors -->
+    <section id="custom-colors" class="doc-section">
+      <h2 class="doc-section-title">4. Customizing Colors</h2>
+      <p>
+        All theme colors are managed through <strong>CSS Custom Properties</strong> at the top of <code>assets/css/main.css</code>. To re-skin the brand or individual flavor backgrounds, adjust the variables:
+      </p>
+
+      <pre><code>:root {
+  /* Brand Core */
+  --ffy-primary: #C90035;       /* Signature Berry Red */
+  --ffy-primary-dark: #8B0024;  /* Deep Strawberry Burgundy */
+  --ffy-white: #FFFFFF;
+  --ffy-dark: #1A1A1A;
+  --ffy-gray-light: #F8F6F4;
+
+  /* Flavor Background Gradients */
+  --ffy-strawberry-in: #8B0024;
+  --ffy-strawberry-out: #C90035;
+
+  --ffy-blueberry-in: #1B2A5E;
+  --ffy-blueberry-out: #28448C;
+
+  --ffy-banana-in: #B38600;
+  --ffy-banana-out: #E6AC00;
+
+  --ffy-kiwi-in: #27662B;
+  --ffy-kiwi-out: #3A8E3F;
+}</code></pre>
+      <div class="doc-callout doc-callout-tip">
+        <strong>Tip:</strong> Changing <code>--ffy-primary</code> will automatically update buttons, active navigation indicators, hover states, and accent labels throughout the entire website.
+      </div>
+    </section>
+
+    <!-- 5. Replacing Images -->
+    <section id="custom-images" class="doc-section">
+      <h2 class="doc-section-title">5. Replacing Images</h2>
+      <p>
+        All visual assets are stored in <code>assets/images/</code>. For the smoothest animations, use high-resolution, transparent PNG files with cropped bounding boxes:
+      </p>
+
+      <div class="doc-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>File Name</th>
+              <th>Dimensions (px)</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>logo.png</code></td>
+              <td>2560 x 1230</td>
+              <td>Navbar &amp; footer brand logo (transparent background)</td>
+            </tr>
+            <tr>
+              <td><code>strawberry-bowl.png</code></td>
+              <td>~600 x 600</td>
+              <td>Centerpiece hero smoothie bowl for Slide 1</td>
+            </tr>
+            <tr>
+              <td><code>blueberry-bowl.png</code></td>
+              <td>~600 x 600</td>
+              <td>Centerpiece hero smoothie bowl for Slide 2</td>
+            </tr>
+            <tr>
+              <td><code>banana-bowl.png</code></td>
+              <td>~600 x 600</td>
+              <td>Centerpiece hero smoothie bowl for Slide 3</td>
+            </tr>
+            <tr>
+              <td><code>kiwi-bowl.png</code></td>
+              <td>~600 x 600</td>
+              <td>Centerpiece hero smoothie bowl for Slide 4</td>
+            </tr>
+            <tr>
+              <td><code>*-scoop-*.png</code></td>
+              <td>~300 x 300</td>
+              <td>Floating ice cream scoops that animate behind/around the bowls</td>
+            </tr>
+            <tr>
+              <td><code>mint-leaf-*.png</code>, <code>strawberry.png</code></td>
+              <td>~200 x 200</td>
+              <td>Parallax floating garnish floaters in the hero scene</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 6. Editing Text & Pages -->
+    <section id="custom-content" class="doc-section">
+      <h2 class="doc-section-title">6. Editing Text &amp; Pages</h2>
+      <p>
+        Every page is plain, semantic HTML. Text can be modified directly in any text editor:
+      </p>
+      <ul>
+        <li><strong>Page Headings &amp; Descriptions:</strong> Search for <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, and <code>&lt;p class="ffy-section-body"&gt;</code>.</li>
+        <li><strong>Contact Information:</strong> Located in the footer columns across all pages (address, phone number, email, and opening hours).</li>
+        <li><strong>FAQ Questions &amp; Answers:</strong> In <code>faq.html</code> and <code>faq-ar.html</code>, edit the <code>&lt;button class="ffy-faq-question"&gt;</code> and <code>&lt;div class="ffy-faq-answer"&gt;</code> blocks.</li>
+      </ul>
+    </section>
+
+    <!-- 7. Product Data Store -->
+    <section id="products-data" class="doc-section">
+      <h2 class="doc-section-title">7. Product Data Store (products-data.js)</h2>
+      <p>
+        Product items are centrally defined in <code>assets/js/products-data.js</code> inside the global array <code>window.FFY_PRODUCTS</code>.
+      </p>
+
+      <h3>Product Object Schema</h3>
+      <pre><code>{
+  id: "berry-pure",
+  slug: "product-berry-pure.html",
+  slugAr: "product-berry-pure-ar.html",
+  name: "Berry Pure",
+  nameAr: "بيري بيور",
+  category: "smoothie-bowls",
+  categoryLabel: "Smoothie Bowl",
+  categoryLabelAr: "طبق سموذي",
+  price: 8.90,
+  currency: "$",
+  calories: 280,
+  prepTime: "5 mins",
+  prepTimeAr: "٥ دقائق",
+  rating: 4.9,
+  reviewsCount: 128,
+  image: "assets/images/strawberry-bowl.png",
+  description: "Fresh organic strawberries blended...",
+  descriptionAr: "فراولة عضوية طازجة ممزوجة...",
+  ingredients: ["Fresh Strawberries", "Greek Yogurt", "White Chocolate"],
+  nutrition: { calories: 280, protein: "8g", carbs: "42g", fat: "6g" }
+}</code></pre>
+
+      <p>
+        <strong>Consuming Pages:</strong>
+      </p>
+      <ul>
+        <li><code>products.html</code> / <code>products-ar.html</code>: Renders the entire card grid dynamically, handling category filtering, live search, and sorting.</li>
+        <li><code>product-*.html</code>: Serves as dedicated, indexable SEO landing pages for each flavor.</li>
+      </ul>
+    </section>
+
+    <!-- 8. GSAP & Animations -->
+    <section id="animations" class="doc-section">
+      <h2 class="doc-section-title">8. GSAP Animations &amp; Interactions</h2>
+      <p>
+        The interactive hero carousel is implemented in <code>assets/js/main.js</code> using GSAP timelines:
+      </p>
+      <ul>
+        <li><strong>Multi-Input Navigation:</strong> The slider can be controlled via on-screen arrows (<code>.ffy-prev</code>, <code>.ffy-next</code>), mouse wheel scrolling, keyboard arrows (<code>&larr;</code> / <code>&rarr;</code>), and mobile touch gestures (swipe left/right).</li>
+        <li><strong>Layered Parallax:</strong> Floating fruit garnishes (<code>.ffy-floater</code>) animate at different speeds and rotations, providing a realistic 3D depth effect.</li>
+        <li><strong>Live Filter &amp; Search:</strong> In <code>products.html</code>, product cards filter instantly on keypress or category pill click with smooth CSS opacity/transform transitions.</li>
+        <li><strong>Form Validation &amp; Feedback:</strong> The contact form features real-time email regex validation and triggers an animated feedback toast notification (<code>#ffy-toast</code>) upon submission.</li>
+      </ul>
+    </section>
+
+    <!-- 9. Responsive Breakpoints -->
+    <section id="responsive" class="doc-section">
+      <h2 class="doc-section-title">9. Responsive Breakpoints</h2>
+      <p>Berry Pure is thoroughly responsive across all modern display viewports:</p>
+
+      <div class="doc-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Breakpoint</th>
+              <th>Device Target</th>
+              <th>Layout Behavior</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>&gt; 1024px</code></td>
+              <td>Desktop &amp; Laptops</td>
+              <td>Full floating pill navigation, expanded multi-column footer, large 600px hero bowl showcase.</td>
+            </tr>
+            <tr>
+              <td><code>768px – 1024px</code></td>
+              <td>Tablets (iPad, etc.)</td>
+              <td>Adjusted padding, 2-column grid for products, scaled-down hero fruit floaters.</td>
+            </tr>
+            <tr>
+              <td><code>&lt; 768px</code></td>
+              <td>Mobile Devices</td>
+              <td>Hamburger drawer menu, single-column product lists, and a sticky bottom CTA ordering bar on product detail pages.</td>
+            </tr>
+            <tr>
+              <td><code>&lt; 480px</code></td>
+              <td>Small Smartphones</td>
+              <td>Optimized touch targets, simplified font sizes, and full-width form inputs.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 10. Language Switch & RTL -->
+    <section id="i18n-rtl" class="doc-section">
+      <h2 class="doc-section-title">10. Language Switch &amp; RTL Support</h2>
+      <p>
+        Berry Pure features first-class Arabic support with native Right-to-Left (RTL) formatting.
+      </p>
+
+      <h3>How RTL is Implemented</h3>
+      <ul>
+        <li>Arabic pages have <code>&lt;html lang="ar" dir="rtl"&gt;</code> declared at the top.</li>
+        <li>Custom Arabic typography is loaded via Google Fonts (<code>Cairo</code> and <code>IBM Plex Sans Arabic</code>).</li>
+        <li>Navigation order, logo alignment, and flex layouts mirror automatically without layout distortion.</li>
+      </ul>
+
+      <h3>Automatic Bidirectional Language Switch (syncLangLinks)</h3>
+      <p>
+        In <code>assets/js/main.js</code>, the <code>syncLangLinks()</code> function maps every English page directly to its corresponding Arabic equivalent and vice versa:
+      </p>
+      <pre><code>// Page Mapping Registry in main.js
+const PAGE_PAIRS = {
+  'index.html': 'index-ar.html',
+  'about.html': 'about-ar.html',
+  'products.html': 'products-ar.html',
+  'contact.html': 'contact-ar.html',
+  'faq.html': 'faq-ar.html',
+  '404.html': '404-ar.html',
+  'product-berry-pure.html': 'product-berry-pure-ar.html',
+  'product-blue-bliss.html': 'product-blue-bliss-ar.html',
+  'product-banana-crush.html': 'product-banana-crush-ar.html',
+  'product-kiwi-flavor.html': 'product-kiwi-flavor-ar.html'
+};</code></pre>
+      <p>
+        When a user clicks the language switcher in the navbar or mobile menu, they are transitioned directly to the translated version of the exact page they are currently viewing.
+      </p>
+    </section>
+
+  </main>
+
+</body>
+</html>
