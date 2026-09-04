@@ -878,3 +878,348 @@
 /* ================================================================
    END RTL Stylesheet
    ================================================================ */
+
+
+/* ================================================================
+   RTL RESPONSIVE OVERRIDES v2 - Berry Pure Arabic Pages
+   Mirrors all LTR responsive fixes in main.css for dir="rtl" pages.
+   ================================================================ */
+
+/* RTL Badge fixes on small mobile - mirror LTR fix */
+@media screen and (max-width: 480px) {
+  [dir="rtl"] .ffy-about-badge {
+    right: auto !important;
+    left: 12px !important;
+    bottom: 12px !important;
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  [dir="rtl"] .ffy-story-badge {
+    right: auto !important;
+    left: 12px !important;
+    bottom: 12px !important;
+    width: 90px !important;
+    height: 90px !important;
+  }
+}
+
+/* Mobile menu text alignment in RTL */
+[dir="rtl"] .ffy-nb-mobile-menu a {
+  text-align: right;
+  justify-content: flex-end;
+}
+
+/* RTL navbar - lang toggle alignment */
+@media screen and (max-width: 768px) {
+  [dir="rtl"] .ffy-navbar .ffy-nb-nav,
+  [dir="rtl"] .ffy-navbar .ffy-nb-actions {
+    display: none;
+  }
+  [dir="rtl"] .ffy-nb-hamburger {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  [dir="rtl"] .ffy-navbar .ffy-nb-nav,
+  [dir="rtl"] .ffy-navbar .ffy-nb-actions {
+    display: flex;
+  }
+  [dir="rtl"] .ffy-nb-hamburger {
+    display: none;
+  }
+}
+
+/* RTL newsletter form - stack on mobile */
+@media screen and (max-width: 640px) {
+  [dir="rtl"] .ffy-newsletter-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  [dir="rtl"] .ffy-newsletter-input {
+    text-align: right;
+  }
+}
+
+/* RTL page hero CTA - stack on mobile */
+@media screen and (max-width: 480px) {
+  [dir="rtl"] .ffy-page-hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* RTL about stat row - wrap and center */
+@media screen and (max-width: 480px) {
+  [dir="rtl"] .ffy-about-stat-row {
+    justify-content: center;
+    gap: 12px;
+  }
+  [dir="rtl"] .ffy-story-stat-row {
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+/* RTL FAQ support buttons - stack on mobile */
+@media screen and (max-width: 480px) {
+  [dir="rtl"] .ffy-faq-support-btns {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  [dir="rtl"] .ffy-btn-white-outline {
+    width: 100%;
+    justify-content: center;
+  }
+  [dir="rtl"] .ffy-page-hero-cta {
+    flex-direction: column;
+  }
+}
+
+/* RTL catalog sort dropdown - chevron on left (already in rtl.css but reinforce) */
+@media screen and (max-width: 480px) {
+  [dir="rtl"] .ffy-catalog-sort {
+    font-size: 14px;
+    padding: 9px 14px 9px 36px;
+    background-position: left 14px center;
+  }
+}
+
+/* RTL 404 search - RTL padding swap */
+@media screen and (max-width: 480px) {
+  [dir="rtl"] .ffy-404-search {
+    max-width: 100%;
+  }
+}
+
+/* RTL footer bottom - wrap correctly on mobile */
+@media screen and (max-width: 480px) {
+  [dir="rtl"] .ffy-footer-bottom {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+/* RTL contact form card */
+@media screen and (max-width: 480px) {
+  [dir="rtl"] .ffy-contact-form-card {
+    padding: 24px 16px;
+    border-radius: 18px;
+  }
+}
+
+/* RTL accordion - easier tap on mobile */
+@media screen and (max-width: 480px) {
+  [dir="rtl"] .ffy-accordion-header {
+    padding: 16px;
+    gap: 12px;
+    flex-direction: row-reverse;
+  }
+}
+
+/* RTL hero ingredient overrides - flip left/right for RTL */
+/* These mirror the LTR fixes in main.css for body.rtl context */
+@media (max-width: 767px) {
+  [dir="rtl"] body.rtl .elementor-3089 .elementor-element.elementor-element-d4ba694,
+  [dir="rtl"] body.rtl .elementor-3089 .elementor-element.elementor-element-36eaaf8,
+  [dir="rtl"] body.rtl .elementor-3089 .elementor-element.elementor-element-e46f4f9,
+  [dir="rtl"] body.rtl .elementor-3089 .elementor-element.elementor-element-feb1dd5 {
+    /* The LTR main.css rule already handles body.rtl with right: % */
+    /* This block is a safety net for [dir=rtl] selectors */
+    max-width: 32cqw !important;
+    width: var(--container-widget-width, 32cqw) !important;
+    --container-widget-width: 32cqw !important;
+  }
+}
+
+/* RTL section padding tightening on small screens */
+@media screen and (max-width: 480px) {
+  [dir="rtl"] .ffy-section {
+    padding: 48px 5vw;
+  }
+  [dir="rtl"] .ffy-newsletter {
+    padding: 56px 5vw;
+  }
+  [dir="rtl"] .ffy-footer {
+    padding: 48px 5vw 24px;
+  }
+}
+
+/* RTL iOS input font-size fix - prevent auto-zoom */
+@media screen and (max-width: 768px) {
+  [dir="rtl"] .ffy-form-input,
+  [dir="rtl"] .ffy-form-textarea,
+  [dir="rtl"] .ffy-form-select,
+  [dir="rtl"] .ffy-newsletter-input,
+  [dir="rtl"] .ffy-catalog-search,
+  [dir="rtl"] #ffy-404-search-input {
+    font-size: 16px !important;
+  }
+}
+
+/* RTL checklist - tab scrolling on mobile */
+@media screen and (max-width: 480px) {
+  [dir="rtl"] .ffy-cl-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-direction: row-reverse;
+  }
+  [dir="rtl"] .ffy-cl-tabs::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ================================================================
+   END RTL RESPONSIVE OVERRIDES v2
+   ================================================================ */
+
+/* ================================================================
+   RTL RESPONSIVE OVERRIDES v3 — Berry Pure
+   Mirrors the LTR v3 fixes in main.css for Arabic/RTL pages.
+   ================================================================ */
+
+/* Very small screens (≤ 360px) — RTL padding tightening */
+@media screen and (max-width: 360px) {
+  [dir="rtl"] .ffy-section {
+    padding: 40px 4vw !important;
+  }
+
+  [dir="rtl"] .ffy-newsletter {
+    padding: 48px 4vw !important;
+  }
+
+  [dir="rtl"] .ffy-footer {
+    padding: 40px 4vw 20px !important;
+  }
+
+  [dir="rtl"] .ffy-contact-form-card {
+    padding: 20px 14px !important;
+    border-radius: 16px !important;
+  }
+
+  [dir="rtl"] .ffy-faq-support {
+    padding: 28px 14px !important;
+  }
+
+  [dir="rtl"] .ffy-section-heading {
+    font-size: clamp(1.7rem, 8vw, 2.2rem) !important;
+  }
+
+  [dir="rtl"] .ffy-navbar {
+    padding: 0 10px !important;
+    min-height: 44px !important;
+  }
+
+  [dir="rtl"] .ffy-footer-bottom {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+  }
+
+  [dir="rtl"] .ffy-footer-bottom-links {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
+/* RTL fluid about/story images on mobile */
+@media screen and (max-width: 767px) {
+  [dir="rtl"] .ffy-about-img-wrap img {
+    height: auto !important;
+    aspect-ratio: 4 / 3;
+    min-height: 240px;
+    max-height: 400px;
+  }
+
+  [dir="rtl"] .ffy-story-img-wrap img {
+    height: auto !important;
+    aspect-ratio: 4 / 3;
+    min-height: 240px;
+    max-height: 400px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  [dir="rtl"] .ffy-about-img-wrap img {
+    min-height: 200px;
+    max-height: 320px;
+  }
+
+  [dir="rtl"] .ffy-story-img-wrap img {
+    min-height: 200px;
+    max-height: 320px;
+  }
+
+  [dir="rtl"] .ffy-contact-map-card {
+    height: 200px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  [dir="rtl"] .ffy-about-img-wrap img {
+    height: 360px;
+  }
+
+  [dir="rtl"] .ffy-story-img-wrap img {
+    height: 360px;
+  }
+}
+
+/* RTL footer contact text wrapping */
+[dir="rtl"] .ffy-footer-contact-item span {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+[dir="rtl"] .ffy-footer-contact-item {
+  min-width: 0;
+}
+
+/* RTL testimonial and accordion wrapping */
+[dir="rtl"] .ffy-testimonial-quote,
+[dir="rtl"] .ffy-accordion-title {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* RTL product card footer wrapping on very small screens */
+@media screen and (max-width: 380px) {
+  [dir="rtl"] .ffy-flavor-footer,
+  [dir="rtl"] .ffy-product-card-footer {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+  }
+
+  [dir="rtl"] .ffy-btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* RTL navbar categories hide on narrow tablets */
+@media screen and (min-width: 769px) and (max-width: 900px) {
+  [dir="rtl"] .ffy-navbar .ffy-nb-categories {
+    display: none;
+  }
+}
+
+/* RTL catalog filter row on small tablets */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  [dir="rtl"] .ffy-catalog-filter-row {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  [dir="rtl"] .ffy-catalog-sort-wrap {
+    width: 100%;
+  }
+}
+
+/* ================================================================
+   END RTL RESPONSIVE OVERRIDES v3
+   ================================================================ */
+

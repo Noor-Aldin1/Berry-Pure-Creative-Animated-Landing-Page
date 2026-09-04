@@ -93,6 +93,13 @@ html {
   will-change: transform, opacity;
 }
 
+@media (max-width: 767px) {
+  .elementor-3089 .elementor-element.elementor-element-81e8e1b .elementor-heading-title {
+    margin-bottom: 27px;
+    font-size: 9cqw;
+  }
+}
+
 .ffy-arrow.is-disabled {
   opacity: 0.35;
   pointer-events: none;
@@ -4363,4 +4370,929 @@ body {
   }
 }
 
+
+
+
+/* ================================================================
+   RESPONSIVE OVERRIDES v2 - Berry Pure
+   Comprehensive fixes across all breakpoints for all 20 pages.
+   Appended to main.css - overrides take effect after existing rules.
+   ================================================================ */
+
+/* Global Box-Sizing and Overflow Containment */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+#ffy-root,
+.elementor,
+.elementor.elementor-3089 {
+  max-width: 100% !important;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Hero Slider Description text fluid scaling fix - 3cqw on 320px = 9.6px unreadable */
+@media (max-width: 767px) {
+  .elementor-3089 .elementor-element.elementor-element-7701f8b,
+  .elementor-3089 .elementor-element.elementor-element-c4938f0,
+  .elementor-3089 .elementor-element.elementor-element-e7536d1,
+  .elementor-3089 .elementor-element.elementor-element-d20d328 {
+    font-size: clamp(13px, 3.8cqw, 16px) !important;
+    width: var(--container-widget-width, min(85cqw, 360px)) !important;
+    max-width: min(85cqw, 360px) !important;
+    --container-widget-width: min(85cqw, 360px) !important;
+  }
+
+  /* Hero ingredient d4ba694 - fix hardcoded 267px left offset */
+  body:not(.rtl) .elementor-3089 .elementor-element.elementor-element-d4ba694 {
+    left: 62% !important;
+  }
+  body.rtl .elementor-3089 .elementor-element.elementor-element-d4ba694 {
+    right: 62% !important;
+  }
+
+  /* Hero ingredient 36eaaf8 - fix hardcoded 213px left offset */
+  body:not(.rtl) .elementor-3089 .elementor-element.elementor-element-36eaaf8 {
+    left: 55% !important;
+  }
+  body.rtl .elementor-3089 .elementor-element.elementor-element-36eaaf8 {
+    right: 55% !important;
+  }
+
+  /* Hero ingredient e46f4f9 - fix hardcoded 213px left offset */
+  body:not(.rtl) .elementor-3089 .elementor-element.elementor-element-e46f4f9 {
+    left: 55% !important;
+  }
+  body.rtl .elementor-3089 .elementor-element.elementor-element-e46f4f9 {
+    right: 55% !important;
+  }
+
+  /* Hero ingredient feb1dd5 - fix hardcoded 213px left offset */
+  body:not(.rtl) .elementor-3089 .elementor-element.elementor-element-feb1dd5 {
+    left: 55% !important;
+  }
+  body.rtl .elementor-3089 .elementor-element.elementor-element-feb1dd5 {
+    right: 55% !important;
+  }
+}
+
+/* Navbar - bump hamburger trigger to 768px (was 767px) */
+@media screen and (max-width: 768px) {
+  .ffy-navbar .ffy-nb-nav,
+  .ffy-navbar .ffy-nb-actions {
+    display: none;
+  }
+  .ffy-nb-hamburger {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .ffy-navbar .ffy-nb-nav,
+  .ffy-navbar .ffy-nb-actions {
+    display: flex;
+  }
+  .ffy-nb-hamburger {
+    display: none;
+  }
+}
+
+/* Hamburger button - expand hit target to 44x44px minimum */
+.ffy-nb-hamburger {
+  min-width: 44px;
+  min-height: 44px;
+  width: 44px;
+  height: 44px;
+}
+
+/* Navbar action icon buttons - 44x44px min touch target on mobile */
+@media screen and (max-width: 768px) {
+  .ffy-navbar .ffy-nb-actions .elementor-social-icon,
+  .ffy-navbar .ffy-nb-icon-btn {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+  }
+  .ffy-navbar .ffy-nb-actions .ffy-lang-toggle {
+    height: 44px !important;
+    min-height: 44px;
+  }
+}
+
+/* Mobile menu - safe max-height with internal scrolling for short screens */
+.ffy-nb-mobile-menu.is-open {
+  max-height: calc(100dvh - 80px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ffy-nb-mobile-menu a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+/* Buttons - min 44x44px touch targets everywhere */
+.ffy-btn,
+.ffy-btn-primary,
+.ffy-btn-outline,
+.ffy-btn-white-outline {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ffy-newsletter .ffy-btn-white {
+  min-height: 44px;
+}
+
+/* FAQ / Catalog / Checklist tabs - 44px touch target */
+.ffy-faq-tab,
+.ffy-catalog-tab,
+.ffy-cl-tab {
+  min-height: 44px;
+}
+
+/* Quantity stepper buttons - 44x44px */
+.ffy-pd-qty-btn {
+  width: 44px !important;
+  height: 44px !important;
+}
+
+/* Footer social links - 44x44px */
+.ffy-footer-social-link {
+  width: 44px;
+  height: 44px;
+}
+
+/* Footer links - 6px vertical padding for easier tapping */
+.ffy-footer-links a {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+/* iOS Safari: Prevent auto-zoom on input focus - font-size >= 16px on mobile */
+@media screen and (max-width: 768px) {
+  .ffy-form-input,
+  .ffy-form-textarea,
+  .ffy-form-select,
+  .ffy-newsletter-input,
+  .ffy-catalog-search,
+  #ffy-404-search-input {
+    font-size: 16px !important;
+  }
+}
+
+/* About / Story Badges - fix bleed on small mobile at <= 480px */
+@media screen and (max-width: 480px) {
+  .ffy-about-badge {
+    bottom: 12px !important;
+    right: 12px !important;
+    width: 80px !important;
+    height: 80px !important;
+  }
+  .ffy-story-badge {
+    bottom: 12px !important;
+    right: 12px !important;
+    width: 90px !important;
+    height: 90px !important;
+  }
+}
+
+/* About stat-row: wrap cleanly on mobile */
+.ffy-about-stat-row {
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media screen and (max-width: 480px) {
+  .ffy-about-stat-row {
+    justify-content: center;
+    gap: 12px;
+  }
+}
+
+/* Inner Page Hero - responsive padding for very small screens */
+@media screen and (max-width: 480px) {
+  .ffy-page-hero {
+    padding: 120px 5vw 60px;
+  }
+  .ffy-page-hero-heading {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
+  .ffy-page-hero-cta {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .ffy-page-hero-cta .ffy-btn,
+  .ffy-page-hero-cta .ffy-btn-white-outline {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Section inner - max-width containment for large desktops / ultrawide */
+.ffy-section-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Flavor / Feature / Testimonial grids - 2-column on 481-768px tablet */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .ffy-flavors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ffy-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ffy-testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Footer - 2-column on tablet range 481-768px */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .ffy-footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+/* Newsletter - full-width button on narrow mobile */
+@media screen and (max-width: 640px) {
+  .ffy-newsletter-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ffy-newsletter-input {
+    min-width: unset;
+    width: 100%;
+  }
+  .ffy-newsletter .ffy-btn-white {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+  }
+}
+
+/* Contact submit - min 48px tall on mobile */
+@media screen and (max-width: 640px) {
+  .ffy-contact-submit {
+    min-height: 48px;
+  }
+}
+
+/* Contact form row - single column on 480px */
+@media screen and (max-width: 480px) {
+  .ffy-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .ffy-contact-form-card {
+    padding: 24px 16px;
+    border-radius: 18px;
+  }
+}
+
+/* FAQ Support card - single column buttons on mobile */
+@media screen and (max-width: 480px) {
+  .ffy-faq-support {
+    padding: 36px 20px;
+  }
+  .ffy-faq-support h3 {
+    font-size: 1.45rem;
+  }
+  .ffy-faq-support-btns {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ffy-btn-white-outline {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Catalog controls on very small screens */
+@media screen and (max-width: 480px) {
+  .ffy-catalog-search-wrap {
+    max-width: 100%;
+  }
+  .ffy-catalog-sort {
+    font-size: 14px;
+    padding: 9px 36px 9px 14px;
+  }
+}
+
+/* Product detail - nutrition 2-col on 380px and below */
+@media screen and (max-width: 380px) {
+  .ffy-pd-nutrition-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Sticky CTA bottom safe area - notched phones */
+.ffy-pd-sticky-cta {
+  padding-bottom: max(14px, env(safe-area-inset-bottom));
+}
+
+/* Product detail page-bottom clearance for sticky bar */
+@media screen and (max-width: 767px) {
+  .ffy-pd {
+    padding-bottom: max(90px, calc(70px + env(safe-area-inset-bottom)));
+  }
+}
+
+/* About page - values, milestones, team grid 2-column on 481-768px */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .ffy-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ffy-milestone-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ffy-team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ffy-story-stat-row {
+    justify-content: space-around;
+  }
+}
+
+/* Story stat row: wrap + center for single-column layouts */
+@media screen and (max-width: 480px) {
+  .ffy-story-stat-row {
+    justify-content: center;
+    gap: 20px;
+  }
+  .ffy-story-stat {
+    min-width: 70px;
+  }
+}
+
+/* Section padding - tighter on very small screens */
+@media screen and (max-width: 480px) {
+  .ffy-section {
+    padding: 48px 5vw;
+  }
+  .ffy-newsletter {
+    padding: 56px 5vw;
+  }
+  .ffy-footer {
+    padding: 48px 5vw 24px;
+  }
+  .ffy-section-heading {
+    font-size: clamp(1.9rem, 7vw, 2.4rem);
+  }
+}
+
+/* Hero bowl - constrain on ultrawide monitors */
+@media screen and (min-width: 1440px) {
+  .elementor-3089 .elementor-element.elementor-element-85fc4e9,
+  .elementor-3089 .elementor-element.elementor-element-26f9cbd,
+  .elementor-3089 .elementor-element.elementor-element-4b76848,
+  .elementor-3089 .elementor-element.elementor-element-54523ec {
+    max-width: min(55.5cqw, 75vh) !important;
+    width: var(--container-widget-width, min(55.5cqw, 75vh)) !important;
+    --container-widget-width: min(55.5cqw, 75vh) !important;
+  }
+}
+
+/* Checklist - responsive tab scrolling on mobile */
+@media screen and (max-width: 480px) {
+  .ffy-cl-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+  .ffy-cl-tabs::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* 404 page - full-width search on mobile */
+@media screen and (max-width: 480px) {
+  .ffy-404-search {
+    max-width: 100%;
+  }
+  .ffy-404-section {
+    padding: 80px 5vw 60px;
+  }
+}
+
+/* Navbar compact tablet 769px - 1024px */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .ffy-navbar {
+    top: 12px;
+    width: calc(100% - 24px);
+    padding: 0 10px;
+    min-height: 48px;
+  }
+  .ffy-navbar .ffy-nb-nav .elementor-button,
+  .ffy-navbar .ffy-nb-nav .ffy-nb-cat-btn {
+    font-size: 12px !important;
+    padding: 5px 8px !important;
+  }
+  .ffy-navbar .ffy-nb-logo img {
+    height: 26px;
+  }
+  .ffy-navbar .ffy-nb-actions .elementor-social-icon,
+  .ffy-navbar .ffy-nb-icon-btn {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+  }
+  .ffy-navbar .ffy-nb-actions .ffy-lang-toggle {
+    height: 32px !important;
+    font-size: 11px !important;
+    padding: 0 10px !important;
+  }
+}
+
+/* Accordion header - easier tap on mobile */
+@media screen and (max-width: 480px) {
+  .ffy-accordion-header {
+    padding: 16px;
+    gap: 12px;
+  }
+  .ffy-accordion-title {
+    font-size: 1rem;
+  }
+  .ffy-accordion-body-inner {
+    padding: 4px 16px 20px;
+  }
+}
+
+/* Product card overlay - partially visible on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .ffy-product-card-overlay {
+    opacity: 0.65;
+  }
+  .ffy-product-card:hover .ffy-product-card-overlay {
+    opacity: 1;
+  }
+}
+
+/* Team grid - 1-column on 380px and below */
+@media screen and (max-width: 380px) {
+  .ffy-team-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .ffy-milestone-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Related products - 1-col on 480px */
+@media screen and (max-width: 480px) {
+  .ffy-pd-related-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Catalog grid - 2-col on 481-768px tablet */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .ffy-catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ================================================================
+   END RESPONSIVE OVERRIDES v2
+   ================================================================ */
+
+/* ================================================================
+   RESPONSIVE OVERRIDES v3 — Berry Pure
+   Targeted fixes for issues not fully covered by v1/v2.
+   All rules are scoped tightly and placed after previous layers
+   so they win the cascade without needing !important where avoidable.
+   ================================================================ */
+
+/* ---------------------------------------------------------------
+   HERO SLIDER — Replace hard-coded px left/right offsets
+   The elementor-page.css @media(max-width:767px) block uses
+   `left: 267px` for d4ba694 / e46f4f9 / feb1dd5
+   and `left: 213px` for 36eaaf8, causing overflow on ≤480px.
+   These overrides win because they appear later in the cascade.
+   --------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+  /* d4ba694 — Mint leaf (Berry Pure slide) */
+  body:not(.rtl) .elementor-3089 .elementor-element.elementor-element-d4ba694 {
+    left: 62cqw !important;
+  }
+  body.rtl .elementor-3089 .elementor-element.elementor-element-d4ba694 {
+    right: 62cqw !important;
+  }
+
+  /* 36eaaf8 — Blueberry garnish */
+  body:not(.rtl) .elementor-3089 .elementor-element.elementor-element-36eaaf8 {
+    left: 55cqw !important;
+  }
+  body.rtl .elementor-3089 .elementor-element.elementor-element-36eaaf8 {
+    right: 55cqw !important;
+  }
+
+  /* e46f4f9 — Chocolate piece (Banana Crush slide) */
+  body:not(.rtl) .elementor-3089 .elementor-element.elementor-element-e46f4f9 {
+    left: 55cqw !important;
+  }
+  body.rtl .elementor-3089 .elementor-element.elementor-element-e46f4f9 {
+    right: 55cqw !important;
+  }
+
+  /* feb1dd5 — Mint leaf 2 (Kiwi slide) */
+  body:not(.rtl) .elementor-3089 .elementor-element.elementor-element-feb1dd5 {
+    left: 55cqw !important;
+  }
+  body.rtl .elementor-3089 .elementor-element.elementor-element-feb1dd5 {
+    right: 55cqw !important;
+  }
+}
+
+/* ---------------------------------------------------------------
+   HERO SLIDER — Clamp product title font-size on mobile
+   At 2.6cqw on 320px container, title is only ~8px. Ensure
+   it renders at ≥ clamp(1.4rem, 9cqw, 3rem).
+   --------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+  .elementor-3089 .elementor-element.elementor-element-b5d8762 .elementor-heading-title,
+  .elementor-3089 .elementor-element.elementor-element-81e8e1b .elementor-heading-title,
+  .elementor-3089 .elementor-element.elementor-element-53ca2d0 .elementor-heading-title,
+  .elementor-3089 .elementor-element.elementor-element-8a8d15f .elementor-heading-title {
+    font-size: clamp(1.6rem, 9cqw, 3rem) !important;
+  }
+}
+
+/* ---------------------------------------------------------------
+   HERO SLIDER — ffy-word decorative text
+   white-space: nowrap is fine on desktop but combined with a
+   17.5cqw font, on tablet portrait (768px) = 134px text. Add
+   overflow:hidden so it clips into the background and never
+   causes horizontal scroll.
+   --------------------------------------------------------------- */
+.ffy-word .elementor-heading-title {
+  overflow: hidden;
+}
+
+/* ---------------------------------------------------------------
+   ABOUT / STORY sections — fluid image heights
+   Currently fixed at 480px, which can be too tall or too short.
+   Replace with aspect-ratio + min/max constraints so images
+   always look great without causing overflow.
+   --------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+  .ffy-about-img-wrap img {
+    height: auto !important;
+    aspect-ratio: 4 / 3;
+    min-height: 240px;
+    max-height: 400px;
+  }
+
+  .ffy-story-img-wrap img {
+    height: auto !important;
+    aspect-ratio: 4 / 3;
+    min-height: 240px;
+    max-height: 400px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ffy-about-img-wrap img {
+    min-height: 200px;
+    max-height: 320px;
+  }
+
+  .ffy-story-img-wrap img {
+    min-height: 200px;
+    max-height: 320px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   CONTACT PAGE — Map card height fluid on mobile
+   Fixed at 250px, which is fine on desktop but can be awkward
+   on narrow screens. Allow it to shrink gracefully.
+   --------------------------------------------------------------- */
+@media screen and (max-width: 480px) {
+  .ffy-contact-map-card {
+    height: 200px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   SMALL TABLET (481px–768px) — Hero about image height
+   The tablet breakpoint already stacks the grid 1-column at
+   ≤1024px. Keep image height at a sensible max for mid sizes.
+   --------------------------------------------------------------- */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .ffy-about-img-wrap img {
+    height: 360px;
+  }
+
+  .ffy-story-img-wrap img {
+    height: 360px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   VERY SMALL SCREENS (≤ 360px) — Extra padding / font safety
+   Ensures the site is usable on 320px devices without any
+   horizontal scroll from section containers.
+   --------------------------------------------------------------- */
+@media screen and (max-width: 360px) {
+  .ffy-section {
+    padding: 40px 4vw !important;
+  }
+
+  .ffy-newsletter {
+    padding: 48px 4vw !important;
+  }
+
+  .ffy-footer {
+    padding: 40px 4vw 20px !important;
+  }
+
+  .ffy-contact-form-card {
+    padding: 20px 14px !important;
+    border-radius: 16px !important;
+  }
+
+  .ffy-faq-support {
+    padding: 28px 14px !important;
+  }
+
+  .ffy-section-heading {
+    font-size: clamp(1.7rem, 8vw, 2.2rem) !important;
+  }
+
+  /* Navbar — keep logo+hamburger on one line */
+  .ffy-navbar {
+    padding: 0 10px !important;
+    min-height: 44px !important;
+  }
+
+  .ffy-navbar .ffy-nb-logo img {
+    height: 22px !important;
+  }
+
+  /* Footer bottom — stack everything */
+  .ffy-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .ffy-footer-bottom-links {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   HERO SLIDER — Description text minimum readable size
+   At 3cqw on 320px container the text is 9.6px. Override with
+   clamp() to guarantee a legible floor of 13px.
+   --------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+  .elementor-3089 .elementor-element.elementor-element-7701f8b,
+  .elementor-3089 .elementor-element.elementor-element-c4938f0,
+  .elementor-3089 .elementor-element.elementor-element-e7536d1,
+  .elementor-3089 .elementor-element.elementor-element-d20d328 {
+    font-size: clamp(13px, 3.8cqw, 16px) !important;
+    width: min(85cqw, 360px) !important;
+    max-width: min(85cqw, 360px) !important;
+    --container-widget-width: min(85cqw, 360px) !important;
+  }
+}
+
+/* ---------------------------------------------------------------
+   HERO SLIDER — Navigation arrows touch target
+   Arrow buttons need ≥44px for comfortable mobile tapping.
+   --------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+  .ffy-arrow .elementor-social-icon {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+  }
+}
+
+/* ---------------------------------------------------------------
+   PRODUCT DETAIL — Thumbnail strip fluid on very small screens
+   --------------------------------------------------------------- */
+@media screen and (max-width: 360px) {
+  .ffy-pd-thumb {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   FOOTER — Contact items text wrapping
+   On very narrow screens, long email/address strings can overflow.
+   --------------------------------------------------------------- */
+.ffy-footer-contact-item span {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.ffy-footer-contact-item {
+  min-width: 0;
+}
+
+/* ---------------------------------------------------------------
+   TESTIMONIAL QUOTES — prevent long words from overflowing card
+   --------------------------------------------------------------- */
+.ffy-testimonial-quote {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* ---------------------------------------------------------------
+   ACCORDION / FAQ — long question text wrapping
+   --------------------------------------------------------------- */
+.ffy-accordion-title {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ---------------------------------------------------------------
+   CHECKLIST — inner padding on 320px screens
+   --------------------------------------------------------------- */
+@media screen and (max-width: 360px) {
+  .ffy-cl-card {
+    padding: 20px 14px !important;
+    border-radius: 18px !important;
+  }
+
+  .ffy-checklist-inner {
+    padding: 0 16px;
+  }
+
+  .ffy-cl-item {
+    padding: 10px 10px;
+    gap: 10px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   SMALL TABLET (481px–768px) — Page hero heading
+   The hero heading uses clamp(2.8rem, 6vw, 5rem). At 600px
+   that is 4.8rem which may still be large. Tighten the scale.
+   --------------------------------------------------------------- */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .ffy-page-hero-heading {
+    font-size: clamp(2.4rem, 5vw, 3.5rem);
+  }
+
+  .ffy-page-hero {
+    padding: 140px 6vw 80px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   SECTION INNER — prevent overflow from content wider than viewport
+   --------------------------------------------------------------- */
+.ffy-section-inner,
+.ffy-footer-inner,
+.ffy-faq-inner,
+.ffy-checklist-inner {
+  box-sizing: border-box;
+  overflow: visible;
+  min-width: 0;
+}
+
+/* ---------------------------------------------------------------
+   IMAGES — global safeguard (already set in v2 but reinforce)
+   --------------------------------------------------------------- */
+img,
+video,
+svg,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------------------------------------------------------------
+   FORMS — ensure selects don't overflow on small screens
+   --------------------------------------------------------------- */
+.ffy-form-select,
+.ffy-catalog-sort {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ---------------------------------------------------------------
+   PRODUCT CARD FOOTER — allow wrapping on very narrow cards
+   --------------------------------------------------------------- */
+@media screen and (max-width: 380px) {
+  .ffy-flavor-footer,
+  .ffy-product-card-footer {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .ffy-btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ---------------------------------------------------------------
+   NAVBAR — ensure brand + hamburger never overflow on 320px
+   Use min-width: 0 on flex children to allow shrinking.
+   --------------------------------------------------------------- */
+.ffy-navbar .ffy-nb-logo {
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+.ffy-navbar .ffy-nb-logo img {
+  max-width: 90px;
+}
+
+@media screen and (max-width: 360px) {
+  .ffy-navbar .ffy-nb-logo img {
+    max-width: 70px;
+    height: 20px !important;
+  }
+}
+
+/* ---------------------------------------------------------------
+   TABLET NAVBAR (769px–1024px) — ensure actions don't clip
+   --------------------------------------------------------------- */
+@media screen and (min-width: 769px) and (max-width: 900px) {
+  /* Hide categories dropdown to save space on narrow tablets */
+  .ffy-navbar .ffy-nb-categories {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------
+   PRODUCT CATALOG — sort wrapper full-width on 481-768px
+   --------------------------------------------------------------- */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .ffy-catalog-filter-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ffy-catalog-sort-wrap {
+    width: 100%;
+  }
+
+  .ffy-catalog-sort {
+    flex: 1;
+  }
+}
+
+/* ---------------------------------------------------------------
+   LARGE DESKTOP (1440px+) — constrain section widths
+   Prevents content from stretching too wide on ultrawide monitors.
+   --------------------------------------------------------------- */
+@media screen and (min-width: 1440px) {
+  .ffy-section-inner,
+  .ffy-footer-inner {
+    max-width: 1320px;
+  }
+
+  .ffy-faq-inner {
+    max-width: 900px;
+  }
+
+  .ffy-checklist-inner {
+    max-width: 960px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   MISC — prevent body from horizontal scrolling due to
+   absolute-positioned hero elements (belt-and-suspenders)
+   --------------------------------------------------------------- */
+.ffy-root,
+.ffy-frame,
+.elementor-element-0def1b6 {
+  overflow: hidden !important;
+}
+
+/* ================================================================
+   END RESPONSIVE OVERRIDES v3
+   ================================================================ */
 
