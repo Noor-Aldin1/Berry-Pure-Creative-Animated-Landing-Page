@@ -1,5 +1,5 @@
 /* ================================================================
-   Berry Pure — Product Checklist Data
+   Milk — Product Checklist Data
    ================================================================
    Single source of truth for all product-specific checklist items.
 
@@ -25,7 +25,7 @@
 window.FFY_CHECKLIST_DATA = {
 
   /* ----------------------------------------------------------
-     1. Berry Pure — Strawberry Smoothie Bowl
+     1. Milk — Strawberry Smoothie Bowl
      ---------------------------------------------------------- */
   'berry-pure': {
     sections: [
@@ -47,16 +47,16 @@ window.FFY_CHECKLIST_DATA = {
             id: 'confirm-allergens',
             title_en: 'Review allergen information',
             title_ar: 'مراجعة معلومات المواد المسببة للحساسية',
-            desc_en: 'Berry Pure contains dairy and may contain traces of nuts. Always confirm before ordering.',
-            desc_ar: 'يحتوي بيري بيور على منتجات الألبان وقد يحتوي على آثار من المكسرات. تأكد دائمًا قبل الطلب.',
+            desc_en: 'Milk contains dairy and may contain traces of nuts. Always confirm before ordering.',
+            desc_ar: 'يحتوي ميلك على منتجات الألبان وقد يحتوي على آثار من المكسرات. تأكد دائمًا قبل الطلب.',
             order: 2
           },
           {
             id: 'place-order',
             title_en: 'Submit your order',
             title_ar: 'قدِّم طلبك',
-            desc_en: 'Order in-store or via our team. Berry Pure is made fresh — allow 5–8 minutes preparation time.',
-            desc_ar: 'الطلب داخل المتجر أو عبر فريقنا. يُحضَّر بيري بيور طازجًا — انتظر ٥–٨ دقائق للتحضير.',
+            desc_en: 'Order in-store or via our team. Milk is made fresh — allow 5–8 minutes preparation time.',
+            desc_ar: 'الطلب داخل المتجر أو عبر فريقنا. يُحضَّر ميلك طازجًا — انتظر ٥–٨ دقائق للتحضير.',
             order: 3
           }
         ]
@@ -71,8 +71,8 @@ window.FFY_CHECKLIST_DATA = {
             id: 'pick-spot',
             title_en: 'Find your perfect spot',
             title_ar: 'اختر مكانك المثالي',
-            desc_en: 'Berry Pure tastes best enjoyed slowly. Choose a calm, comfortable setting.',
-            desc_ar: 'بيري بيور يُستمتع به على مهل. اختر مكانًا هادئًا ومريحًا.',
+            desc_en: 'Milk tastes best enjoyed slowly. Choose a calm, comfortable setting.',
+            desc_ar: 'ميلك يُستمتع به على مهل. اختر مكانًا هادئًا ومريحًا.',
             order: 1
           },
           {
@@ -133,16 +133,16 @@ window.FFY_CHECKLIST_DATA = {
         items: [
           {
             id: 'rate',
-            title_en: 'Rate your Berry Pure experience',
-            title_ar: 'قيِّم تجربتك مع بيري بيور',
+            title_en: 'Rate your Milk experience',
+            title_ar: 'قيِّم تجربتك مع ميلك',
             desc_en: 'Use our in-store feedback card or leave a review online to help us improve.',
             desc_ar: 'استخدم بطاقة التعليقات داخل المتجر أو اترك مراجعة عبر الإنترنت لمساعدتنا على التحسين.',
             order: 1
           },
           {
             id: 'compare',
-            title_en: 'Compare with another Berry Pure flavour',
-            title_ar: 'قارن مع نكهة أخرى من بيري بيور',
+            title_en: 'Compare with another Milk flavour',
+            title_ar: 'قارن مع نكهة أخرى من ميلك',
             desc_en: 'Try Blue Bliss or Banana Crush next to discover how each flavour has its own character.',
             desc_ar: 'جرب بلو بليس أو بانانا كراش لاحقًا لتكتشف كيف أن لكل نكهة شخصيتها الخاصة.',
             order: 2

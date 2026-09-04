@@ -31,7 +31,7 @@ html {
 }
 
 /* ================================================================
-   Berry Pure Smoothie Slider — CSS layout helpers & animation overrides
+   Milk Smoothie Slider — CSS layout helpers & animation overrides
    ================================================================ */
 
 
@@ -117,7 +117,7 @@ html {
 }
 
 /* ================================================================
-   Berry Pure — New Sections Styles
+   Milk — New Sections Styles
    ================================================================ */
 
 /* ---------------------------------------------------------------
@@ -428,7 +428,7 @@ body {
 }
 
 /* ---------------------------------------------------------------
-   3. Why Berry Pure / Features
+   3. Why Milk / Features
    --------------------------------------------------------------- */
 .ffy-features {
   background: linear-gradient(160deg, #1a0008 0%, #3a0016 50%, #1a0008 100%);
@@ -923,7 +923,7 @@ body {
 }
 
 /* ================================================================
-   Berry Pure — Sections: supplementary overrides
+   Milk — Sections: supplementary overrides
    ================================================================ */
 
 /* Ensure the elementor wrapper doesn't clip or collapse the new sections */
@@ -4374,7 +4374,7 @@ body {
 
 
 /* ================================================================
-   RESPONSIVE OVERRIDES v2 - Berry Pure
+   RESPONSIVE OVERRIDES v2 - Milk
    Comprehensive fixes across all breakpoints for all 20 pages.
    Appended to main.css - overrides take effect after existing rules.
    ================================================================ */
@@ -4878,7 +4878,7 @@ img {
    ================================================================ */
 
 /* ================================================================
-   RESPONSIVE OVERRIDES v3 — Berry Pure
+   RESPONSIVE OVERRIDES v3 — Milk
    Targeted fixes for issues not fully covered by v1/v2.
    All rules are scoped tightly and placed after previous layers
    so they win the cascade without needing !important where avoidable.
@@ -4892,7 +4892,7 @@ img {
    These overrides win because they appear later in the cascade.
    --------------------------------------------------------------- */
 @media screen and (max-width: 767px) {
-  /* d4ba694 — Mint leaf (Berry Pure slide) */
+  /* d4ba694 — Mint leaf (Milk slide) */
   body:not(.rtl) .elementor-3089 .elementor-element.elementor-element-d4ba694 {
     left: 62cqw !important;
   }

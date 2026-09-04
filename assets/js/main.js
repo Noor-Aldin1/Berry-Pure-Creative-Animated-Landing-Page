@@ -1,5 +1,5 @@
 /* ================================================================
-   Berry Pure Smoothie Slider
+   Milk Smoothie Slider
    ================================================================
    A 4-slide GSAP-powered carousel built inside Elementor.
 
@@ -919,7 +919,7 @@
 
 
 /* ================================================================
-   Berry Pure — New Sections Behaviours
+   Milk — New Sections Behaviours
    ================================================================
    Appended after the slider IIFE. Requires no new dependencies
    (jQuery is already loaded; uses IntersectionObserver natively).
@@ -1022,7 +1022,7 @@
     if (!successHtml) {
       successHtml =
         '<p style="font-family:' + successFont + ';font-size:1.25rem;color:#fff;margin:0;">' +
-        '\u2665 You\'re in! Welcome to the Berry Pure family, ' +
+        '\u2665 You\'re in! Welcome to the Milk family, ' +
         '<strong>' + email.split('@')[0] + '</strong>.' +
         '</p>';
     } else {

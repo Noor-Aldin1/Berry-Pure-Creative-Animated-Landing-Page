@@ -1,5 +1,5 @@
 /* ================================================================
-   Berry Pure — Product Data Store
+   Milk — Product Data Store
    ================================================================
    Single source of truth for all product content.
    Consumed by: products.html, products-ar.html, and every
@@ -14,26 +14,26 @@
 window.FFY_PRODUCTS = [
 
   /* ----------------------------------------------------------
-     1. Berry Pure — Strawberry Smoothie Bowl
+     1. Milk — Strawberry Smoothie Bowl
      ---------------------------------------------------------- */
   {
     id: 'berry-pure',
     badge_en: 'Bestseller',
     badge_ar: 'الأكثر مبيعًا',
     badgeColor: '#C90035',
-    name_en: 'Berry Pure',
-    name_ar: 'بيري بيور',
+    name_en: 'Milk',
+    name_ar: 'ميلك',
     tagline_en: 'Creamy strawberry perfection, handcrafted every morning.',
     tagline_ar: 'كمال الفراولة الكريمية المصنوع يدويًا كل صباح.',
-    description_en: 'Fresh strawberries, luscious cream, and delicate white chocolate pieces blended into one smooth, dreamy dessert. Our signature creation — born from the very first recipe that launched Berry Pure in 2012. Every spoonful is a celebration of the finest seasonal strawberries, picked at peak ripeness and transformed into something truly extraordinary. Served fresh, never frozen.',
-    description_ar: 'فراولة طازجة وكريمة غنية وقطع شوكولاتة بيضاء رقيقة تُمزج في حلوى ناعمة وحالمة. إبداعنا الأصيل — وُلد من أول وصفة أطلقت بيري بيور عام ٢٠١٢. كل ملعقة احتفال بأجود فراولة الموسم المقطوفة في ذروة نضجها والمحوّلة إلى شيء استثنائي حقًا. تُقدَّم طازجة، لا مجمّدة أبدًا.',
+    description_en: 'Fresh strawberries, luscious cream, and delicate white chocolate pieces blended into one smooth, dreamy dessert. Our signature creation — born from the very first recipe that launched Milk in 2012. Every spoonful is a celebration of the finest seasonal strawberries, picked at peak ripeness and transformed into something truly extraordinary. Served fresh, never frozen.',
+    description_ar: 'فراولة طازجة وكريمة غنية وقطع شوكولاتة بيضاء رقيقة تُمزج في حلوى ناعمة وحالمة. إبداعنا الأصيل — وُلد من أول وصفة أطلقت ميلك عام ٢٠١٢. كل ملعقة احتفال بأجود فراولة الموسم المقطوفة في ذروة نضجها والمحوّلة إلى شيء استثنائي حقًا. تُقدَّم طازجة، لا مجمّدة أبدًا.',
     price: 8.90,
     category: 'smoothie-bowl',
     category_en: 'Smoothie Bowl',
     category_ar: 'طبق سموذي',
     image_main: 'assets/images/strawberry-bowl.png',
-    image_alt_en: 'Berry Pure strawberry smoothie bowl with white chocolate',
-    image_alt_ar: 'طبق سموذي بيري بيور بالفراولة والشوكولاتة البيضاء',
+    image_alt_en: 'Milk strawberry smoothie bowl with white chocolate',
+    image_alt_ar: 'طبق سموذي ميلك بالفراولة والشوكولاتة البيضاء',
     image_gallery: [
       'assets/images/strawberry-bowl.png',
       'assets/images/strawberry-scoop.png',
@@ -141,7 +141,7 @@ window.FFY_PRODUCTS = [
     category_ar: 'عرض موسمي',
     image_main: 'assets/images/kiwi-bowl.png',
     image_alt_en: 'Kiwi Flavor refreshing kiwi ice cream bowl',
-    image_alt_ar: 'طبق آيس كريم الكيوي المنعش نكهة الكيوي',
+    image_alt_ar: 'طبق آيس كريم نكهة الكيوي المنعش',
     image_gallery: [
       'assets/images/kiwi-bowl.png',
       'assets/images/kiwi-scoop-1.png',

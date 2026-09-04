@@ -1,9 +1,9 @@
 ================================================================================
-BERRY PURE — ASSETS & CREDITS
+MILK — ASSETS & CREDITS
 ================================================================================
 
 This document lists all third-party libraries, fonts, and media assets
-utilized within the Berry Pure HTML5 template.
+utilized within the Milk HTML5 template.
 
 --------------------------------------------------------------------------------
 1. THIRD-PARTY LIBRARIES & FRAMEWORKS
@@ -108,7 +108,7 @@ specifically for the animated interactive smoothie bowl showcase and brand ident
      - License: Commercial use permitted per platform terms of service
 
  12. assets/images/logo.png
-     - Description: Berry Pure brand identity logo
+     - Description: Milk brand identity logo
      - Source: AI-generated (Google Gemini / ChatGPT DALL-E)
      - License: Commercial use permitted per platform terms of service
 
