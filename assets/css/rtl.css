@@ -137,11 +137,12 @@
    Footer Contact Items — Icon Spacing RTL Fix
    --------------------------------------------------------------- */
 
-/* Icons sit before text in LTR. In RTL, gap remains but flex-direction
-   is inherited from dir="rtl" so the icon naturally appears on the right. */
+/* In dir="rtl" flex row flows right-to-left naturally:
+   icon (first in DOM) sits on the RIGHT, text on the LEFT — correct.
+   row-reverse would double-flip back to LTR, so we keep row. */
 [dir="rtl"] .ffy-footer-contact-item {
-  flex-direction: row-reverse;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 /* Footer social icons row should still flow left-to-right (visual icons) */
@@ -154,9 +155,11 @@
   text-align: right;
 }
 
-/* Footer bottom bar: in mobile, align start = right side */
+/* Footer bottom bar: dir="rtl" on <html> already makes the flex row
+   flow right-to-left (copyright on right, links on left). No row-reverse needed.
+   On mobile, stack vertically with right alignment. */
 [dir="rtl"] .ffy-footer-bottom {
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 @media screen and (max-width: 767px) {
@@ -241,8 +244,10 @@
    Footer Bottom Links — RTL list direction
    --------------------------------------------------------------- */
 
+/* dir="rtl" on <html> already makes flex row flow right-to-left.
+   row-reverse would double-flip to LTR, which is wrong. Keep row. */
 [dir="rtl"] .ffy-footer-bottom-links {
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 [dir="rtl"] .ffy-footer-copy {
@@ -335,9 +340,13 @@
 }
 
 /* Breadcrumb — RTL Direction */
+/* dir="rtl" on <html> makes flex row flow right-to-left:
+   "الرئيسية" (link, first in DOM) on the right, separator, then
+   current page on the left — correct RTL breadcrumb order.
+   row-reverse would put it in LTR order (wrong). */
 [dir="rtl"] .ffy-breadcrumb {
   direction: rtl;
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 [dir="rtl"] .ffy-page-hero .ffy-section-label {
@@ -471,8 +480,12 @@
 /* ---------------------------------------------------------------
    FAQ Accordion — RTL
    --------------------------------------------------------------- */
+/* In dir="rtl" context with justify-content: space-between:
+   Title (first DOM element) anchors to the RIGHT, icon anchors to LEFT.
+   That is the correct RTL layout (title on reading-start = right).
+   row-reverse would swap them (icon on right, title on left = wrong). */
 [dir="rtl"] .ffy-accordion-header {
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 [dir="rtl"] .ffy-accordion-title {
@@ -519,8 +532,10 @@
   letter-spacing: 0 !important;
 }
 
+/* Hero CTA buttons — dir="rtl" already reverses flex row.
+   row-reverse would double-flip them to LTR order (wrong). */
 [dir="rtl"] .ffy-page-hero-cta {
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 /* ================================================================
@@ -905,9 +920,11 @@
 }
 
 /* Mobile menu text alignment in RTL */
+/* In dir="rtl" context, flex-start = right side of the container.
+   flex-end would push text to the LEFT, which is incorrect. */
 [dir="rtl"] .ffy-nb-mobile-menu a {
   text-align: right;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 /* RTL navbar - lang toggle alignment */
@@ -1014,7 +1031,7 @@
   [dir="rtl"] .ffy-accordion-header {
     padding: 16px;
     gap: 12px;
-    flex-direction: row-reverse;
+    flex-direction: row;
   }
 }
 
@@ -1065,7 +1082,9 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    flex-direction: row-reverse;
+    /* Keep row direction: dir="rtl" already makes tabs flow right-to-left.
+       row-reverse would make them LTR, breaking the RTL scroll start position. */
+    flex-direction: row;
   }
   [dir="rtl"] .ffy-cl-tabs::-webkit-scrollbar {
     display: none;
@@ -1223,3 +1242,329 @@
    END RTL RESPONSIVE OVERRIDES v3
    ================================================================ */
 
+
+/* ================================================================
+   RTL COMPREHENSIVE FIXES v4 — Milk
+   Covers all remaining directional issues across all pages.
+   ================================================================ */
+
+/* ---------------------------------------------------------------
+   Detail Sections — RTL text alignment
+   --------------------------------------------------------------- */
+/* In dir="rtl" flex row: icon (first DOM) on RIGHT, text on LEFT.
+   For RTL section titles, this is correct (text at reading start = right).
+   Keeping row-reverse here was wrong. */
+[dir="rtl"] .ffy-pd-section-title {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+  flex-direction: row;
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-pd-ing-pill {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+  /* icon on RIGHT (start of RTL reading), text on LEFT — correct without reversal */
+  flex-direction: row;
+}
+
+/* ---------------------------------------------------------------
+   CONTACT FORM — Input / Textarea / Select text alignment
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-form-input,
+[dir="rtl"] .ffy-form-textarea {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .ffy-form-input::placeholder,
+[dir="rtl"] .ffy-form-textarea::placeholder {
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-form-error {
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-form-label {
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-contact-form-title,
+[dir="rtl"] .ffy-contact-form-desc {
+  text-align: right;
+}
+
+/* Contact info cards — dir="rtl" flex row: icon on right, text on left (correct) */
+[dir="rtl"] .ffy-contact-card {
+  flex-direction: row;
+}
+
+[dir="rtl"] .ffy-contact-card-title,
+[dir="rtl"] .ffy-contact-card-text {
+  text-align: right;
+}
+
+/* ---------------------------------------------------------------
+   MOBILE CATALOG FILTER ROW — RTL mobile alignment
+   --------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+  [dir="rtl"] .ffy-catalog-filter-row {
+    align-items: flex-end;
+  }
+  
+  [dir="rtl"] .ffy-catalog-tabs {
+    flex-direction: row;
+  }
+}
+
+/* ---------------------------------------------------------------
+   SMALL SCREEN FOOTER BOTTOM — RTL alignment fixes
+   --------------------------------------------------------------- */
+@media screen and (max-width: 360px) {
+  [dir="rtl"] .ffy-footer-bottom {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+/* ---------------------------------------------------------------
+   ACCORDION BODY INNER — RTL padding logical fix
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-accordion-body-inner {
+  padding-inline-start: 28px;
+  padding-inline-end: 28px;
+}
+
+/* ---------------------------------------------------------------
+   MOBILE ACCORDION HEADER — RTL padding (already at 480px in v2)
+   Reinforce for all RTL at mobile breakpoint
+   --------------------------------------------------------------- */
+@media screen and (max-width: 480px) {
+  [dir="rtl"] .ffy-accordion-header {
+    flex-direction: row;
+    gap: 12px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   PRODUCT SECTIONS — Missing RTL text-alignment
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-pd-qty-row {
+  flex-direction: row;
+}
+
+[dir="rtl"] .ffy-pd-cta-row {
+  flex-direction: row;
+}
+
+/* ---------------------------------------------------------------
+   NAVBAR HAMBURGER — RTL position (hamburger on left, logo on right)
+   In RTL with justify-content: space-between, logo (first in DOM) is
+   on the RIGHT and hamburger (last in DOM) is on the LEFT.
+   This is already correct with dir="rtl" flex row — no changes needed.
+   --------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------
+   BREADCRUMB SEPARATOR ICON — Flip chevron for RTL
+   The separator is a fa-chevron-left (<) in the HTML. In RTL reading
+   direction this points toward the root (correct: home → current
+   reads right-to-left as: current ← home). This is semantically correct.
+   No CSS transform needed. But mirror it via CSS for visual clarity.
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-breadcrumb-sep i.fa-chevron-left,
+[dir="rtl"] .ffy-breadcrumb-sep i.fa-chevron-right {
+  /* Keep as-is: chevron-left (<) points toward current page in RTL breadcrumb */
+  display: inline-block;
+}
+
+/* ---------------------------------------------------------------
+   ABOUT SECTION — Missing heading text alignment
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-about-text .ffy-section-heading {
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-about-text .ffy-section-label {
+  text-align: right;
+  display: block;
+}
+
+[dir="rtl"] .ffy-about-text .ffy-section-body {
+  text-align: right;
+}
+
+/* ---------------------------------------------------------------
+   FEATURES / WHY MILK — RTL font overrides (center-aligned OK)
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-feature-title {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-feature-desc {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------------------------------------------------------------
+   TESTIMONIALS — RTL font overrides
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-testimonial-name {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-testimonial-role {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------------------------------------------------------------
+   NEWSLETTER SECTION — RTL font overrides
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-newsletter .ffy-section-heading {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-newsletter .ffy-section-body {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+  direction: rtl;
+}
+
+[dir="rtl"] .ffy-newsletter-note {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------------------------------------------------------------
+   FLAVOR CARD BODY — RTL text alignment
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-flavor-name {
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-flavor-desc {
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-flavor-footer {
+  flex-direction: row;
+}
+
+/* ---------------------------------------------------------------
+   CATALOG EMPTY STATE — RTL
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-catalog-empty h3,
+[dir="rtl"] .ffy-catalog-empty p {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-catalog-empty h3 {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+}
+
+/* ---------------------------------------------------------------
+   FOOTER COL TITLE — RTL text alignment
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-footer-col-title {
+  text-align: right;
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-footer-links {
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-footer-links a {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------------------------------------------------------------
+   SECTION HEADERS — RTL font for section labels / headings
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-section-heading {
+  font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-section-body {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------------------------------------------------------------
+   BUTTONS — RTL icon order in buttons
+   For inline-flex buttons with icon + text, in RTL the icon should
+   appear on the LEFT of text (after text in reading direction).
+   Buttons that use gap with icon first in DOM will naturally
+   place icon on right in RTL flex row. When icon should follow text,
+   use flex-direction: row-reverse on specific buttons.
+   Most buttons here are fine with row direction in RTL.
+   --------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------
+   PRODUCT DETAIL — Missing RTL text alignments
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-pd-section {
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-pd-description p {
+  text-align: right;
+}
+
+/* ---------------------------------------------------------------
+   TOAST NOTIFICATION — RTL layout
+   On desktop: toast appears on LEFT (inline-start in RTL).
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-toast {
+  flex-direction: row;
+}
+
+/* ---------------------------------------------------------------
+   CHECKLIST PAGE — Items text alignment RTL
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-cl-item-title {
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-cl-item-desc {
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-cl-category-title {
+  text-align: right;
+}
+
+[dir="rtl"] .ffy-cl-stats {
+  flex-direction: row;
+}
+
+/* ---------------------------------------------------------------
+   404 PAGE — RTL text alignment
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-404-title,
+[dir="rtl"] .ffy-404-desc {
+  direction: rtl;
+}
+
+/* ---------------------------------------------------------------
+   PRODUCT DETAIL — Section title icon order
+   In RTL: icon should appear after title text (on the left side)
+   dir="rtl" on flex row: title (first DOM) on right, icon (second) on left.
+   This is correct! No change needed.
+   --------------------------------------------------------------- */
+[dir="rtl"] .ffy-pd-section-title {
+  flex-direction: row;
+  text-align: right;
+}
+
+/* ================================================================
+   END RTL COMPREHENSIVE FIXES v4
+   ================================================================ */
