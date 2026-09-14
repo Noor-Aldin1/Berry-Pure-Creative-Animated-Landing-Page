@@ -5296,3 +5296,833 @@ canvas {
    END RESPONSIVE OVERRIDES v3
    ================================================================ */
 
+
+/* ================================================================
+   SPACING & ALIGNMENT OVERHAUL v4 — Milk
+   Comprehensive balanced-spacing pass across all pages, sections,
+   and breakpoints. Fixes cramped elements, inconsistent gaps,
+   button-to-edge proximity, and section-header margin scaling.
+   ================================================================ */
+
+/* ---------------------------------------------------------------
+   1. PAGE HERO — Bottom breathing room & CTA clearance
+   The wave SVG at the bottom is ~72px tall. We increase the
+   bottom padding so CTA buttons have proper visual clearance
+   above the wave, and add extra room above the breadcrumb.
+   --------------------------------------------------------------- */
+.ffy-page-hero {
+  padding: 168px 5vw 120px;
+}
+
+/* The hero inner content gets a bottom margin so it never
+   collides with the wave even on varying content heights */
+.ffy-page-hero-inner {
+  padding-bottom: 8px;
+}
+
+/* Hero CTA row — give it more vertical breathing space
+   between the description and the wave below */
+.ffy-page-hero-cta {
+  margin-top: 4px;
+}
+
+/* ---------------------------------------------------------------
+   2. MISSING BUTTON CLASS — ffy-btn-outline-white
+   Used in about.html and about-ar.html hero but the style
+   was never defined, causing buttons to have no border/color.
+   Mirrors the white-outline style used in ffy-faq-support.
+   --------------------------------------------------------------- */
+.ffy-btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border-radius: 50px;
+  min-height: 44px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.65);
+}
+
+.ffy-btn-outline-white:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------------------------------------------------------------
+   3. SECTION HEADERS — margin-bottom scaling
+   The fixed 64px bottom margin on all section headers is too
+   large on tablet/mobile. Scale it down proportionally.
+   --------------------------------------------------------------- */
+.ffy-flavors-header,
+.ffy-features-header,
+.ffy-testimonials-header,
+.ffy-values-header,
+.ffy-milestones-header,
+.ffy-team-header,
+.ffy-pd-related-header {
+  margin-bottom: 56px;
+}
+
+/* ---------------------------------------------------------------
+   4. SECTION BODY (description) — top margin under headings
+   Add a small predictable gap between .ffy-section-heading and
+   the first .ffy-section-body paragraph so they never feel glued.
+   --------------------------------------------------------------- */
+.ffy-section-heading + .ffy-section-body,
+.ffy-section-heading + p.ffy-section-body {
+  margin-top: 0;
+}
+
+/* ---------------------------------------------------------------
+   5. NEWSLETTER SECTION — vertical padding
+   At 80px it's noticeably tighter than the 96px sections around
+   it. Raise to match section rhythm.
+   --------------------------------------------------------------- */
+.ffy-newsletter {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+/* Newsletter description — more space between heading and form */
+.ffy-newsletter .ffy-section-body {
+  margin-bottom: 44px;
+}
+
+/* Newsletter note — ensure it has breathing room below the form */
+.ffy-newsletter-note {
+  margin-top: 20px;
+}
+
+/* ---------------------------------------------------------------
+   6. ABOUT / STORY GRID — column gap on desktop
+   72px is large; keep it but add breathing room on the text side.
+   --------------------------------------------------------------- */
+.ffy-about-text,
+.ffy-story-text {
+  padding-left: 24px;
+}
+
+/* Spacing between consecutive body paragraphs in story/about */
+.ffy-story-text .ffy-section-body + .ffy-section-body,
+.ffy-about-text .ffy-section-body + .ffy-section-body {
+  margin-top: 16px;
+}
+
+/* Stats row — extra top breathing room */
+.ffy-story-stat-row,
+.ffy-about-stat-row {
+  margin-top: 48px;
+  padding-top: 36px;
+}
+
+/* ---------------------------------------------------------------
+   7. FLAVOR CARDS — bottom margin alignment
+   .ffy-flavor-card-body has padding 24px 22px 22px. The desc
+   bottom margin already pushes the footer down. Normalise.
+   --------------------------------------------------------------- */
+.ffy-flavor-card-body {
+  padding: 24px 24px 24px;
+}
+
+/* ---------------------------------------------------------------
+   8. FEATURE CARDS — internal padding balance
+   40px top/bottom with 28px sides is slightly cramped on the
+   sides. Harmonise.
+   --------------------------------------------------------------- */
+.ffy-feature-card {
+  padding: 44px 32px;
+}
+
+/* ---------------------------------------------------------------
+   9. TESTIMONIAL CARDS — padding balance
+   36px top/bottom with 32px sides is good; add a little bottom.
+   --------------------------------------------------------------- */
+.ffy-testimonial-card {
+  padding: 40px 36px;
+}
+
+/* ---------------------------------------------------------------
+   10. VALUE CARDS — already good at 44px/32px.
+       Add a slight increase to the icon bottom margin for visual
+       balance.
+   --------------------------------------------------------------- */
+.ffy-value-icon {
+  margin-bottom: 32px;
+}
+
+/* ---------------------------------------------------------------
+   11. MILESTONE DOTS — bottom margin
+   --------------------------------------------------------------- */
+.ffy-milestone-dot {
+  margin-bottom: 28px;
+}
+
+/* ---------------------------------------------------------------
+   12. TEAM CARDS — info padding refinement
+   --------------------------------------------------------------- */
+.ffy-team-info {
+  padding: 28px 22px 32px;
+}
+
+/* ---------------------------------------------------------------
+   13. FAQ ACCORDION — header/body padding alignment
+   --------------------------------------------------------------- */
+.ffy-accordion-header {
+  padding: 24px 28px;
+}
+
+.ffy-accordion-body-inner {
+  padding: 0 28px 32px;
+}
+
+/* FAQ Tabs — margin-bottom reduction for better proportion */
+.ffy-faq-tabs {
+  margin-bottom: 44px;
+}
+
+/* ---------------------------------------------------------------
+   14. FAQ SUPPORT CARD — top margin
+   64px from accordion to support card is too much. Reduce.
+   --------------------------------------------------------------- */
+.ffy-faq-support {
+  margin-top: 56px;
+}
+
+/* Support card icon — slightly more bottom margin */
+.ffy-faq-support-icon {
+  margin-bottom: 28px;
+}
+
+/* ---------------------------------------------------------------
+   15. CATALOG CONTROLS — bottom margin for search bar
+   48px is large before the grid. Slightly reduce.
+   --------------------------------------------------------------- */
+.ffy-catalog-controls {
+  margin-bottom: 40px;
+}
+
+/* Catalog meta row (results count) — tighten before grid */
+.ffy-catalog-meta {
+  margin-bottom: 24px;
+}
+
+/* ---------------------------------------------------------------
+   16. PRODUCT DETAIL — info panel top padding
+   8px top padding on info means content starts immediately below
+   gallery. Add more visual separation.
+   --------------------------------------------------------------- */
+.ffy-pd-info {
+  padding-top: 16px;
+}
+
+/* Product detail section gaps */
+.ffy-pd-section {
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+}
+
+/* Product price row */
+.ffy-pd-price-row {
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+}
+
+/* ---------------------------------------------------------------
+   17. CONTACT FORM CARD — header spacing
+   The contact form header should not be too compressed.
+   --------------------------------------------------------------- */
+.ffy-contact-form-header {
+  margin-bottom: 36px;
+}
+
+/* Contact layout gap */
+.ffy-contact-layout {
+  gap: 60px;
+}
+
+/* ---------------------------------------------------------------
+   18. FOOTER — section padding
+   64px top is fine; 32px bottom is a bit tight.
+   --------------------------------------------------------------- */
+.ffy-footer {
+  padding-top: 72px;
+  padding-bottom: 40px;
+}
+
+/* Footer top grid padding */
+.ffy-footer-top {
+  padding-bottom: 52px;
+}
+
+/* Footer bottom padding-top */
+.ffy-footer-bottom {
+  padding-top: 32px;
+}
+
+/* ---------------------------------------------------------------
+   19. 404 PAGE — content padding
+   --------------------------------------------------------------- */
+.ffy-404-section {
+  padding: 120px 5vw 100px;
+}
+
+/* ---------------------------------------------------------------
+   20. CHECKLIST PAGE — padding
+   --------------------------------------------------------------- */
+.ffy-checklist {
+  padding: 88px 0 112px;
+}
+
+/* Progress wrap bottom margin */
+.ffy-cl-progress-wrap {
+  margin-bottom: 52px;
+}
+
+/* ---------------------------------------------------------------
+   21. BREADCRUMB — bottom margin (hero)
+   --------------------------------------------------------------- */
+.ffy-breadcrumb {
+  margin-bottom: 28px;
+}
+
+/* Hero label pill — bottom margin */
+.ffy-page-hero .ffy-section-label {
+  margin-bottom: 20px;
+}
+
+/* ---------------------------------------------------------------
+   22. HERO HEADING — bottom margin
+   --------------------------------------------------------------- */
+.ffy-page-hero-heading {
+  margin-bottom: 28px;
+}
+
+/* Hero description — bottom margin before CTA */
+.ffy-page-hero-desc {
+  margin-bottom: 40px;
+}
+
+
+/* ================================================================
+   SPACING OVERHAUL v4 — RESPONSIVE ADJUSTMENTS
+   ================================================================ */
+
+/* ---------------------------------------------------------------
+   Tablet (769px – 1024px)
+   --------------------------------------------------------------- */
+@media screen and (max-width: 1024px) {
+  /* Page hero */
+  .ffy-page-hero {
+    padding: 148px 5vw 100px;
+  }
+
+  /* Newsletter */
+  .ffy-newsletter {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  /* Section headers */
+  .ffy-flavors-header,
+  .ffy-features-header,
+  .ffy-testimonials-header,
+  .ffy-values-header,
+  .ffy-milestones-header,
+  .ffy-team-header,
+  .ffy-pd-related-header {
+    margin-bottom: 48px;
+  }
+
+  /* Story / About grids go single column — remove text indent */
+  .ffy-about-text,
+  .ffy-story-text {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Story stat row */
+  .ffy-story-stat-row,
+  .ffy-about-stat-row {
+    margin-top: 40px;
+    padding-top: 28px;
+  }
+
+  /* Contact layout */
+  .ffy-contact-layout {
+    gap: 40px;
+  }
+
+  /* Footer */
+  .ffy-footer {
+    padding-top: 60px;
+    padding-bottom: 36px;
+  }
+
+  /* Accordion header */
+  .ffy-accordion-header {
+    padding: 22px 24px;
+  }
+
+  /* Accordion body */
+  .ffy-accordion-body-inner {
+    padding: 0 24px 28px;
+  }
+
+  /* FAQ support */
+  .ffy-faq-support {
+    margin-top: 48px;
+    padding: 48px 40px;
+  }
+
+  /* Catalog controls */
+  .ffy-catalog-controls {
+    margin-bottom: 36px;
+  }
+
+  /* Product info top padding */
+  .ffy-pd-info {
+    padding-top: 0;
+  }
+
+  /* 404 */
+  .ffy-404-section {
+    padding: 100px 5vw 80px;
+  }
+
+  /* Checklist */
+  .ffy-checklist {
+    padding: 72px 0 96px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Small Tablet (481px – 768px)
+   --------------------------------------------------------------- */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  /* Page hero */
+  .ffy-page-hero {
+    padding: 140px 6vw 88px;
+  }
+
+  /* Section padding */
+  .ffy-section {
+    padding: 64px 6vw;
+  }
+
+  /* Newsletter */
+  .ffy-newsletter {
+    padding: 72px 6vw;
+  }
+
+  /* Section headers */
+  .ffy-flavors-header,
+  .ffy-features-header,
+  .ffy-testimonials-header,
+  .ffy-values-header,
+  .ffy-milestones-header,
+  .ffy-team-header,
+  .ffy-pd-related-header {
+    margin-bottom: 44px;
+  }
+
+  /* Feature cards */
+  .ffy-feature-card {
+    padding: 36px 24px;
+  }
+
+  /* Value cards */
+  .ffy-value-card {
+    padding: 36px 24px;
+  }
+
+  /* Testimonial cards */
+  .ffy-testimonial-card {
+    padding: 32px 28px;
+  }
+
+  /* Catalog controls */
+  .ffy-catalog-controls {
+    margin-bottom: 32px;
+  }
+
+  /* FAQ */
+  .ffy-faq-tabs {
+    margin-bottom: 36px;
+  }
+
+  .ffy-faq-support {
+    margin-top: 44px;
+    padding: 40px 32px;
+  }
+
+  /* Footer */
+  .ffy-footer {
+    padding-top: 56px;
+    padding-bottom: 32px;
+  }
+
+  .ffy-footer-top {
+    padding-bottom: 40px;
+  }
+
+  /* Checklist */
+  .ffy-checklist {
+    padding: 64px 0 80px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Mobile (≤ 767px)
+   --------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+  /* Page hero */
+  .ffy-page-hero {
+    padding: 136px 6vw 88px;
+  }
+
+  .ffy-page-hero-heading {
+    margin-bottom: 22px;
+  }
+
+  .ffy-page-hero-desc {
+    margin-bottom: 32px;
+    font-size: 1rem;
+  }
+
+  /* Newsletter */
+  .ffy-newsletter {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .ffy-newsletter .ffy-section-body {
+    margin-bottom: 36px;
+  }
+
+  /* Section headers */
+  .ffy-flavors-header,
+  .ffy-features-header,
+  .ffy-testimonials-header,
+  .ffy-values-header,
+  .ffy-milestones-header,
+  .ffy-team-header,
+  .ffy-pd-related-header {
+    margin-bottom: 36px;
+  }
+
+  /* Feature cards */
+  .ffy-feature-card {
+    padding: 32px 22px;
+  }
+
+  /* Value cards */
+  .ffy-value-card {
+    padding: 36px 24px;
+  }
+
+  /* Testimonial cards */
+  .ffy-testimonial-card {
+    padding: 28px 24px;
+    gap: 16px;
+  }
+
+  /* Accordion */
+  .ffy-accordion-header {
+    padding: 20px 22px;
+  }
+
+  .ffy-accordion-body-inner {
+    padding: 0 22px 26px;
+  }
+
+  /* FAQ tabs */
+  .ffy-faq-tabs {
+    margin-bottom: 32px;
+  }
+
+  /* FAQ support */
+  .ffy-faq-support {
+    margin-top: 40px;
+  }
+
+  /* Catalog controls */
+  .ffy-catalog-controls {
+    margin-bottom: 28px;
+  }
+
+  .ffy-catalog-meta {
+    margin-bottom: 20px;
+  }
+
+  /* Story / About stat row */
+  .ffy-story-stat-row,
+  .ffy-about-stat-row {
+    margin-top: 36px;
+    padding-top: 24px;
+    gap: 20px;
+  }
+
+  /* Contact form card */
+  .ffy-contact-form-header {
+    margin-bottom: 28px;
+  }
+
+  /* Footer */
+  .ffy-footer {
+    padding-top: 52px;
+    padding-bottom: 28px;
+  }
+
+  .ffy-footer-top {
+    padding-bottom: 36px;
+  }
+
+  .ffy-footer-bottom {
+    padding-top: 24px;
+  }
+
+  /* 404 */
+  .ffy-404-section {
+    padding: 96px 6vw 72px;
+  }
+
+  /* Checklist */
+  .ffy-checklist {
+    padding: 56px 0 72px;
+  }
+
+  .ffy-cl-progress-wrap {
+    margin-bottom: 40px;
+  }
+
+  /* Breadcrumb */
+  .ffy-breadcrumb {
+    margin-bottom: 22px;
+  }
+
+  /* Team info */
+  .ffy-team-info {
+    padding: 22px 18px 26px;
+  }
+
+  /* Product detail sections */
+  .ffy-pd-section {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+  }
+
+  .ffy-pd-price-row {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Small Mobile (≤ 480px)
+   --------------------------------------------------------------- */
+@media screen and (max-width: 480px) {
+  /* Page hero */
+  .ffy-page-hero {
+    padding: 124px 5vw 76px;
+  }
+
+  .ffy-breadcrumb {
+    margin-bottom: 18px;
+  }
+
+  .ffy-page-hero .ffy-section-label {
+    margin-bottom: 16px;
+  }
+
+  .ffy-page-hero-heading {
+    margin-bottom: 18px;
+  }
+
+  .ffy-page-hero-desc {
+    margin-bottom: 28px;
+    font-size: 0.95rem;
+  }
+
+  /* Newsletter */
+  .ffy-newsletter {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .ffy-newsletter .ffy-section-body {
+    margin-bottom: 32px;
+  }
+
+  /* Section headers */
+  .ffy-flavors-header,
+  .ffy-features-header,
+  .ffy-testimonials-header,
+  .ffy-values-header,
+  .ffy-milestones-header,
+  .ffy-team-header,
+  .ffy-pd-related-header {
+    margin-bottom: 28px;
+  }
+
+  /* Testimonial cards */
+  .ffy-testimonial-card {
+    padding: 24px 20px;
+    gap: 14px;
+  }
+
+  /* Flavor cards body */
+  .ffy-flavor-card-body {
+    padding: 20px 18px 20px;
+  }
+
+  /* Feature cards */
+  .ffy-feature-card {
+    padding: 28px 20px;
+  }
+
+  /* Value cards */
+  .ffy-value-card {
+    padding: 32px 20px;
+  }
+
+  /* Accordion */
+  .ffy-accordion-header {
+    padding: 18px 18px;
+  }
+
+  .ffy-accordion-body-inner {
+    padding: 0 18px 22px;
+  }
+
+  /* FAQ tabs */
+  .ffy-faq-tabs {
+    margin-bottom: 28px;
+  }
+
+  /* FAQ support */
+  .ffy-faq-support {
+    margin-top: 36px;
+  }
+
+  /* Team info */
+  .ffy-team-info {
+    padding: 18px 16px 22px;
+  }
+
+  /* Catalog controls */
+  .ffy-catalog-controls {
+    margin-bottom: 24px;
+  }
+
+  /* Story stat row */
+  .ffy-story-stat-row,
+  .ffy-about-stat-row {
+    margin-top: 28px;
+    padding-top: 20px;
+  }
+
+  /* Footer */
+  .ffy-footer-top {
+    padding-bottom: 32px;
+  }
+
+  .ffy-footer-bottom {
+    padding-top: 20px;
+  }
+
+  /* 404 */
+  .ffy-404-section {
+    padding: 88px 5vw 64px;
+  }
+
+  /* Checklist */
+  .ffy-checklist {
+    padding: 48px 0 64px;
+  }
+
+  .ffy-cl-progress-wrap {
+    margin-bottom: 36px;
+  }
+
+  .ffy-cl-tabs {
+    margin-bottom: 32px;
+  }
+
+  .ffy-cl-card {
+    padding: 24px 18px;
+  }
+
+  .ffy-cl-actions {
+    margin-top: 40px;
+    padding-top: 28px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   RTL mirrors of the spacing overhaul above
+   --------------------------------------------------------------- */
+
+/* Page hero RTL */
+[dir="rtl"] .ffy-page-hero {
+  padding: 168px 5vw 120px;
+}
+
+/* Story / About text: flip padding side in RTL */
+[dir="rtl"] .ffy-about-text,
+[dir="rtl"] .ffy-story-text {
+  padding-left: 0;
+  padding-right: 24px;
+}
+
+/* RTL tablet/mobile: reset text indent */
+@media screen and (max-width: 1024px) {
+  [dir="rtl"] .ffy-about-text,
+  [dir="rtl"] .ffy-story-text {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  [dir="rtl"] .ffy-page-hero {
+    padding: 148px 5vw 100px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  [dir="rtl"] .ffy-page-hero {
+    padding: 136px 6vw 88px;
+  }
+  [dir="rtl"] .ffy-page-hero-desc {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  [dir="rtl"] .ffy-page-hero {
+    padding: 124px 5vw 76px;
+  }
+  [dir="rtl"] .ffy-page-hero-desc {
+    font-size: 0.95rem;
+  }
+}
+
+/* RTL btn-outline-white */
+[dir="rtl"] .ffy-btn-outline-white {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* ================================================================
+   END SPACING & ALIGNMENT OVERHAUL v4
+   ================================================================ */
+

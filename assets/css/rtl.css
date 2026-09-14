@@ -1568,3 +1568,311 @@
 /* ================================================================
    END RTL COMPREHENSIVE FIXES v4
    ================================================================ */
+
+
+/* ================================================================
+   RTL SPACING & ALIGNMENT OVERHAUL v4
+   Mirrors main.css spacing fixes for all Arabic/RTL pages.
+   ================================================================ */
+
+/* Page hero — same padding as LTR */
+[dir="rtl"] .ffy-page-hero {
+  padding: 168px 5vw 120px;
+}
+
+/* btn-outline-white — RTL fonts */
+[dir="rtl"] .ffy-btn-outline-white {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+/* Section headers — scale down margin */
+[dir="rtl"] .ffy-flavors-header,
+[dir="rtl"] .ffy-features-header,
+[dir="rtl"] .ffy-testimonials-header,
+[dir="rtl"] .ffy-values-header,
+[dir="rtl"] .ffy-milestones-header,
+[dir="rtl"] .ffy-team-header,
+[dir="rtl"] .ffy-pd-related-header {
+  margin-bottom: 56px;
+}
+
+/* Story/About text — RTL padding side */
+[dir="rtl"] .ffy-about-text,
+[dir="rtl"] .ffy-story-text {
+  padding-left: 0;
+  padding-right: 24px;
+}
+
+/* Stats rows */
+[dir="rtl"] .ffy-story-stat-row,
+[dir="rtl"] .ffy-about-stat-row {
+  margin-top: 48px;
+  padding-top: 36px;
+}
+
+/* Newsletter */
+[dir="rtl"] .ffy-newsletter {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+[dir="rtl"] .ffy-newsletter .ffy-section-body {
+  margin-bottom: 44px;
+}
+
+/* Footer */
+[dir="rtl"] .ffy-footer {
+  padding-top: 72px;
+  padding-bottom: 40px;
+}
+
+[dir="rtl"] .ffy-footer-top {
+  padding-bottom: 52px;
+}
+
+[dir="rtl"] .ffy-footer-bottom {
+  padding-top: 32px;
+}
+
+/* Contact layout */
+[dir="rtl"] .ffy-contact-layout {
+  gap: 60px;
+}
+
+/* FAQ */
+[dir="rtl"] .ffy-faq-tabs {
+  margin-bottom: 44px;
+}
+
+[dir="rtl"] .ffy-faq-support {
+  margin-top: 56px;
+}
+
+/* Accordion */
+[dir="rtl"] .ffy-accordion-header {
+  padding: 24px 28px;
+}
+
+[dir="rtl"] .ffy-accordion-body-inner {
+  padding: 0 28px 32px;
+}
+
+/* Catalog */
+[dir="rtl"] .ffy-catalog-controls {
+  margin-bottom: 40px;
+}
+
+/* Checklist */
+[dir="rtl"] .ffy-checklist {
+  padding: 88px 0 112px;
+}
+
+[dir="rtl"] .ffy-cl-progress-wrap {
+  margin-bottom: 52px;
+}
+
+/* ---------------------------------------------------------------
+   RTL Responsive — Tablet (≤ 1024px)
+   --------------------------------------------------------------- */
+@media screen and (max-width: 1024px) {
+  [dir="rtl"] .ffy-page-hero {
+    padding: 148px 5vw 100px;
+  }
+  [dir="rtl"] .ffy-about-text,
+  [dir="rtl"] .ffy-story-text {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  [dir="rtl"] .ffy-story-stat-row,
+  [dir="rtl"] .ffy-about-stat-row {
+    margin-top: 40px;
+    padding-top: 28px;
+  }
+  [dir="rtl"] .ffy-newsletter {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  [dir="rtl"] .ffy-footer {
+    padding-top: 60px;
+    padding-bottom: 36px;
+  }
+  [dir="rtl"] .ffy-faq-support {
+    margin-top: 48px;
+    padding: 48px 40px;
+  }
+  [dir="rtl"] .ffy-catalog-controls {
+    margin-bottom: 36px;
+  }
+  [dir="rtl"] .ffy-accordion-header {
+    padding: 22px 24px;
+  }
+  [dir="rtl"] .ffy-accordion-body-inner {
+    padding: 0 24px 28px;
+  }
+  [dir="rtl"] .ffy-flavors-header,
+  [dir="rtl"] .ffy-features-header,
+  [dir="rtl"] .ffy-testimonials-header,
+  [dir="rtl"] .ffy-values-header,
+  [dir="rtl"] .ffy-milestones-header,
+  [dir="rtl"] .ffy-team-header,
+  [dir="rtl"] .ffy-pd-related-header {
+    margin-bottom: 48px;
+  }
+  [dir="rtl"] .ffy-checklist {
+    padding: 72px 0 96px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   RTL Responsive — Mobile (≤ 767px)
+   --------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+  [dir="rtl"] .ffy-page-hero {
+    padding: 136px 6vw 88px;
+  }
+  [dir="rtl"] .ffy-page-hero-heading {
+    margin-bottom: 22px;
+  }
+  [dir="rtl"] .ffy-page-hero-desc {
+    margin-bottom: 32px;
+    font-size: 1rem;
+  }
+  [dir="rtl"] .ffy-newsletter {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+  [dir="rtl"] .ffy-newsletter .ffy-section-body {
+    margin-bottom: 36px;
+  }
+  [dir="rtl"] .ffy-flavors-header,
+  [dir="rtl"] .ffy-features-header,
+  [dir="rtl"] .ffy-testimonials-header,
+  [dir="rtl"] .ffy-values-header,
+  [dir="rtl"] .ffy-milestones-header,
+  [dir="rtl"] .ffy-team-header,
+  [dir="rtl"] .ffy-pd-related-header {
+    margin-bottom: 36px;
+  }
+  [dir="rtl"] .ffy-story-stat-row,
+  [dir="rtl"] .ffy-about-stat-row {
+    margin-top: 36px;
+    padding-top: 24px;
+    gap: 20px;
+  }
+  [dir="rtl"] .ffy-accordion-header {
+    padding: 20px 22px;
+  }
+  [dir="rtl"] .ffy-accordion-body-inner {
+    padding: 0 22px 26px;
+  }
+  [dir="rtl"] .ffy-faq-tabs {
+    margin-bottom: 32px;
+  }
+  [dir="rtl"] .ffy-faq-support {
+    margin-top: 40px;
+  }
+  [dir="rtl"] .ffy-catalog-controls {
+    margin-bottom: 28px;
+  }
+  [dir="rtl"] .ffy-footer {
+    padding-top: 52px;
+    padding-bottom: 28px;
+  }
+  [dir="rtl"] .ffy-footer-top {
+    padding-bottom: 36px;
+  }
+  [dir="rtl"] .ffy-footer-bottom {
+    padding-top: 24px;
+  }
+  [dir="rtl"] .ffy-checklist {
+    padding: 56px 0 72px;
+  }
+  [dir="rtl"] .ffy-cl-progress-wrap {
+    margin-bottom: 40px;
+  }
+  [dir="rtl"] .ffy-breadcrumb {
+    margin-bottom: 22px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   RTL Responsive — Small Mobile (≤ 480px)
+   --------------------------------------------------------------- */
+@media screen and (max-width: 480px) {
+  [dir="rtl"] .ffy-page-hero {
+    padding: 124px 5vw 76px;
+  }
+  [dir="rtl"] .ffy-breadcrumb {
+    margin-bottom: 18px;
+  }
+  [dir="rtl"] .ffy-page-hero-heading {
+    margin-bottom: 18px;
+  }
+  [dir="rtl"] .ffy-page-hero-desc {
+    margin-bottom: 28px;
+    font-size: 0.95rem;
+  }
+  [dir="rtl"] .ffy-newsletter {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  [dir="rtl"] .ffy-newsletter .ffy-section-body {
+    margin-bottom: 32px;
+  }
+  [dir="rtl"] .ffy-flavors-header,
+  [dir="rtl"] .ffy-features-header,
+  [dir="rtl"] .ffy-testimonials-header,
+  [dir="rtl"] .ffy-values-header,
+  [dir="rtl"] .ffy-milestones-header,
+  [dir="rtl"] .ffy-team-header,
+  [dir="rtl"] .ffy-pd-related-header {
+    margin-bottom: 28px;
+  }
+  [dir="rtl"] .ffy-story-stat-row,
+  [dir="rtl"] .ffy-about-stat-row {
+    margin-top: 28px;
+    padding-top: 20px;
+  }
+  [dir="rtl"] .ffy-accordion-header {
+    padding: 18px 18px;
+  }
+  [dir="rtl"] .ffy-accordion-body-inner {
+    padding: 0 18px 22px;
+  }
+  [dir="rtl"] .ffy-faq-tabs {
+    margin-bottom: 28px;
+  }
+  [dir="rtl"] .ffy-faq-support {
+    margin-top: 36px;
+  }
+  [dir="rtl"] .ffy-catalog-controls {
+    margin-bottom: 24px;
+  }
+  [dir="rtl"] .ffy-footer-top {
+    padding-bottom: 32px;
+  }
+  [dir="rtl"] .ffy-footer-bottom {
+    padding-top: 20px;
+  }
+  [dir="rtl"] .ffy-checklist {
+    padding: 48px 0 64px;
+  }
+  [dir="rtl"] .ffy-cl-progress-wrap {
+    margin-bottom: 36px;
+  }
+  [dir="rtl"] .ffy-cl-tabs {
+    margin-bottom: 32px;
+  }
+  [dir="rtl"] .ffy-cl-card {
+    padding: 24px 18px;
+  }
+  [dir="rtl"] .ffy-cl-actions {
+    margin-top: 40px;
+    padding-top: 28px;
+  }
+}
+
+/* ================================================================
+   END RTL SPACING & ALIGNMENT OVERHAUL v4
+   ================================================================ */
