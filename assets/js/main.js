@@ -2186,11 +2186,21 @@
        (any -ar page) -> strip '-ar' to get EN counterpart */
     var counterpart;
     if (isArabic) {
-      /* Arabic -> English: remove '-ar' suffix before .html */
-      counterpart = filename.replace('-ar.html', '.html');
+      /* If Arabic homepage is index.html, English counterpart is index-en.html */
+      if (filename === 'index.html' || filename === '') {
+        counterpart = 'index-en.html';
+      } else {
+        /* Arabic -> English: remove '-ar' suffix before .html */
+        counterpart = filename.replace('-ar.html', '.html');
+      }
     } else {
-      /* English -> Arabic: insert '-ar' before .html */
-      counterpart = filename.replace('.html', '-ar.html');
+      /* If English homepage is index-en.html, Arabic counterpart is index.html */
+      if (filename === 'index-en.html') {
+        counterpart = 'index.html';
+      } else {
+        /* English -> Arabic: insert '-ar' before .html */
+        counterpart = filename.replace('.html', '-ar.html');
+      }
     }
 
     var target = counterpart + hash;

@@ -407,54 +407,7 @@
       color: #880B2B;
     }
 
-    /* بطاقات الوسائط البديلة (Visual Placeholders for Screenshots & Videos) */
-    .doc-media-placeholder {
-      background: #FFF5F7;
-      border: 2px dashed #E11D48;
-      border-radius: 14px;
-      padding: 24px 28px;
-      margin: 22px 0 26px;
-      text-align: center;
-      position: relative;
-      transition: all 0.2s ease;
-    }
 
-    .doc-media-placeholder:hover {
-      background: #FFEBF0;
-      border-color: #BE123C;
-    }
-
-    .doc-media-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--doc-primary);
-      color: #FFF;
-      font-family: 'Cairo', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 4px 14px;
-      border-radius: 999px;
-      margin-bottom: 12px;
-      box-shadow: 0 3px 8px rgba(201, 0, 53, 0.2);
-    }
-
-    .doc-media-desc {
-      font-size: 0.94rem;
-      color: #6B0E23;
-      font-weight: 500;
-      margin-bottom: 4px;
-    }
-
-    .doc-media-hint {
-      font-size: 0.82rem;
-      color: #9F1239;
-      opacity: 0.85;
-      font-family: 'JetBrains Mono', monospace;
-      direction: ltr;
-      display: inline-block;
-      margin-top: 6px;
-    }
 
     /* قوالب الأكواد (Code Blocks) */
     pre {
@@ -892,17 +845,10 @@
           <p>انقر بزر الفأرة الأيمن على الملف المضغوط <code>Milk-Template.zip</code>، ثم اختر <strong>"استخراج الكل" (Extract All)</strong> في مجلد تختاره على حاسوبك.</p>
         </li>
 
-        <!-- SCREENSHOT: لقطة شاشة لفك ضغط ملف القالب (.zip) واستعراض المجلدات الرئيسية داخل مستكشف الملفات -->
-        <div class="doc-media-placeholder">
-          <div class="doc-media-badge"><i class="fas fa-camera"></i> لقطة شاشة توضيحية مقترحة</div>
-          <div class="doc-media-desc">لقطة شاشة لفك ضغط ملف القالب (.zip) واستعراض المجلدات الرئيسية داخل مستكشف الملفات</div>
-          <span class="doc-media-hint">&lt;!-- SCREENSHOT: unzipping_template_folder.png --&gt;</span>
-        </div>
-
         <li class="doc-step-item">
           <div class="doc-step-title">فتح الموقع في المتصفح بالنقر المزدوج (أسهل طريقة)</div>
           <p>
-            ادخل إلى المجلد المستخرج، وستجد ملفين رئيسيين:
+            ادخل إلى المجلد المستخرج، وستجد ملفين رئيسيين للبدء:
           </p>
           <ul>
             <li>انقر مرتين على <code>index-ar.html</code> لفتح الموقع بالنسخة العربية.</li>
@@ -910,26 +856,12 @@
           </ul>
         </li>
 
-        <!-- SCREENSHOT: لقطة شاشة للنقر المزدوج على ملف index.html و index-ar.html وفتحهما مباشرة في متصفح الويب -->
-        <div class="doc-media-placeholder">
-          <div class="doc-media-badge"><i class="fas fa-camera"></i> لقطة شاشة توضيحية مقترحة</div>
-          <div class="doc-media-desc">لقطة شاشة للنقر المزدوج على ملف index-ar.html وفتحه مباشرة في متصفح الويب (Chrome / Edge)</div>
-          <span class="doc-media-hint">&lt;!-- SCREENSHOT: double_click_open_browser.png --&gt;</span>
-        </div>
-
         <li class="doc-step-item">
           <div class="doc-step-title">المعاينة المتقدمة عبر إضافة Live Server (اختياري لكن مفضل جدًا)</div>
           <p>
             إذا كنت تستخدم برنامج <strong>Visual Studio Code</strong>، افتح مجلد المشروع بداخله، ثم ثبّت إضافة <strong>Live Server</strong>. انقر بزر الفأرة الأيمن على <code>index-ar.html</code> واختر <strong>Open with Live Server</strong>؛ سيفتح المتصفح تلقائيًا وسيقوم بتحديث الصفحة فورًا عند حفظ أي تعديل في الكود دون الحاجة لإعادة تحميل الصفحة يدويًا.
           </p>
         </li>
-
-        <!-- VIDEO: فيديو قصير (GIF) يوضح طريقة تشغيل القالب محليًا عبر إضافة Live Server في برنامج VS Code -->
-        <div class="doc-media-placeholder">
-          <div class="doc-media-badge"><i class="fas fa-video"></i> فيديو توضيحي مقترح (GIF)</div>
-          <div class="doc-media-desc">فيديو قصير يوضح طريقة تشغيل القالب محليًا عبر إضافة Live Server في برنامج VS Code بالنقر بزر الفأرة الأيمن</div>
-          <span class="doc-media-hint">&lt;!-- VIDEO: vs_code_live_server_preview.gif --&gt;</span>
-        </div>
       </ol>
 
       <h3>المرحلة الثانية: رفع ملفات القالب على استضافة الويب (Publishing Online)</h3>
@@ -943,22 +875,8 @@
         <li>ابحث عن أيقونة <strong>"مدير الملفات" (File Manager)</strong> وانقر عليها.</li>
         <li>انتقل إلى المجلد الرئيسي المخصص لملفات موقعك، ويكون عادةً باسم <code>public_html</code> أو <code>www</code>.</li>
         <li>انقر على زر <strong>"رفع" (Upload)</strong> في أعلى الصفحة، وارفع كافة ملفات ومجلدات القالب (أو ارفع ملف القالب المضغوط ثم انقر عليه بالزر الأيمن واختر <strong>Extract</strong> لفك ضغطه هناك).</li>
-        <li>تأكد من أن الملف <code>index.html</code> أو <code>index-ar.html</code> موجود مباشرة داخل مجلد <code>public_html</code> وليس داخل مجلد فرعي، ليظهر موقعك فور كتابة عنوان موقعك في المتصفح.</li>
+        <li>تأكد من أن ملفات الموقع موجودة مباشرة داخل مجلد <code>public_html</code> وليس داخل مجلد فرعي، ليظهر موقعك فور كتابة عنوان موقعك في المتصفح.</li>
       </ol>
-
-      <!-- SCREENSHOT: لقطة شاشة للوحة تحكم الاستضافة cPanel توضح الدخول إلى File Manager وفتح مجلد public_html -->
-      <div class="doc-media-placeholder">
-        <div class="doc-media-badge"><i class="fas fa-camera"></i> لقطة شاشة توضيحية مقترحة</div>
-        <div class="doc-media-desc">لقطة شاشة للوحة تحكم الاستضافة cPanel توضح الدخول إلى مدير الملفات (File Manager) والدخول إلى مجلد public_html</div>
-        <span class="doc-media-hint">&lt;!-- SCREENSHOT: cpanel_file_manager_guide.png --&gt;</span>
-      </div>
-
-      <!-- SCREENSHOT: لقطة شاشة لعملية رفع ملفات القالب أو فك ضغطها داخل مجلد public_html -->
-      <div class="doc-media-placeholder">
-        <div class="doc-media-badge"><i class="fas fa-camera"></i> لقطة شاشة توضيحية مقترحة</div>
-        <div class="doc-media-desc">لقطة شاشة لعملية رفع ملفات القالب واستقرارها داخل مجلد public_html بالهيكلية الصحيحة</div>
-        <span class="doc-media-hint">&lt;!-- SCREENSHOT: cpanel_upload_and_extract.png --&gt;</span>
-      </div>
 
       <h4>الطريقة الثانية: الرفع عبر برنامج نقل الملفات (FTP / FileZilla)</h4>
       <ol>
@@ -968,11 +886,72 @@
         <li>في الجزء الأيسر (جهازك الشخصي)، حدد كافة ملفات ومجلدات القالب واسحبها إلى الجزء الأيمن ليبدأ نقلها تلقائيًا.</li>
       </ol>
 
-      <div class="doc-callout doc-callout-tip">
-        <i class="fas fa-check-circle"></i>
+      <h3>المرحلة الثالثة: كيف تجعل الموقع يفتح باللغة العربية تلقائيًا لجميع الزوار؟ (الصفحة الافتراضية)</h3>
+      <p>
+        بشكل افتراضي، عندما يقوم أي شخص بزيارة عنوان موقعك الأساسي (مثل <code>https://yourdomain.com</code>) دون تحديد اسم صفحة معينة، يقوم خادم الويب دائمًا بالبحث عن ملف باسم <code>index.html</code> وعرضه كصفحة رئيسية. وفي ملفات القالب الأصلية، يمثل <code>index.html</code> النسخة الإنجليزية بينما تمثل <code>index-ar.html</code> النسخة العربية.
+      </p>
+      <p>
+        إذا كنت تريد أن يفتح الموقع باللغة العربية تلقائيًا لجميع الزوار عند دخولهم لرابط الموقع، يمكنك تطبيق إحدى الطريقتين السهلتين التاليتين:
+      </p>
+
+      <div class="doc-card-method" style="background: #FAFAFC; border: 1px solid var(--doc-border); border-radius: 14px; padding: 22px 24px; margin: 18px 0;">
+        <h4 style="color: var(--doc-primary); display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+          <i class="fas fa-file-signature"></i>
+          <span>الطريقة الأولى: إعادة تسمية الملفات (Renaming Files) — متوافقة 100% مع كافة الاستضافات</span>
+        </h4>
+        <p>هذه الطريقة عامة وتعمل على أي سيرفر أو استضافة ثابتة (مثل cPanel أو GitHub Pages أو Netlify أو Vercel) دون الحاجة لأي إعدادات خاصة في السيرفر:</p>
+        <ol class="doc-steps">
+          <li class="doc-step-item">
+            <div class="doc-step-title">الخطوة 1: إعادة تسمية النسخة الإنجليزية الحالية</div>
+            <p>غيّر اسم الملف <code>index.html</code> (الصفحة الإنجليزية) إلى: <code>index-en.html</code>.</p>
+          </li>
+          <li class="doc-step-item">
+            <div class="doc-step-title">الخطوة 2: جعل النسخة العربية هي الصفحة الرئيسية</div>
+            <p>غيّر اسم الملف <code>index-ar.html</code> (الصفحة العربية) ليصبح: <code>index.html</code>.</p>
+          </li>
+          <li class="doc-step-item">
+            <div class="doc-step-title">الخطوة 3: كيف يتعامل زر تبديل اللغة (AR / EN) مع هذا التعديل؟</div>
+            <p>
+              تمت برمجة كود تبديل اللغة الذكي في ملف <code>assets/js/main.js</code> ليتعرف تلقائيًا وبشكل فوري على هذا التعديل:
+            </p>
+            <ul>
+              <li>عندما يتصفح الزائر الصفحة العربية الرئيسية <code>index.html</code>، سينقله زر اللغة تلقائيًا إلى <code>index-en.html</code>.</li>
+              <li>وعندما يكون في النسخة الإنجليزية <code>index-en.html</code>، سينقله الزر فورًا وبدقة إلى <code>index.html</code>.</li>
+              <li>باقي الصفحات (مثل <code>about.html</code> و <code>about-ar.html</code>) ستظل تعمل بنظامها الطبيعي دون أي تأثير.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+
+      <div class="doc-card-method" style="background: #FAFAFC; border: 1px solid var(--doc-border); border-radius: 14px; padding: 22px 24px; margin: 18px 0;">
+        <h4 style="color: #166534; display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+          <i class="fas fa-server"></i>
+          <span>الطريقة الثانية: عبر ملف إعدادات الخادم (<code>.htaccess</code>) — بدون إعادة تسمية أي ملف</span>
+        </h4>
+        <p>
+          إذا كانت استضافتك تعمل بنظام Apache أو LiteSpeed (وهو النظام المعتمد في معظم لوحات cPanel)، يمكنك تحديد الصفحة الأولى التي تفتح للزوار بسطر برمجي واحد دون الحاجة لإعادة تسمية أو تغيير أي ملفات في القالب:
+        </p>
+        <ol class="doc-steps">
+          <li class="doc-step-item">
+            <div class="doc-step-title">افتح ملف <code>.htaccess</code> في مدير الملفات</div>
+            <p>ادخل إلى مجلد <code>public_html</code>، وافتح ملف <code>.htaccess</code> للتحرير (تأكد من تفعيل خيار إظهار الملفات المخفية Show Hidden Files في إعدادات مدير الملفات، أو أنشئ ملفًا جديدًا بهذا الاسم إذا لم يكن موجودًا).</p>
+          </li>
+          <li class="doc-step-item">
+            <div class="doc-step-title">أضف أمر توجيه الصفحة الافتراضية (DirectoryIndex)</div>
+            <p>أضف السطر التالي في أول ملف <code>.htaccess</code> ثم احفظ الملف:</p>
+            <pre><code>DirectoryIndex index-ar.html index.html</code></pre>
+            <p>
+              <strong>ماذا يفعل هذا الأمر؟</strong> يخبر الخادم أن يبحث أولاً عن ملف <code>index-ar.html</code> ويعرضه كصفحة البداية الرئيسية للزوار مباشرة عند طلب اسم النطاق، وفي حال لم يجده يعرض <code>index.html</code>.
+            </p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="doc-callout doc-callout-info">
+        <i class="fas fa-lightbulb"></i>
         <div>
-          <strong>نصيحة لجعل النسخة العربية هي الصفحة الأولى لزوار موقعك:</strong><br>
-          بشكل افتراضي، يعتبر الخادم ملف <code>index.html</code> هو الصفحة الرئيسية. إذا كنت تريد أن يفتح الموقع باللغة العربية تلقائيًا لجميع الزوار، يمكنك إعادة تسمية <code>index.html</code> إلى <code>index-en.html</code>، ثم إعادة تسمية <code>index-ar.html</code> ليصبح <code>index.html</code>.
+          <strong>أي الطريقتين أفضل لموقعك؟</strong><br>
+          كلا الطريقتين تؤديان الغرض تمامًا وبكل دقة. إذا كنت تستخدم استضافة cPanel عادية، فإن <strong>الطريقة الثانية (ملف .htaccess)</strong> هي الأسهل لأنها تتم بسطر واحد ودون لمس أي ملف. أما إذا كنت ترفع موقعك على منصات استضافة المواقع الثابتة مثل GitHub Pages، فإن <strong>الطريقة الأولى (إعادة تسمية الملفات)</strong> هي الخيار الأنسب والمضمون 100%.
         </div>
       </div>
     </section>
@@ -1075,12 +1054,7 @@
         </li>
       </ol>
 
-      <!-- SCREENSHOT: لقطة شاشة لفتح ملف index-ar.html داخل محرر نصوص وتحديد سطر العنوان لتعديله -->
-      <div class="doc-media-placeholder">
-        <div class="doc-media-badge"><i class="fas fa-camera"></i> لقطة شاشة توضيحية مقترحة</div>
-        <div class="doc-media-desc">لقطة شاشة لفتح ملف index-ar.html داخل محرر نصوص (VS Code) وتحديد سطر العنوان الرئيسي والفقرة لتعديلهما</div>
-        <span class="doc-media-hint">&lt;!-- SCREENSHOT: editing_text_in_vscode.png --&gt;</span>
-      </div>
+
 
       <!-- 5.2 استبدال الصور والشعار -->
       <h3>ثانيًا: كيف تستبدل الصور والشعار (Logo)</h3>
@@ -1146,12 +1120,7 @@
         </table>
       </div>
 
-      <!-- SCREENSHOT: لقطة شاشة لمجلد assets/images توضح ملف logo.png والملفات الشفافة مع أسمائها -->
-      <div class="doc-media-placeholder">
-        <div class="doc-media-badge"><i class="fas fa-camera"></i> لقطة شاشة توضيحية مقترحة</div>
-        <div class="doc-media-desc">لقطة شاشة لمجلد assets/images توضح ملف logo.png وملفات أطباق السموذي الشفافة مع إبراز أسمائها ومقاساتها</div>
-        <span class="doc-media-hint">&lt;!-- SCREENSHOT: assets_images_folder_preview.png --&gt;</span>
-      </div>
+
 
       <div class="doc-callout doc-callout-warning">
         <i class="fas fa-exclamation-triangle"></i>
@@ -1196,12 +1165,7 @@
         استبدل الرمز السداسي (Hex Code) مثل <code>#C90035</code> برمز اللون المفضل لعلامتك التجارية (مثلاً <code>#008080</code> للأخضر التركوازي أو <code>#FF6F00</code> للبرتقالي). بمجرد حفظ الملف، ستتغير ألوان الموقع فورًا وبشكل متناسق في كافة الصفحات!
       </p>
 
-      <!-- SCREENSHOT: لقطة شاشة لملف assets/css/main.css في أول 30 سطرًا توضح متغيرات الألوان :root -->
-      <div class="doc-media-placeholder">
-        <div class="doc-media-badge"><i class="fas fa-camera"></i> لقطة شاشة توضيحية مقترحة</div>
-        <div class="doc-media-desc">لقطة شاشة لملف assets/css/main.css في أول 30 سطرًا توضح متغيرات الألوان :root وتغيير كود اللون الأساسي --ffy-primary</div>
-        <span class="doc-media-hint">&lt;!-- SCREENSHOT: editing_css_color_variables.png --&gt;</span>
-      </div>
+
 
       <!-- 5.4 تعديل بيانات التواصل والفوتر -->
       <h3>رابعًا: كيف تعدل بيانات التواصل والفوتر وروابط السوشال ميديا</h3>
@@ -1235,12 +1199,7 @@
         </li>
       </ol>
 
-      <!-- SCREENSHOT: لقطة شاشة للمعاينة الحية لصفحة contact.html بعد تعديل بيانات التواصل -->
-      <div class="doc-media-placeholder">
-        <div class="doc-media-badge"><i class="fas fa-camera"></i> لقطة شاشة توضيحية مقترحة</div>
-        <div class="doc-media-desc">لقطة شاشة للمعاينة الحية لصفحة contact.html أو تذييل الصفحة بعد تعديل بيانات الهاتف والبريد وروابط السوشال ميديا</div>
-        <span class="doc-media-hint">&lt;!-- SCREENSHOT: contact_info_customization_preview.png --&gt;</span>
-      </div>
+
 
       <!-- 5.5 إدارة وتعديل المنتجات -->
       <h3>خامسًا: تعديل المنتجات في قاعدة البيانات المركزية (products-data.js)</h3>
@@ -1296,18 +1255,16 @@
         </li>
       </ol>
 
-      <!-- VIDEO: فيديو قصير (GIF) يوضح النقر على زر تبديل اللغة وانتقال المتصفح بسلاسة مع الحفاظ على المكان -->
-      <div class="doc-media-placeholder">
-        <div class="doc-media-badge"><i class="fas fa-video"></i> فيديو توضيحي مقترح (GIF)</div>
-        <div class="doc-media-desc">فيديو قصير يوضح النقر على زر تبديل اللغة (AR / EN) في شريط التنقل العلوي وانتقال المتصفح بسلاسة بين اللغتين مع الحفاظ على موضع الصفحة الحالي</div>
-        <span class="doc-media-hint">&lt;!-- VIDEO: language_switcher_demo.gif --&gt;</span>
-      </div>
+
 
       <div class="doc-callout doc-callout-info">
         <i class="fas fa-code-branch"></i>
         <div>
-          <strong>هل ترغب في إضافة صفحة جديدة مستقبلاً؟</strong><br>
-          كل ما عليك فعله هو تسمية صفحتك الإنجليزية (مثلاً: <code>blog.html</code>) وتسمية النسخة العربية منها بنفس الاسم مع إضافة <code>-ar</code> (أي: <code>blog-ar.html</code>). سيقوم زر تبديل اللغة بالتعرف عليها تلقائيًا وربطها فورًا دون الحاجة لكتابة أي كود جافاسكريبت إضافي!
+          <strong>هل ترغب في إضافة صفحة جديدة مستقبلاً أو عكس الصفحة الافتراضية؟</strong><br>
+          <ul style="margin-top: 6px; padding-right: 18px;">
+            <li><strong>إضافة صفحات جديدة:</strong> كل ما عليك فعله هو تسمية صفحتك الإنجليزية (مثلاً: <code>blog.html</code>) وتسمية النسخة العربية منها بنفس الاسم مع إضافة <code>-ar</code> (أي: <code>blog-ar.html</code>). سيقوم زر تبديل اللغة بالتعرف عليها تلقائيًا وربطها فورًا.</li>
+            <li><strong>جعل العربية هي الرئيسية:</strong> كما تم توضيحه في قسم التركيب، إذا أعدت تسمية <code>index-ar.html</code> إلى <code>index.html</code> والإنجليزية إلى <code>index-en.html</code>، فإن زر اللغة سيتعرف تلقائيًا على هذا التبديل وينقل الزائر بينهما بسلاسة تامة.</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -1384,7 +1341,7 @@
       <h3>للحصول على أسرع استجابة ومساعدة فعالة، يُرجى تزويدنا بالتالي:</h3>
       <ul>
         <li><strong>وصف المشكلة:</strong> شرح بسيط لما تحاول تعديله وما هي النتيجة التي تظهر لك.</li>
-        <li><strong>لقطة شاشة أو فيديو:</strong> صورة للمشكلة في المتصفح أو لقطة من محرر الأكواد توضح السطر الذي تعدله.</li>
+        <li><strong>توضيح تفاصيل المشكلة:</strong> شرح الخطوات التي قمت بها، وتحديد السطر أو العنصر الذي تحاول تعديله بدقة مع النتيجة التي تظهر لك.</li>
         <li><strong>رابط موقعك (إن كان مرفوعًا على الإنترنت):</strong> رابط المعاينة المباشر حتى نتمكن من فحصه وإعطائك الحل الدقيق فورًا.</li>
       </ul>
 
