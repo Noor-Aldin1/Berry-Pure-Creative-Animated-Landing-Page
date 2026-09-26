@@ -1,26 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Milk — Template Documentation</title>
+  <title>دليل الاستخدام والتركيب الشامل — قالب ميلك (Milk Template)</title>
+  
+  <!-- خطوط Google Fonts الاحترافية لدعم العربية والإنجليزية وأكواد البرمجة -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome للأيقونات التوضيحية -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
     :root {
       --doc-primary: #C90035;
       --doc-primary-hover: #A0002A;
       --doc-primary-light: #FFF0F3;
+      --doc-primary-border: #FBCFE8;
       --doc-dark: #121217;
+      --doc-dark-surface: #1E2028;
       --doc-text: #2D3139;
       --doc-text-muted: #6B7280;
       --doc-bg: #F8F9FB;
       --doc-card-bg: #FFFFFF;
       --doc-border: #E5E7EB;
-      --doc-sidebar-w: 270px;
-      --doc-code-bg: #1A1D24;
+      --doc-sidebar-w: 300px;
+      --doc-code-bg: #16181D;
       --doc-code-color: #E2E8F0;
+      --doc-accent: #E11D48;
+      --doc-success-bg: #F0FDF4;
+      --doc-success-border: #86EFAC;
+      --doc-success-text: #166534;
+      --doc-warning-bg: #FFFBEB;
+      --doc-warning-border: #FDE68A;
+      --doc-warning-text: #92400E;
+      --doc-info-bg: #EFF6FF;
+      --doc-info-border: #BFDBFE;
+      --doc-info-text: #1E40AF;
     }
 
     * {
@@ -29,645 +47,1351 @@
       padding: 0;
     }
 
-    body {
-      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--doc-bg);
-      color: var(--doc-text);
-      line-height: 1.65;
-      font-size: 15px;
-      display: flex;
-      min-height: 100vh;
+    html {
+      scroll-behavior: smooth;
     }
 
-    /* Sidebar Navigation */
+    body {
+      font-family: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--doc-bg);
+      color: var(--doc-text);
+      line-height: 1.8;
+      font-size: 15.5px;
+      display: flex;
+      min-height: 100vh;
+      direction: rtl;
+      text-align: right;
+    }
+
+    /* شريط التنقل الجانبي (Sidebar) */
     .doc-sidebar {
       width: var(--doc-sidebar-w);
       background: var(--doc-dark);
       color: #FFF;
       position: fixed;
       top: 0;
-      left: 0;
+      right: 0;
       bottom: 0;
-      padding: 32px 20px;
+      padding: 32px 22px;
       overflow-y: auto;
       z-index: 100;
+      border-left: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .doc-sidebar::-webkit-scrollbar {
+      width: 5px;
+    }
+    .doc-sidebar::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
     }
 
     .doc-brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 30px;
+      justify-content: space-between;
+      margin-bottom: 28px;
       padding-bottom: 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .doc-brand-title {
-      font-size: 1.15rem;
-      font-weight: 700;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
       color: #FFF;
-      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .doc-brand-title i {
+      color: #FF4D79;
     }
 
     .doc-brand-badge {
       background: var(--doc-primary);
-      font-size: 0.68rem;
-      text-transform: uppercase;
+      font-size: 0.72rem;
       font-weight: 700;
-      padding: 2px 7px;
-      border-radius: 4px;
+      padding: 3px 9px;
+      border-radius: 6px;
       color: #FFF;
+      letter-spacing: 0.02em;
     }
 
     .doc-nav-group-title {
-      font-size: 0.72rem;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.05em;
       color: #9CA3AF;
       font-weight: 700;
-      margin: 20px 0 8px 8px;
+      margin: 24px 0 10px 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .doc-nav-group-title i {
+      font-size: 0.75rem;
+      color: #FF8AAA;
     }
 
     .doc-nav-list {
       list-style: none;
     }
 
+    .doc-nav-item {
+      margin-bottom: 4px;
+    }
+
     .doc-nav-link {
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       color: #D1D5DB;
       text-decoration: none;
-      padding: 8px 12px;
-      border-radius: 6px;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: all 0.22s ease;
+    }
+
+    .doc-nav-link i {
       font-size: 0.88rem;
-      transition: all 0.2s ease;
+      width: 18px;
+      color: #9CA3AF;
+      transition: color 0.2s ease;
     }
 
     .doc-nav-link:hover {
-      background: rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.09);
       color: #FFF;
-      transform: translateX(3px);
+      transform: translateX(-4px);
     }
 
-    /* Main Content */
+    .doc-nav-link:hover i {
+      color: #FF8AAA;
+    }
+
+    /* منطقة المحتوى الرئيسي (Main Content) */
     .doc-main {
-      margin-left: var(--doc-sidebar-w);
+      margin-right: var(--doc-sidebar-w);
       flex: 1;
-      padding: 48px 56px 96px;
-      max-width: 1000px;
+      padding: 48px 60px 120px;
+      max-width: 1080px;
     }
 
     .doc-header {
+      background: linear-gradient(135deg, #1A0009 0%, #350015 60%, #170008 100%);
+      border-radius: 20px;
+      padding: 42px 46px;
       margin-bottom: 40px;
-      border-bottom: 1px solid var(--doc-border);
-      padding-bottom: 28px;
+      color: #FFF;
+      box-shadow: 0 12px 36px rgba(201, 0, 53, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .doc-header::after {
+      content: '';
+      position: absolute;
+      left: -40px;
+      top: -40px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(201, 0, 53, 0.35) 0%, transparent 70%);
+      pointer-events: none;
     }
 
     .doc-header h1 {
-      font-size: 2.3rem;
-      font-weight: 700;
-      color: var(--doc-dark);
-      letter-spacing: -0.03em;
-      margin-bottom: 8px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .doc-header p {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 760px;
+      margin-bottom: 20px;
     }
 
     .doc-meta {
       display: flex;
-      gap: 16px;
+      flex-wrap: wrap;
+      gap: 12px 20px;
       align-items: center;
-      color: var(--doc-text-muted);
-      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.88rem;
     }
 
+    .doc-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .doc-meta-item i {
+      color: #FF8AAA;
+    }
+
+    /* البطاقات والأقسام الرئيسية */
     .doc-section {
       background: var(--doc-card-bg);
       border: 1px solid var(--doc-border);
-      border-radius: 12px;
-      padding: 36px 40px;
+      border-radius: 16px;
+      padding: 38px 44px;
       margin-bottom: 36px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+      transition: border-color 0.2s ease;
+    }
+
+    .doc-section:hover {
+      border-color: #D1D5DB;
     }
 
     .doc-section-title {
-      font-size: 1.45rem;
-      font-weight: 700;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
       color: var(--doc-dark);
-      margin-bottom: 18px;
-      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--doc-bg);
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
-    .doc-section-title::before {
-      content: '';
-      display: inline-block;
-      width: 4px;
-      height: 22px;
-      background: var(--doc-primary);
-      border-radius: 2px;
+    .doc-section-title i {
+      color: var(--doc-primary);
+      font-size: 1.35rem;
     }
 
     .doc-section h3 {
-      font-size: 1.12rem;
-      font-weight: 600;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1.18rem;
+      font-weight: 700;
       color: var(--doc-dark);
-      margin: 24px 0 10px;
+      margin: 28px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .doc-section h3::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 18px;
+      background: var(--doc-primary);
+      border-radius: 3px;
+    }
+
+    .doc-section h4 {
+      font-family: 'Cairo', sans-serif;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #374151;
+      margin: 18px 0 8px;
     }
 
     p {
       margin-bottom: 14px;
       color: var(--doc-text);
+      font-weight: 400;
     }
 
     ul, ol {
-      margin: 0 0 16px 22px;
+      margin: 0 0 18px 26px;
     }
 
     li {
+      margin-bottom: 8px;
+      color: var(--doc-text);
+    }
+
+    /* خطوات العمل المرقمة (Step-by-Step Flow) */
+    .doc-steps {
+      list-style: none;
+      margin: 22px 0 10px;
+      counter-reset: step-counter;
+      padding: 0;
+    }
+
+    .doc-step-item {
+      position: relative;
+      padding-right: 54px;
+      margin-bottom: 26px;
+      counter-increment: step-counter;
+    }
+
+    .doc-step-item::before {
+      content: counter(step-counter);
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--doc-primary) 0%, #8B0024 100%);
+      color: #FFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      box-shadow: 0 4px 10px rgba(201, 0, 53, 0.25);
+    }
+
+    .doc-step-title {
+      font-family: 'Cairo', sans-serif;
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--doc-dark);
       margin-bottom: 6px;
     }
 
-    /* Callout Alert */
+    /* صناديق التنبيه (Callouts) */
     .doc-callout {
       padding: 16px 20px;
-      border-radius: 8px;
-      margin: 18px 0;
-      border-left: 4px solid;
-      font-size: 0.92rem;
+      border-radius: 12px;
+      margin: 20px 0;
+      border-right: 5px solid;
+      font-size: 0.94rem;
+      line-height: 1.7;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .doc-callout i {
+      font-size: 1.25rem;
+      margin-top: 3px;
+      flex-shrink: 0;
     }
 
     .doc-callout-info {
-      background: #EFF6FF;
+      background: var(--doc-info-bg);
       border-color: #3B82F6;
-      color: #1E40AF;
+      color: var(--doc-info-text);
     }
 
     .doc-callout-tip {
-      background: #F0FDF4;
+      background: var(--doc-success-bg);
       border-color: #22C55E;
-      color: #15803D;
+      color: var(--doc-success-text);
     }
 
     .doc-callout-warning {
-      background: var(--doc-primary-light);
-      border-color: var(--doc-primary);
-      color: #9F1239;
+      background: var(--doc-warning-bg);
+      border-color: #F59E0B;
+      color: var(--doc-warning-text);
     }
 
-    /* Code Blocks */
+    .doc-callout-primary {
+      background: var(--doc-primary-light);
+      border-color: var(--doc-primary);
+      color: #880B2B;
+    }
+
+    /* بطاقات الوسائط البديلة (Visual Placeholders for Screenshots & Videos) */
+    .doc-media-placeholder {
+      background: #FFF5F7;
+      border: 2px dashed #E11D48;
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin: 22px 0 26px;
+      text-align: center;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .doc-media-placeholder:hover {
+      background: #FFEBF0;
+      border-color: #BE123C;
+    }
+
+    .doc-media-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--doc-primary);
+      color: #FFF;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      box-shadow: 0 3px 8px rgba(201, 0, 53, 0.2);
+    }
+
+    .doc-media-desc {
+      font-size: 0.94rem;
+      color: #6B0E23;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .doc-media-hint {
+      font-size: 0.82rem;
+      color: #9F1239;
+      opacity: 0.85;
+      font-family: 'JetBrains Mono', monospace;
+      direction: ltr;
+      display: inline-block;
+      margin-top: 6px;
+    }
+
+    /* قوالب الأكواد (Code Blocks) */
     pre {
       background: var(--doc-code-bg);
       color: var(--doc-code-color);
-      padding: 16px 20px;
-      border-radius: 8px;
+      padding: 18px 22px;
+      border-radius: 12px;
       overflow-x: auto;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
-      line-height: 1.5;
-      margin: 14px 0 20px;
+      font-size: 0.86rem;
+      line-height: 1.6;
+      margin: 14px 0 22px;
+      direction: ltr;
+      text-align: left;
+      border: 1px solid #2B303C;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
     }
 
     code {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.88em;
-      background: #EDE8E8;
+      background: #F3E8EA;
       color: #A0002A;
-      padding: 2px 6px;
-      border-radius: 4px;
+      padding: 2px 7px;
+      border-radius: 5px;
+      font-weight: 500;
+      direction: ltr;
+      display: inline-block;
     }
 
     pre code {
       background: transparent;
       color: inherit;
       padding: 0;
+      border-radius: 0;
+      display: block;
     }
 
-    /* Tables */
+    /* الجداول (Tables) */
     .doc-table-wrap {
       overflow-x: auto;
-      margin: 16px 0 24px;
+      margin: 18px 0 26px;
+      border-radius: 12px;
+      border: 1px solid var(--doc-border);
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.88rem;
-      text-align: left;
+      font-size: 0.91rem;
+      text-align: right;
     }
 
     th, td {
-      padding: 12px 16px;
+      padding: 14px 18px;
       border-bottom: 1px solid var(--doc-border);
     }
 
     th {
-      background: #F3F4F6;
-      font-weight: 600;
+      background: #F9FAFB;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
       color: var(--doc-dark);
+      border-bottom: 2px solid var(--doc-border);
     }
 
     tr:last-child td {
       border-bottom: none;
     }
 
-    /* Responsive */
-    @media (max-width: 900px) {
+    tr:hover td {
+      background: #FCFDFD;
+    }
+
+    /* شبكة بطاقات الميزات */
+    .doc-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin: 20px 0;
+    }
+
+    .doc-feature-card {
+      background: #FAFAFC;
+      border: 1px solid var(--doc-border);
+      border-radius: 12px;
+      padding: 22px 20px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .doc-feature-card:hover {
+      transform: translateY(-2px);
+      border-color: #C90035;
+      background: #FFF;
+    }
+
+    .doc-feature-card h4 {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--doc-dark);
+    }
+
+    .doc-feature-card h4 i {
+      color: var(--doc-primary);
+      font-size: 1.15rem;
+    }
+
+    .doc-feature-card p {
+      font-size: 0.9rem;
+      color: #4B5563;
+      margin-bottom: 0;
+    }
+
+    /* شارات اللغات */
+    .doc-badge-en {
+      background: #E0E7FF;
+      color: #3730A3;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    .doc-badge-ar {
+      background: #DCFCE7;
+      color: #166534;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    /* الفوتر */
+    .doc-footer {
+      text-align: center;
+      padding: 40px 0 20px;
+      color: var(--doc-text-muted);
+      font-size: 0.88rem;
+      border-top: 1px solid var(--doc-border);
+      margin-top: 50px;
+    }
+
+    .doc-footer a {
+      color: var(--doc-primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* استجابة الشاشات الصغيرة (Responsive) */
+    @media (max-width: 992px) {
       body {
         flex-direction: column;
       }
       .doc-sidebar {
         position: static;
         width: 100%;
-        padding: 20px;
+        padding: 24px 20px;
       }
       .doc-main {
-        margin-left: 0;
-        padding: 24px 20px;
+        margin-right: 0;
+        padding: 30px 20px;
       }
       .doc-section {
-        padding: 24px 20px;
+        padding: 26px 20px;
+      }
+      .doc-header {
+        padding: 32px 24px;
+      }
+      .doc-header h1 {
+        font-size: 1.85rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Sidebar -->
+  <!-- ============================================================
+       الشريط الجانبي للتنقل الفهرسي (Sidebar Navigation)
+       ============================================================ -->
   <aside class="doc-sidebar">
     <div class="doc-brand">
-      <div class="doc-brand-title">Milk</div>
-      <span class="doc-brand-badge">Docs</span>
+      <div class="doc-brand-title">
+        <i class="fas fa-ice-cream"></i>
+        <span>ميلك (Milk)</span>
+      </div>
+      <span class="doc-brand-badge">دليل المشتري</span>
     </div>
 
-    <nav>
-      <div class="doc-nav-group-title">Getting Started</div>
+    <nav aria-label="فهرس دليل الاستخدام">
+      <div class="doc-nav-group-title"><i class="fas fa-play-circle"></i> البداية السريعة</div>
       <ul class="doc-nav-list">
-        <li><a href="#overview" class="doc-nav-link">1. Overview &amp; Tech Stack</a></li>
-        <li><a href="#preview" class="doc-nav-link">2. How to Preview Locally</a></li>
-        <li><a href="#structure" class="doc-nav-link">3. File &amp; Folder Structure</a></li>
+        <li class="doc-nav-item">
+          <a href="#section-1" class="doc-nav-link">
+            <i class="fas fa-info-circle"></i>
+            <span>1. مقدمة عن المنتج</span>
+          </a>
+        </li>
+        <li class="doc-nav-item">
+          <a href="#section-2" class="doc-nav-link">
+            <i class="fas fa-check-circle"></i>
+            <span>2. متطلبات التشغيل</span>
+          </a>
+        </li>
+        <li class="doc-nav-item">
+          <a href="#section-3" class="doc-nav-link">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <span>3. طريقة التركيب والتنصيب</span>
+          </a>
+        </li>
+        <li class="doc-nav-item">
+          <a href="#section-4" class="doc-nav-link">
+            <i class="fas fa-folder-open"></i>
+            <span>4. هيكلية وتنظيم الملفات</span>
+          </a>
+        </li>
       </ul>
 
-      <div class="doc-nav-group-title">Customization</div>
+      <div class="doc-nav-group-title"><i class="fas fa-sliders-h"></i> التخصيص والتعديل</div>
       <ul class="doc-nav-list">
-        <li><a href="#custom-colors" class="doc-nav-link">4. Customizing Colors</a></li>
-        <li><a href="#custom-images" class="doc-nav-link">5. Replacing Images</a></li>
-        <li><a href="#custom-content" class="doc-nav-link">6. Editing Text &amp; Pages</a></li>
-        <li><a href="#products-data" class="doc-nav-link">7. Product Data Store</a></li>
+        <li class="doc-nav-item">
+          <a href="#section-5" class="doc-nav-link">
+            <i class="fas fa-edit"></i>
+            <span>5. طريقة تعديل المحتوى</span>
+          </a>
+        </li>
+        <li class="doc-nav-item">
+          <a href="#section-6" class="doc-nav-link">
+            <i class="fas fa-globe"></i>
+            <span>6. نظام تبديل اللغة (AR/EN)</span>
+          </a>
+        </li>
       </ul>
 
-      <div class="doc-nav-group-title">Architecture</div>
+      <div class="doc-nav-group-title"><i class="fas fa-question-circle"></i> المساعدة والدعم</div>
       <ul class="doc-nav-list">
-        <li><a href="#animations" class="doc-nav-link">8. GSAP &amp; Interactions</a></li>
-        <li><a href="#responsive" class="doc-nav-link">9. Responsive Breakpoints</a></li>
-        <li><a href="#i18n-rtl" class="doc-nav-link">10. Language Switch &amp; RTL</a></li>
+        <li class="doc-nav-item">
+          <a href="#section-7" class="doc-nav-link">
+            <i class="fas fa-tools"></i>
+            <span>7. الأسئلة الشائعة وحل المشاكل</span>
+          </a>
+        </li>
+        <li class="doc-nav-item">
+          <a href="#section-8" class="doc-nav-link">
+            <i class="fas fa-headset"></i>
+            <span>8. الدعم الفني والمساعدة</span>
+          </a>
+        </li>
       </ul>
     </nav>
   </aside>
 
-  <!-- Main Content -->
+  <!-- ============================================================
+       منطقة المحتوى الرئيسي (Main Documentation Content)
+       ============================================================ -->
   <main class="doc-main">
 
+    <!-- رأس الدليل -->
     <header class="doc-header">
-      <h1>Milk Template Documentation</h1>
+      <h1>دليل التركيب والاستخدام الشامل — قالب ميلك</h1>
+      <p>
+        أهلاً بك! نشكرك على شرائك قالب <strong>ميلك (Milk)</strong> المخصص لمتاجر الآيس كريم الطبيعي، محلات السموذي، العصائر الطازجة والحلويات العصرية. هذا الدليل كُتب خصيصًا ليأخذ بيدك خطوة بخطوة حتى تتمكن من إطلاق وتخصيص موقعك الإلكتروني بالكامل دون الحاجة لأي خبرة برمجية مسبقة.
+      </p>
       <div class="doc-meta">
-        <span>Version 1.0.0</span>
-        <span>•</span>
-        <span>Pure HTML5 / CSS3 / JavaScript</span>
-        <span>•</span>
-        <span>English (LTR) + Arabic (RTL)</span>
+        <div class="doc-meta-item">
+          <i class="fas fa-tag"></i>
+          <span>الإصدار: 1.0.0</span>
+        </div>
+        <div class="doc-meta-item">
+          <i class="fas fa-code"></i>
+          <span>HTML5 / CSS3 / JavaScript خالص بدون تعقيد</span>
+        </div>
+        <div class="doc-meta-item">
+          <i class="fas fa-language"></i>
+          <span>ثنائي اللغة بالكامل (العربية RTL + الإنجليزية LTR)</span>
+        </div>
       </div>
     </header>
 
-    <!-- 1. Overview & Tech Stack -->
-    <section id="overview" class="doc-section">
-      <h2 class="doc-section-title">1. Overview &amp; Tech Stack</h2>
-      <p>
-        <strong>Milk</strong> is a premium, high-impact creative website template designed specifically for smoothie shops, juice bars, artisanal ice cream parlors, and modern dessert brands.
-      </p>
-      <p>
-        Built with zero required build tools or Node dependencies, the template runs directly in any modern browser while delivering smooth GSAP-driven micro-interactions, full bilingual support (English LTR and Arabic RTL), and a unified product catalog.
-      </p>
 
-      <h3>Technologies Used</h3>
-      <ul>
-        <li><strong>Semantic HTML5</strong> — Accessible, SEO-optimized markup with structured schema and meta descriptions.</li>
-        <li><strong>Vanilla CSS3</strong> — Clean custom properties (CSS variables), CSS Grid, and Flexbox for rapid color and style customization without Tailwind or preprocessors.</li>
-        <li><strong>Vanilla JavaScript (ES6+)</strong> — Modular, lightweight scripts for sliders, filtering, searching, mobile drawer navigation, and language switching.</li>
-        <li><strong>GSAP 3.12.5 (GreenSock)</strong> — Industry standard animation engine powering the 3D bowl transitions, kinetic floating fruit elements, and smooth entrance reveals.</li>
-        <li><strong>Font Awesome 6 Free</strong> — Scalable SVG web icons for clean visual cues.</li>
-        <li><strong>Google Fonts</strong> — Curated typography pairing:
-          <ul>
-            <li><strong>English:</strong> <code>DM Sans</code> (body, UI, badges) &amp; <code>Cormorant Garamond</code> (elegant display headers).</li>
-            <li><strong>Arabic:</strong> <code>Cairo</code> (modern display titles) &amp; <code>IBM Plex Sans Arabic</code> (crisp, readable body copy).</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
-
-    <!-- 2. How to Preview Locally -->
-    <section id="preview" class="doc-section">
-      <h2 class="doc-section-title">2. How to Preview Locally</h2>
+    <!-- ============================================================
+         1. مقدمة عن المنتج (Overview)
+         ============================================================ -->
+    <section id="section-1" class="doc-section">
+      <h2 class="doc-section-title">
+        <i class="fas fa-sparkles"></i>
+        <span>1. مقدمة عن المنتج (Product Overview)</span>
+      </h2>
       <p>
-        Because Milk is a static HTML5 template, you do not need to run complex installation scripts or build commands. You can preview it immediately using any of the following methods:
+        قالب <strong>ميلك (Milk)</strong> هو قالب ويب إبداعي فائق الأناقة والجاذبية، مصمم بأحدث معايير الويب لتقديم تجربة بصرية مذهلة تُبهر زوار موقعك من اللحظة الأولى. يتميز القالب بتأثيرات حركية تفاعلية ثلاثية الأبعاد لتحريك الفواكه وأطباق الآيس كريم والسموذي، مع تناسق لوني استثنائي وسرعة تحميل فائقة.
       </p>
 
-      <h3>Method A: VS Code Live Server (Recommended)</h3>
-      <ol>
-        <li>Open the <code>Milk</code> project folder in <strong>Visual Studio Code</strong>.</li>
-        <li>Install the popular <strong>Live Server</strong> extension (by Ritwick Dey).</li>
-        <li>Right-click on <code>index.html</code> (or <code>index-ar.html</code>) and select <strong>"Open with Live Server"</strong>.</li>
-        <li>Your default browser will launch at <code>http://127.0.0.1:5500/index.html</code> with automatic reload on changes.</li>
-      </ol>
+      <h3>مكونات القالب ومميزاته الأساسية:</h3>
+      <div class="doc-grid-2">
+        <div class="doc-feature-card">
+          <h4><i class="fas fa-copy"></i> 20 صفحة جاهزة للاستخدام</h4>
+          <p>يتضمن القالب 10 صفحات باللغة العربية (RTL) مع 10 صفحات مطابقة تمامًا باللغة الإنجليزية (LTR) لتغطية كافة متطلبات علامتك التجارية.</p>
+        </div>
 
-      <h3>Method B: Python Built-in Server</h3>
-      <p>Open terminal or PowerShell inside the project directory and run:</p>
-      <pre><code># Python 3
-python -m http.server 8000
+        <div class="doc-feature-card">
+          <h4><i class="fas fa-feather-alt"></i> كود نظيف وخالٍ من التعقيد</h4>
+          <p>مبني بتقنيات الويب النقية (Pure HTML5 / Vanilla CSS3 / Vanilla JavaScript) دون الحاجة لتثبيت بيئات تشغيل معقدة مثل Node.js أو React أو غيرها.</p>
+        </div>
 
-# Open in your browser:
-http://localhost:8000/index.html</code></pre>
+        <div class="doc-feature-card">
+          <h4><i class="fas fa-magic"></i> حركات سلسة عبر مكتبة GSAP</h4>
+          <p>استعراض ثلاثي الأبعاد جذاب في الصفحة الرئيسية للنكهات مع إمكانية التمرير بالماوس، لوحة المفاتيح، أو السحب باللمس على الهواتف الذكية.</p>
+        </div>
 
-      <h3>Method C: Node.js (npx serve)</h3>
-      <pre><code>npx serve .</code></pre>
-
-      <div class="doc-callout doc-callout-info">
-        <strong>Tip:</strong> You can also double-click <code>index.html</code> directly to preview in your web browser. Running via a local HTTP server is recommended to ensure all image assets and scripts load without CORS restrictions.
+        <div class="doc-feature-card">
+          <h4><i class="fas fa-mobile-alt"></i> متوافق 100% مع الهواتف الذكية</h4>
+          <p>تصميم متجاوب بالكامل يعيد ضبط نفسه تلقائيًا ليبدو رائعًا على شاشات الحواسيب، الأجهزة اللوحية (Tablets)، والهواتف المحمولة.</p>
+        </div>
       </div>
-    </section>
 
-    <!-- 3. File & Folder Structure -->
-    <section id="structure" class="doc-section">
-      <h2 class="doc-section-title">3. File &amp; Folder Structure</h2>
-      <p>The codebase is organized cleanly for easy navigation and maintenance:</p>
-
-      <pre><code>Milk/
-├── index.html                   # English Homepage (Hero GSAP Slider + Showcase)
-├── index-ar.html                # Arabic Homepage (RTL)
-├── about.html                   # English About Us page
-├── about-ar.html                # Arabic About Us page (RTL)
-├── products.html                # English Products / Menu with live search &amp; filter
-├── products-ar.html             # Arabic Products / Menu (RTL)
-├── product-berry-pure.html      # Product Detail: Milk (EN)
-├── product-berry-pure-ar.html   # Product Detail: Milk (AR)
-├── product-blue-bliss.html      # Product Detail: Blue Bliss (EN)
-├── product-blue-bliss-ar.html   # Product Detail: Blue Bliss (AR)
-├── product-banana-crush.html    # Product Detail: Banana Crush (EN)
-├── product-banana-crush-ar.html # Product Detail: Banana Crush (AR)
-├── product-kiwi-flavor.html     # Product Detail: Kiwi Flavor (EN)
-├── product-kiwi-flavor-ar.html  # Product Detail: Kiwi Flavor (AR)
-├── contact.html                 # English Contact page with validated form &amp; toast
-├── contact-ar.html              # Arabic Contact page (RTL)
-├── faq.html                     # English FAQ with interactive accordions
-├── faq-ar.html                  # Arabic FAQ (RTL)
-├── 404.html                     # English 404 Error page
-├── 404-ar.html                  # Arabic 404 Error page (RTL)
-│
-├── assets/
-│   ├── css/
-│   │   └── main.css             # Unified stylesheet (theme tokens, layouts, RTL overrides)
-│   ├── js/
-│   │   ├── main.js              # Core logic (GSAP slider, nav drawers, FAQ accordion, i18n)
-│   │   ├── products-data.js     # Master product catalog data store (JSON array)
-│   │   └── vendor/
-│   │       └── gsap.min.js      # GreenSock Animation Platform library
-│   └── images/                  # 17 transparent PNG assets (bowls, scoops, fruit floaters)
-│
-├── Documentation/
-│   └── README.html              # This comprehensive documentation file
-└── Assets &amp; Credits.txt         # Licensing, typography, and asset source registry</code></pre>
-    </section>
-
-    <!-- 4. Customizing Colors -->
-    <section id="custom-colors" class="doc-section">
-      <h2 class="doc-section-title">4. Customizing Colors</h2>
-      <p>
-        All theme colors are managed through <strong>CSS Custom Properties</strong> at the top of <code>assets/css/main.css</code>. To re-skin the brand or individual flavor backgrounds, adjust the variables:
-      </p>
-
-      <pre><code>:root {
-  /* Brand Core */
-  --ffy-primary: #C90035;       /* Signature Berry Red */
-  --ffy-primary-dark: #8B0024;  /* Deep Strawberry Burgundy */
-  --ffy-white: #FFFFFF;
-  --ffy-dark: #1A1A1A;
-  --ffy-gray-light: #F8F6F4;
-
-  /* Flavor Background Gradients */
-  --ffy-strawberry-in: #8B0024;
-  --ffy-strawberry-out: #C90035;
-
-  --ffy-blueberry-in: #1B2A5E;
-  --ffy-blueberry-out: #28448C;
-
-  --ffy-banana-in: #B38600;
-  --ffy-banana-out: #E6AC00;
-
-  --ffy-kiwi-in: #27662B;
-  --ffy-kiwi-out: #3A8E3F;
-}</code></pre>
-      <div class="doc-callout doc-callout-tip">
-        <strong>Tip:</strong> Changing <code>--ffy-primary</code> will automatically update buttons, active navigation indicators, hover states, and accent labels throughout the entire website.
-      </div>
-    </section>
-
-    <!-- 5. Replacing Images -->
-    <section id="custom-images" class="doc-section">
-      <h2 class="doc-section-title">5. Replacing Images</h2>
-      <p>
-        All visual assets are stored in <code>assets/images/</code>. For the smoothest animations, use high-resolution, transparent PNG files with cropped bounding boxes:
-      </p>
-
+      <h3>قائمة الصفحات المضمنة في القالب (بالنسختين):</h3>
       <div class="doc-table-wrap">
         <table>
           <thead>
             <tr>
-              <th>File Name</th>
-              <th>Dimensions (px)</th>
-              <th>Purpose</th>
+              <th>الصفحة</th>
+              <th>النسخة العربية (RTL)</th>
+              <th>النسخة الإنجليزية (LTR)</th>
+              <th>الغرض والوظيفة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>الصفحة الرئيسية</strong></td>
+              <td><code>index-ar.html</code></td>
+              <td><code>index.html</code></td>
+              <td>السلايدر التفاعلي للنكهات، قصة العلامة، المميزات، والآراء.</td>
+            </tr>
+            <tr>
+              <td><strong>من نحن (قصتنا)</strong></td>
+              <td><code>about-ar.html</code></td>
+              <td><code>about.html</code></td>
+              <td>قصة المتجر، قيم العمل، معايير المكونات الطبيعية، وفريق العمل.</td>
+            </tr>
+            <tr>
+              <td><strong>قائمة المنتجات (المتجر)</strong></td>
+              <td><code>products-ar.html</code></td>
+              <td><code>products.html</code></td>
+              <td>كتالوج المنتجات الكامل مع شريط بحث وفلترة فورية حسب التصنيفات.</td>
+            </tr>
+            <tr>
+              <td><strong>صفحات تفاصيل المنتجات (4 صفحات)</strong></td>
+              <td><code>product-*-ar.html</code></td>
+              <td><code>product-*.html</code></td>
+              <td>صفحات تفصيلية لكل نكهة (ميلك الفراولة، التوت، الموز، الكيوي) مع معرض صور والمكونات والقيم الغذائية.</td>
+            </tr>
+            <tr>
+              <td><strong>الأسئلة الشائعة (FAQ)</strong></td>
+              <td><code>faq-ar.html</code></td>
+              <td><code>faq.html</code></td>
+              <td>قوائم أكورديون تفاعلية للإجابة على تساؤلات العملاء مع تصنيفات سهلة.</td>
+            </tr>
+            <tr>
+              <td><strong>تواصل معنا (Contact)</strong></td>
+              <td><code>contact-ar.html</code></td>
+              <td><code>contact.html</code></td>
+              <td>نموذج تواصل مزود بالتحقق من المدخلات، بطاقات الفروع، وساعات العمل.</td>
+            </tr>
+            <tr>
+              <td><strong>صفحة الخطأ 404</strong></td>
+              <td><code>404-ar.html</code></td>
+              <td><code>404.html</code></td>
+              <td>صفحة خطأ إبداعية مصممة بعناية مع شريط بحث وأزرار للعودة للمتجر.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="doc-callout doc-callout-info">
+        <i class="fas fa-lightbulb"></i>
+        <div>
+          <strong>ملاحظة للمشتري:</strong> لا توجد أي مكتبات خارجية مدفوعة، وجميع الخطوط والأيقونات المستخدمة مجانية ومفتوحة المصدر ومرخصة للاستخدام التجاري.
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         2. متطلبات التشغيل (Requirements)
+         ============================================================ -->
+    <section id="section-2" class="doc-section">
+      <h2 class="doc-section-title">
+        <i class="fas fa-laptop-code"></i>
+        <span>2. متطلبات التشغيل (System Requirements)</span>
+      </h2>
+      <p>
+        أحد أكبر مميزات هذا القالب هو <strong>بساطته التامة</strong>؛ فهو موقع إلكتروني ثابت (Static HTML Website). هذا يعني أنك <strong>لا تحتاج إلى:</strong>
+      </p>
+      <ul>
+        <li>لا حاجة لتثبيت بيئة عمل برمجية أو أدوات بناء (مثل Node.js، NPM، Webpack أو Vite).</li>
+        <li>لا حاجة لقواعد بيانات معقدة مثل MySQL أو PostgreSQL.</li>
+        <li>لا حاجة لخادم يدعم لغات برمجة خلفية مثل PHP أو Python لتشغيل الواجهة.</li>
+      </ul>
+
+      <h3>ما الذي تحتاجه فعليًا؟</h3>
+      <ol class="doc-steps">
+        <li class="doc-step-item">
+          <div class="doc-step-title">متصفح إنترنت حديث (Web Browser)</div>
+          <p>أي متصفح ويب حديث لتشغيل الموقع ومعاينته بسلاسة (مثل Google Chrome، Microsoft Edge، Mozilla Firefox، أو Apple Safari).</p>
+        </li>
+        <li class="doc-step-item">
+          <div class="doc-step-title">محرر نصوص بسيط (لتعديل النصوص إذا أردت)</div>
+          <p>ننصح بتحميل برنامج <strong>Visual Studio Code</strong> (مجاني واحترافي وسهل للغاية) أو استخدام <strong>Notepad++</strong>، أو حتى برنامج المفكرة المدمج في جهازك (Notepad).</p>
+        </li>
+        <li class="doc-step-item">
+          <div class="doc-step-title">استضافة ويب عادية واسم نطاق (عند النشر على الإنترنت)</div>
+          <p>أي استضافة ويب تدعم استضافة ملفات HTML (أي مساحة استضافة مشتركة من شركات مثل Hostinger أو Namecheap أو GoDaddy، أو حتى منصات استضافة المواقع المجانية مثل GitHub Pages أو Netlify أو Vercel).</p>
+        </li>
+      </ol>
+    </section>
+
+
+    <!-- ============================================================
+         3. طريقة التركيب والتنصيب (Installation)
+         ============================================================ -->
+    <section id="section-3" class="doc-section">
+      <h2 class="doc-section-title">
+        <i class="fas fa-download"></i>
+        <span>3. طريقة التركيب والتنصيب (Installation Guide)</span>
+      </h2>
+      <p>
+        تنصيب القالب وتشغيله عملية سهلة للغاية تتم في دقائق معدودة. إليك الشرح المفصل سواء كنت ترغب في تجربة الموقع محليًا على جهازك الشخصي أولاً، أو رفعه مباشرة على استضافتك السحابية.
+      </p>
+
+      <h3>المرحلة الأولى: فك ضغط الملف ومعاينة الموقع محليًا (على جهازك)</h3>
+      <ol class="doc-steps">
+        <li class="doc-step-item">
+          <div class="doc-step-title">فك ضغط الملف الذي قمت بتحميله</div>
+          <p>انقر بزر الفأرة الأيمن على الملف المضغوط <code>Milk-Template.zip</code>، ثم اختر <strong>"استخراج الكل" (Extract All)</strong> في مجلد تختاره على حاسوبك.</p>
+        </li>
+
+        <!-- SCREENSHOT: لقطة شاشة لفك ضغط ملف القالب (.zip) واستعراض المجلدات الرئيسية داخل مستكشف الملفات -->
+        <div class="doc-media-placeholder">
+          <div class="doc-media-badge"><i class="fas fa-camera"></i> لقطة شاشة توضيحية مقترحة</div>
+          <div class="doc-media-desc">لقطة شاشة لفك ضغط ملف القالب (.zip) واستعراض المجلدات الرئيسية داخل مستكشف الملفات</div>
+          <span class="doc-media-hint">&lt;!-- SCREENSHOT: unzipping_template_folder.png --&gt;</span>
+        </div>
+
+        <li class="doc-step-item">
+          <div class="doc-step-title">فتح الموقع في المتصفح بالنقر المزدوج (أسهل طريقة)</div>
+          <p>
+            ادخل إلى المجلد المستخرج، وستجد ملفين رئيسيين:
+          </p>
+          <ul>
+            <li>انقر مرتين على <code>index-ar.html</code> لفتح الموقع بالنسخة العربية.</li>
+            <li>انقر مرتين على <code>index.html</code> لفتح الموقع بالنسخة الإنجليزية.</li>
+          </ul>
+        </li>
+
+        <!-- SCREENSHOT: لقطة شاشة للنقر المزدوج على ملف index.html و index-ar.html وفتحهما مباشرة في متصفح الويب -->
+        <div class="doc-media-placeholder">
+          <div class="doc-media-badge"><i class="fas fa-camera"></i> لقطة شاشة توضيحية مقترحة</div>
+          <div class="doc-media-desc">لقطة شاشة للنقر المزدوج على ملف index-ar.html وفتحه مباشرة في متصفح الويب (Chrome / Edge)</div>
+          <span class="doc-media-hint">&lt;!-- SCREENSHOT: double_click_open_browser.png --&gt;</span>
+        </div>
+
+        <li class="doc-step-item">
+          <div class="doc-step-title">المعاينة المتقدمة عبر إضافة Live Server (اختياري لكن مفضل جدًا)</div>
+          <p>
+            إذا كنت تستخدم برنامج <strong>Visual Studio Code</strong>، افتح مجلد المشروع بداخله، ثم ثبّت إضافة <strong>Live Server</strong>. انقر بزر الفأرة الأيمن على <code>index-ar.html</code> واختر <strong>Open with Live Server</strong>؛ سيفتح المتصفح تلقائيًا وسيقوم بتحديث الصفحة فورًا عند حفظ أي تعديل في الكود دون الحاجة لإعادة تحميل الصفحة يدويًا.
+          </p>
+        </li>
+
+        <!-- VIDEO: فيديو قصير (GIF) يوضح طريقة تشغيل القالب محليًا عبر إضافة Live Server في برنامج VS Code -->
+        <div class="doc-media-placeholder">
+          <div class="doc-media-badge"><i class="fas fa-video"></i> فيديو توضيحي مقترح (GIF)</div>
+          <div class="doc-media-desc">فيديو قصير يوضح طريقة تشغيل القالب محليًا عبر إضافة Live Server في برنامج VS Code بالنقر بزر الفأرة الأيمن</div>
+          <span class="doc-media-hint">&lt;!-- VIDEO: vs_code_live_server_preview.gif --&gt;</span>
+        </div>
+      </ol>
+
+      <h3>المرحلة الثانية: رفع ملفات القالب على استضافة الويب (Publishing Online)</h3>
+      <p>
+        عندما تصبح جاهزًا لنشر موقعك على الإنترنت ليراه الجميع عبر اسم نطاقك الخاص (دومين)، اتبع إحدى الطريقتين التاليتين:
+      </p>
+
+      <h4>الطريقة الأولى: الرفع عبر لوحة تحكم الاستضافة (cPanel File Manager) — الطريقة الأكثر شيوعًا</h4>
+      <ol>
+        <li>سجّل الدخول إلى لوحة تحكم استضافتك (cPanel) التي حصلت عليها من شركة الاستضافة.</li>
+        <li>ابحث عن أيقونة <strong>"مدير الملفات" (File Manager)</strong> وانقر عليها.</li>
+        <li>انتقل إلى المجلد الرئيسي المخصص لملفات موقعك، ويكون عادةً باسم <code>public_html</code> أو <code>www</code>.</li>
+        <li>انقر على زر <strong>"رفع" (Upload)</strong> في أعلى الصفحة، وارفع كافة ملفات ومجلدات القالب (أو ارفع ملف القالب المضغوط ثم انقر عليه بالزر الأيمن واختر <strong>Extract</strong> لفك ضغطه هناك).</li>
+        <li>تأكد من أن الملف <code>index.html</code> أو <code>index-ar.html</code> موجود مباشرة داخل مجلد <code>public_html</code> وليس داخل مجلد فرعي، ليظهر موقعك فور كتابة عنوان موقعك في المتصفح.</li>
+      </ol>
+
+      <!-- SCREENSHOT: لقطة شاشة للوحة تحكم الاستضافة cPanel توضح الدخول إلى File Manager وفتح مجلد public_html -->
+      <div class="doc-media-placeholder">
+        <div class="doc-media-badge"><i class="fas fa-camera"></i> لقطة شاشة توضيحية مقترحة</div>
+        <div class="doc-media-desc">لقطة شاشة للوحة تحكم الاستضافة cPanel توضح الدخول إلى مدير الملفات (File Manager) والدخول إلى مجلد public_html</div>
+        <span class="doc-media-hint">&lt;!-- SCREENSHOT: cpanel_file_manager_guide.png --&gt;</span>
+      </div>
+
+      <!-- SCREENSHOT: لقطة شاشة لعملية رفع ملفات القالب أو فك ضغطها داخل مجلد public_html -->
+      <div class="doc-media-placeholder">
+        <div class="doc-media-badge"><i class="fas fa-camera"></i> لقطة شاشة توضيحية مقترحة</div>
+        <div class="doc-media-desc">لقطة شاشة لعملية رفع ملفات القالب واستقرارها داخل مجلد public_html بالهيكلية الصحيحة</div>
+        <span class="doc-media-hint">&lt;!-- SCREENSHOT: cpanel_upload_and_extract.png --&gt;</span>
+      </div>
+
+      <h4>الطريقة الثانية: الرفع عبر برنامج نقل الملفات (FTP / FileZilla)</h4>
+      <ol>
+        <li>حمّل برنامج <strong>FileZilla</strong> المجاني وافتحه.</li>
+        <li>أدخل بيانات اتصال الـ FTP الخاصة باستضافتك (المضيف Host، اسم المستخدم Username، كلمة المرور Password).</li>
+        <li>في الجزء الأيمن (الخادم)، ادخل إلى مجلد <code>public_html</code>.</li>
+        <li>في الجزء الأيسر (جهازك الشخصي)، حدد كافة ملفات ومجلدات القالب واسحبها إلى الجزء الأيمن ليبدأ نقلها تلقائيًا.</li>
+      </ol>
+
+      <div class="doc-callout doc-callout-tip">
+        <i class="fas fa-check-circle"></i>
+        <div>
+          <strong>نصيحة لجعل النسخة العربية هي الصفحة الأولى لزوار موقعك:</strong><br>
+          بشكل افتراضي، يعتبر الخادم ملف <code>index.html</code> هو الصفحة الرئيسية. إذا كنت تريد أن يفتح الموقع باللغة العربية تلقائيًا لجميع الزوار، يمكنك إعادة تسمية <code>index.html</code> إلى <code>index-en.html</code>، ثم إعادة تسمية <code>index-ar.html</code> ليصبح <code>index.html</code>.
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         4. هيكلية الملفات وتنظيم المشروع (Project Structure)
+         ============================================================ -->
+    <section id="section-4" class="doc-section">
+      <h2 class="doc-section-title">
+        <i class="fas fa-sitemap"></i>
+        <span>4. هيكلية وتنظيم الملفات (Project Structure)</span>
+      </h2>
+      <p>
+        تم تنظيم ملفات القالب بطريقة واضحة ومنطقية ليسهل عليك العثور على أي ملف وتعديله دون أي ارتباك:
+      </p>
+
+      <pre><code>Milk/
+├── index.html                   # الصفحة الرئيسية باللغة الإنجليزية
+├── index-ar.html                # الصفحة الرئيسية باللغة العربية (RTL)
+├── about.html                   # صفحة "من نحن" بالإنجليزية
+├── about-ar.html                # صفحة "من نحن" بالعربية
+├── products.html                # صفحة قائمة المنتجات والبحث بالإنجليزية
+├── products-ar.html             # صفحة قائمة المنتجات والبحث بالعربية
+├── product-berry-pure.html      # تفاصيل منتج: نكهة ميلك الفراولة (EN)
+├── product-berry-pure-ar.html   # تفاصيل منتج: نكهة ميلك الفراولة (AR)
+├── product-blue-bliss.html      # تفاصيل منتج: نكهة بلو بليس - التوت (EN)
+├── product-blue-bliss-ar.html   # تفاصيل منتج: نكهة بلو بليس - التوت (AR)
+├── product-banana-crush.html    # تفاصيل منتج: نكهة بانانا كراش - الموز (EN)
+├── product-banana-crush-ar.html # تفاصيل منتج: نكهة بانانا كراش - الموز (AR)
+├── product-kiwi-flavor.html     # تفاصيل منتج: نكهة الكيوي والليمون (EN)
+├── product-kiwi-flavor-ar.html  # تفاصيل منتج: نكهة الكيوي والليمون (AR)
+├── contact.html                 # صفحة "تواصل معنا" بالإنجليزية
+├── contact-ar.html              # صفحة "تواصل معنا" بالعربية
+├── faq.html                     # صفحة الأسئلة الشائعة بالإنجليزية
+├── faq-ar.html                  # صفحة الأسئلة الشائعة بالعربية
+├── 404.html                     # صفحة الخطأ 404 بالإنجليزية
+├── 404-ar.html                  # صفحة الخطأ 404 بالعربية
+├── favicon.ico                  # أيقونة الموقع التي تظهر في شريط تبويب المتصفح
+│
+├── assets/                      # مجلد الأصول والموارد الأساسية
+│   ├── css/
+│   │   ├── main.css             # ملف التنسيقات الرئيسي (الألوان، الخطوط، التخطيط العام)
+│   │   └── rtl.css              # ملف التنسيقات الخاص بالاتجاه العربي من اليمين لليسار
+│   ├── js/
+│   │   ├── main.js              # ملف الأوامر التفاعلية (السلايدر، القائمة المتنقلة، زر اللغة)
+│   │   ├── products-data.js     # قاعدة بيانات المنتجات والأسعار المركزية
+│   │   └── vendor/
+│   │       └── gsap.min.js      # مكتبة التحريك والتأثيرات الحركية (GreenSock GSAP)
+│   └── images/                  # مجلد الصور المفرغة والخلفيات والشعار
+│
+├── Documentation/
+│   └── README.html              # هذا الدليل الإرشادي الشامل الذي تقرأه الآن
+│
+├── _internal/                   # مجلد الأدوات الداخلية (قوائم الفحص والتدقيق أثناء التطوير)
+└── Assets &amp; Credits.txt         # وثيقة تراخيص الخطوط والصور والمكتبات البرمجية</code></pre>
+
+      <h3>قاعدة التسمية الثنائية (English &amp; Arabic Pairs):</h3>
+      <p>
+        لاحظ أن كل صفحة في القالب تتطابق مع صفحة أخرى موازية بنفس الاسم تمامًا مع إضافة اللاحقة <code>-ar</code> في نهايتها. هذا النظام البسيط يجعل من السهل عليك معرفة الصفحة التي تحتاج لتعديلها سواء كنت تعدل النسخة الإنجليزية أو النسخة العربية.
+      </p>
+
+      <h3>ما هو مجلد <code>_internal</code>؟</h3>
+      <p>
+        مجلد <code>_internal</code> يحتوي على أدوات فحص واختبار داخلية استخدمها المطورون أثناء بناء القالب للتأكد من خلوه من أي أخطاء (مثل ملف <code>checklist-ar.html</code>). <strong>لا تحتاج إلى تعديل أو رفع هذا المجلد إلى موقعك</strong>، فهو مخصص للمراجعة فقط، ولن يؤثر حذفه أو تركه على عمل موقعك إطلاقًا.
+      </p>
+    </section>
+
+
+    <!-- ============================================================
+         5. طريقة التعديل الأساسية وتخصيص المحتوى
+         ============================================================ -->
+    <section id="section-5" class="doc-section">
+      <h2 class="doc-section-title">
+        <i class="fas fa-palette"></i>
+        <span>5. طريقة التعديل الأساسية وتخصيص المحتوى (How to Edit Content)</span>
+      </h2>
+      <p>
+        تم تصميم القالب ليتمكن أي مشترٍ من تعديل كافة النصوص والصور والشعار والألوان بمرونة مطلقة دون المساس باستقرار التصميم. إليك الطرق التفصيلية لكل جزء:
+      </p>
+
+      <!-- 5.1 تعديل النصوص -->
+      <h3>أولاً: كيف تعدل النصوص (العناوين، الفقرات، الأسعار)</h3>
+      <ol class="doc-steps">
+        <li class="doc-step-item">
+          <div class="doc-step-title">افتح الصفحة المطلوبة في محرر النصوص</div>
+          <p>انقر بزر الفأرة الأيمن على الصفحة التي تريد تعديلها (مثلاً <code>index-ar.html</code>) واختر <strong>Open with</strong> ثم حدد محرر النصوص المفضل لديك (مثل VS Code أو Notepad++).</p>
+        </li>
+        <li class="doc-step-item">
+          <div class="doc-step-title">استخدم ميزة البحث السريع (Ctrl + F)</div>
+          <p>
+            اضغط على مفتاحي <code>Ctrl + F</code> (أو <code>Cmd + F</code> على أجهزة Mac) وابحث عن الجملة أو الكلمة التي تريد تغييرها (مثلاً: ابحث عن "أربع نكهات، وسعادة لا تنتهي").
+          </p>
+        </li>
+        <li class="doc-step-item">
+          <div class="doc-step-title">استبدل النص بحذر واحفظ الملف</div>
+          <p>
+            قم بتغيير النص الواقع بين الأقواس دون حذف وسوم لغة الـ HTML (أي لا تحذف علامات مثل <code>&lt;h1&gt;</code> أو <code>&lt;/h1&gt;</code> أو <code>&lt;p&gt;</code>)، ثم اضغط <code>Ctrl + S</code> لحفظ التعديل فورًا.
+          </p>
+        </li>
+      </ol>
+
+      <!-- SCREENSHOT: لقطة شاشة لفتح ملف index-ar.html داخل محرر نصوص وتحديد سطر العنوان لتعديله -->
+      <div class="doc-media-placeholder">
+        <div class="doc-media-badge"><i class="fas fa-camera"></i> لقطة شاشة توضيحية مقترحة</div>
+        <div class="doc-media-desc">لقطة شاشة لفتح ملف index-ar.html داخل محرر نصوص (VS Code) وتحديد سطر العنوان الرئيسي والفقرة لتعديلهما</div>
+        <span class="doc-media-hint">&lt;!-- SCREENSHOT: editing_text_in_vscode.png --&gt;</span>
+      </div>
+
+      <!-- 5.2 استبدال الصور والشعار -->
+      <h3>ثانيًا: كيف تستبدل الصور والشعار (Logo)</h3>
+      <p>
+        جميع صور الموقع مخزنة داخل المجلد: <code>assets/images/</code>. يمكنك استبدال أي صورة بطريقة سهلة جدًا: <strong>احفظ صورتك الجديدة بنفس الاسم وبنفس الصيغة وضعها داخل المجلد لتحل محل القديمة تلقائيًا!</strong>
+      </p>
+
+      <h4>جدول أحجام ومقاسات الصور الموصى بها في القالب:</h4>
+      <div class="doc-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>اسم ملف الصورة</th>
+              <th>الأبعاد الموصى بها</th>
+              <th>صيغة الملف</th>
+              <th>مكان وموضع الظهور في الموقع</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><code>logo.png</code></td>
-              <td>2560 x 1230</td>
-              <td>Navbar &amp; footer brand logo (transparent background)</td>
+              <td>2560 × 1230 بكسل (أو بنسبة عرض 2:1)</td>
+              <td>PNG بخلفية شفافة</td>
+              <td>شعار المتجر في شريط التنقل العلوي وفي تذييل الصفحة (الفوتر).</td>
             </tr>
             <tr>
               <td><code>strawberry-bowl.png</code></td>
-              <td>~600 x 600</td>
-              <td>Centerpiece hero smoothie bowl for Slide 1</td>
+              <td>1350 × 1350 بكسل (مربع)</td>
+              <td>PNG بخلفية شفافة</td>
+              <td>الطبق الرئيسي لنكهة الفراولة (ميلك) في السلايدر والمتجر وصفحة التفاصيل.</td>
             </tr>
             <tr>
               <td><code>blueberry-bowl.png</code></td>
-              <td>~600 x 600</td>
-              <td>Centerpiece hero smoothie bowl for Slide 2</td>
+              <td>1350 × 1350 بكسل (مربع)</td>
+              <td>PNG بخلفية شفافة</td>
+              <td>الطبق الرئيسي لنكهة التوت الأزرق (بلو بليس).</td>
             </tr>
             <tr>
               <td><code>banana-bowl.png</code></td>
-              <td>~600 x 600</td>
-              <td>Centerpiece hero smoothie bowl for Slide 3</td>
+              <td>1485 × 1485 بكسل (مربع)</td>
+              <td>PNG بخلفية شفافة</td>
+              <td>الطبق الرئيسي لنكهة الموز الكريمي (بانانا كراش).</td>
             </tr>
             <tr>
               <td><code>kiwi-bowl.png</code></td>
-              <td>~600 x 600</td>
-              <td>Centerpiece hero smoothie bowl for Slide 4</td>
+              <td>1350 × 1350 بكسل (مربع)</td>
+              <td>PNG بخلفية شفافة</td>
+              <td>الطبق الرئيسي لنكهة الكيوي المنعش (كيوي فليفور).</td>
             </tr>
             <tr>
               <td><code>*-scoop-*.png</code></td>
-              <td>~300 x 300</td>
-              <td>Floating ice cream scoops that animate behind/around the bowls</td>
+              <td>حوالي 300 × 300 بكسل</td>
+              <td>PNG بخلفية شفافة</td>
+              <td>كرات الآيس كريم المتناثرة التي تتحرك تفاعليًا خلف الأطباق.</td>
             </tr>
             <tr>
               <td><code>mint-leaf-*.png</code>, <code>strawberry.png</code></td>
-              <td>~200 x 200</td>
-              <td>Parallax floating garnish floaters in the hero scene</td>
+              <td>حوالي 200 × 200 بكسل</td>
+              <td>PNG بخلفية شفافة</td>
+              <td>قطع الفواكه وأوراق النعناع الطافية التي تضفي حيوية ثلاثية الأبعاد.</td>
             </tr>
           </tbody>
         </table>
       </div>
-    </section>
 
-    <!-- 6. Editing Text & Pages -->
-    <section id="custom-content" class="doc-section">
-      <h2 class="doc-section-title">6. Editing Text &amp; Pages</h2>
+      <!-- SCREENSHOT: لقطة شاشة لمجلد assets/images توضح ملف logo.png والملفات الشفافة مع أسمائها -->
+      <div class="doc-media-placeholder">
+        <div class="doc-media-badge"><i class="fas fa-camera"></i> لقطة شاشة توضيحية مقترحة</div>
+        <div class="doc-media-desc">لقطة شاشة لمجلد assets/images توضح ملف logo.png وملفات أطباق السموذي الشفافة مع إبراز أسمائها ومقاساتها</div>
+        <span class="doc-media-hint">&lt;!-- SCREENSHOT: assets_images_folder_preview.png --&gt;</span>
+      </div>
+
+      <div class="doc-callout doc-callout-warning">
+        <i class="fas fa-exclamation-triangle"></i>
+        <div>
+          <strong>تنبيه هام حول شفافية الصور:</strong> للحصول على التأثير الحركي المذهل أثناء انتقال الأطباق والفواكه في السلايدر، احرص دائمًا على أن تكون صور الأطباق بصيغة <code>.png</code> وتكون مفرغة تمامًا بدون خلفية بيضاء.
+        </div>
+      </div>
+
+      <!-- 5.3 تعديل الألوان الأساسية -->
+      <h3>ثالثًا: كيف تعدل الألوان الأساسية للموقع (Color Theme)</h3>
       <p>
-        Every page is plain, semantic HTML. Text can be modified directly in any text editor:
+        يستخدم القالب نظام متغيرات الألوان الحديثة في لغة CSS (المعروف بـ CSS Variables). هذا يعني أنه يمكنك تغيير لون الموقع بالكامل (الأزرار، الخطوط، التحديدات، العناوين) من مكان واحد فقط دون الحاجة لتعديل مئات الأسطر!
       </p>
-      <ul>
-        <li><strong>Page Headings &amp; Descriptions:</strong> Search for <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, and <code>&lt;p class="ffy-section-body"&gt;</code>.</li>
-        <li><strong>Contact Information:</strong> Located in the footer columns across all pages (address, phone number, email, and opening hours).</li>
-        <li><strong>FAQ Questions &amp; Answers:</strong> In <code>faq.html</code> and <code>faq-ar.html</code>, edit the <code>&lt;button class="ffy-faq-question"&gt;</code> and <code>&lt;div class="ffy-faq-answer"&gt;</code> blocks.</li>
-      </ul>
-    </section>
-
-    <!-- 7. Product Data Store -->
-    <section id="products-data" class="doc-section">
-      <h2 class="doc-section-title">7. Product Data Store (products-data.js)</h2>
       <p>
-        Product items are centrally defined in <code>assets/js/products-data.js</code> inside the global array <code>window.FFY_PRODUCTS</code>.
+        افتح الملف <code>assets/css/main.css</code>، وستجد في أول الملف كودًا يحتوي على المتغيرات التالية:
       </p>
 
-      <h3>Product Object Schema</h3>
-      <pre><code>{
-  id: "berry-pure",
-  slug: "product-berry-pure.html",
-  slugAr: "product-berry-pure-ar.html",
-  name: "Milk",
-  nameAr: "ميلك",
-  category: "smoothie-bowls",
-  categoryLabel: "Smoothie Bowl",
-  categoryLabelAr: "طبق سموذي",
-  price: 8.90,
-  currency: "$",
-  calories: 280,
-  prepTime: "5 mins",
-  prepTimeAr: "٥ دقائق",
-  rating: 4.9,
-  reviewsCount: 128,
-  image: "assets/images/strawberry-bowl.png",
-  description: "Fresh organic strawberries blended...",
-  descriptionAr: "فراولة عضوية طازجة ممزوجة...",
-  ingredients: ["Fresh Strawberries", "Greek Yogurt", "White Chocolate"],
-  nutrition: { calories: 280, protein: "8g", carbs: "42g", fat: "6g" }
+      <pre><code>:root {
+  /* الألوان الرئيسية للعلامة التجارية */
+  --ffy-primary: #C90035;       /* اللون الأحمر التوتي المميز (الأزرار والروابط والعناصر النشطة) */
+  --ffy-primary-dark: #8B0024;  /* اللون العنابي الداكن للظلال والحدود */
+  --ffy-white: #FFFFFF;         /* اللون الأبيض النقي */
+  --ffy-dark: #1A1A1A;          /* اللون الداكن للنصوص والعناوين */
+  --ffy-gray-light: #F8F6F4;    /* لون خلفية الأقسام المريح */
+
+  /* ألوان التدرجات اللونية لخلفيات النكهات في السلايدر */
+  --ffy-strawberry-in: #8B0024; /* بداية تدرج الفراولة */
+  --ffy-strawberry-out: #C90035;/* نهاية تدرج الفراولة */
+
+  --ffy-blueberry-in: #1B2A5E;  /* بداية تدرج التوت الأزرق */
+  --ffy-blueberry-out: #28448C; /* نهاية تدرج التوت الأزرق */
+
+  --ffy-banana-in: #B38600;     /* بداية تدرج نكهة الموز */
+  --ffy-banana-out: #E6AC00;    /* نهاية تدرج نكهة الموز */
+
+  --ffy-kiwi-in: #27662B;       /* بداية تدرج نكهة الكيوي */
+  --ffy-kiwi-out: #3A8E3F;      /* نهاية تدرج نكهة الكيوي */
 }</code></pre>
 
       <p>
-        <strong>Consuming Pages:</strong>
+        <strong>كيف تغير اللون؟</strong><br>
+        استبدل الرمز السداسي (Hex Code) مثل <code>#C90035</code> برمز اللون المفضل لعلامتك التجارية (مثلاً <code>#008080</code> للأخضر التركوازي أو <code>#FF6F00</code> للبرتقالي). بمجرد حفظ الملف، ستتغير ألوان الموقع فورًا وبشكل متناسق في كافة الصفحات!
       </p>
-      <ul>
-        <li><code>products.html</code> / <code>products-ar.html</code>: Renders the entire card grid dynamically, handling category filtering, live search, and sorting.</li>
-        <li><code>product-*.html</code>: Serves as dedicated, indexable SEO landing pages for each flavor.</li>
-      </ul>
-    </section>
 
-    <!-- 8. GSAP & Animations -->
-    <section id="animations" class="doc-section">
-      <h2 class="doc-section-title">8. GSAP Animations &amp; Interactions</h2>
+      <!-- SCREENSHOT: لقطة شاشة لملف assets/css/main.css في أول 30 سطرًا توضح متغيرات الألوان :root -->
+      <div class="doc-media-placeholder">
+        <div class="doc-media-badge"><i class="fas fa-camera"></i> لقطة شاشة توضيحية مقترحة</div>
+        <div class="doc-media-desc">لقطة شاشة لملف assets/css/main.css في أول 30 سطرًا توضح متغيرات الألوان :root وتغيير كود اللون الأساسي --ffy-primary</div>
+        <span class="doc-media-hint">&lt;!-- SCREENSHOT: editing_css_color_variables.png --&gt;</span>
+      </div>
+
+      <!-- 5.4 تعديل بيانات التواصل والفوتر -->
+      <h3>رابعًا: كيف تعدل بيانات التواصل والفوتر وروابط السوشال ميديا</h3>
       <p>
-        The interactive hero carousel is implemented in <code>assets/js/main.js</code> using GSAP timelines:
+        بيانات التواصل (رقم الهاتف، البريد الإلكتروني، العنوان الجغرافي، وروابط منصات التواصل) موجودة في مكانين رئيسيين:
       </p>
+      <ol>
+        <li><strong>في تذييل كافة الصفحات (Footer):</strong> افتح أي ملف صفحة، وانزل إلى قسم <code>&lt;footer class="ffy-footer"&gt;</code> في نهاية الملف.</li>
+        <li><strong>في صفحة اتصل بنا (Contact):</strong> في ملفي <code>contact.html</code> و <code>contact-ar.html</code>.</li>
+      </ol>
+
+      <h4>أمثلة لتعديل الروابط:</h4>
       <ul>
-        <li><strong>Multi-Input Navigation:</strong> The slider can be controlled via on-screen arrows (<code>.ffy-prev</code>, <code>.ffy-next</code>), mouse wheel scrolling, keyboard arrows (<code>&larr;</code> / <code>&rarr;</code>), and mobile touch gestures (swipe left/right).</li>
-        <li><strong>Layered Parallax:</strong> Floating fruit garnishes (<code>.ffy-floater</code>) animate at different speeds and rotations, providing a realistic 3D depth effect.</li>
-        <li><strong>Live Filter &amp; Search:</strong> In <code>products.html</code>, product cards filter instantly on keypress or category pill click with smooth CSS opacity/transform transitions.</li>
-        <li><strong>Form Validation &amp; Feedback:</strong> The contact form features real-time email regex validation and triggers an animated feedback toast notification (<code>#ffy-toast</code>) upon submission.</li>
-      </ul>
+        <li>
+          <strong>رابط الهاتف:</strong> ابحث عن <code>tel:+1234567890</code> واستبدله برقمك الدولي.
+        </li>
+        <li>
+          <strong>رابط البريد الإلكتروني:</strong> ابحث عن <code>mailto:hello@milkbar.com</code> واستبدله ببريدك الإلكتروني الحقيقي.
+        </li>
+        <li>
+          <strong>روابط السوشال ميديا:</strong> ابحث عن وسوم الروابط التالية وضع رابط حسابك داخل خاصية <code>href="..."</code>:
+          <pre><code>&lt;!-- رابط إنستغرام --&gt;
+&lt;a href="https://instagram.com/your-brand" class="ffy-footer-social-link"&gt;
+  &lt;i class="fab fa-instagram"&gt;&lt;/i&gt;
+&lt;/a&gt;
+
+&lt;!-- رابط فيسبوك --&gt;
+&lt;a href="https://facebook.com/your-brand" class="ffy-footer-social-link"&gt;
+  &lt;i class="fab fa-facebook-f"&gt;&lt;/i&gt;
+&lt;/a&gt;</code></pre>
+        </li>
+      </ol>
+
+      <!-- SCREENSHOT: لقطة شاشة للمعاينة الحية لصفحة contact.html بعد تعديل بيانات التواصل -->
+      <div class="doc-media-placeholder">
+        <div class="doc-media-badge"><i class="fas fa-camera"></i> لقطة شاشة توضيحية مقترحة</div>
+        <div class="doc-media-desc">لقطة شاشة للمعاينة الحية لصفحة contact.html أو تذييل الصفحة بعد تعديل بيانات الهاتف والبريد وروابط السوشال ميديا</div>
+        <span class="doc-media-hint">&lt;!-- SCREENSHOT: contact_info_customization_preview.png --&gt;</span>
+      </div>
+
+      <!-- 5.5 إدارة وتعديل المنتجات -->
+      <h3>خامسًا: تعديل المنتجات في قاعدة البيانات المركزية (products-data.js)</h3>
+      <p>
+        صفحة المتجر والبحث المباشر (<code>products.html</code> و <code>products-ar.html</code>) تعتمد على ملف مركزي ذكي يحتوي على تفاصيل المنتجات والأسعار والسعرات الحرارية. هذا الملف هو <code>assets/js/products-data.js</code>.
+      </p>
+      <p>
+        عند فتح هذا الملف، ستجد قائمة بالمنتجات مثل هذا المثال:
+      </p>
+      <pre><code>{
+  id: "berry-pure",
+  slug: "product-berry-pure.html",        // رابط الصفحة الإنجليزية
+  slugAr: "product-berry-pure-ar.html",   // رابط الصفحة العربية
+  name: "Milk",                          // الاسم بالإنجليزية
+  nameAr: "ميلك",                        // الاسم بالعربية
+  category: "smoothie-bowls",             // تصنيف المنتج
+  price: 8.90,                            // السعر
+  currency: "$",                          // رمز العملة (يمكن تغييره لـ د.إ أو ر.س أو $)
+  calories: 280,                          // السعرات الحرارية
+  image: "assets/images/strawberry-bowl.png" // صورة المنتج
+}</code></pre>
+      <p>
+        تعديل السعر أو الاسم أو الوصف في هذا الملف سيحدثه مباشرة في بطاقات الكتالوج والبحث دون الحاجة لتكرار التعديل في عدة ملفات!
+      </p>
     </section>
 
-    <!-- 9. Responsive Breakpoints -->
-    <section id="responsive" class="doc-section">
-      <h2 class="doc-section-title">9. Responsive Breakpoints</h2>
-      <p>Milk is thoroughly responsive across all modern display viewports:</p>
 
-      <div class="doc-table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Breakpoint</th>
-              <th>Device Target</th>
-              <th>Layout Behavior</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>&gt; 1024px</code></td>
-              <td>Desktop &amp; Laptops</td>
-              <td>Full floating pill navigation, expanded multi-column footer, large 600px hero bowl showcase.</td>
-            </tr>
-            <tr>
-              <td><code>768px – 1024px</code></td>
-              <td>Tablets (iPad, etc.)</td>
-              <td>Adjusted padding, 2-column grid for products, scaled-down hero fruit floaters.</td>
-            </tr>
-            <tr>
-              <td><code>&lt; 768px</code></td>
-              <td>Mobile Devices</td>
-              <td>Hamburger drawer menu, single-column product lists, and a sticky bottom CTA ordering bar on product detail pages.</td>
-            </tr>
-            <tr>
-              <td><code>&lt; 480px</code></td>
-              <td>Small Smartphones</td>
-              <td>Optimized touch targets, simplified font sizes, and full-width form inputs.</td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- ============================================================
+         6. زر تبديل اللغة (Language Switcher)
+         ============================================================ -->
+    <section id="section-6" class="doc-section">
+      <h2 class="doc-section-title">
+        <i class="fas fa-language"></i>
+        <span>6. نظام تبديل اللغة الذكي (Language Switcher)</span>
+      </h2>
+      <p>
+        يحتوي القالب على نظام متطور وذكي لتبديل اللغة مبرمج داخل ملف <code>assets/js/main.js</code> عبر وظيفة تدعى <code>syncLangLinks()</code>.
+      </p>
+
+      <h3>كيف يعمل زر تبديل اللغة تلقائيًا؟</h3>
+      <ol>
+        <li>
+          <strong>التعرف التلقائي على الصفحة المعروضة:</strong>
+          عندما ينقر الزائر على زر تبديل اللغة (الذي يظهر في شريط التنقل العلوي وفي القائمة المنسدلة للهواتف الذكية بعبارة <code>AR</code> أو <code>EN</code> مع علم الدولة)، يقوم النظام بمعرفة الصفحة الحالية التي يتصفحها الزائر تلقائيًا:
+          <ul>
+            <li>إذا كان يتصفح <code>about.html</code>، سينقله فورًا إلى <code>about-ar.html</code>.</li>
+            <li>إذا كان في صفحة منتج <code>product-kiwi-flavor-ar.html</code>، سينقله مباشرة إلى <code>product-kiwi-flavor.html</code>.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>الحفاظ على موضع التمرير في الصفحة (Anchor Hash Sync):</strong>
+          إذا كان الزائر يقرأ قسمًا محددًا في الصفحة (مثلاً قسم القصة <code>#ffy-story</code> أو قسم النكهات <code>#ffy-flavors</code>)، فإن زر اللغة ينقله إلى نفس القسم بالضبط في الصفحة المترجمة دون أن يعيده لأعلى الصفحة من جديد!
+        </li>
+      </ol>
+
+      <!-- VIDEO: فيديو قصير (GIF) يوضح النقر على زر تبديل اللغة وانتقال المتصفح بسلاسة مع الحفاظ على المكان -->
+      <div class="doc-media-placeholder">
+        <div class="doc-media-badge"><i class="fas fa-video"></i> فيديو توضيحي مقترح (GIF)</div>
+        <div class="doc-media-desc">فيديو قصير يوضح النقر على زر تبديل اللغة (AR / EN) في شريط التنقل العلوي وانتقال المتصفح بسلاسة بين اللغتين مع الحفاظ على موضع الصفحة الحالي</div>
+        <span class="doc-media-hint">&lt;!-- VIDEO: language_switcher_demo.gif --&gt;</span>
+      </div>
+
+      <div class="doc-callout doc-callout-info">
+        <i class="fas fa-code-branch"></i>
+        <div>
+          <strong>هل ترغب في إضافة صفحة جديدة مستقبلاً؟</strong><br>
+          كل ما عليك فعله هو تسمية صفحتك الإنجليزية (مثلاً: <code>blog.html</code>) وتسمية النسخة العربية منها بنفس الاسم مع إضافة <code>-ar</code> (أي: <code>blog-ar.html</code>). سيقوم زر تبديل اللغة بالتعرف عليها تلقائيًا وربطها فورًا دون الحاجة لكتابة أي كود جافاسكريبت إضافي!
+        </div>
       </div>
     </section>
 
-    <!-- 10. Language Switch & RTL -->
-    <section id="i18n-rtl" class="doc-section">
-      <h2 class="doc-section-title">10. Language Switch &amp; RTL Support</h2>
+
+    <!-- ============================================================
+         7. الأسئلة الشائعة واستكشاف الأخطاء
+         ============================================================ -->
+    <section id="section-7" class="doc-section">
+      <h2 class="doc-section-title">
+        <i class="fas fa-life-ring"></i>
+        <span>7. الأسئلة الشائعة واستكشاف الأخطاء (FAQ &amp; Troubleshooting)</span>
+      </h2>
       <p>
-        Milk features first-class Arabic support with native Right-to-Left (RTL) formatting.
+        جمعنا لك أكثر الاستفسارات الشائعة والحلول الفورية لأي تحدٍ قد يواجهك أثناء تخصيص الموقع:
       </p>
 
-      <h3>How RTL is Implemented</h3>
+      <h3>س1: قمت بتعديل النص أو اللون وحفظت الملف، لكن التعديل لم يظهر في المتصفح؟</h3>
+      <p>
+        <strong>الحل:</strong> هذا أمر طبيعي جدًا وينتج عن قيام المتصفح بحفظ نسخة قديمة في الذاكرة المؤقتة (Cache) لتسريع التصفح.
+      </p>
       <ul>
-        <li>Arabic pages have <code>&lt;html lang="ar" dir="rtl"&gt;</code> declared at the top.</li>
-        <li>Custom Arabic typography is loaded via Google Fonts (<code>Cairo</code> and <code>IBM Plex Sans Arabic</code>).</li>
-        <li>Navigation order, logo alignment, and flex layouts mirror automatically without layout distortion.</li>
+        <li>اضغط على مفتاحي <code>Ctrl + F5</code> في لوحة المفاتيح (أو <code>Cmd + Shift + R</code> على أجهزة Mac) لإجراء تحديث إجباري للمتصفح.</li>
+        <li>أو افتح الموقع في "نافذة تصفح خفي" (Incognito Window) لمعاينة التعديلات فورًا.</li>
       </ul>
 
-      <h3>Automatic Bidirectional Language Switch (syncLangLinks)</h3>
+      <h3>س2: قمت باستبدال صورة لكنها ظهرت تالفة أو أيقونة صورة مكسورة؟</h3>
       <p>
-        In <code>assets/js/main.js</code>, the <code>syncLangLinks()</code> function maps every English page directly to its corresponding Arabic equivalent and vice versa:
+        <strong>الحل:</strong> تأكد من ثلاثة أمور بسيطة:
       </p>
-      <pre><code>// Page Mapping Registry in main.js
-const PAGE_PAIRS = {
-  'index.html': 'index-ar.html',
-  'about.html': 'about-ar.html',
-  'products.html': 'products-ar.html',
-  'contact.html': 'contact-ar.html',
-  'faq.html': 'faq-ar.html',
-  '404.html': '404-ar.html',
-  'product-berry-pure.html': 'product-berry-pure-ar.html',
-  'product-blue-bliss.html': 'product-blue-bliss-ar.html',
-  'product-banana-crush.html': 'product-banana-crush-ar.html',
-  'product-kiwi-flavor.html': 'product-kiwi-flavor-ar.html'
-};</code></pre>
+      <ol>
+        <li>تأكد من أن اسم ملف الصورة الجديد مطابق تمامًا للاسم القديم بنفس حالة الأحرف (مثلاً <code>strawberry-bowl.png</code> وليس <code>Strawberry-Bowl.PNG</code>).</li>
+        <li>تأكد من وضع الصورة داخل مجلد <code>assets/images/</code> وليس في مكان آخر.</li>
+        <li>تأكد من امتداد الصورة (أنها بصيغة <code>.png</code> أو <code>.jpg</code> كما هو مطلوب).</li>
+      </ol>
+
+      <h3>س3: الخطوط العربية (Cairo أو IBM Plex Sans) لا تظهر بالشكل المطلوب؟</h3>
       <p>
-        When a user clicks the language switcher in the navbar or mobile menu, they are transitioned directly to the translated version of the exact page they are currently viewing.
+        <strong>الحل:</strong> يعتمد القالب على خطوط Google Fonts السحابية الرسمية. تأكد من أن جهازك أو حاسوب الزائر متصل بشبكة الإنترنت أثناء فتح الموقع ليتمكن المتصفح من جلب الخطوط من خوادم Google تلقائيًا.
       </p>
+
+      <h3>س4: هل يعمل نموذج الاتصال (Contact Form) ويرسل الرسائل إلى بريدي الإلكتروني مباشرة؟</h3>
+      <p>
+        <strong>الحل:</strong> نموذج الاتصال مزود بنظام تحقق كامل من صحة البيانات بالواجهة الأمامية (Front-end Validation) مع إشعار نجاح فوري. ولتلقي الرسائل مباشرة على بريدك الإلكتروني في المواقع الثابتة (Static HTML) دون الحاجة لبرمجة خادم PHP، ننصح باستخدام خدمات معالجة النماذج المجانية الشهيرة مثل <strong>Formspree</strong> أو <strong>Web3Forms</strong>. كل ما عليك فعله هو إضافة رابط حسابك في خاصية <code>action="..."</code> في وسم الفورم بصفحة <code>contact.html</code> و <code>contact-ar.html</code> وسيعمل على الفور مجانًا!
+      </p>
+
+      <h3>س5: هل هذا القالب متوافق مع معايير محركات البحث (SEO)؟</h3>
+      <p>
+        <strong>الحل:</strong> نعم بالكامل! تم بناء كل صفحة بعناوين وصفية (Title Tags)، وسوم وصفية كاملة (Meta Descriptions)، وسوم Open Graph لمشاركة الروابط على منصات التواصل الاجتماعي، واستخدام هيكلية العناوين القياسية (H1, H2, H3) لضمان أفضل ترتيب في نتائج بحث Google.
+      </p>
+    </section>
+
+
+    <!-- ============================================================
+         8. الدعم الفني والمساعدة (Support)
+         ============================================================ -->
+    <section id="section-8" class="doc-section">
+      <h2 class="doc-section-title">
+        <i class="fas fa-headset"></i>
+        <span>8. الدعم الفني والمساعدة المباشرة (Support)</span>
+      </h2>
+      <p>
+        نحن ملتزمون بنجاحك وسعادتك الكاملة بشرائك لقالب <strong>ميلك</strong>. إذا واجهتك أي صعوبة لم تجد حلها في هذا الدليل، أو كان لديك أي استفسار حول كيفية تخصيص جانب معين، يسعدنا دائمًا تقديم يد العون لك!
+      </p>
+
+      <div class="doc-callout doc-callout-primary">
+        <i class="fas fa-heart"></i>
+        <div>
+          <strong>كيف تتواصل مع فريق الدعم الفني؟</strong><br>
+          يمكنك التواصل معنا مباشرة عبر صفحة المنتج في المتجر الذي قمت بالشراء منه (مثل ThemeForest / Envato)، أو عبر مراسلتنا من خلال تبويب <strong>الدعم (Support Tab)</strong> أو عبر نموذج الرسائل في ملف المطور الشخصي.
+        </div>
+      </div>
+
+      <h3>للحصول على أسرع استجابة ومساعدة فعالة، يُرجى تزويدنا بالتالي:</h3>
+      <ul>
+        <li><strong>وصف المشكلة:</strong> شرح بسيط لما تحاول تعديله وما هي النتيجة التي تظهر لك.</li>
+        <li><strong>لقطة شاشة أو فيديو:</strong> صورة للمشكلة في المتصفح أو لقطة من محرر الأكواد توضح السطر الذي تعدله.</li>
+        <li><strong>رابط موقعك (إن كان مرفوعًا على الإنترنت):</strong> رابط المعاينة المباشر حتى نتمكن من فحصه وإعطائك الحل الدقيق فورًا.</li>
+      </ul>
+
+      <div class="doc-footer">
+        <p>شكرًا لثقتك واختيارك قالب <strong>ميلك (Milk Template)</strong> — نتمنى لك ولمشروعك التجاري دوام التوفيق والنجاح الباهر!</p>
+        <p dir="ltr" style="margin-top: 6px; font-size: 0.82rem; color: #9CA3AF;">© 2026 Milk Template. All rights reserved.</p>
+      </div>
     </section>
 
   </main>

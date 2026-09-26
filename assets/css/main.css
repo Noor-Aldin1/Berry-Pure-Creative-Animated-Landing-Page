@@ -6126,3 +6126,187 @@ canvas {
    END SPACING & ALIGNMENT OVERHAUL v4
    ================================================================ */
 
+/* ================================================================
+   SPACING & ALIGNMENT OVERHAUL v5 — GLOBAL AUDIT RESOLUTION
+   Addresses:
+   1. Hero CTA buttons breathing room above wave (About, FAQ, etc.)
+   2. Missing Contact Page Hero typography & badge classes
+   3. Product Detail Hero bottom clearance
+   4. Card footer breathing room & padding consistency
+   5. Vertical rhythm and container edge clearance across all viewports
+   ================================================================ */
+
+/* ---------------------------------------------------------------
+   1. INNER PAGE HERO — CTA & WAVE CLEARANCE
+   Ensures CTA buttons on About Us & FAQ have ample clearance
+   above the SVG wave decoration across all device widths.
+   --------------------------------------------------------------- */
+.ffy-page-hero {
+  padding-top: 172px !important;
+  padding-bottom: 140px !important;
+}
+
+.ffy-page-hero-inner {
+  position: relative;
+  z-index: 3;
+  padding-bottom: 24px;
+}
+
+.ffy-page-hero-cta {
+  display: inline-flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 3;
+}
+
+.ffy-page-hero-wave {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Page heroes without a wave SVG (such as Contact page) */
+.ffy-page-hero:not(:has(.ffy-page-hero-wave)) {
+  padding-bottom: 96px !important;
+}
+
+/* ---------------------------------------------------------------
+   2. CONTACT PAGE HERO — MISSING STYLES DEFINITION
+   Styles .ffy-page-hero-badge, .ffy-page-hero-title, .ffy-page-hero-sub
+   which were previously undefined in the stylesheet.
+   --------------------------------------------------------------- */
+.ffy-page-hero-badge {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ff8aaa;
+  margin-bottom: 18px;
+}
+
+.ffy-page-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.6rem, 5.5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #ffffff;
+  margin: 0 0 20px;
+  letter-spacing: -0.01em;
+}
+
+.ffy-page-hero-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* RTL overrides for Contact page hero */
+[dir="rtl"] .ffy-page-hero-badge {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-page-hero-title {
+  font-family: 'Amiri', 'Cormorant Garamond', serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-page-hero-sub {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+}
+
+/* ---------------------------------------------------------------
+   3. PRODUCT DETAIL HERO — SPACING BALANCE
+   When hero contains only breadcrumb + label + heading.
+   --------------------------------------------------------------- */
+.ffy-page-hero-inner > .ffy-page-hero-heading:last-child {
+  margin-bottom: 16px;
+}
+
+/* ---------------------------------------------------------------
+   4. PRODUCT & FLAVOR CARDS — BODY & FOOTER BREATHING ROOM
+   Ensures card contents do not hug the card edges.
+   --------------------------------------------------------------- */
+.ffy-flavor-card-body,
+.ffy-product-card-body {
+  padding: 24px 24px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ffy-flavor-footer,
+.ffy-product-card-footer {
+  margin-top: 20px;
+  align-items: center;
+}
+
+/* ---------------------------------------------------------------
+   5. RESPONSIVE BREAKPOINTS FOR HERO SPACING
+   --------------------------------------------------------------- */
+@media screen and (max-width: 1024px) {
+  .ffy-page-hero {
+    padding-top: 156px !important;
+    padding-bottom: 116px !important;
+  }
+
+  .ffy-page-hero-inner {
+    padding-bottom: 18px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .ffy-page-hero {
+    padding-top: 140px !important;
+    padding-bottom: 100px !important;
+  }
+
+  .ffy-page-hero:not(:has(.ffy-page-hero-wave)) {
+    padding-bottom: 72px !important;
+  }
+
+  .ffy-page-hero-inner {
+    padding-bottom: 14px;
+  }
+
+  .ffy-page-hero-cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 320px;
+    margin-inline: auto;
+    margin-bottom: 14px;
+  }
+
+  .ffy-page-hero-cta .ffy-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ffy-page-hero {
+    padding-top: 130px !important;
+    padding-bottom: 92px !important;
+  }
+
+  .ffy-flavor-card-body,
+  .ffy-product-card-body {
+    padding: 20px 18px 24px;
+  }
+}
+
+/* ================================================================
+   END SPACING & ALIGNMENT OVERHAUL v5
+   ================================================================ */
+
+

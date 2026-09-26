@@ -716,13 +716,16 @@
 [dir="rtl"] .ffy-pd-section-title {
   font-family: 'Cairo', 'Cormorant Garamond', sans-serif !important;
   letter-spacing: 0 !important;
-  flex-direction: row-reverse;
+  /* flex-direction: row — icon on RIGHT (RTL start), text on LEFT.
+     Correct for RTL; set definitively in the v4 block below. */
+  flex-direction: row;
 }
 
 [dir="rtl"] .ffy-pd-ing-pill {
   font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
   letter-spacing: 0 !important;
-  flex-direction: row-reverse;
+  /* icon on RIGHT (RTL reading start), text on LEFT — correct without reversal */
+  flex-direction: row;
 }
 
 [dir="rtl"] .ffy-pd-allergen-tag {
@@ -1208,7 +1211,7 @@
 @media screen and (max-width: 380px) {
   [dir="rtl"] .ffy-flavor-footer,
   [dir="rtl"] .ffy-product-card-footer {
-    flex-direction: column;
+    flex-direction: column !important;
     gap: 10px;
     align-items: flex-end;
   }
@@ -1450,8 +1453,9 @@
   text-align: right;
 }
 
-[dir="rtl"] .ffy-flavor-footer {
-  flex-direction: row;
+[dir="rtl"] .ffy-flavor-footer,
+[dir="rtl"] .ffy-product-card-footer {
+  flex-direction: row-reverse;
 }
 
 /* ---------------------------------------------------------------
@@ -1876,3 +1880,88 @@
 /* ================================================================
    END RTL SPACING & ALIGNMENT OVERHAUL v4
    ================================================================ */
+
+/* ================================================================
+   RTL SPACING & ALIGNMENT OVERHAUL v5 — GLOBAL AUDIT RESOLUTION
+   ================================================================ */
+
+/* Inner page hero clearance */
+[dir="rtl"] .ffy-page-hero {
+  padding-top: 172px !important;
+  padding-bottom: 140px !important;
+}
+
+[dir="rtl"] .ffy-page-hero-inner {
+  padding-bottom: 24px;
+}
+
+[dir="rtl"] .ffy-page-hero-cta {
+  margin-top: 12px;
+  margin-bottom: 16px;
+  gap: 16px;
+}
+
+[dir="rtl"] .ffy-page-hero:not(:has(.ffy-page-hero-wave)) {
+  padding-bottom: 96px !important;
+}
+
+/* Contact page hero typography in RTL */
+[dir="rtl"] .ffy-page-hero-badge {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-page-hero-title {
+  font-family: 'Amiri', 'Cormorant Garamond', serif !important;
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] .ffy-page-hero-sub {
+  font-family: 'IBM Plex Sans Arabic', 'DM Sans', sans-serif !important;
+}
+
+/* Responsive hero padding in RTL */
+@media screen and (max-width: 1024px) {
+  [dir="rtl"] .ffy-page-hero {
+    padding-top: 156px !important;
+    padding-bottom: 116px !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  [dir="rtl"] .ffy-page-hero {
+    padding-top: 140px !important;
+    padding-bottom: 100px !important;
+  }
+
+  [dir="rtl"] .ffy-page-hero:not(:has(.ffy-page-hero-wave)) {
+    padding-bottom: 72px !important;
+  }
+
+  [dir="rtl"] .ffy-page-hero-cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 320px;
+    margin-inline: auto;
+    margin-bottom: 14px;
+  }
+
+  [dir="rtl"] .ffy-page-hero-cta .ffy-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  [dir="rtl"] .ffy-page-hero {
+    padding-top: 130px !important;
+    padding-bottom: 92px !important;
+  }
+}
+
+/* ================================================================
+   END RTL SPACING & ALIGNMENT OVERHAUL v5
+   ================================================================ */
+
