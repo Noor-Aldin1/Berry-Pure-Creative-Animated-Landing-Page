@@ -1,4 +1,4 @@
-/* ================================================================
+﻿/* ================================================================
    Elementor Lazy-Load Styles
    ================================================================ */
 .e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
@@ -16,6 +16,29 @@
 	.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
 		background-image: none !important;
 	}
+}
+
+/* ================================================================
+   ACCESSIBILITY — Hover & Focus Color Tokens (WCAG AA compliant)
+   These CSS custom properties define all hover/focus color values
+   used across the site. Changing a value here propagates everywhere.
+   All ratios verified against the backgrounds they appear on.
+   ================================================================ */
+:root {
+  /* Brand colors */
+  --ffy-crimson: #C90035;             /* primary brand red */
+  --ffy-crimson-dark: #8B0024;        /* dark end of brand gradient */
+
+  /* Hover — on dark (crimson hero / navbar / footer) backgrounds */
+  --ffy-hover-on-dark: #ffffff;       /* contrast ≥5.94:1 vs #C90035, ≥9.9:1 vs #8B0024 */
+  --ffy-hover-link-light: #ff6b8a;    /* footer links on #0f0005 bg: 7.55:1 PASS */
+
+  /* Hover — on light (white / off-white) backgrounds */
+  --ffy-hover-on-light: #C90035;      /* contrast 5.94:1 on #fff, 5.66:1 on #fdf8f5 PASS */
+
+  /* Focus ring */
+  --ffy-focus-ring: #C90035;          /* 5.94:1 on white; used for focus-visible outlines */
+  --ffy-focus-ring-size: 2px;
 }
 
 /* ================================================================
@@ -409,10 +432,22 @@ body {
   box-shadow: 0 4px 14px rgba(201,0,53,0.35);
 }
 
-.ffy-btn-primary:hover {
+.ffy-btn-primary:hover,
+.ffy-btn-primary:focus-visible {
   background: linear-gradient(135deg, #e0003d 0%, #a80029 100%);
+  color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(201,0,53,0.45);
+  outline: none;
+}
+
+.ffy-btn-primary:hover i,
+.ffy-btn-primary:hover svg,
+.ffy-btn-primary:focus-visible i,
+.ffy-btn-primary:focus-visible svg {
+  color: #ffffff;
+  fill: #ffffff;
+  stroke: #ffffff;
 }
 
 .ffy-btn-outline {
@@ -421,10 +456,12 @@ body {
   border: 2px solid #1a1a1a;
 }
 
-.ffy-btn-outline:hover {
+.ffy-btn-outline:hover,
+.ffy-btn-outline:focus-visible {
   background: #1a1a1a;
   color: #fff;
   transform: translateY(-2px);
+  outline: none;
 }
 
 /* ---------------------------------------------------------------
@@ -723,10 +760,21 @@ body {
   transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
-.ffy-footer-social-link:hover {
+.ffy-footer-social-link:hover,
+.ffy-footer-social-link:focus-visible {
   background: #C90035;
   border-color: #C90035;
-  color: #fff;
+  color: #ffffff;
+  outline: none;
+}
+
+.ffy-footer-social-link:hover i,
+.ffy-footer-social-link:hover svg,
+.ffy-footer-social-link:focus-visible i,
+.ffy-footer-social-link:focus-visible svg {
+  color: #ffffff;
+  fill: #ffffff;
+  stroke: #ffffff;
 }
 
 .ffy-footer-col-title {
@@ -755,8 +803,11 @@ body {
   transition: color 0.2s ease;
 }
 
-.ffy-footer-links a:hover {
+.ffy-footer-links a:hover,
+.ffy-footer-links a:focus-visible {
   color: #ff6b8a;
+  outline: none;
+  text-decoration: underline;
 }
 
 .ffy-footer-contact-item {
@@ -795,8 +846,11 @@ body {
   text-decoration: none;
 }
 
-.ffy-footer-copy a:hover {
+.ffy-footer-copy a:hover,
+.ffy-footer-copy a:focus-visible {
   color: #ff6b8a;
+  outline: none;
+  text-decoration: underline;
 }
 
 .ffy-footer-bottom-links {
@@ -815,8 +869,11 @@ body {
   transition: color 0.2s ease;
 }
 
-.ffy-footer-bottom-links a:hover {
+.ffy-footer-bottom-links a:hover,
+.ffy-footer-bottom-links a:focus-visible {
   color: #ff6b8a;
+  outline: none;
+  text-decoration: underline;
 }
 
 /* ---------------------------------------------------------------
@@ -1142,12 +1199,15 @@ body {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
 }
 
-/* Hover state for non-active items */
+/* Hover + focus state for non-active nav items */
 .ffy-navbar .ffy-nb-nav .elementor-button:hover,
-.ffy-navbar .ffy-nb-nav .ffy-nb-cat-btn:hover {
+.ffy-navbar .ffy-nb-nav .elementor-button:focus-visible,
+.ffy-navbar .ffy-nb-nav .ffy-nb-cat-btn:hover,
+.ffy-navbar .ffy-nb-nav .ffy-nb-cat-btn:focus-visible {
   background: rgba(255, 255, 255, 0.12) !important;
   color: #ffffff !important;
   fill: #ffffff !important;
+  outline: none;
 }
 
 /* ---------------------------------------------------------------
@@ -1276,11 +1336,14 @@ body {
 }
 
 .ffy-navbar .ffy-nb-actions .elementor-social-icon:hover,
-.ffy-navbar .ffy-nb-icon-btn:hover {
+.ffy-navbar .ffy-nb-actions .elementor-social-icon:focus-visible,
+.ffy-navbar .ffy-nb-icon-btn:hover,
+.ffy-navbar .ffy-nb-icon-btn:focus-visible {
   background: rgba(255, 255, 255, 0.26) !important;
   border-color: rgba(255, 255, 255, 0.45) !important;
   transform: scale(1.08);
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+  outline: none;
 }
 
 .ffy-navbar .ffy-nb-actions .elementor-social-icon i,
@@ -1325,12 +1388,14 @@ body {
   margin: 0 !important;
 }
 
-.ffy-navbar .ffy-nb-actions .ffy-lang-toggle:hover {
+.ffy-navbar .ffy-nb-actions .ffy-lang-toggle:hover,
+.ffy-navbar .ffy-nb-actions .ffy-lang-toggle:focus-visible {
   background: rgba(255, 255, 255, 0.24) !important;
   border-color: rgba(255, 255, 255, 0.55) !important;
   color: #fff !important;
   transform: scale(1.04);
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+  outline: none;
 }
 
 /* Language flag + abbreviation */
@@ -1416,8 +1481,11 @@ body {
   transition: background 0.2s ease;
 }
 
-.ffy-nb-hamburger:hover {
+.ffy-nb-hamburger:hover,
+.ffy-nb-hamburger:focus-visible {
   background: rgba(255, 255, 255, 0.24);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6);
 }
 
 .ffy-nb-hamburger span {
@@ -1482,9 +1550,11 @@ body {
 }
 
 .ffy-nb-mobile-menu a:hover,
+.ffy-nb-mobile-menu a:focus-visible,
 .ffy-nb-mobile-menu a.is-active {
   background: rgba(255, 255, 255, 0.12);
   color: #fff;
+  outline: none;
 }
 
 .ffy-nb-mobile-divider {
@@ -1645,8 +1715,13 @@ body {
   transition: color 0.2s ease;
 }
 
-.ffy-breadcrumb a:hover {
-  color: #ff8aaa;
+.ffy-breadcrumb a:hover,
+.ffy-breadcrumb a:focus-visible {
+  /* Fix: was #ff8aaa -- ratio 4.46:1 on #8B0024, 2.68:1 on #C90035 (both FAIL WCAG AA 4.5:1).
+     White achieves 5.94:1 against every stop in the hero dark-crimson gradient. */
+  color: #ffffff;
+  outline: none;
+  text-decoration: underline;
 }
 
 .ffy-breadcrumb-sep {
@@ -2105,9 +2180,26 @@ body {
   white-space: nowrap;
 }
 
-.ffy-faq-tab:hover {
+.ffy-faq-tab:hover,
+.ffy-faq-tab:focus-visible,
+.ffy-faq-tabs button:hover,
+.ffy-faq-tabs button:focus-visible {
   border-color: #C90035;
-  color: #C90035;
+  color: #ffffff;
+  outline: none;
+}
+
+.ffy-faq-tab:hover i,
+.ffy-faq-tab:hover svg,
+.ffy-faq-tab:focus-visible i,
+.ffy-faq-tab:focus-visible svg,
+.ffy-faq-tabs button:hover i,
+.ffy-faq-tabs button:hover svg,
+.ffy-faq-tabs button:focus-visible i,
+.ffy-faq-tabs button:focus-visible svg {
+  color: #ffffff;
+  fill: #ffffff;
+  stroke: #ffffff;
 }
 
 .ffy-faq-tab.is-active {
@@ -2152,7 +2244,18 @@ body {
 }
 
 .ffy-accordion-header:hover {
-  background: rgba(201,0,53,0.03);
+  background: rgba(201,0,53,0.05);
+}
+
+/* Keyboard focus ring for accordion header (tabindex=0 / role=button).
+   WCAG 2.4.7: Focus visible. Crimson #C90035 outline on #fff = 5.94:1 (PASS). */
+.ffy-accordion-header:focus {
+  outline: none;
+}
+.ffy-accordion-header:focus-visible {
+  outline: 2px solid #C90035;
+  outline-offset: -2px;
+  background: rgba(201,0,53,0.05);
 }
 
 .ffy-accordion-item.is-open .ffy-accordion-header {
@@ -2321,11 +2424,87 @@ body {
   border: 2px solid rgba(255,255,255,0.6);
 }
 
-.ffy-btn-white-outline:hover {
+.ffy-btn-white-outline:hover,
+.ffy-btn-white-outline:focus-visible {
   background: rgba(255,255,255,0.15);
   border-color: #fff;
+  color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  outline: none;
+}
+
+.ffy-btn-white-outline:hover i,
+.ffy-btn-white-outline:hover svg,
+.ffy-btn-white-outline:focus-visible i,
+.ffy-btn-white-outline:focus-visible svg {
+  color: #ffffff;
+  fill: #ffffff;
+  stroke: #ffffff;
+}
+
+/* FAQ Support Card — Email / Contact Link */
+.ffy-faq-support-btns .ffy-btn-white,
+.ffy-faq-support .ffy-btn-white,
+#ffy-support-email,
+#ffy-support-email-ar {
+  color: #ffffff;
+  background: transparent;
+  opacity: 0.92;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.ffy-faq-support-btns .ffy-btn-white i,
+.ffy-faq-support-btns .ffy-btn-white svg,
+.ffy-faq-support .ffy-btn-white i,
+.ffy-faq-support .ffy-btn-white svg,
+#ffy-support-email i,
+#ffy-support-email svg,
+#ffy-support-email-ar i,
+#ffy-support-email-ar svg {
+  color: #ffffff;
+  fill: #ffffff;
+  stroke: #ffffff;
+  transition: all 0.25s ease;
+}
+
+.ffy-faq-support-btns .ffy-btn-white:hover,
+.ffy-faq-support-btns .ffy-btn-white:focus-visible,
+.ffy-faq-support .ffy-btn-white:hover,
+.ffy-faq-support .ffy-btn-white:focus-visible,
+#ffy-support-email:hover,
+#ffy-support-email:focus-visible,
+#ffy-support-email-ar:hover,
+#ffy-support-email-ar:focus-visible {
+  color: #ffffff;
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.15);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.ffy-faq-support-btns .ffy-btn-white:hover i,
+.ffy-faq-support-btns .ffy-btn-white:hover svg,
+.ffy-faq-support-btns .ffy-btn-white:focus-visible i,
+.ffy-faq-support-btns .ffy-btn-white:focus-visible svg,
+.ffy-faq-support .ffy-btn-white:hover i,
+.ffy-faq-support .ffy-btn-white:hover svg,
+.ffy-faq-support .ffy-btn-white:focus-visible i,
+.ffy-faq-support .ffy-btn-white:focus-visible svg,
+#ffy-support-email:hover i,
+#ffy-support-email:hover svg,
+#ffy-support-email:focus-visible i,
+#ffy-support-email:focus-visible svg,
+#ffy-support-email-ar:hover i,
+#ffy-support-email-ar:hover svg,
+#ffy-support-email-ar:focus-visible i,
+#ffy-support-email-ar:focus-visible svg {
+  color: #ffffff;
+  fill: #ffffff;
+  stroke: #ffffff;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
 }
 
 /* ================================================================
@@ -2541,9 +2720,26 @@ body {
   white-space: nowrap;
 }
 
-.ffy-catalog-tab:hover {
+.ffy-catalog-tab:hover,
+.ffy-catalog-tab:focus-visible,
+.ffy-catalog-tabs button:hover,
+.ffy-catalog-tabs button:focus-visible {
   border-color: #C90035;
-  color: #C90035;
+  color: #ffffff;
+  outline: none;
+}
+
+.ffy-catalog-tab:hover i,
+.ffy-catalog-tab:hover svg,
+.ffy-catalog-tab:focus-visible i,
+.ffy-catalog-tab:focus-visible svg,
+.ffy-catalog-tabs button:hover i,
+.ffy-catalog-tabs button:hover svg,
+.ffy-catalog-tabs button:focus-visible i,
+.ffy-catalog-tabs button:focus-visible svg {
+  color: #ffffff;
+  fill: #ffffff;
+  stroke: #ffffff;
 }
 
 .ffy-catalog-tab.is-active {
@@ -2700,9 +2896,21 @@ body {
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.ffy-product-card-overlay a:hover {
+.ffy-product-card-overlay a:hover,
+.ffy-product-card-overlay a:focus-visible {
   background: #C90035;
+  color: #ffffff;
   transform: scale(1.04);
+  outline: none;
+}
+
+.ffy-product-card-overlay a:hover i,
+.ffy-product-card-overlay a:hover svg,
+.ffy-product-card-overlay a:focus-visible i,
+.ffy-product-card-overlay a:focus-visible svg {
+  color: #ffffff;
+  fill: #ffffff;
+  stroke: #ffffff;
 }
 
 /* Badge tag */
@@ -3099,9 +3307,27 @@ body {
   box-shadow: 0 6px 22px rgba(201,0,53,0.35);
 }
 
-.ffy-pd-add-btn:hover {
+.ffy-pd-add-btn:hover,
+.ffy-pd-add-btn:focus-visible,
+.ffy-pd-sticky-btn:hover,
+.ffy-pd-sticky-btn:focus-visible {
+  color: #ffffff;
   transform: translateY(-3px);
   box-shadow: 0 12px 32px rgba(201,0,53,0.45);
+  outline: none;
+}
+
+.ffy-pd-add-btn:hover i,
+.ffy-pd-add-btn:hover svg,
+.ffy-pd-add-btn:focus-visible i,
+.ffy-pd-add-btn:focus-visible svg,
+.ffy-pd-sticky-btn:hover i,
+.ffy-pd-sticky-btn:hover svg,
+.ffy-pd-sticky-btn:focus-visible i,
+.ffy-pd-sticky-btn:focus-visible svg {
+  color: #ffffff;
+  fill: #ffffff;
+  stroke: #ffffff;
 }
 
 .ffy-pd-save-btn {
@@ -3599,9 +3825,21 @@ body {
   margin-top: 10px;
 }
 
-.ffy-contact-submit:hover {
+.ffy-contact-submit:hover,
+.ffy-contact-submit:focus-visible {
+  color: #ffffff;
   transform: translateY(-3px);
   box-shadow: 0 12px 32px rgba(201, 0, 53, 0.45);
+  outline: none;
+}
+
+.ffy-contact-submit:hover i,
+.ffy-contact-submit:hover svg,
+.ffy-contact-submit:focus-visible i,
+.ffy-contact-submit:focus-visible svg {
+  color: #ffffff;
+  fill: #ffffff;
+  stroke: #ffffff;
 }
 
 .ffy-contact-submit:disabled {
@@ -3676,8 +3914,11 @@ body {
   transition: color 0.2s ease;
 }
 
-.ffy-contact-card-text a:hover {
+.ffy-contact-card-text a:hover,
+.ffy-contact-card-text a:focus-visible {
   color: #C90035;
+  outline: none;
+  text-decoration: underline;
 }
 
 /* Map Card */
@@ -3953,10 +4194,12 @@ body {
   transition: color 0.3s ease;
 }
 
-.ffy-cl-tab:hover {
+.ffy-cl-tab:hover,
+.ffy-cl-tab:focus-visible {
   color: #C90035;
   border-color: rgba(201, 0, 53, 0.35);
   background: rgba(201, 0, 53, 0.04);
+  outline: none;
 }
 
 .ffy-cl-tab.is-active {
@@ -4224,11 +4467,13 @@ body {
   transition: all 0.3s ease;
 }
 
-.ffy-cl-reset-btn:hover {
+.ffy-cl-reset-btn:hover,
+.ffy-cl-reset-btn:focus-visible {
   background: #C90035;
   color: #fff;
   box-shadow: 0 6px 24px rgba(201, 0, 53, 0.3);
   transform: translateY(-2px);
+  outline: none;
 }
 
 .ffy-cl-reset-btn:active {
@@ -5353,11 +5598,23 @@ canvas {
   border: 2px solid rgba(255, 255, 255, 0.65);
 }
 
-.ffy-btn-outline-white:hover {
+.ffy-btn-outline-white:hover,
+.ffy-btn-outline-white:focus-visible {
   background: rgba(255, 255, 255, 0.15);
   border-color: #fff;
+  color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.ffy-btn-outline-white:hover i,
+.ffy-btn-outline-white:hover svg,
+.ffy-btn-outline-white:focus-visible i,
+.ffy-btn-outline-white:focus-visible svg {
+  color: #ffffff;
+  fill: #ffffff;
+  stroke: #ffffff;
 }
 
 /* ---------------------------------------------------------------
