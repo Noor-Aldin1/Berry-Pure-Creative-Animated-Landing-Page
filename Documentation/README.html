@@ -738,44 +738,44 @@
           <tbody>
             <tr>
               <td><strong>الصفحة الرئيسية</strong></td>
-              <td><code>index-ar.html</code></td>
               <td><code>index.html</code></td>
+              <td><code>index-en.html</code></td>
               <td>السلايدر التفاعلي للنكهات، قصة العلامة، المميزات، والآراء.</td>
             </tr>
             <tr>
               <td><strong>من نحن (قصتنا)</strong></td>
-              <td><code>about-ar.html</code></td>
               <td><code>about.html</code></td>
+              <td><code>about-en.html</code></td>
               <td>قصة المتجر، قيم العمل، معايير المكونات الطبيعية، وفريق العمل.</td>
             </tr>
             <tr>
               <td><strong>قائمة المنتجات (المتجر)</strong></td>
-              <td><code>products-ar.html</code></td>
               <td><code>products.html</code></td>
+              <td><code>products-en.html</code></td>
               <td>كتالوج المنتجات الكامل مع شريط بحث وفلترة فورية حسب التصنيفات.</td>
             </tr>
             <tr>
               <td><strong>صفحات تفاصيل المنتجات (4 صفحات)</strong></td>
-              <td><code>product-*-ar.html</code></td>
               <td><code>product-*.html</code></td>
+              <td><code>product-*-en.html</code></td>
               <td>صفحات تفصيلية لكل نكهة (ميلك الفراولة، التوت، الموز، الكيوي) مع معرض صور والمكونات والقيم الغذائية.</td>
             </tr>
             <tr>
               <td><strong>الأسئلة الشائعة (FAQ)</strong></td>
-              <td><code>faq-ar.html</code></td>
               <td><code>faq.html</code></td>
+              <td><code>faq-en.html</code></td>
               <td>قوائم أكورديون تفاعلية للإجابة على تساؤلات العملاء مع تصنيفات سهلة.</td>
             </tr>
             <tr>
               <td><strong>تواصل معنا (Contact)</strong></td>
-              <td><code>contact-ar.html</code></td>
               <td><code>contact.html</code></td>
+              <td><code>contact-en.html</code></td>
               <td>نموذج تواصل مزود بالتحقق من المدخلات، بطاقات الفروع، وساعات العمل.</td>
             </tr>
             <tr>
               <td><strong>صفحة الخطأ 404</strong></td>
-              <td><code>404-ar.html</code></td>
               <td><code>404.html</code></td>
+              <td><code>404-en.html</code></td>
               <td>صفحة خطأ إبداعية مصممة بعناية مع شريط بحث وأزرار للعودة للمتجر.</td>
             </tr>
           </tbody>
@@ -851,15 +851,15 @@
             ادخل إلى المجلد المستخرج، وستجد ملفين رئيسيين للبدء:
           </p>
           <ul>
-            <li>انقر مرتين على <code>index-ar.html</code> لفتح الموقع بالنسخة العربية.</li>
-            <li>انقر مرتين على <code>index.html</code> لفتح الموقع بالنسخة الإنجليزية.</li>
+            <li>انقر مرتين على <code>index.html</code> لفتح الموقع بالنسخة العربية (الافتراضية).</li>
+            <li>انقر مرتين على <code>index-en.html</code> لفتح الموقع بالنسخة الإنجليزية.</li>
           </ul>
         </li>
 
         <li class="doc-step-item">
           <div class="doc-step-title">المعاينة المتقدمة عبر إضافة Live Server (اختياري لكن مفضل جدًا)</div>
           <p>
-            إذا كنت تستخدم برنامج <strong>Visual Studio Code</strong>، افتح مجلد المشروع بداخله، ثم ثبّت إضافة <strong>Live Server</strong>. انقر بزر الفأرة الأيمن على <code>index-ar.html</code> واختر <strong>Open with Live Server</strong>؛ سيفتح المتصفح تلقائيًا وسيقوم بتحديث الصفحة فورًا عند حفظ أي تعديل في الكود دون الحاجة لإعادة تحميل الصفحة يدويًا.
+            إذا كنت تستخدم برنامج <strong>Visual Studio Code</strong>، افتح مجلد المشروع بداخله، ثم ثبّت إضافة <strong>Live Server</strong>. انقر بزر الفأرة الأيمن على <code>index.html</code> واختر <strong>Open with Live Server</strong>؛ سيفتح المتصفح تلقائيًا وسيقوم بتحديث الصفحة فورًا عند حفظ أي تعديل في الكود دون الحاجة لإعادة تحميل الصفحة يدويًا.
           </p>
         </li>
       </ol>
@@ -886,65 +886,25 @@
         <li>في الجزء الأيسر (جهازك الشخصي)، حدد كافة ملفات ومجلدات القالب واسحبها إلى الجزء الأيمن ليبدأ نقلها تلقائيًا.</li>
       </ol>
 
-      <h3>المرحلة الثالثة: كيف تجعل الموقع يفتح باللغة العربية تلقائيًا لجميع الزوار؟ (الصفحة الافتراضية)</h3>
+      <h3>المرحلة الثالثة: نظام الصفحات الافتراضي ولغة الموقع (الصفحة الافتراضية)</h3>
       <p>
-        بشكل افتراضي، عندما يقوم أي شخص بزيارة عنوان موقعك الأساسي (مثل <code>https://yourdomain.com</code>) دون تحديد اسم صفحة معينة، يقوم خادم الويب دائمًا بالبحث عن ملف باسم <code>index.html</code> وعرضه كصفحة رئيسية. وفي ملفات القالب الأصلية، يمثل <code>index.html</code> النسخة الإنجليزية بينما تمثل <code>index-ar.html</code> النسخة العربية.
+        بشكل افتراضي، تم ضبط القالب بحيث تكون <strong>النسخة العربية هي النسخة الافتراضية الرئيسية (index.html)</strong> والتي تفتح تلقائيًا لجميع الزوار على كافة الاستضافات وGitHub Pages ومخدمات الويب المختلفة، بينما تمثل <code>index-en.html</code> النسخة الإنجليزية.
       </p>
       <p>
-        إذا كنت تريد أن يفتح الموقع باللغة العربية تلقائيًا لجميع الزوار عند دخولهم لرابط الموقع، يمكنك تطبيق إحدى الطريقتين السهلتين التاليتين:
+        كافة الصفحات العربية تمت تسميتها بنمط <code>name.html</code> (مثل <code>about.html</code>، <code>products.html</code>، <code>contact.html</code>) والصفحات الإنجليزية بنمط <code>name-en.html</code> (مثل <code>about-en.html</code>، <code>products-en.html</code>، <code>contact-en.html</code>).
       </p>
 
       <div class="doc-card-method" style="background: #FAFAFC; border: 1px solid var(--doc-border); border-radius: 14px; padding: 22px 24px; margin: 18px 0;">
         <h4 style="color: var(--doc-primary); display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
-          <i class="fas fa-file-signature"></i>
-          <span>الطريقة الأولى: إعادة تسمية الملفات (Renaming Files) — متوافقة 100% مع كافة الاستضافات</span>
+          <i class="fas fa-globe"></i>
+          <span>كيف يتعامل زر تبديل اللغة (AR / EN) تلقائيًا؟</span>
         </h4>
-        <p>هذه الطريقة عامة وتعمل على أي سيرفر أو استضافة ثابتة (مثل cPanel أو GitHub Pages أو Netlify أو Vercel) دون الحاجة لأي إعدادات خاصة في السيرفر:</p>
-        <ol class="doc-steps">
-          <li class="doc-step-item">
-            <div class="doc-step-title">الخطوة 1: إعادة تسمية النسخة الإنجليزية الحالية</div>
-            <p>غيّر اسم الملف <code>index.html</code> (الصفحة الإنجليزية) إلى: <code>index-en.html</code>.</p>
-          </li>
-          <li class="doc-step-item">
-            <div class="doc-step-title">الخطوة 2: جعل النسخة العربية هي الصفحة الرئيسية</div>
-            <p>غيّر اسم الملف <code>index-ar.html</code> (الصفحة العربية) ليصبح: <code>index.html</code>.</p>
-          </li>
-          <li class="doc-step-item">
-            <div class="doc-step-title">الخطوة 3: كيف يتعامل زر تبديل اللغة (AR / EN) مع هذا التعديل؟</div>
-            <p>
-              تمت برمجة كود تبديل اللغة الذكي في ملف <code>assets/js/main.js</code> ليتعرف تلقائيًا وبشكل فوري على هذا التعديل:
-            </p>
-            <ul>
-              <li>عندما يتصفح الزائر الصفحة العربية الرئيسية <code>index.html</code>، سينقله زر اللغة تلقائيًا إلى <code>index-en.html</code>.</li>
-              <li>وعندما يكون في النسخة الإنجليزية <code>index-en.html</code>، سينقله الزر فورًا وبدقة إلى <code>index.html</code>.</li>
-              <li>باقي الصفحات (مثل <code>about.html</code> و <code>about-ar.html</code>) ستظل تعمل بنظامها الطبيعي دون أي تأثير.</li>
-            </ul>
-          </li>
-        </ol>
-      </div>
-
-      <div class="doc-card-method" style="background: #FAFAFC; border: 1px solid var(--doc-border); border-radius: 14px; padding: 22px 24px; margin: 18px 0;">
-        <h4 style="color: #166534; display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
-          <i class="fas fa-server"></i>
-          <span>الطريقة الثانية: عبر ملف إعدادات الخادم (<code>.htaccess</code>) — بدون إعادة تسمية أي ملف</span>
-        </h4>
-        <p>
-          إذا كانت استضافتك تعمل بنظام Apache أو LiteSpeed (وهو النظام المعتمد في معظم لوحات cPanel)، يمكنك تحديد الصفحة الأولى التي تفتح للزوار بسطر برمجي واحد دون الحاجة لإعادة تسمية أو تغيير أي ملفات في القالب:
-        </p>
-        <ol class="doc-steps">
-          <li class="doc-step-item">
-            <div class="doc-step-title">افتح ملف <code>.htaccess</code> في مدير الملفات</div>
-            <p>ادخل إلى مجلد <code>public_html</code>، وافتح ملف <code>.htaccess</code> للتحرير (تأكد من تفعيل خيار إظهار الملفات المخفية Show Hidden Files في إعدادات مدير الملفات، أو أنشئ ملفًا جديدًا بهذا الاسم إذا لم يكن موجودًا).</p>
-          </li>
-          <li class="doc-step-item">
-            <div class="doc-step-title">أضف أمر توجيه الصفحة الافتراضية (DirectoryIndex)</div>
-            <p>أضف السطر التالي في أول ملف <code>.htaccess</code> ثم احفظ الملف:</p>
-            <pre><code>DirectoryIndex index-ar.html index.html</code></pre>
-            <p>
-              <strong>ماذا يفعل هذا الأمر؟</strong> يخبر الخادم أن يبحث أولاً عن ملف <code>index-ar.html</code> ويعرضه كصفحة البداية الرئيسية للزوار مباشرة عند طلب اسم النطاق، وفي حال لم يجده يعرض <code>index.html</code>.
-            </p>
-          </li>
-        </ol>
+        <p>تمت برمجة كود تبديل اللغة الذكي في ملف <code>assets/js/main.js</code> ليتعرف تلقائيًا وبشكل فوري على هيكلية التسمية الجديدة:</p>
+        <ul>
+          <li>عندما يتصفح الزائر أي صفحة عربية (مثل <code>index.html</code> أو <code>about.html</code>)، سينقله زر اللغة مباشرة إلى نظيرتها الإنجليزية (<code>index-en.html</code> أو <code>about-en.html</code>).</li>
+          <li>وعندما يكون في أي صفحة إنجليزية، سينقله الزر فورًا وبدقة إلى نظيرتها العربية.</li>
+          <li>يتم الحفاظ التلقائي على موضع التمرير في الصفحة (Anchor Hash) ومعاملات الاستعلام.</li>
+        </ul>
       </div>
 
       <div class="doc-callout doc-callout-info">
@@ -970,26 +930,26 @@
       </p>
 
       <pre><code>Milk/
-├── index.html                   # الصفحة الرئيسية باللغة الإنجليزية
-├── index-ar.html                # الصفحة الرئيسية باللغة العربية (RTL)
-├── about.html                   # صفحة "من نحن" بالإنجليزية
-├── about-ar.html                # صفحة "من نحن" بالعربية
-├── products.html                # صفحة قائمة المنتجات والبحث بالإنجليزية
-├── products-ar.html             # صفحة قائمة المنتجات والبحث بالعربية
-├── product-berry-pure.html      # تفاصيل منتج: نكهة ميلك الفراولة (EN)
-├── product-berry-pure-ar.html   # تفاصيل منتج: نكهة ميلك الفراولة (AR)
-├── product-blue-bliss.html      # تفاصيل منتج: نكهة بلو بليس - التوت (EN)
-├── product-blue-bliss-ar.html   # تفاصيل منتج: نكهة بلو بليس - التوت (AR)
-├── product-banana-crush.html    # تفاصيل منتج: نكهة بانانا كراش - الموز (EN)
-├── product-banana-crush-ar.html # تفاصيل منتج: نكهة بانانا كراش - الموز (AR)
-├── product-kiwi-flavor.html     # تفاصيل منتج: نكهة الكيوي والليمون (EN)
-├── product-kiwi-flavor-ar.html  # تفاصيل منتج: نكهة الكيوي والليمون (AR)
-├── contact.html                 # صفحة "تواصل معنا" بالإنجليزية
-├── contact-ar.html              # صفحة "تواصل معنا" بالعربية
-├── faq.html                     # صفحة الأسئلة الشائعة بالإنجليزية
-├── faq-ar.html                  # صفحة الأسئلة الشائعة بالعربية
-├── 404.html                     # صفحة الخطأ 404 بالإنجليزية
-├── 404-ar.html                  # صفحة الخطأ 404 بالعربية
+├── index.html                   # الصفحة الرئيسية باللغة العربية (RTL) — الافتراضية
+├── index-en.html                # الصفحة الرئيسية باللغة الإنجليزية
+├── about.html                   # صفحة "من نحن" بالعربية (RTL)
+├── about-en.html                # صفحة "من نحن" بالإنجليزية
+├── products.html                # صفحة قائمة المنتجات والبحث بالعربية (RTL)
+├── products-en.html             # صفحة قائمة المنتجات والبحث بالإنجليزية
+├── product-berry-pure.html      # تفاصيل منتج: نكهة ميلك الفراولة (AR)
+├── product-berry-pure-en.html   # تفاصيل منتج: نكهة ميلك الفراولة (EN)
+├── product-blue-bliss.html      # تفاصيل منتج: نكهة بلو بليس - التوت (AR)
+├── product-blue-bliss-en.html   # تفاصيل منتج: نكهة بلو بليس - التوت (EN)
+├── product-banana-crush.html    # تفاصيل منتج: نكهة بانانا كراش - الموز (AR)
+├── product-banana-crush-en.html # تفاصيل منتج: نكهة بانانا كراش - الموز (EN)
+├── product-kiwi-flavor.html     # تفاصيل منتج: نكهة الكيوي والليمون (AR)
+├── product-kiwi-flavor-en.html  # تفاصيل منتج: نكهة الكيوي والليمون (EN)
+├── contact.html                 # صفحة "تواصل معنا" بالعربية (RTL)
+├── contact-en.html              # صفحة "تواصل معنا" بالإنجليزية
+├── faq.html                     # صفحة الأسئلة الشائعة بالعربية (RTL)
+├── faq-en.html                  # صفحة الأسئلة الشائعة بالإنجليزية
+├── 404.html                     # صفحة الخطأ 404 بالعربية (RTL)
+├── 404-en.html                  # صفحة الخطأ 404 بالإنجليزية
 ├── favicon.ico                  # أيقونة الموقع التي تظهر في شريط تبويب المتصفح
 │
 ├── assets/                      # مجلد الأصول والموارد الأساسية
@@ -1016,7 +976,7 @@
 
       <h3>ما هو مجلد <code>_internal</code>؟</h3>
       <p>
-        مجلد <code>_internal</code> يحتوي على أدوات فحص واختبار داخلية استخدمها المطورون أثناء بناء القالب للتأكد من خلوه من أي أخطاء (مثل ملف <code>checklist-ar.html</code>). <strong>لا تحتاج إلى تعديل أو رفع هذا المجلد إلى موقعك</strong>، فهو مخصص للمراجعة فقط، ولن يؤثر حذفه أو تركه على عمل موقعك إطلاقًا.
+        مجلد <code>_internal</code> يحتوي على أدوات فحص واختبار داخلية استخدمها المطورون أثناء بناء القالب للتأكد من خلوه من أي أخطاء (مثل ملف <code>checklist.html</code>). <strong>لا تحتاج إلى تعديل أو رفع هذا المجلد إلى موقعك</strong>، فهو مخصص للمراجعة فقط، ولن يؤثر حذفه أو تركه على عمل موقعك إطلاقًا.
       </p>
     </section>
 
@@ -1038,7 +998,7 @@
       <ol class="doc-steps">
         <li class="doc-step-item">
           <div class="doc-step-title">افتح الصفحة المطلوبة في محرر النصوص</div>
-          <p>انقر بزر الفأرة الأيمن على الصفحة التي تريد تعديلها (مثلاً <code>index-ar.html</code>) واختر <strong>Open with</strong> ثم حدد محرر النصوص المفضل لديك (مثل VS Code أو Notepad++).</p>
+          <p>انقر بزر الفأرة الأيمن على الصفحة التي تريد تعديلها (مثلاً <code>index.html</code>) واختر <strong>Open with</strong> ثم حدد محرر النصوص المفضل لديك (مثل VS Code أو Notepad++).</p>
         </li>
         <li class="doc-step-item">
           <div class="doc-step-title">استخدم ميزة البحث السريع (Ctrl + F)</div>
@@ -1174,7 +1134,7 @@
       </p>
       <ol>
         <li><strong>في تذييل كافة الصفحات (Footer):</strong> افتح أي ملف صفحة، وانزل إلى قسم <code>&lt;footer class="ffy-footer"&gt;</code> في نهاية الملف.</li>
-        <li><strong>في صفحة اتصل بنا (Contact):</strong> في ملفي <code>contact.html</code> و <code>contact-ar.html</code>.</li>
+        <li><strong>في صفحة اتصل بنا (Contact):</strong> في ملفي <code>contact.html</code> و <code>contact-en.html</code>.</li>
       </ol>
 
       <h4>أمثلة لتعديل الروابط:</h4>
@@ -1204,15 +1164,15 @@
       <!-- 5.5 إدارة وتعديل المنتجات -->
       <h3>خامسًا: تعديل المنتجات في قاعدة البيانات المركزية (products-data.js)</h3>
       <p>
-        صفحة المتجر والبحث المباشر (<code>products.html</code> و <code>products-ar.html</code>) تعتمد على ملف مركزي ذكي يحتوي على تفاصيل المنتجات والأسعار والسعرات الحرارية. هذا الملف هو <code>assets/js/products-data.js</code>.
+        صفحة المتجر والبحث المباشر (<code>products.html</code> و <code>products-en.html</code>) تعتمد على ملف مركزي ذكي يحتوي على تفاصيل المنتجات والأسعار والسعرات الحرارية. هذا الملف هو <code>assets/js/products-data.js</code>.
       </p>
       <p>
         عند فتح هذا الملف، ستجد قائمة بالمنتجات مثل هذا المثال:
       </p>
       <pre><code>{
   id: "berry-pure",
-  slug: "product-berry-pure.html",        // رابط الصفحة الإنجليزية
-  slugAr: "product-berry-pure-ar.html",   // رابط الصفحة العربية
+  slug: "product-berry-pure-en.html",     // رابط الصفحة الإنجليزية
+  slugAr: "product-berry-pure.html",      // رابط الصفحة العربية
   name: "Milk",                          // الاسم بالإنجليزية
   nameAr: "ميلك",                        // الاسم بالعربية
   category: "smoothie-bowls",             // تصنيف المنتج
@@ -1245,8 +1205,8 @@
           <strong>التعرف التلقائي على الصفحة المعروضة:</strong>
           عندما ينقر الزائر على زر تبديل اللغة (الذي يظهر في شريط التنقل العلوي وفي القائمة المنسدلة للهواتف الذكية بعبارة <code>AR</code> أو <code>EN</code> مع علم الدولة)، يقوم النظام بمعرفة الصفحة الحالية التي يتصفحها الزائر تلقائيًا:
           <ul>
-            <li>إذا كان يتصفح <code>about.html</code>، سينقله فورًا إلى <code>about-ar.html</code>.</li>
-            <li>إذا كان في صفحة منتج <code>product-kiwi-flavor-ar.html</code>، سينقله مباشرة إلى <code>product-kiwi-flavor.html</code>.</li>
+            <li>إذا كان يتصفح <code>about.html</code> (العربية)، سينقله فورًا إلى <code>about-en.html</code> (الإنجليزية).</li>
+            <li>إذا كان في صفحة منتج <code>product-kiwi-flavor-en.html</code>، سينقله مباشرة إلى <code>product-kiwi-flavor.html</code>.</li>
           </ul>
         </li>
         <li>
@@ -1262,8 +1222,8 @@
         <div>
           <strong>هل ترغب في إضافة صفحة جديدة مستقبلاً أو عكس الصفحة الافتراضية؟</strong><br>
           <ul style="margin-top: 6px; padding-right: 18px;">
-            <li><strong>إضافة صفحات جديدة:</strong> كل ما عليك فعله هو تسمية صفحتك الإنجليزية (مثلاً: <code>blog.html</code>) وتسمية النسخة العربية منها بنفس الاسم مع إضافة <code>-ar</code> (أي: <code>blog-ar.html</code>). سيقوم زر تبديل اللغة بالتعرف عليها تلقائيًا وربطها فورًا.</li>
-            <li><strong>جعل العربية هي الرئيسية:</strong> كما تم توضيحه في قسم التركيب، إذا أعدت تسمية <code>index-ar.html</code> إلى <code>index.html</code> والإنجليزية إلى <code>index-en.html</code>، فإن زر اللغة سيتعرف تلقائيًا على هذا التبديل وينقل الزائر بينهما بسلاسة تامة.</li>
+            <li><strong>إضافة صفحات جديدة:</strong> كل ما عليك فعله هو تسمية صفحتك العربية الافتراضية (مثلاً: <code>blog.html</code>) وتسمية النسخة الإنجليزية منها بنفس الاسم مع إضافة <code>-en</code> (أي: <code>blog-en.html</code>). سيقوم زر تبديل اللغة بالتعرف عليها تلقائيًا وربطها فورًا.</li>
+            <li><strong>النسخة الافتراضية:</strong> تم ضبط النسخة العربية لتكون هي الافتراضية باسم <code>index.html</code> والإنجليزية باسم <code>index-en.html</code>، ويتعرف زر تبديل اللغة تلقائيًا على كافة الصفحات وينقل الزائر بينهما بسلاسة تامة.</li>
           </ul>
         </div>
       </div>
@@ -1308,7 +1268,7 @@
 
       <h3>س4: هل يعمل نموذج الاتصال (Contact Form) ويرسل الرسائل إلى بريدي الإلكتروني مباشرة؟</h3>
       <p>
-        <strong>الحل:</strong> نموذج الاتصال مزود بنظام تحقق كامل من صحة البيانات بالواجهة الأمامية (Front-end Validation) مع إشعار نجاح فوري. ولتلقي الرسائل مباشرة على بريدك الإلكتروني في المواقع الثابتة (Static HTML) دون الحاجة لبرمجة خادم PHP، ننصح باستخدام خدمات معالجة النماذج المجانية الشهيرة مثل <strong>Formspree</strong> أو <strong>Web3Forms</strong>. كل ما عليك فعله هو إضافة رابط حسابك في خاصية <code>action="..."</code> في وسم الفورم بصفحة <code>contact.html</code> و <code>contact-ar.html</code> وسيعمل على الفور مجانًا!
+        <strong>الحل:</strong> نموذج الاتصال مزود بنظام تحقق كامل من صحة البيانات بالواجهة الأمامية (Front-end Validation) مع إشعار نجاح فوري. ولتلقي الرسائل مباشرة على بريدك الإلكتروني في المواقع الثابتة (Static HTML) دون الحاجة لبرمجة خادم PHP، ننصح باستخدام خدمات معالجة النماذج المجانية الشهيرة مثل <strong>Formspree</strong> أو <strong>Web3Forms</strong>. كل ما عليك فعله هو إضافة رابط حسابك في خاصية <code>action="..."</code> في وسم الفورم بصفحة <code>contact.html</code> و <code>contact-en.html</code> وسيعمل على الفور مجانًا!
       </p>
 
       <h3>س5: هل هذا القالب متوافق مع معايير محركات البحث (SEO)؟</h3>

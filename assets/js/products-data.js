@@ -2,8 +2,8 @@
    Milk — Product Data Store
    ================================================================
    Single source of truth for all product content.
-   Consumed by: products.html, products-ar.html, and every
-   product-{id}.html / product-{id}-ar.html page.
+   Consumed by: products.html, products-en.html, and every
+   product-{id}.html / product-{id}-en.html page.
 
    Usage:
      - Include this file via <script src="assets/js/products-data.js">

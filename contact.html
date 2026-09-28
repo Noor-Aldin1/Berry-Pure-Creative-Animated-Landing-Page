@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="ar" dir="rtl">
 
 <head>
   <meta charset="UTF-8" />
-  <title>Contact Us — Milk | Get in Touch with Our Team</title>
-  <meta name="description" content="Have questions about our artisanal smoothies, ice cream flavors, custom catering, or wholesale partnerships? Contact the Milk team today." />
+  <title>تواصل معنا — ميلك | يسعدنا دائمًا الاستماع إليك</title>
+  <meta name="description" content="هل لديك استفسار حول مكوناتنا العضوية أو طلبات الحفلات أو النكهات الموسمية؟ تواصل مع فريق ميلك اليوم." />
   <meta name="robots" content="max-image-preview:large" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <!-- Favicon -->
@@ -25,31 +25,36 @@
   <link rel="stylesheet" href="assets/css/apple-webkit.css" media="all" />
   <link rel="stylesheet" href="assets/css/widget-heading.css" media="all" />
 
-  <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&amp;display=swap" media="all" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&amp;display=swap" media="all" />
+  <!-- Google Fonts: Arabic (Cairo & IBM Plex Sans Arabic) + Latin -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" media="all" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans:300,400,500,600,700&amp;display=swap" media="all" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:600,700&amp;display=swap" media="all" />
 
   <!-- Font Awesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <!-- Custom Site Stylesheet -->
   <link rel="stylesheet" href="assets/css/main.css" />
+  <!-- RTL Stylesheet (Arabic Overrides) -->
+  <link rel="stylesheet" href="assets/css/rtl.css" />
 </head>
 
-<body class="wp-singular page-template page-template-elementor_canvas page page-id-contact wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-canvas elementor-kit-6 elementor-page">
+<body class="wp-singular page-template page-template-elementor_canvas page page-id-contact-ar rtl wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-canvas elementor-kit-6 elementor-page">
   <div class="elementor elementor-3089">
 
     <!-- ============================================================
-         PILL NAVBAR — Fixed Glassmorphism Floating Header (English / LTR)
+         PILL NAVBAR — Fixed Glassmorphism Floating Header (Arabic / RTL)
          ============================================================ -->
-    <nav class="ffy-navbar" id="ffy-navbar" aria-label="Main Navigation">
+    <nav class="ffy-navbar" id="ffy-navbar-ar" aria-label="التنقل الرئيسي">
 
       <!-- Logo -->
       <div class="ffy-nb-logo">
-        <a href="index.html" aria-label="Milk — Home">
+        <a href="index.html" aria-label="ميلك — الرئيسية">
           <img fetchpriority="high" decoding="async"
-               src="assets/images/logo.png"
-               alt="Milk Logo"
+               src="assets/images/logo-ar.png"
+               alt="شعار ميلك"
                width="220" height="106" />
         </a>
       </div>
@@ -57,121 +62,121 @@
       <!-- Desktop Navigation Links -->
       <div class="ffy-nb-nav" role="list">
 
-        <!-- Home -->
+        <!-- الرئيسية -->
         <div class="ffy-nav-btn" role="listitem">
           <a class="elementor-button elementor-button-link elementor-size-sm" href="index.html">
             <span class="elementor-button-content-wrapper">
-              <span class="elementor-button-text">Home</span>
+              <span class="elementor-button-text">الرئيسية</span>
             </span>
           </a>
         </div>
 
-        <!-- About -->
+        <!-- من نحن -->
         <div class="ffy-nav-btn" role="listitem">
           <a class="elementor-button elementor-button-link elementor-size-sm" href="about.html">
             <span class="elementor-button-content-wrapper">
-              <span class="elementor-button-text">About</span>
+              <span class="elementor-button-text">من نحن</span>
             </span>
           </a>
         </div>
 
-        <!-- Shop -->
+        <!-- المتجر -->
         <div class="ffy-nav-btn" role="listitem">
           <a class="elementor-button elementor-button-link elementor-size-sm" href="products.html">
             <span class="elementor-button-content-wrapper">
-              <span class="elementor-button-text">Shop</span>
+              <span class="elementor-button-text">المتجر</span>
             </span>
           </a>
         </div>
 
-        <!-- FAQ -->
+        <!-- الأسئلة الشائعة -->
         <div class="ffy-nav-btn" role="listitem">
           <a class="elementor-button elementor-button-link elementor-size-sm" href="faq.html">
             <span class="elementor-button-content-wrapper">
-              <span class="elementor-button-text">FAQ</span>
+              <span class="elementor-button-text">الأسئلة الشائعة</span>
             </span>
           </a>
         </div>
 
-        <!-- Contact (active) -->
+        <!-- تواصل معنا (active) -->
         <div class="ffy-nav-btn ffy-nav-active" role="listitem">
           <a class="elementor-button elementor-button-link elementor-size-sm" href="contact.html">
             <span class="elementor-button-content-wrapper">
-              <span class="elementor-button-text">Contact</span>
+              <span class="elementor-button-text">تواصل معنا</span>
             </span>
           </a>
         </div>
 
-        <!-- Categories dropdown -->
-        <div class="ffy-nb-categories" id="ffy-categories-en" role="listitem">
+        <!-- الأقسام dropdown -->
+        <div class="ffy-nb-categories" id="ffy-categories-ar" role="listitem">
           <button class="ffy-nb-cat-btn"
                   aria-haspopup="true"
                   aria-expanded="false"
-                  aria-controls="ffy-cat-dropdown-en"
-                  id="ffy-cat-btn-en">
-            <span>Categories</span>
+                  aria-controls="ffy-cat-dropdown-ar"
+                  id="ffy-cat-btn-ar">
+            <span>الأقسام</span>
             <i class="ffy-nb-cat-chevron fas fa-chevron-down" aria-hidden="true"></i>
           </button>
-          <div class="ffy-nb-cat-dropdown" id="ffy-cat-dropdown-en" role="menu">
-            <a href="products.html" role="menuitem">Smoothie Bowls</a>
-            <a href="products.html" role="menuitem">Ice Cream</a>
-            <a href="products.html" role="menuitem">Fresh Juices</a>
-            <a href="products.html" role="menuitem">Seasonal Specials</a>
+          <div class="ffy-nb-cat-dropdown" id="ffy-cat-dropdown-ar" role="menu">
+            <a href="products.html" role="menuitem">أطباق السموذي</a>
+            <a href="products.html" role="menuitem">آيس كريم</a>
+            <a href="products.html" role="menuitem">عصائر طازجة</a>
+            <a href="products.html" role="menuitem">عروض موسمية</a>
           </div>
         </div>
 
       </div><!-- /.ffy-nb-nav -->
 
-      <!-- Desktop Action Icons (Search, Cart, Language) -->
+      <!-- Action Icons (Search, Cart, Language - sits on left in RTL) -->
       <div class="ffy-nb-actions">
 
         <a class="elementor-icon elementor-social-icon elementor-social-icon-ti-search"
-           href="products.html" aria-label="Search" id="ffy-nb-search-en">
-          <span class="elementor-screen-only">Search</span>
+           href="products.html" aria-label="البحث" id="ffy-nb-search-ar">
+          <span class="elementor-screen-only">البحث</span>
           <i aria-hidden="true" class="fas fa-search"></i>
         </a>
 
         <a class="elementor-icon elementor-social-icon elementor-social-icon-lnr-cart"
-           href="products.html" aria-label="Shopping Cart" id="ffy-nb-cart-en">
-          <span class="elementor-screen-only">Cart</span>
+           href="products.html" aria-label="عربة التسوق" id="ffy-nb-cart-ar">
+          <span class="elementor-screen-only">عربة التسوق</span>
           <i aria-hidden="true" class="fas fa-shopping-cart"></i>
         </a>
 
-        <!-- Language Switcher (Switch to Arabic) -->
+        <!-- Language Switcher (Switch to English) -->
         <a class="ffy-lang-toggle"
-           href="contact-ar.html"
-           id="ffy-lang-switch-en"
-           aria-label="التبديل إلى العربية">
-          <span class="ffy-lang-abbr">AR</span>
-          <span class="ffy-lang-flag">&#127462;&#127466;</span>
+           href="contact-en.html"
+           id="ffy-lang-switch-ar"
+           aria-label="Switch to English">
+          <span class="ffy-lang-abbr">EN</span>
+          <span class="ffy-lang-flag">&#127468;&#127463;</span>
         </a>
 
       </div><!-- /.ffy-nb-actions -->
 
       <!-- Mobile hamburger -->
       <button class="ffy-nb-hamburger"
-              id="ffy-nb-hamburger-en"
-              aria-label="Toggle mobile menu"
+              id="ffy-nb-hamburger-ar"
+              aria-label="تبديل القائمة المتنقلة"
               aria-expanded="false"
-              aria-controls="ffy-nb-mobile-en">
+              aria-controls="ffy-nb-mobile-ar">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <!-- Mobile menu panel -->
-      <div class="ffy-nb-mobile-menu" id="ffy-nb-mobile-en" role="menu">
-        <a href="index.html" role="menuitem">Home</a>
-        <a href="about.html" role="menuitem">About</a>
-        <a href="products.html" role="menuitem">Shop</a>
-        <a href="faq.html" role="menuitem">FAQ</a>
-        <a href="contact.html" class="is-active" role="menuitem">Contact</a>
+      <!-- Mobile menu panel (RTL) -->
+      <div class="ffy-nb-mobile-menu" id="ffy-nb-mobile-ar" role="menu">
+        <a href="index.html" role="menuitem">الرئيسية</a>
+        <a href="about.html" role="menuitem">من نحن</a>
+        <a href="products.html" role="menuitem">المتجر</a>
+        <a href="faq.html" role="menuitem">الأسئلة الشائعة</a>
+        <a href="contact.html" class="is-active" role="menuitem">تواصل معنا</a>
         <div class="ffy-nb-mobile-divider" aria-hidden="true"></div>
-        <a href="products.html" role="menuitem">&#128269; Smoothie Bowls</a>
-        <a href="products.html" role="menuitem">&#127848; Ice Cream</a>
-        <a href="products.html" role="menuitem">&#127821; Fresh Juices</a>
+        <a href="products.html" role="menuitem">🔍 أطباق السموذي</a>
+        <a href="products.html" role="menuitem">🍦 آيس كريم</a>
+        <a href="products.html" role="menuitem">🍓 عصائر طازجة</a>
         <div class="ffy-nb-mobile-divider" aria-hidden="true"></div>
-        <a href="contact-ar.html" id="ffy-lang-switch-en-mobile">&#127462;&#127466; العربية (AR)</a>
+        <a href="contact-en.html" id="ffy-lang-switch-ar-mobile">&#127468;&#127463; English (EN)</a>
       </div>
 
     </nav><!-- /.ffy-navbar -->
@@ -180,12 +185,12 @@
     <!-- ============================================================
          PAGE HERO
          ============================================================ -->
-    <header class="ffy-page-hero" aria-label="Contact Us Page Header">
+    <header class="ffy-page-hero" aria-label="رأس صفحة تواصل معنا">
       <div class="ffy-page-hero-inner ffy-reveal">
-        <span class="ffy-page-hero-badge">Get In Touch</span>
-        <h1 class="ffy-page-hero-title">We'd Love to Hear from You</h1>
+        <span class="ffy-page-hero-badge">تواصل معنا</span>
+        <h1 class="ffy-page-hero-title">يسعدنا دائمًا الاستماع إليك</h1>
         <p class="ffy-page-hero-sub">
-          Have a question about our organic ingredients, private catering, seasonal flavours, or wholesale opportunities? Send us a message or visit our scoop shop.
+          هل لديك استفسار حول مكوناتنا العضوية، أو خدمات الحفلات والمناسبات الخاصة، أو النكهات الموسمية، أو فرص التعاون التجاري؟ أرسل لنا رسالة أو تفضل بزيارة متجرنا.
         </p>
       </div>
     </header>
@@ -202,49 +207,51 @@
           <!-- Left Column: Responsive Contact Form -->
           <div class="ffy-contact-form-card ffy-reveal">
             <div class="ffy-contact-form-header">
-              <h2 class="ffy-contact-form-title">Send Us a Message</h2>
+              <h2 class="ffy-contact-form-title">أرسل لنا رسالة</h2>
               <p class="ffy-contact-form-desc">
-                Fill out the form below and our friendly team will get back to you within 24 hours.
+                املأ النموذج أدناه وسيقوم فريقنا الودود بالرد عليك خلال ٢٤ ساعة.
               </p>
             </div>
 
-            <form id="ffy-contact-form" novalidate aria-label="Contact Form">
+            <form id="ffy-contact-form" novalidate aria-label="نموذج التواصل">
 
               <!-- Name & Email row -->
               <div class="ffy-form-row">
                 <div class="ffy-form-group">
                   <label for="ffy-contact-name" class="ffy-form-label">
-                    Full Name <span class="required" aria-hidden="true">*</span>
+                    الاسم الكامل <span class="required" aria-hidden="true">*</span>
                   </label>
                   <input
                     type="text"
                     id="ffy-contact-name"
                     name="name"
                     class="ffy-form-input"
-                    placeholder="e.g. Maya Lin"
+                    placeholder="مثال: سارة أحمد"
                     required
                     autocomplete="name"
                   />
                   <div class="ffy-form-error" id="ffy-name-error" role="alert">
-                    Please enter your full name (at least 2 characters).
+                    يرجى إدخال اسمك الكامل (حرفين على الأقل).
                   </div>
                 </div>
 
                 <div class="ffy-form-group">
                   <label for="ffy-contact-email" class="ffy-form-label">
-                    Email Address <span class="required" aria-hidden="true">*</span>
+                    البريد الإلكتروني <span class="required" aria-hidden="true">*</span>
                   </label>
                   <input
                     type="email"
                     id="ffy-contact-email"
                     name="email"
                     class="ffy-form-input"
-                    placeholder="maya@example.com"
+                    placeholder="sara@example.com"
                     required
                     autocomplete="email"
+                    dir="ltr"
+                    style="text-align:right;"
                   />
                   <div class="ffy-form-error" id="ffy-email-error" role="alert">
-                    Please enter a valid email address.
+                    يرجى إدخال بريد إلكتروني صحيح.
                   </div>
                 </div>
               </div>
@@ -253,7 +260,7 @@
               <div class="ffy-form-row">
                 <div class="ffy-form-group">
                   <label for="ffy-contact-phone" class="ffy-form-label">
-                    Phone Number <span style="font-weight:400;color:#9a9a9a;">(Optional)</span>
+                    رقم الهاتف <span style="font-weight:400;color:#9a9a9a;">(اختياري)</span>
                   </label>
                   <input
                     type="tel"
@@ -262,18 +269,20 @@
                     class="ffy-form-input"
                     placeholder="+45 12 34 56 78"
                     autocomplete="tel"
+                    dir="ltr"
+                    style="text-align:right;"
                   />
                 </div>
 
                 <div class="ffy-form-group">
                   <label for="ffy-contact-subject" class="ffy-form-label">
-                    Subject / Topic
+                    الموضوع / القسم
                   </label>
                   <select id="ffy-contact-subject" name="subject" class="ffy-form-select">
-                    <option value="general">General Inquiry</option>
-                    <option value="catering">Catering &amp; Events</option>
-                    <option value="feedback">Feedback &amp; Suggestions</option>
-                    <option value="wholesale">Wholesale &amp; Partnerships</option>
+                    <option value="general">استفسار عام</option>
+                    <option value="catering">خدمات الحفلات والمناسبات</option>
+                    <option value="feedback">الملاحظات والاقتراحات</option>
+                    <option value="wholesale">طلبات الجملة والشراكات</option>
                   </select>
                 </div>
               </div>
@@ -281,23 +290,23 @@
               <!-- Message Textarea -->
               <div class="ffy-form-group">
                 <label for="ffy-contact-message" class="ffy-form-label">
-                  Your Message <span class="required" aria-hidden="true">*</span>
+                  رسالتك <span class="required" aria-hidden="true">*</span>
                 </label>
                 <textarea
                   id="ffy-contact-message"
                   name="message"
                   class="ffy-form-textarea"
-                  placeholder="Tell us what's on your mind..."
+                  placeholder="اكتب رسالتك أو استفسارك هنا..."
                   required
                 ></textarea>
                 <div class="ffy-form-error" id="ffy-msg-error" role="alert">
-                  Please enter your message (at least 10 characters).
+                  يرجى كتابة رسالتك (١٠ أحرف على الأقل).
                 </div>
               </div>
 
               <!-- Submit Button -->
               <button type="submit" class="ffy-contact-submit" id="ffy-contact-submit-btn">
-                <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
+                <i class="fas fa-paper-plane" aria-hidden="true"></i> إرسال الرسالة
               </button>
 
             </form>
@@ -312,9 +321,9 @@
                 <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
               </div>
               <div class="ffy-contact-card-content">
-                <h3 class="ffy-contact-card-title">Visit Our Shop</h3>
+                <h3 class="ffy-contact-card-title">تفضل بزيارتنا</h3>
                 <p class="ffy-contact-card-text">
-                  14 Strawberry Lane, Copenhagen, Denmark
+                  ١٤ شارع ستروبري، كوبنهاغن، الدنمارك
                 </p>
               </div>
             </div>
@@ -325,9 +334,9 @@
                 <i class="fas fa-phone" aria-hidden="true"></i>
               </div>
               <div class="ffy-contact-card-content">
-                <h3 class="ffy-contact-card-title">Call Us Directly</h3>
+                <h3 class="ffy-contact-card-title">اتصل بنا مباشرة</h3>
                 <p class="ffy-contact-card-text">
-                  <a href="tel:+4512345678">+45 12 34 56 78</a>
+                  <a href="tel:+4512345678" dir="ltr">+45 12 34 56 78</a>
                 </p>
               </div>
             </div>
@@ -338,9 +347,9 @@
                 <i class="fas fa-envelope" aria-hidden="true"></i>
               </div>
               <div class="ffy-contact-card-content">
-                <h3 class="ffy-contact-card-title">Email Us</h3>
+                <h3 class="ffy-contact-card-title">راسلنا عبر البريد</h3>
                 <p class="ffy-contact-card-text">
-                  <a href="mailto:hello@milk.com">hello@milk.com</a>
+                  <a href="mailto:hello@milk.com" dir="ltr">hello@milk.com</a>
                 </p>
               </div>
             </div>
@@ -351,10 +360,10 @@
                 <i class="fas fa-clock" aria-hidden="true"></i>
               </div>
               <div class="ffy-contact-card-content">
-                <h3 class="ffy-contact-card-title">Opening Hours</h3>
+                <h3 class="ffy-contact-card-title">ساعات العمل</h3>
                 <p class="ffy-contact-card-text">
-                  Mon &ndash; Sat: 8:00 AM &ndash; 8:00 PM<br/>
-                  Sunday: 10:00 AM &ndash; 6:00 PM
+                  الإثنين &ndash; السبت: ٨:٠٠ ص &ndash; ٨:٠٠ م<br/>
+                  الأحد: ١٠:٠٠ ص &ndash; ٦:٠٠ م
                 </p>
               </div>
             </div>
@@ -362,7 +371,7 @@
             <!-- Map Card Embed -->
             <div class="ffy-contact-map-card">
               <iframe
-                title="Milk Store Location"
+                title="موقع متجر ميلك"
                 src="https://maps.google.com/maps?q=Copenhagen%20Denmark&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
@@ -382,78 +391,78 @@
          ============================================================ -->
     <div class="ffy-toast" id="ffy-toast" role="status" aria-live="polite">
       <i class="fas fa-check-circle ffy-toast-icon" aria-hidden="true"></i>
-      <span>Thank you! Your message has been sent successfully.</span>
+      <span>شكرًا لك! تم إرسال رسالتك بنجاح. سنرد عليك قريبًا.</span>
     </div>
 
 
     <!-- ============================================================
          SITE FOOTER
          ============================================================ -->
-    <footer class="ffy-footer" id="ffy-footer" aria-label="Site Footer">
+    <footer class="ffy-footer" id="ffy-footer" aria-label="تذييل الموقع">
       <div class="ffy-footer-inner">
 
         <div class="ffy-footer-top">
 
-          <!-- Brand Column -->
+          <!-- عمود العلامة التجارية -->
           <div class="ffy-footer-brand">
-            <a href="index.html" class="ffy-footer-brand-logo-link" aria-label="Milk Home">
-              <img src="assets/images/logo.png" alt="Milk logo" class="ffy-footer-brand-logo" loading="lazy" width="2560" height="1230" />
+            <a href="index.html" class="ffy-footer-brand-logo-link" aria-label="ميلك الرئيسية">
+              <img src="assets/images/logo-ar.png" alt="شعار ميلك" class="ffy-footer-brand-logo" loading="lazy" width="2560" height="1230" />
             </a>
             <p class="ffy-footer-brand-desc">
-              Handcrafted smoothies and artisanal ice cream made with the finest natural ingredients.
-              Pure passion, pure flavour — since 2012.
+              عصائر مثلجة وآيس كريم مصنوعة يدويًا من أجود المكونات الطبيعية.
+              شغف نقي ونكهة لا تُنسى — منذ عام ٢٠١٢.
             </p>
             <div class="ffy-footer-social" role="list">
-              <a class="ffy-footer-social-link" href="#" aria-label="Instagram" role="listitem" id="ffy-social-instagram"><span class="elementor-screen-only">Instagram</span><i class="fab fa-instagram" aria-hidden="true"></i></a>
-              <a class="ffy-footer-social-link" href="#" aria-label="Facebook" role="listitem" id="ffy-social-facebook"><span class="elementor-screen-only">Facebook</span><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-              <a class="ffy-footer-social-link" href="#" aria-label="Pinterest" role="listitem" id="ffy-social-pinterest"><span class="elementor-screen-only">Pinterest</span><i class="fab fa-pinterest-p" aria-hidden="true"></i></a>
-              <a class="ffy-footer-social-link" href="#" aria-label="Twitter / X" role="listitem" id="ffy-social-twitter"><span class="elementor-screen-only">Twitter</span><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+              <a class="ffy-footer-social-link" href="#" aria-label="تابعنا على انستغرام" role="listitem" id="ffy-social-instagram"><span class="elementor-screen-only">انستغرام</span><i class="fab fa-instagram" aria-hidden="true"></i></a>
+              <a class="ffy-footer-social-link" href="#" aria-label="تابعنا على فيسبوك" role="listitem" id="ffy-social-facebook"><span class="elementor-screen-only">فيسبوك</span><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+              <a class="ffy-footer-social-link" href="#" aria-label="تابعنا على بينتريست" role="listitem" id="ffy-social-pinterest"><span class="elementor-screen-only">بينتريست</span><i class="fab fa-pinterest-p" aria-hidden="true"></i></a>
+              <a class="ffy-footer-social-link" href="#" aria-label="تابعنا على تويتر / إكس" role="listitem" id="ffy-social-twitter"><span class="elementor-screen-only">تويتر</span><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
             </div>
           </div>
 
-          <!-- Navigation Column -->
+          <!-- عمود التنقل -->
           <div class="ffy-footer-col">
-            <h3 class="ffy-footer-col-title">Navigate</h3>
+            <h3 class="ffy-footer-col-title">التنقل</h3>
             <ul class="ffy-footer-links">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="products.html">Our Products</a></li>
-              <li><a href="faq.html">FAQ</a></li>
-              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="index.html">الرئيسية</a></li>
+              <li><a href="about.html">من نحن</a></li>
+              <li><a href="products.html">منتجاتنا</a></li>
+              <li><a href="faq.html">الأسئلة الشائعة</a></li>
+              <li><a href="contact.html">تواصل معنا</a></li>
             </ul>
           </div>
 
-          <!-- Flavors Column -->
+          <!-- عمود النكهات -->
           <div class="ffy-footer-col">
-            <h3 class="ffy-footer-col-title">Our Products</h3>
+            <h3 class="ffy-footer-col-title">منتجاتنا</h3>
             <ul class="ffy-footer-links">
-              <li><a href="product-berry-pure.html">Milk</a></li>
-              <li><a href="product-blue-bliss.html">Blue Bliss</a></li>
-              <li><a href="product-banana-crush.html">Banana Crush</a></li>
-              <li><a href="product-kiwi-flavor.html">Kiwi Flavor</a></li>
+              <li><a href="product-berry-pure.html">ميلك</a></li>
+              <li><a href="product-blue-bliss.html">بلو بليس</a></li>
+              <li><a href="product-banana-crush.html">بانانا كراش</a></li>
+              <li><a href="product-kiwi-flavor.html">نكهة الكيوي</a></li>
             </ul>
           </div>
 
-          <!-- Contact Column -->
+          <!-- عمود التواصل -->
           <div class="ffy-footer-col">
-            <h3 class="ffy-footer-col-title">Get In Touch</h3>
-            <div class="ffy-footer-contact-item"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>14 Strawberry Lane, Copenhagen, Denmark</span></div>
-            <div class="ffy-footer-contact-item"><i class="fas fa-phone" aria-hidden="true"></i><span>+45 12 34 56 78</span></div>
-            <div class="ffy-footer-contact-item"><i class="fas fa-envelope" aria-hidden="true"></i><span>hello@milk.com</span></div>
-            <div class="ffy-footer-contact-item"><i class="fas fa-clock" aria-hidden="true"></i><span>Mon &ndash; Sat: 8am &ndash; 8pm</span></div>
+            <h3 class="ffy-footer-col-title">تواصل معنا</h3>
+            <div class="ffy-footer-contact-item"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>١٤ شارع ستروبري، كوبنهاغن، الدنمارك</span></div>
+            <div class="ffy-footer-contact-item"><i class="fas fa-phone" aria-hidden="true"></i><span dir="ltr">+45 12 34 56 78</span></div>
+            <div class="ffy-footer-contact-item"><i class="fas fa-envelope" aria-hidden="true"></i><span dir="ltr">hello@milk.com</span></div>
+            <div class="ffy-footer-contact-item"><i class="fas fa-clock" aria-hidden="true"></i><span>الإثنين &ndash; السبت: ٨ص &ndash; ٨م</span></div>
           </div>
 
         </div>
 
-        <!-- Footer Bottom -->
+        <!-- أسفل التذييل -->
         <div class="ffy-footer-bottom">
           <p class="ffy-footer-copy">
-            &copy; <span id="ffy-year">2026</span> <a href="index.html">Milk</a>. All rights reserved.
+            &copy; <span id="ffy-year">2026</span> <a href="index.html">ميلك</a>. جميع الحقوق محفوظة.
           </p>
           <ul class="ffy-footer-bottom-links">
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Cookie Settings</a></li>
+            <li><a href="#">سياسة الخصوصية</a></li>
+            <li><a href="#">شروط الخدمة</a></li>
+            <li><a href="#">إعدادات ملفات تعريف الارتباط</a></li>
           </ul>
         </div>
 

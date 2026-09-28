@@ -5573,7 +5573,7 @@ canvas {
 
 /* ---------------------------------------------------------------
    2. MISSING BUTTON CLASS — ffy-btn-outline-white
-   Used in about.html and about-ar.html hero but the style
+   Used in about.html and about-en.html hero but the style
    was never defined, causing buttons to have no border/color.
    Mirrors the white-outline style used in ffy-faq-support.
    --------------------------------------------------------------- */

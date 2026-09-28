@@ -1137,7 +1137,7 @@
           isMatch = true;
         } else if (activeKey === 'contact' && (href.indexOf('contact') !== -1 || href.indexOf('newsletter') !== -1)) {
           isMatch = true;
-        } else if (activeKey === 'home' && (href === 'index.html' || href === 'index-ar.html' || href === '#ffy-root' || href === './' || href === '/')) {
+        } else if (activeKey === 'home' && (href === 'index.html' || href === 'index-en.html' || href === '#ffy-root' || href === './' || href === '/')) {
           isMatch = true;
         }
 
@@ -1161,7 +1161,7 @@
           isMatch = true;
         } else if (activeKey === 'contact' && (href.indexOf('contact') !== -1 || href.indexOf('newsletter') !== -1)) {
           isMatch = true;
-        } else if (activeKey === 'home' && (href === 'index.html' || href === 'index-ar.html' || href === '#ffy-root' || href === './' || href === '/')) {
+        } else if (activeKey === 'home' && (href === 'index.html' || href === 'index-en.html' || href === '#ffy-root' || href === './' || href === '/')) {
           isMatch = true;
         }
 
@@ -1425,7 +1425,7 @@
     var html = '';
 
     /* Back nav */
-    var backHref = isArabic ? 'products-ar.html' : 'products.html';
+    var backHref = isArabic ? 'products.html' : 'products-en.html';
     var backIcon = isArabic ? 'fa-arrow-right' : 'fa-arrow-left';
     var backLabel = isArabic ? 'العودة إلى المنتجات' : 'Back to Products';
 
@@ -1701,7 +1701,7 @@
     var root = document.getElementById('ffy-pcl-root');
     if (!root) { return; }
     var isArabic = document.documentElement.getAttribute('lang') === 'ar';
-    var shopHref  = isArabic ? 'products-ar.html' : 'products.html';
+    var shopHref  = isArabic ? 'products.html' : 'products-en.html';
     var title = isArabic ? 'لم يتم تحديد منتج' : 'No Product Selected';
     var desc  = isArabic
       ? 'الوصول إلى هذه الصفحة يتطلب اختيار منتج من صفحة التفاصيل أو سلة التسوق.'
@@ -1714,7 +1714,7 @@
     var root = document.getElementById('ffy-pcl-root');
     if (!root) { return; }
     var isArabic = document.documentElement.getAttribute('lang') === 'ar';
-    var shopHref  = isArabic ? 'products-ar.html' : 'products.html';
+    var shopHref  = isArabic ? 'products.html' : 'products-en.html';
     var title = isArabic ? 'المنتج غير موجود' : 'Product Not Found';
     var desc  = isArabic
       ? 'لم نتمكن من العثور على منتج بالمعرف "' + escHtml(pid) + '". يرجى الانطلاق من صفحة تفاصيل المنتج.'
@@ -1727,7 +1727,7 @@
     var root = document.getElementById('ffy-pcl-root');
     if (!root) { return; }
     var isArabic = document.documentElement.getAttribute('lang') === 'ar';
-    var shopHref  = isArabic ? 'products-ar.html' : 'products.html';
+    var shopHref  = isArabic ? 'products.html' : 'products-en.html';
     var name = isArabic ? product.name_ar : product.name_en;
     var title = isArabic ? 'لا توجد قائمة لهذا المنتج' : 'No Checklist Available';
     var desc  = isArabic
@@ -2180,26 +2180,24 @@
     var filename = path.split('/').pop() || 'index.html';
 
     /* Determine counterpart page:
-       about.html    <-> about-ar.html
-       faq.html      <-> faq-ar.html
-       index.html    <-> index-ar.html
-       (any -ar page) -> strip '-ar' to get EN counterpart */
+       Arabic pages:   name.html    -> counterpart: name-en.html
+       English pages:  name-en.html -> counterpart: name.html */
     var counterpart;
     if (isArabic) {
-      /* If Arabic homepage is index.html, English counterpart is index-en.html */
+      /* If Arabic homepage (index.html or root) */
       if (filename === 'index.html' || filename === '') {
         counterpart = 'index-en.html';
       } else {
-        /* Arabic -> English: remove '-ar' suffix before .html */
-        counterpart = filename.replace('-ar.html', '.html');
+        /* Arabic -> English: append '-en' before .html */
+        counterpart = filename.replace('.html', '-en.html');
       }
     } else {
-      /* If English homepage is index-en.html, Arabic counterpart is index.html */
+      /* If English homepage (index-en.html) */
       if (filename === 'index-en.html') {
         counterpart = 'index.html';
       } else {
-        /* English -> Arabic: insert '-ar' before .html */
-        counterpart = filename.replace('.html', '-ar.html');
+        /* English -> Arabic: strip '-en' before .html */
+        counterpart = filename.replace('-en.html', '.html');
       }
     }
 
